@@ -1,0 +1,54 @@
+<div class="page-listing-wrapper">
+	{% include "partials/bg-block-double.twig" %}
+		
+	<div class="l-container --h-padding">
+
+		<div class="page-listing" data-aos="fade-in" data-aos-delay="100">
+
+			<div class="menu-filters-wrapper">
+				<ul class="menu-filters" id="js-menu-filters">
+					<li class="menu-filters__item">
+						<button type="button" class="btn-filter js-btn-filter is-selected" data-term-id="">{{ txt_all_terms }}</button>
+					</li>
+
+					{% for term in post_terms %}
+						<li class="menu-filters__item">
+							<button type="button" class="btn-filter js-btn-filter" data-term-id="{{ term.id }}">{{ term.name }}{# <sup>({{ term.count }})</sup> #}</button>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+	
+
+			<div class="grid-projects grid-posts l-grid col-1 col-sm-2 col-md-3" id="js-container-posts" 
+				data-found-posts="{{ loadmore_params.found_posts }}" 
+				data-paged="{{ loadmore_params.paged }}" 
+				data-pages-max="{{ loadmore_params.max_num_pages }}" 
+				data-posts-per-page="{{ loadmore_params.posts_per_page }}" 
+				data-term-id=""
+				data-post-type="{{ loadmore_params.post_type }}"
+				data-taxonomy="{{ loadmore_params.taxonomy }}"
+				data-card-partial="{{ loadmore_params.card_partial }}"
+				>
+				
+				{% for post_item in posts %}
+					{% include "partials/"~loadmore_params.card_partial~".twig" with { 'post_item': post_item } %}
+				{% endfor %}
+			</div>
+
+			{# load more button #}
+			{% set disabled_attr = ( loadmore_params.paged < loadmore_params.max_num_pages ) ? '' : 'disabled' %}
+			<div class="u-text-center">
+				<button type="button" class="btn-loadmore btn-circle --loader" id="js-btn-loadmore" {{ disabled_attr }}>
+					<span class="btn-circle__label h4">{{ txt_load_more }}</span>
+					<span class="loader-animation-wrapper">
+						<svg class="loader-animation"><use xlink:href="#icon-loader"></use></svg>
+					</span>
+				</button>
+			</div> 
+		
+		</div>
+		
+	</div>
+	
+</div>

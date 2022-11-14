@@ -1,0 +1,118 @@
+// ==============================================
+
+//        BLOCK MEDIA
+
+// ==============================================
+
+
+.block-media {
+  padding-top: 100px;
+}
+
+
+.block-media__text {
+  grid-row: 1;
+  padding-left: var(--grid10-col-half-width);
+  // @include bd();
+}
+
+.block-media__image {
+  grid-row: 1;
+  padding-left: var(--grid10-col-half-width);
+}
+
+
+// text left, image right
+.block-media.align-text-left {
+  .block-media__image {
+    grid-column: 6 / span 4;   
+  }
+
+  .block-media__text {
+    grid-column: 1 / span 5;   
+  }
+
+  @include media-breakpoint-down(lg) {
+    .block-media__image {
+      grid-column: 6 / span 5;
+      padding-left: var(--container-padding);
+    }
+    .block-media__text {
+      padding-left: var(--container-padding);
+    }
+  }
+}
+
+// text right, image left
+.block-media.align-text-right {
+  .block-media__image {
+    grid-column: 1 / span 4;   
+  }
+
+  .block-media__text {
+    grid-column: 5 / span 5; 
+  }
+
+  @include media-breakpoint-down(lg) {
+    .block-media__text {
+      grid-column: 5 / span 6; 
+      padding: 0 var(--container-padding);
+    }
+    .block-media__image {
+      padding-left: 0; 
+    }
+  }
+}
+
+
+// stacked image + text
+.block-media.align-text-left,
+.block-media.align-text-right {
+
+  @include media-breakpoint-down(sm) {
+    .block-media__text {
+      grid-column: 1 / span 10;  
+      padding: 0 var(--container-padding);
+    }
+    .block-media__image {
+      grid-column: 1 / span 10;  
+      grid-row: 2;
+      margin-top: 1rem;
+      padding: 0 var(--container-padding);
+    }
+  }
+}
+
+
+// no text, image center
+.block-media.align-text-center {
+  .block-media__image {
+    grid-column: 3 / span 6;   
+    padding-left: 0;
+  }
+
+  @include media-breakpoint-down(lg) {
+    .block-media__image {
+      grid-column: 2 / span 8;   
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .block-media__image {
+      grid-column: 1 / span 10;  
+      padding: 0 var(--container-padding);
+    }
+  }
+}
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(md) {
+  .block-media {
+    padding-top: 40px;
+  }
+}
+
+

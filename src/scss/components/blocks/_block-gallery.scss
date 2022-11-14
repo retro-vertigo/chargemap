@@ -1,0 +1,162 @@
+// ==============================================
+
+//        BLOCK IMAGE GALLERY - (Agence, Nos différences) 
+
+// ==============================================
+
+
+.block-gallery__title {
+  margin-left: grid-unit(1);
+}
+
+.block-gallery__content {
+  max-width: 700px;
+  margin-top: 40px;
+  margin-left: grid-unit(3);
+}
+
+.block-gallery__text {
+  position: relative;
+  margin-top: 20px;
+
+  .motif-dots {
+    top: 40px;
+    left: -180px;
+  }
+}
+
+.block-gallery__gallery {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin-top: 200px;
+
+  .image-figure:nth-child(1) {
+    grid-row: 1;
+    grid-column: 1 / span 5;
+    align-self: center;
+    
+    .image-wrapper {
+      @include aspect-ratio(437, 316, false);
+    }
+  }
+
+  .image-figure:nth-child(2) {
+    grid-row: 1;
+    grid-column: 7 / span 6;
+
+    .image-wrapper {
+      @include aspect-ratio(1, 1, false);
+  
+      .motif-rosace {
+        bottom: 20%;
+        left: -36px;
+      }
+    }
+  }
+
+  .image-figure:nth-child(3) {
+    grid-row: 2;
+    grid-column: 4 / span 6;
+    margin-top: 75px;
+
+    .image-wrapper {
+      @include aspect-ratio(553, 348, false);
+    }
+  }
+
+  .image-figure:nth-child(4) {
+    grid-row: 3;
+    grid-column: 7 / span 6;
+    margin-top: 75px;
+
+    .image-wrapper {
+      @include aspect-ratio(502, 398, false);
+
+      .motif-rosace {
+        bottom: -34px;
+        right: -26px;
+      }
+    }
+  }
+}
+
+
+//  Different layout on specific pages
+// -----------------------------------------------
+
+.page-difference {
+  .block-gallery__gallery {
+    .image-figure:nth-child(1) {
+      grid-column: 8 / span 6;
+    }
+  
+    .image-figure:nth-child(2) {
+      grid-column: 1 / span 6;
+      max-width: 500px;
+    }
+  }
+}
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(lg) {
+  .block-gallery__title {
+    margin-left: initial;
+  }
+  .block-gallery__content {
+    margin-left: grid-unit(2);
+  }
+  .block-gallery__gallery {
+    margin-top: 150px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .block-gallery__content {
+    margin-left: grid-unit(1);
+  }
+  .block-gallery__text .motif-dots {
+    left: -90px;
+  }
+  .block-gallery__gallery {
+    margin-top: 100px;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .block-gallery__content {
+    margin-left: initial;
+    margin-top: 20px;
+  }
+  .block-gallery__text .motif-dots {
+    display: none;
+  }
+  .block-gallery__gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    .image-figure {
+      max-width: 500px;
+      width: 100%;
+      margin-top: 75px;
+    }
+    .image-figure:nth-child(1),
+    .image-figure:nth-child(2) {
+      align-self: initial;
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .block-gallery__gallery {
+    margin-top: 80px;
+
+    .image-figure {
+      margin-top: 40px !important;
+    }
+  }
+}

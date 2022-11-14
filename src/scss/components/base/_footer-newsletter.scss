@@ -1,0 +1,110 @@
+// ==============================================
+
+//        FOOTER NEWSLETTER
+
+// ==============================================
+
+
+
+.footer-newsletter {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
+}
+
+.footer-newsletter__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: $color-primary;
+}
+
+.footer-newsletter__text {
+  margin-top: 17px;
+  font-size: 14px;
+  color: $color-black;
+}
+
+
+.footer-newsletter__form {
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 14px;
+
+  input {
+    padding: 0.55em 0.65em;
+    width: 100%;
+    border: 1px solid $color-grey-medium;
+    border-radius: $border-radius-small;
+    color: $color-navy;
+    transition: color $trans-color, background-color $trans-color, border-color $trans-color;
+
+    &:focus {
+      border-color: $color-navy;
+    }
+
+    // &:not(:focus):valid {
+    //   border-color: $color-form-success;
+    // }
+
+    // show error feedback only if user interaction (data-touched injected with JS)
+    &:not(:focus):invalid[data-touched] {
+      border-color: $color-error;
+      color: $color-error;
+    }
+    &:not(:focus):invalid[data-touched] ~ .input-invalid {
+      display: block;
+    }
+    
+    &::placeholder {
+      color: #999;
+    }
+  }
+}
+
+
+
+.footer-newsletter__input-wrapper {
+  position: relative;
+  display: flex;
+  
+  .btn-newsletter {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+  }
+  // @include bd(teal,1);
+}
+
+.btn-newsletter {
+  @include inline-flex-center();
+  padding: 0 10px;
+  font-size: 14px;
+  border-radius: 0 $border-radius $border-radius 0;
+
+  &:hover,
+  &:focus {
+    .icon {
+      fill: rgba($color-primary, 1);
+    }
+  }
+
+  .icon {
+    fill: #64748B;
+  }
+}
+
+.footer-newsletter__feedback {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-top: 8px;
+  font-size: 15px;
+  color: $color-primary;
+  
+  &.-is-error {
+    color: $color-error;
+  }
+}
+
+

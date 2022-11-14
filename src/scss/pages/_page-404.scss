@@ -1,0 +1,48 @@
+// ==============================================
+
+//        PAGE 404
+
+// ==============================================
+
+
+.error404 {
+  .footer-site {
+    margin-top: initial !important;
+  }
+}
+
+
+.page-404 {
+  position: relative;
+  padding: 250px 0;
+  margin-left: grid-unit(1);
+
+  .btn-all-posts {
+    margin-top: 40px;
+  }
+}
+
+.page-404__text {
+  margin-top: 20px;
+}
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(md) {
+  .page-404 {
+    padding: 200px 0;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .page-404 {
+    padding: 150px 0 100px;
+    margin-left: initial;
+  
+    .btn-all-posts {
+      margin-top: 20px;
+    }
+  }
+}

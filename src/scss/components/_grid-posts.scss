@@ -1,0 +1,52 @@
+// ==============================================
+
+//        POSTS LISTING (Actualités, Références, block push news, block push projects)
+
+// ==============================================
+
+
+.grid-news {
+  --gap: 8.33%;   // 90px;
+  row-gap: 40px;
+
+  // card Y offset in grid
+  .card-post:nth-child(3n+1) .card-post__link {
+      margin-top: 30px;
+  }
+  .card-post:nth-child(3n+3) .card-post__link {
+      margin-top: 70px;
+  }
+  // @include bd();
+}
+
+
+.grid-projects {
+  --gap: 8.33%;   // 90px;
+  row-gap: 0;
+
+  // card Y offset in grid
+  .card-post:nth-child(2n+2) .card-post__link {
+      margin-top: 50px;
+  }
+  // @include bd();
+}
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(md) {
+  .grid-posts {
+    row-gap: 40px;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .grid-posts {
+    padding: 0 25px;
+
+    .card-post__link {
+      margin-top: initial !important;
+    } 
+  }
+}

@@ -1,0 +1,76 @@
+
+PATHS:
+  proxy   : &proxy 'http://local.chargemap-business.com/'
+  app_dir : &app_dir './'
+  src_dir : 'src/'
+  dest_dir: 'assets/'
+  # base    : process.cwd()
+
+  # ---- source files ---- 
+  src:
+    entries:
+      - 'src/js/main.js'
+      - 'src/js/blocks-admin/*'
+
+    js  : 
+      - 'src/js/**/*.js'
+      - '!src/js/archive/**/*'
+
+    css   : 
+      - 'src/scss/**/*.scss'
+      - '!src/scss/archive/**/*'
+      
+    svg   : 
+      - 'src/svg/**/*.svg'
+      - '!src/svg/archive/**/*'
+
+    images: 
+      - 'src/images/**/*.{png,jpg,jpeg,gif,svg}'
+      - '!src/images/archive/**/*'
+
+    copy:
+      - 'src/fonts/**/*'
+      - 'src/favicons/**/*'
+    
+    pages  : './**/*.{html,php,twig}'
+
+    # Paths for the archive task to include / exclude in .zip archive
+    archive:
+    - '**/*'
+    - '!**/zip/**'
+    - '!**/node_modules/**'
+    - '!**/src/**'
+    - '!**/gulpfile.babel.js'
+    - '!**/package.json'
+    - '!**/package-lock.json'
+    - '!**/webpack.config.js'  
+
+
+
+  # ---- destination files ---- 
+  dest:
+    js       : 'assets/js'
+    css      : 'assets/css'
+    images   : 'assets/images'
+    svg      : 'assets/svg'
+    copy     : 'assets/'
+    clean    : 'assets/**/*'
+    archive  : 'zip/'
+
+
+# ---- config / options plugins ---- 
+CONF:
+  browserSync:
+    proxy        : *proxy
+    open         : false
+    notify       : true
+    ghostMode    : false
+    injectChanges: true
+
+  svgmin:
+    plugins: 
+      - removeViewBox: false
+    js2svg: 
+      pretty: true
+
+

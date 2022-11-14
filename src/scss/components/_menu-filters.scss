@@ -1,0 +1,83 @@
+// ==============================================
+
+//        FILTERS (Actualités, Références) 
+
+// ==============================================
+
+.menu-filters-wrapper {
+  padding-bottom: 40px;
+  border-bottom: 1px solid $color-primary-light;
+  // @include bd();
+}
+
+.menu-filters {
+  --item-spacing: 30px;
+  @include list-inline-flex();
+  flex-wrap: wrap;
+  margin-left: calc(var(--item-spacing) * -1);
+  margin-right: calc(var(--item-spacing) * -1);
+  // @include bd(red,1);
+}
+
+.menu-filters__item {
+  position: relative;
+  padding: 0 var(--item-spacing);
+
+  &:not(:last-child):after {
+    @include pseudo-block(5px, 5px, $color-primary-medium);
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+    border-radius: 50%;
+  }
+}
+
+
+.btn-filter {
+  padding: 6px 0;
+  font-size: 26px;
+  transition: color $trans-duration-fast;
+  color: $color-light-black;
+
+  &:hover,
+  &:focus,
+  &.is-selected {
+    color: $color-primary-medium;
+  }
+}
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(md) {
+  .menu-filters {
+    --item-spacing: 20px;
+  }
+  .btn-filter {
+    font-size: 24px;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .menu-filters-wrapper {
+    padding-bottom: 20px;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .menu-filters {
+    --item-spacing: 0px;
+    flex-direction: column;
+  }
+  .menu-filters__item {
+    padding: initial;
+  
+    &:not(:last-child):after {
+      display: none;
+    }
+  }
+  .btn-filter {
+    font-size: 22px;
+  }
+}

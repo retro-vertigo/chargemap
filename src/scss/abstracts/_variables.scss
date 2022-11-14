@@ -1,0 +1,203 @@
+// ==============================================
+
+//        VARIABLES
+
+// ==============================================
+
+
+//  Colors
+// -----------------------------------------------
+
+// Brand colors
+$color-primary       : #3B82F6;
+$color-navy       : #1E3FAE;
+$color-pink           : #F43F5E;
+$color-green          : #14B8A5;
+$color-indigo          : #6467F2;
+$color-purple          : #A855F7;
+
+
+            
+
+// Brand variants (for hover state...)
+$color-primary-dark  : mix-darken($color-primary, 10);
+
+// White / Black / Grey
+$color-black: #0F1729;
+$color-black-medium: #1D283A;
+$color-grey: #48566A;
+$color-grey-medium: #CBD5E1;
+$color-light-grey       : #F0F6FF;
+$color-white      : #FFFFFF;
+
+          
+
+
+// Feedback colors
+$color-error  : #ED4B46;
+$color-success: $color-green;
+
+// Alias context colors
+$color-body-background: white;
+$color-body-text      : $color-black;
+
+
+// Map pour créer des CSS variables de couleur à partir de variables Sass (avec formats hex, hsl, h, s, l)
+$map-colors: (
+  color-primary        : $color-primary,
+  // color-primary-soft   : $color-primary-soft,
+  // color-secondary      : $color-secondary,
+  // color-primary-dark   : $color-primary-dark,
+  // color-secondary-dark : $color-secondary-dark,
+  // color-light-black    : $color-light-black,
+  // color-medium-grey    : $color-medium-grey,
+  // color-grey           : $color-grey,
+  // color-body-background: $color-body-background,
+  // color-body-text      : $color-body-text,
+
+  color-black: #000000,
+);
+
+  
+
+//  Typography / fonts
+// -----------------------------------------------
+
+$font-body: 'Inter', sans-serif;
+$font-title: 'Jakarta', sans-serif;
+$font-size-base : 18px;
+$font-feature-settings: 'ss03' on;
+$line-height-base : 1.5;
+
+
+//  Container sizes
+// -----------------------------------------------
+
+// Container's maximum width
+$container-wide-width  : 1880px;
+$container-large-width : 1404px;    // (1340 + 2x32)
+$container-medium-width: 1404px;    // (1340 + 2x32)
+$container-small-width : 1204px;    // (1140 + 2x32)
+$container-width       : $container-medium-width;  // alias
+
+// 
+$container-padding-desktop: 2rem;
+$container-padding-mobile : 25px;
+
+
+
+
+//  Misc sizes
+// -----------------------------------------------
+
+$spacer       : 1rem;
+$border-radius : 8px;
+$border-radius-small : 4px;
+
+// hauteurs variables du header 
+$header-height-desktop: 75px;
+$header-height-mobile : 70px;
+
+
+//  Transitions
+// -----------------------------------------------
+
+$trans-duration     : 0.25s;
+$trans-duration-fast: 0.15s;
+$trans-color        : 0.2s linear;
+
+
+//  Grid breakpoints
+// -----------------------------------------------
+
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+  xs : 0,
+  sm : 576px,
+  md : 768px,
+  lg : 940px,
+  xl : 1200px,
+  xxl: 1600px
+);
+
+// check if $grid-breakpoints is a valid map
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints);
+
+
+//  Z-layer system
+// -----------------------------------------------
+
+// A map of z layers
+// All z-index values should be set there
+
+$z-layers: (
+  'modal'         : 110,
+  'overlay'       : 100,
+  'megamenu'      : 60,
+  'header'        : 50,
+  'dropdown'      : 20,
+  'default'       : 1,
+  'below'         : -1,
+  'bottomless-pit': -10000
+);
+
+
+//  CSS variables global
+// -----------------------------------------------
+
+:root {
+
+  // create CSS variables for colors from Sass variables in different notation
+  @each $name, $value in $map-colors {
+    @include defineCssVarsColors($name, $value);
+  }
+
+  --primary-gradient: linear-gradient(135deg, var(--color-primary) 10%, var(--color-primary-soft));
+  --primary-shadow: 0px 15px 20px -15px rgba(192, 124, 22, 0.4), 0px 50px 90px -50px rgba(242, 196, 136, 0.5);
+
+
+  // dynamic CSS variables, change when media-queries...
+  --container-medium-width: #{$container-medium-width};
+  --container-large-width : #{$container-large-width};
+  --container-wide-width  : #{$container-wide-width};
+  --container-small-width : #{$container-small-width};
+
+  --container-padding: calc(#{$container-padding-desktop});
+  --header-height: #{$header-height-desktop};
+  --spacer: #{$spacer};
+  --vh: 1vh;    // fix 100vh in iOS and Chrome Android (css var --vh set with JS)
+
+
+  // MQ for CSS variables
+  @include media-breakpoint-down(sm) {
+    --container-padding: #{$container-padding-mobile};
+    --header-height: #{$header-height-mobile};
+  }
+}
+
+
+
+/// unused
+
+// lateral space for menu when pivotated
+$sidebar-width: 60px;
+
+
+$color-dark-grey  : #484051;
+$color-light-grey : #EBEBEB;
+$color-light-white: #F2F2F2;
+
+// Social brand colors
+$color-linkedin : #1568BF;
+
+$color-primary-medium: #E5AB5C;
+            $color-primary-soft  : #F2C488;
+            $color-primary-light : #FBEBCD;
+            $color-secondary     : #12ACAC;
+            $color-secondary-dark: mix-darken($color-secondary, 20);
+
+          $color-light-black: #172630;
+          $color-medium-grey: #565453;

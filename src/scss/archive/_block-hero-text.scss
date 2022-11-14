@@ -1,0 +1,104 @@
+// ==============================================
+
+//        HERO TEXT
+
+// ==============================================
+
+
+.corner-page {
+  --corner-ratio: 0.95;
+  --corner-width: 410px;
+  position: absolute;
+  width: var(--corner-width);
+  height: calc(var(--corner-width) * var(--corner-ratio));
+  z-index: 2;
+
+  &.--top {
+    top: var(--header-height);
+    right: 0;
+  }
+
+  &.--bottom {
+    --corner-width: 390px;
+    bottom: 0;
+    left: 0;
+    fill: $color-primary;
+  }
+}
+
+.block-hero-text {
+  padding-top: var(--header-height);
+  overflow: hidden;
+  // @include bd();
+}
+
+
+.block-hero-text__inner {
+  position: relative;
+  grid-template-rows: 400px auto;
+  align-items: center;
+}
+
+
+.block-hero-text__title {
+  grid-column: 3 / span 6;   
+  grid-row: 1;
+  position: relative;
+  padding-bottom: 70px;
+
+  &:after {
+    @include pseudo-block(var(--grid10-col-width), 10px, $color-secondary);
+    left: 0;
+    bottom: 0;
+  }
+}
+
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(lg) {
+  .corner-page,
+  .corner-page.--bottom {
+    --corner-width: 300px;
+  }
+
+  .block-hero-text__inner {
+    grid-template-rows: 300px auto;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .corner-page.--bottom {
+    display: none;
+  }
+
+  .block-hero-text__title {
+    grid-column: 1 / 9;   
+    padding: 0 var(--container-padding) 50px;
+
+    &:after {
+      left: var(--container-padding);
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .corner-page {
+    display: none;
+  }
+  .block-hero-text__inner {
+    grid-template-rows: auto auto;
+  }
+  .block-hero-text__title {
+    grid-column: 1 / -1; 
+    grid-row: 2;
+    padding-bottom: 2rem;
+    margin-top: 20px;
+  }
+  .block-hero-text .breadcrumbs {
+    grid-row: 1;
+  }
+}
+

@@ -1,0 +1,140 @@
+// ==============================================
+
+//        BLOCK KEY FIGURES
+
+// ==============================================
+
+
+.block-keyfigures {
+  padding-top: 70px;
+}
+
+
+.block-keyfigures__inner {
+  --inner-padding-h: var(--grid10-col-half-width);    // 72px
+  position: relative;
+  z-index: 1;
+  padding: 0 var(--inner-padding-h);
+}
+
+
+.block-keyfigures__panel {
+  background-color: $color-secondary;
+  padding: 90px 72px 40px;
+  text-align: center;
+}
+
+.block-keyfigures__items {
+  display: flex;
+  justify-content: center;
+  margin: 56px auto 0;
+  font-family: $font-title;
+  font-weight: 500;
+  color: white;
+}
+
+.item-keyfigure {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+  line-height: 1.2;
+}
+
+.item-keyfigure__icon {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+}
+
+.item-keyfigure__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 28px;
+}
+
+.item-keyfigure__digit {
+  font-size: 38px;
+}
+
+.item-keyfigure__text {
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(lg) {
+  .block-keyfigures__inner {
+    --inner-padding-h: var(--container-padding);
+  }
+  .block-keyfigures__panel {
+    padding: 90px 2rem 40px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .block-keyfigures {
+    padding-top: 40px;
+  }
+  
+  .block-keyfigures__panel {
+    padding: 50px 2rem 40px;
+  }
+  .block-keyfigures__items {
+    flex-wrap: wrap;
+    max-width: 650px;
+    margin-top: 36px;
+  }
+  .item-keyfigure {
+    width: 50%;
+
+    &:nth-child(3),
+    &:nth-child(4) {
+      margin-top: 2rem;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .block-keyfigures__panel {
+    padding: 50px 1rem 40px;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .block-keyfigures__items {
+    flex-direction: column;
+    align-items: center;
+  }
+  .item-keyfigure {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    padding: unset;
+
+    &:nth-child(n+2) {
+      margin-top: 2rem;
+    }
+  }
+  .item-keyfigure__icon {
+    width: 50%;
+  }
+  
+  .item-keyfigure__content {
+    width: 50%;
+    margin-top: unset;
+  }
+
+  .item-keyfigure__text {
+    margin-top: 6px;
+  }
+}
+

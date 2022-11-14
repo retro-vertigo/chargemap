@@ -1,0 +1,231 @@
+// ==============================================
+
+//        BLOCK CAROUSEL METIERS
+
+// ==============================================
+
+
+.block-metiers {
+  padding: 170px 0 100px;
+
+  .slider-flickity-controls {
+    margin-top: 2rem;
+    pointer-events: initial;
+  }
+}
+
+.block-metiers__inner {
+  // @include bd(red,1);
+}
+
+
+.block-metiers__content {
+  grid-row: 1;
+  grid-column: 2 / span 2; 
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 2rem;
+  padding-bottom: 90px;
+  pointer-events: none;
+}
+
+.block-metiers__title {
+  font-size: 36px;
+  line-height: 1;
+}
+
+.block-metiers__text {
+  position: relative;
+  margin-top: 46px;
+  padding-top: 30px;
+
+  &:before {
+    @include pseudo-block(50px, 10px, $color-primary);
+    top: 0;
+    left: 0;
+  }
+}
+
+
+//  Slider carousel
+// -----------------------------------------------
+
+.slider-metiers {
+  grid-row: 1;
+  grid-column: 3 / -1;   
+  // @include bd(cyan);
+
+  // .flickity-slider { -webkit-overflow-scrolling: touch; }
+}
+
+.slide-metiers {
+  width: 65%;
+
+  &.is-selected {
+    img {
+      opacity: 0.8;
+    }
+    
+    .slide-metiers__title {
+      opacity: 1;
+    }
+  }
+}
+
+.slide-metiers__link {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+
+  @include can-hover() {
+    &:hover {
+      // .slide-metiers__figure:after {
+      //   opacity: 0.15;
+      // }
+      img {
+        opacity: 1;
+      }
+      .slide-metiers__title {
+        opacity: 1;
+
+        span {
+          transform: translateX(40px);
+          transition: transform 0.4s easeInOutQuad 0s;
+        }
+    
+        &:after {
+          transform: scaleX(0);
+          transition: transform 0.4s easeInOutQuad 0s;
+        }
+    
+        &:before {
+          transform: scaleX(1);
+          transition: transform 0.3s easeOutQuad 0.3s;
+        }
+      }
+    }
+  }
+}
+
+.slide-metiers__figure {
+  @include aspect-ratio(1.5);
+  
+  // &:after {
+  //   @include pseudo-block-cover($color-primary);
+  //   opacity: 0;
+  //   transition: opacity 0.3s linear;
+  //   will-change: opacity;
+  // }
+  
+  img {
+    object-fit: cover;
+    opacity: 0.2;
+    transition: opacity 0.3s linear;
+    will-change: opacity;
+  }
+}
+
+
+
+.slide-metiers__title {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 2rem;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  opacity: 0.4;
+  transition: opacity 0.3s linear;
+  // @include bd(white,0.5);
+
+  span {
+    transition: transform 0.3s easeOutQuad;
+  }
+
+  &:after {
+    @include pseudo-block(null, 1px, currentColor);
+    position: relative;
+    width: 50px;
+    margin-left: 22px;
+    transform-origin: top right;
+    transition: transform 0.3s easeOutQuad 0.1s;
+  }
+
+  &:before {
+    @include pseudo-block(25px, 1px, currentColor);
+    top: 50%;
+    left: 0;
+    transform-origin: top left;
+    transform: scaleX(0);
+    transition: transform 0.3s easeOutQuad;
+  }
+}
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+.block-metiers {
+  @include media-breakpoint-down(lg) {
+    .block-metiers__content {
+      grid-column: 1 / span 3; 
+      padding: 0 var(--container-padding) 90px;
+    }
+    .block-metiers__text {
+      margin-top: 30px;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 120px 0 70px;
+
+    .block-metiers__content {
+      grid-column: 1 / -1; 
+      padding: 0 var(--container-padding);
+      pointer-events: #a3d678;
+    }
+    .block-metiers__text {
+      margin-top: 20px;
+    }
+    .block-metiers__title {
+      font-size: 27px;
+    }
+    .slider-metiers {
+      grid-row: 2;
+      grid-column: 1 / -1;   
+      margin-top: 2rem;
+      padding-left: var(--container-padding);
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 90px 0 40px;
+
+    .slider-flickity-controls {
+      display: none;
+    }
+
+    .slide-metiers {
+      width: 80%;
+    }
+    .slide-metiers__title {
+      font-size: 18px;
+    }
+  }
+
+  @include media-breakpoint-down(xs) {
+    padding: 70px 0 10px;
+
+    .slide-metiers {
+      width: 85%;
+    }
+    .slide-metiers__title {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{#
+/**
+ * Block Name: Block image gallery (Agence, Notre différence)
+ *
+ */
+#}
+
+{% import "macros.twig" as macros %}
+
+
+<div class="block-gallery-wrapper block-wrapper">
+  {% include "partials/bg-block-double-light.twig" with { modifier_class: '--double-light' } %}
+
+  <div class="l-container --h-padding">
+    <section class="{{ block.classes }}" id="{{ block.id }}">
+
+      <h2 class="block-gallery__title section-title u-remove-line-break" data-splitting data-aos="title-split-down">{{ fields.title }}</h2>
+      <div class="block-gallery__content">
+        {% if fields.subtitle %}
+          <p class="block-gallery__subtitle section-subtitle" data-aos="fade-up" data-aos-delay="100">{{ fields.subtitle }}</p>
+        {% endif %}
+        {% if fields.editor_text %}
+          <div class="block-gallery__text editor-text" data-aos="fade-up" data-aos-delay="100">
+            <svg class="motif-dots"><use xlink:href="#four-dots"></use></svg>
+            {{ fields.editor_text }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="block-gallery__gallery">
+        {% if fields.gallery %} 
+          {% for image in fields.gallery %}
+
+            <figure class="block-gallery__figure image-figure" data-aos="fade-up">
+              <div class="image-wrapper --aspect-ratio --box-shadow --bg-shadow">
+                {{ macros.get_rwd_image( image.id, 'gallery', 'large') }}
+                {% if loop.index == 2 or loop.index == 4 %}
+                  <svg class="motif-rosace"><use xlink:href="#rosace"></use></svg>
+                {% endif %}
+              </div>
+              {% if image.caption %}
+                <figcaption>{{ image.caption }}</figcaption>
+              {% endif %}
+            </figure>
+
+          {% endfor %}
+        {% endif %}
+      </div> 
+      
+    </section>  {# end .block #}
+  </div>  {# end .l-container #}
+</div>    {# end .block-wrapper #}
+
+
+
+

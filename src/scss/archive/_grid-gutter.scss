@@ -1,0 +1,113 @@
+// ==============================================
+
+//        GRID LAYOUT WITH GUTTERS BETWEEN CHILDREN
+
+// ==============================================
+
+
+
+// ∆∆∆ debug with bg colors
+@mixin debug-grid-gutter($col) {
+  @if $col == 1 {
+    @include bg-breakpoint(xs, 0.6);
+  } @else if $col == 2 {
+    @include bg-breakpoint(sm, 0.6);
+  } @else if $col == 3 {
+    @include bg-breakpoint(md, 0.6);
+  } @else if $col == 4 {
+    @include bg-breakpoint(lg, 0.6);
+  }
+}
+
+
+
+@mixin set-grid-gutter($col) {
+  --grid-col-num: #{$col};
+
+  // hack to clean previous rules when multiple classes with media-queries
+  > *:not(:nth-child(0)) {    margin-right: 0;    }
+  
+  // add margin for all columns, except the last in a row
+  @if $col > 1 {
+    $child-selector: unquote('> *:not(:nth-child(#{$col}n))');
+    #{$child-selector} {  margin-right: var(--grid-gutter-width); }
+  }
+
+  // ∆∆∆∆
+  @include debug-grid-gutter($col);
+}
+
+
+
+//  Grid gutter
+// -----------------------------------------------
+
+.grid-gutter  {
+  // stacked columns 100% width by default
+  $grid-col-max: 5;
+  --grid-col-num: 1;
+  --grid-gutter-width: 1rem;
+  --grid-gutter-height: var(--grid-gutter-width);
+  --grid-gutter-total-width: calc((var(--grid-col-num) - 1) * var(--grid-gutter-width));
+  --grid-col-width: calc((100% - var(--grid-gutter-total-width)) / var(--grid-col-num));
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    width: var(--grid-col-width);
+    margin-bottom: var(--grid-gutter-height);
+  }
+
+  // for each breakpoint, and each column num, create a column class
+  @each $bp, $value in $grid-breakpoints {
+    @include media-breakpoint-up($bp) {
+      $bp-prefix: if($bp != xs, -#{$bp}, '');     // no prefix for xs breakpoint, class is "col-2", "col-3"... not "col-xs-2"...
+      @for $i from 1 through $grid-col-max {
+        &.col#{$bp-prefix}-#{$i} {
+          @include set-grid-gutter($i);
+        }
+      }
+    }
+  }
+
+
+  // **** output
+  // apply on xs breakpoint and above (> 0)
+  // &.col-2 {   @include set-grid-gutter(2);    }
+  // &.col-3 {   @include set-grid-gutter(3);    }
+  // &.col-4 {   @include set-grid-gutter(4);    }
+
+  // // apply on md breakpoint and above (> 768px)
+  // @include media-breakpoint-up(md) {
+  //   &.col-md-1 {  @include set-grid-gutter(1);    }
+  //   &.col-md-2 {  @include set-grid-gutter(2);    }
+  // }
+
+  // // apply on lg breakpoint and above (> 940px)
+  // @include media-breakpoint-up(lg) {
+  //   &.col-lg-1 {  @include set-grid-gutter(1);    }
+  //   &.col-lg-2 {  @include set-grid-gutter(2);    }
+  // }
+
+  // // apply on xl breakpoint and above (> 1200px)
+  // @include media-breakpoint-up(xl) {
+  //   &.col-xl-1 {  @include set-grid-gutter(1);    }
+  //   &.col-xl-2 {  @include set-grid-gutter(2);    }
+  // }
+
+  // // apply on xxl breakpoint and above (> 1600px)
+  // @include media-breakpoint-up(xxl) {
+  //   &.col-xxl-1 {  @include set-grid-gutter(1);    }
+  //   &.col-xxl-2 {  @include set-grid-gutter(2);    }
+  // }
+}
+
+
+
+//  Styles for example
+// -----------------------------------------------
+
+.grid-gutter  {
+  margin-top: 5rem;
+  padding: 1rem;
+}

@@ -1,0 +1,69 @@
+// ==============================================
+
+//        ACCORDION
+
+// ==============================================
+
+
+[data-accordion-item] {
+  
+  &.is-open {
+    [data-accordion-content] {
+      height: var(--height-open);
+      opacity: 1;
+    }
+
+    .item-client__arrow {
+      color: $color-secondary;
+      border-color: $color-secondary;
+  
+      .icon {
+        transform: rotate(180deg);
+      }  
+    }  
+
+    .item-client__subtitle {
+      color: $color-secondary;
+    }
+  }
+}
+
+
+[data-accordion-trigger] {
+  cursor: pointer;
+
+  @include can-hover() {
+    &:hover {
+      .item-client__arrow {
+        color: $color-secondary;
+        border-color: $color-secondary;
+      }
+      .item-client__subtitle {
+        color: $color-secondary;
+      }
+    }
+  }
+  
+  .item-client__arrow {
+    transition: color $trans-duration, border-color $trans-duration;
+
+    .icon {
+      transition: transform $trans-duration;
+    }
+  }
+
+  .item-client__subtitle {
+    transition: color $trans-color;
+  }
+}
+
+
+// content wrapper to open / close (no padding on wrapper)
+[data-accordion-content] {
+  --height-open: auto;        // height value set to auto when open, will be replaced with real value calculated by JS for transition
+  height: 0;                  // height value when close (default state)
+  overflow: hidden;
+  opacity: 0;
+  // transition: height $trans-duration easeInOutQuart, opacity 0.3s linear;
+  transition: height 0.3s ease-out, opacity 0.3s linear;
+}

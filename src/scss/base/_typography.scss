@@ -1,0 +1,184 @@
+// ==============================================
+
+//        TYPOGRAPHY
+
+// ==============================================
+
+
+//  Body / heading
+// -----------------------------------------------
+
+body {
+  font-family: $font-body; 
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $color-body-text;
+  background-color: $color-body-background;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4,
+.h1, .h2, .h3, .h4 {
+  margin-bottom: 0;
+  font-family: $font-title; 
+  font-feature-settings: $font-feature-settings;
+}
+
+h1,
+.h1,
+.section-title {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.13;
+
+  // @include media-breakpoint-down(md) {
+  //   font-size: 60px;
+  // }
+  // @include media-breakpoint-down(sm) {
+  //   font-size: 40px;
+  // }
+}
+
+h2,
+.h2 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.13;
+
+  @include media-breakpoint-down(md) {
+    font-size: 40px;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 32px;
+  }
+}
+
+h3,
+.h3 {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.23;
+
+  @include media-breakpoint-down(md) {
+    font-size: 28px;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 28px;
+  }
+}
+
+h4,
+.h4 {
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+
+//  Other
+// -----------------------------------------------
+
+a {
+  text-decoration: none;
+  color: $color-body-text;
+}
+
+// default size for SVG icon
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+}
+
+
+// Title split by lines for animation
+.section-title[data-splitting] {
+  display: flex;
+  flex-direction: column;
+
+  @include media-breakpoint-down(xs) {
+    display: block;
+
+    // create whitespace between lines when collapsed on mobile
+    > span {
+      &:not(:last-child) {
+        margin-right: 9.2px;
+      }
+    }
+  }
+}
+
+
+.section-subtitle {
+  color: $color-secondary;
+  font-size: 26px;
+
+  @include media-breakpoint-down(md) {
+    font-size: 24px;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 22px;
+  }
+}
+
+.section-subtitle-orange {
+  margin-bottom: 0;
+  font-family: $font-title; 
+  font-size: 50px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: $color-primary-medium;
+
+  @include media-breakpoint-down(md) {
+    font-size: 40px;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 32px;
+  }
+}
+
+
+.editor-text {
+  h2,
+  h3,
+  h4 {
+    margin-bottom: 1.2em;
+  }
+
+  p + h2, ul + h2,
+  p + h3, ul + h3,
+  p + h4, ul + h4 {
+    margin-top: 1.8em;
+  }
+  
+  ul {
+    @include list-styled();
+  }
+
+  ol {
+    @include list-ordered-styled();
+  }
+
+  a {
+    color: $color-secondary;
+    text-decoration: underline;
+
+    &:hover {
+      color: $color-secondary-dark;
+    }
+  }
+
+  h2:last-child,
+  h3:last-child,
+  h4:last-child,
+  h5:last-child,
+  p:last-child,
+  blockquote:last-child {
+    margin-bottom: 0;
+  }
+
+  // @include bd();
+}

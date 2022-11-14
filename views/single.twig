@@ -1,0 +1,28 @@
+{# Page single Actualités #}
+
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	{% include "partials/banner-single-post.twig" with { 'post': post } %}
+
+	<div class="page-article-wrapper">
+		{% include "partials/bg-block.twig" %}
+
+		<div class="l-container --small --h-padding">
+			<article class="page-article editor-text" data-aos="fade-in" data-aos-delay="100">
+				
+				{{ post.content }}
+			
+			</article>	{# end .page-article #}
+		</div>		{# end .l-container #}
+	</div>		 {# end .page-article-wrapper #}	
+
+	{% include 'partials/single-pagination.twig' with { 
+		txt_prev_post: 'Article précédent', 
+		txt_next_post: 'Article suivant', 
+		txt_all_posts: 'Tous les articles', 
+		url_all_posts: page_news_link, 
+	} %}
+
+{% endblock %}

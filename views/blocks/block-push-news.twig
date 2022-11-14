@@ -1,0 +1,34 @@
+{#
+/**
+ * Block Name: Block Push news (Agence, Notre différence)
+ *
+ */
+#}
+
+{% import "macros.twig" as macros %}
+
+
+<div class="block-push-news-wrapper block-wrapper">
+  <div class="l-container --h-padding">
+    <section class="{{ block.classes }}" id="{{ block.id }}">
+
+      <div class="block-push-news__top">
+        <h2 class="block-push-news__title section-title u-remove-line-break" data-splitting data-aos="title-split-down">{{ fields.title }}</h2>
+        {% if fields.link %} 
+          <div class="block-push-news__btn-wrapper">
+            <a href="{{ fields.link.url|e('esc_url') }}" class="btn-circle" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="300">
+              <h4 class="btn-circle__label">{{ fields.link.title }}</h4>
+            </a>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="block-push-news__grid grid-news grid-posts l-grid col-1 col-sm-2 col-md-3">
+        {% for post_item in posts_block %}
+          {% include "partials/card-news.twig" with { 'post_item': post_item, 'aos': true, 'aos_delay': loop.index0 * 100 } %}
+        {% endfor %}
+      </div>
+
+    </section>  {# end .block #}
+  </div>  {# end .l-container #}
+</div>    {# end .block-wrapper #}

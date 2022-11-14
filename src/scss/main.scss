@@ -1,0 +1,198 @@
+
+
+//  Custom styles
+// -----------------------------------------------
+
+@import 'abstracts/mixins';     // index des mixins ET functions -> dans le répertoire abstracts/mixins/
+@import 'abstracts/variables';
+
+@import 'vendors/bootstrap/utilities/bootstrap-display';    // chargé aprés variables, requiert $grid-breakpoints 
+@import 'vendors/flickity/flickity';
+@import 'vendors/flickity/flickity-fade';
+@import "vendors/splitting/splitting";
+@import 'vendors/aos/aos';
+
+@import 'base/reboot';
+@import 'base/base';
+@import 'base/font-face';
+@import 'base/typography';
+@import 'base/utilities';
+
+@import 'layout/*'; 
+    // TOADD _global partial with .page-wrapper, .main, (instead of .base)
+
+@import 'vendors-custom/flickity-theme-custom';
+@import 'vendors-custom/aos-custom';
+
+@import 'components/base/*';
+@import 'components/common/*';
+@import 'components/blocks/*';
+@import 'components/form-newsletter';
+@import 'components/pagination';
+@import 'components/menu-filters';
+@import 'components/card-post';
+@import 'components/grid-posts';
+@import 'components/slider-images';
+
+@import 'pages/*';
+
+@import 'base/print';     // load last for override previous rules
+
+@import 'shame/shame';
+
+
+
+
+.main {
+  // min-height: 1400px;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+
+// ∆∆∆∆∆∆∆∆∆∆∆∆∆∆
+.test-container-wrapper {
+  margin-top: 100px;
+  @include bd();
+
+  .l-container {
+    @include bd(red);
+  }
+
+  .test-hero {
+    padding: 50px 0;
+    p {
+      margin-top: 50px;
+    }
+  }
+
+  .test-container {
+    @include flex-center();
+    min-height: 200px;
+    margin-top: 50px;
+    background-color: $color-primary-light;
+  }
+}
+
+
+/////
+.xdebug-var-dump {
+  position: absolute;
+  z-index: 500;
+  top: 1rem;
+  left: 1rem;
+  padding: 1rem;
+  font-size: 12px;
+  border: 1px solid #000;
+  overflow: scroll;
+  background-color: rgba(white,1);
+
+  overflow: visible;
+}
+
+// #__bs_notify__ {
+//   position: fixed;
+//   top: calc(100% - 50px) !important;
+//   border-radius: 0px !important;
+// }
+
+// .rwd-status {
+//   top: initial;
+//   left: initial;
+//   bottom: 0;
+//   right: 0; 
+// }
+
+// ∆∆∆∆∆∆∆∆∆∆
+.content-wrapper {
+  margin-top: 200px;
+  @include bd();
+}
+
+.block-cta-wrapper {
+  // @include bd();
+}
+
+
+
+// TODO 
+// Alias pour les bp de bootstrap
+
+
+
+/*
+
+// ***** Clarion pattern ***** 
+
+1. abstracts : variables, mixins, functions
+2. base : base, reset, font-face, typography...
+3. vendors : bootstrap, aos...
+4. elements : base reset (button, link, form...)
+5. components : buttons, search box, navbar, carousel...
+6. layout : header, footer, grid, navigation, forms...
+7. pages : home, contact...
+8. utlities : helpers class
+*/
+
+
+/*
+
+// ***** 7-1 pattern ***** 
+
+1. abstracts : variables, mixins, functions
+2. vendors : bootstrap, aos...
+3. base : base, reset, font-face, typography, (animations)...
+4. layout : header, footer, grid, navigation, forms...
+5. components : buttons, search box, navbar, carousel...
+6. pages : home, contact...
+(7. themes : theme, admin)
+(8. shame : shame)
+
+*/
+
+
+/*
+
+
+
+
+@mixin screen-reader-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;  // optional
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.sr-only {
+  @include screen-reader-only();
+}
+
+
+
+/*
+
+// for margin and padding
+// in clarion project
+$spacing-sizes: (
+    auto: auto,
+    none: 0,
+    3xs: 0.0625rem, // 1px
+    xxs: 0.125rem,  // 2px
+    xs: 0.25rem,    // 4px
+    sm: 0.5rem,     // 8px
+    md: 0.75rem,    // 12px
+    lg: 1rem,       // 16px
+    xl: 1.25rem,    // 20px
+    xxl: 2rem       // 32px
+) !default;
+
+
+*/

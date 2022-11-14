@@ -1,0 +1,53 @@
+{#
+/**
+ * Block Name: Block Team (Agence)
+ *
+ */
+#}
+
+{% import "macros.twig" as macros %}
+
+
+<div class="block-team-wrapper block-wrapper">
+  {% include "partials/bg-block.twig" %}
+
+  <div class="l-container --h-padding">
+    <section class="{{ block.classes }}" id="{{ block.id }}">
+
+      <h2 class="block-team__title section-title u-remove-line-break" data-splitting data-aos="title-split-down">{{ fields.title }}</h2>
+      {% if fields.subtitle %}
+        <p class="block-team__subtitle section-subtitle" data-aos="fade-up" data-aos-delay="100">{{ fields.subtitle }}</p>
+      {% endif %}
+
+      <div class="block-team__members">
+        {% if fields.members %} 
+          {% for item in fields.members %}
+
+            {% set aos_delay = loop.index0 * 100 %}
+
+            <div class="item-member">
+              <figure class="item-member__figure image-figure" data-aos="fade-up" data-aos-delay="{{ aos_delay }}">
+                <div class="image-wrapper --aspect-ratio --glow">
+                  <img src="{{ item.image.sizes.medium_large }}" alt="{{ item.image.alt }}" />
+                  {% if loop.index == 2 %}
+                    <svg class="motif-rosace"><use xlink:href="#rosace"></use></svg>
+                  {% endif %}
+                </div>
+              </figure>
+
+              {% if item.name %}
+                <h3 class="item-member__title" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="{{ aos_delay }}">{{ item.name }}</h3>
+              {% endif %}
+              {% if item.editor_text %}
+                <div class="item-member__text editor-text" data-aos="fade-up" data-aos-delay="{{ aos_delay + 50 }}">{{ item.editor_text }}</div>
+              {% endif %}
+            </div>
+
+
+          {% endfor %}
+        {% endif %}
+      </div> 
+      
+    </section>  {# end .block #}
+  </div>  {# end .l-container #}
+</div>    {# end .block-wrapper #}

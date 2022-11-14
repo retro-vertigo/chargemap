@@ -1,0 +1,169 @@
+// ==============================================
+//
+//        BURGER MENU ICON
+//
+// ==============================================
+
+
+/// Crée l'icone burger menu dans le menu responsive
+/// @param {Number} $width — largeur de l'icône
+/// @param {Number} $height — hauteur de l'icône
+/// @param {Number} $bar-height — hauteur d'une barre
+/// @param {Hex} $color — couleur de l'icône
+/// @example scss - Usage
+/// @include icon-burger(width:18px, height:16px, $bar-height:2px);
+///
+@mixin icon-burger($width, $height, $bar-height, $color) {
+  $icon-centerY: ($height - $bar-height) / 2;
+  $bar-duration: 0.25s;
+  
+
+  // icon wrapper
+  display: block;
+  position: relative;
+  width: $width;
+  height: $height;
+  color: $color;
+
+  // bars
+  span {
+    position: absolute;
+    display: block;
+    height: $bar-height;
+    width: 100%;
+    background-color: currentColor;
+    transition: $bar-duration easeOutQuart;
+  }
+
+  // Menu fermé
+  // ☰ bars
+  span:nth-child(1) {
+    top: 0;
+    transform-origin: right;
+    transform: scaleX(0.7);
+    // transform-origin: left;
+    // transition-delay: 0.2s;
+  }
+  span:nth-child(2) {
+    top: $icon-centerY;
+    // transition-delay: 0.2s;
+  }
+  span:nth-child(3) {
+    bottom: 0;
+    transform-origin: right;
+    transform: scaleX(0.7);
+    // transition-delay: 0.2s;
+  }
+
+  // X bars (masqué quand menu fermé)
+  span:nth-child(4) {
+    top: $icon-centerY;
+    // transform: scaleY(0) rotate(45deg);
+    opacity: 0;
+    transition-delay: 0;
+  }
+  span:nth-child(5) {
+    top: $icon-centerY;
+    // transform: scaleY(0) rotate(-45deg);
+    opacity: 0;
+    transition-delay: 0;
+  }
+  // $bar-duration: 1.25s;
+  // Menu ouvert
+  .header-site.is-open & {
+    
+    span:nth-child(1) {
+      top: $icon-centerY;
+      opacity: 0;
+      transition-delay: 0s;
+    }
+    span:nth-child(2) {
+      transform: scaleX(0);
+      // transition-delay: 0.1s;
+    }
+    span:nth-child(3) {
+      bottom: $icon-centerY;
+      opacity: 0;
+      transition-delay: 0s;
+    }
+    span:nth-child(4) {
+      opacity: 1;
+      transform: rotate(45deg);
+      transition-delay: 0.2s;
+    }
+    span:nth-child(5) {
+      opacity: 1;
+      transform: rotate(-45deg);
+      transition-delay: 0.2s;
+    }
+  }
+
+  // ∆∆∆∆∆ 4 debug ∆∆∆∆∆
+  // @include bd(white,0.8);
+  // span {
+  //   transition: 0.9s ease-out;
+  // }
+  // span:nth-child(1) {
+  //   background-color: cyan;
+  //   display: none;
+  // }
+  // span:nth-child(2) {
+  //   background-color: aliceblue;
+  //   display: none;
+  // }
+  // span:nth-child(3) {
+  //   background-color: olivedrab;
+  //   display: none;
+  // }
+  // span:nth-child(4) {
+  //   background-color: rgb(197, 186, 120);;
+  //   display: none;
+  // }
+  // span:nth-child(5) {
+  //   background-color: rgb(240, 178, 235);;
+  //   display: none;
+  // }
+
+
+
+
+  // // state burger
+  // span:nth-child(1) {
+  //   top: 0;
+  //   transition-delay: 0.1s;
+  // }
+  // span:nth-child(2) {
+  //   top: $icon-centerY;
+  //   transition-delay: 0;
+  // }
+  // span:nth-child(3) {
+  //   top: $icon-centerY;
+  //   transition-delay: 0;
+  // }
+  // span:nth-child(4) {
+  //   top: $icon-height - $line-height;
+  //   transition-delay: 0.1s;
+  // }
+
+  // // state close
+  // &.is-active {
+  //   span:nth-child(1) {
+  //     transform: translateY($icon-centerY);
+  //     transition-delay: 0s;
+  //     opacity: 0;
+  //   }
+  //   span:nth-child(2) {
+  //     transform: rotate(45deg);
+  //     transition-delay: 0.1s;
+  //   }
+  //   span:nth-child(3) {
+  //     transform: rotate(-45deg);
+  //     transition-delay: 0.1s;
+  //   }
+  //   span:nth-child(4) {
+  //     transform: translateY(-$icon-centerY);
+  //     transition-delay: 0s;
+  //     opacity: 0;
+  //   }
+  // }
+}

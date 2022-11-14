@@ -1,0 +1,113 @@
+// ==============================================
+//
+//        UNCATEGORIZED MIXINS
+//
+// ==============================================
+
+
+//  IE 11 grid fallback
+// -----------------------------------------------
+
+// TODO clean
+// Replace grid-column: 2 / -2; with  grid-column: 2 / span 8
+// ex : grid-column-negative-line-fallback(2, -2) -> grid-column: 2 / span 8;
+@mixin grid-column-negative-line-fallback($col-start, $col-end) {
+  $grid-columns-num : 10;   // grid base
+  $col-end: $grid-columns-num + $col-end;
+  grid-column: #{$col-start} / span #{$col-end};
+}
+
+
+
+
+//  Geometry
+// -----------------------------------------------
+
+/// Crée un triangle
+/// @param {Direction} $direction - Orientation du triangle `up`, `right`, `down` ou `left`
+/// @param {Color} $color [currentcolor] - Couleur du triangle 
+/// @param {Size} $sizeH [0.5rem] - Longueur du triangle
+/// @param {Size} $sizeV [$sizeH] - Hauteur du triangle
+
+@mixin triangle($direction, $color, $sizeH, $sizeV:$sizeH) {
+  display: inline-block;    
+  width: 0;
+  height: 0;
+  
+  // classic triangles : ▼ ▲ ▶ ◀
+  @if $direction == down {  
+    border-top  : $sizeV solid $color;
+    border-left : $sizeH/2 solid transparent;
+    border-right: $sizeH/2 solid transparent;
+  } @else if $direction == up {
+    border-bottom: $sizeV solid $color;
+    border-left  : $sizeH/2 solid transparent;
+    border-right : $sizeH/2 solid transparent;
+  } @else if $direction == right {
+    border-left  : $sizeH solid $color;
+    border-top   : $sizeV/2 solid transparent;
+    border-bottom: $sizeV/2 solid transparent;
+  } @else if $direction == left {
+    border-right : $sizeH solid $color;
+    border-top   : $sizeV/2 solid transparent;
+    border-bottom: $sizeV/2 solid transparent;
+  
+  // corner triangles : ◥ ◢ ◤ ◣ 
+  } @else if $direction == upright {
+    border-top   : $sizeV/2 solid $color;
+    border-left  : $sizeH/2 solid transparent;
+    border-right : $sizeH/2 solid $color;
+    border-bottom: $sizeV/2 solid transparent;
+  } @else if $direction == downright {
+    border-top   : $sizeV/2 solid transparent;
+    border-left  : $sizeH/2 solid transparent; 
+    border-right : $sizeH/2 solid $color;
+    border-bottom: $sizeV/2 solid $color;
+  } @else if $direction == upleft {
+    border-top   : $sizeV/2 solid $color;
+    border-left  : $sizeH/2 solid $color;
+    border-right : $sizeH/2 solid transparent;
+    border-bottom: $sizeV/2 solid transparent;
+  } @else if $direction == downleft {
+    border-top   : $sizeV/2 solid transparent;
+    border-left  : $sizeH/2 solid $color;
+    border-right : $sizeH/2 solid transparent;
+    border-bottom: $sizeV/2 solid $color;
+  } 
+  // @include bd();
+}
+
+
+
+//  Others
+// -----------------------------------------------
+
+// Applique un hover sauf si touchscreen
+@mixin can-hover() {
+  @media(hover: hover) and (pointer: fine) {
+    @content;
+  } 
+}
+
+
+// Clearfix pour les floats
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+/// Make a context based selector a little more friendly
+/// @author Kitty Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}

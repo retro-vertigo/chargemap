@@ -1,0 +1,132 @@
+// ==============================================
+
+//        FLICKITY THEME CUSTOM UI
+
+// ==============================================
+
+
+.slider-flickity-controls {
+  display: flex;
+  justify-content: center;
+
+  .btn-flickity + .btn-flickity {
+    margin-left: 20px;
+  }
+}
+
+
+//  Buttons prev / next
+//  -- modifiers : --prev, --next
+// -----------------------------------------------
+
+.btn-flickity {
+  @include inline-flex-center();
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border: 1px solid $color-primary-soft;
+  border-radius: 100%;
+  transition: border-color 0.25s linear, opacity 0.25s;
+
+  &[disabled] {
+    opacity: 0.25;
+    pointer-events: none;
+  }
+  
+  &:before {
+    @include pseudo-block(100%, 100%);
+    top: 0;
+    left: 0;
+    border-radius: 100%;
+    background-image: var(--primary-gradient);
+    opacity: 0;
+    transition: all 0.25s linear;
+  }
+
+  @include can-hover() {
+    &:hover,
+    &:focus {
+      border-color: transparent;
+       
+      &:before {
+        opacity: 1;
+      }
+
+      .btn-flickity__icon {
+        fill: white;
+        transform: translateX(2px);
+      }
+
+      &.--prev .btn-flickity__icon {
+        transform: scaleX(-1) translateX(2px);
+      }
+    }
+  }
+
+  .btn-flickity__icon {
+    position: relative;
+    font-size: 20px;
+    fill: $color-primary;
+    transition: fill 0.25s linear, transform 0.25s;
+  }
+
+  &.--prev .btn-flickity__icon {
+    transform: scaleX(-1);
+  }
+}
+
+
+// ==============================================
+//        NATIVE UI
+// ==============================================
+
+
+// Custom Dots
+// -----------------------------------------------
+
+/* position dots in carousel */
+.flickity-page-dots {
+  bottom: initial;
+  top: 100%;
+  padding: 20px 1rem 0 !important;
+}
+/* white circles */
+.flickity-page-dots .dot {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  padding: initial;
+  margin: initial;
+  background-color: transparent;  
+  border-radius: initial;
+  opacity: 1;
+
+  &:before {
+    @include pseudo-block(8px, 8px, $color-primary-soft);
+    position: relative;
+    border-radius: 50%;
+    transition: background-color $trans-duration;
+  }
+
+  @include can-hover() {
+    &:hover,
+    &:focus {
+      &:before {
+        background-color: $color-primary;
+      }
+    }
+  }
+
+  &:only-child {
+    display: none;
+  }
+}
+/* fill-in selected dot */
+.flickity-page-dots .dot.is-selected {
+  &:before {
+    background-color: $color-primary;
+  }
+}

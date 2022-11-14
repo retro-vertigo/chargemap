@@ -1,0 +1,13 @@
+{% if nav_social %}
+	<aside class="nav-social">
+			<ul class="nav-social__menu">
+			{% for item in nav_social.items %}
+				<li class="{{ item.classes | join(' ') }}">
+					<a href="{{ item.link|e('esc_url') }}" target="_blank" rel="noopener" class="nav-social__link" aria-label="{{ item.title }}">
+						<svg class="icon" aria-hidden="true"><use xlink:href="#icon-{{ item.title | lower }}"></use></svg>
+					</a>
+				</li>
+			{% endfor %}
+			</ul>
+	</aside>
+{% endif %}

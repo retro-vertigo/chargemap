@@ -1,0 +1,32 @@
+// ==============================================
+//
+//        VISUAL DEBUGGER
+//
+// ==============================================
+
+
+// Debug box avec background
+@mixin bg($color:#ff0000, $opacity:0.1) {
+  background-color: rgba($color, $opacity);
+}
+
+// Debug box avec outline
+@mixin bd($color:#000000, $opacity:0.15, $thickness:1, $offset:null) {
+  outline: ($thickness * 1px) dotted rgba($color, $opacity);
+  @if $offset { outline-offset: #{$offset}px };
+}
+
+// Debug box pour afficher le breakpoint courant (affiche : xs < 576px)
+@mixin debug-breakpoint($bp-name, $color) {
+  $bp-next: breakpoint-next($bp-name);
+
+  @if $bp-next {
+    $bp-max: map-get($grid-breakpoints, $bp-next);
+    content: '#{$bp-name} < #{$bp-max}';
+  // affiche : xxl > 1600px pour le dernier breakpoint
+  } @else {
+    $bp-min: map-get($grid-breakpoints, $bp-name);
+    content: '#{$bp-name} > #{$bp-min}';
+  }
+  background-color: rgba($color, 0.6);
+}

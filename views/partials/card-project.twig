@@ -1,0 +1,16 @@
+{% import "macros.twig" as macros %}
+
+{# class .reveal-init added when cards loaded with Ajax #}
+{% set class_name = animate_class ?: '' %}
+
+<article class="card-project card-post {{ class_name }}" id="card-project-{{ post_item.ID }}">
+	<a href="{{ post_item.link }}" class="card-post__link">
+
+		<figure class="card-post__figure">
+			{{ macros.get_featured_image( post_item, 'card', 'medium_large' ) }}
+		</figure>
+
+		<h2 class="card-post__title h3">{{ post_item.title }}</h2>
+		<p class="card-post__date">{{ post_item.date }}</p>
+	</a>
+</article>

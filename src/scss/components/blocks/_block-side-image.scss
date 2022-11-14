@@ -1,0 +1,114 @@
+// ==============================================
+
+//        BLOCK SIDE IMAGE - (Home, Agence)
+
+// ==============================================
+
+
+.block-side-image__content {
+  display: flex;
+  justify-content: space-between;
+  // @include bd(red,0.5);
+}
+
+.block-side-image__left {
+  margin-top: 40px;
+  max-width: 615px;
+  margin-left: grid-unit(2);
+}
+
+.block-side-image__subtitle + .block-side-image__text {
+  margin-top: 20px;
+}
+
+.block-side-image__right {
+  display: flex;
+  align-items: center;
+  margin-top: -130px;
+  margin-right: calc(50% - calc(1600px / 2));     // pin image to the right with maximum
+  margin-left: 40px;
+
+  .block-side-image__btn-wrapper {
+    flex-shrink: 0;
+  }
+  
+  .btn-circle {
+    margin-top: -50px;
+    margin-right: -40px;
+  }
+}
+
+
+.block-side-image__figure {
+  flex-shrink: 0;
+  width: 330px;  
+  transform-origin: bottom right;
+  transition: transform 0.25s easeOutQuad;
+
+  .image-wrapper {
+    --rotation-bg: -3deg;
+    @include aspect-ratio(334, 575, false);
+  }
+
+  .motif-rosace-alt {
+    bottom: -38px;
+    left: 65%;
+    opacity: 0.5;
+  }
+}
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(xl) {
+  .block-side-image__right {
+    margin-right: calc(50% - 50vw);
+  }
+  .block-side-image__left {
+    margin-left: grid-unit(1);
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .block-side-image__left {
+    margin-left: initial;
+  }
+  .block-side-image__right {
+    margin-top: initial;
+  }
+  .block-side-image__figure {
+    width: 290px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .block-side-image__content {
+    flex-direction: column;
+    justify-content: initial;
+  }
+  .block-side-image__right {
+    justify-content: center;
+    width: 100%;
+    margin: 75px 0 0;
+  }
+  .block-side-image__figure {
+    width: 250px;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .block-side-image__left {
+    margin-top: 20px;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .block-side-image__right {
+    margin-top: 50px;
+    justify-content: flex-start;
+  }
+  .block-side-image__figure {
+    width: 220px;
+  }
+}

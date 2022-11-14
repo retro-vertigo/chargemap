@@ -1,0 +1,21 @@
+{# Page template - Mentions légales, Politique de confidentialité... #}
+
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	{% include "partials/banner-page-alt.twig" with { fields: fn('get_fields') } %}
+
+	<div class="page-article-wrapper">
+		{% include "partials/bg-block.twig" %}
+
+		<div class="l-container --small --h-padding">
+			<article class="page-article editor-text" data-aos="fade-in" data-aos-delay="100">
+				
+				{{ post.content }}
+			
+			</article>	{# end .page-article #}
+		</div>		{# end .l-container #}
+	</div>		 {# end .page-article-wrapper #}
+	
+{% endblock %}

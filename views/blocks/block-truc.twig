@@ -1,0 +1,39 @@
+{#
+/**
+ * Block Name: Block Truc en plus (Home)
+ *
+ */
+#}
+
+{% import "macros.twig" as macros %}
+
+
+<div class="block-truc-wrapper block-wrapper">
+  <div class="l-container --h-padding">
+    <section class="{{ block.classes }}" id="{{ block.id }}">
+      
+      <h2 class="block-truc__title section-title u-remove-line-break" data-splitting data-aos="title-split-down">{{ fields.title }}</h2>
+      {% if fields.subtitle %}
+          <p class="block-truc__subtitle section-subtitle-orange" data-aos="fade-up" data-aos-delay="100">{{ fields.subtitle }}</p>
+      {% endif %}
+      {% if fields.editor_text %}
+        <div class="block-truc__content" data-aos="fade-up" data-aos-delay="100">
+            <div class="block-truc__text editor-text">{{ fields.editor_text }}</div>
+        </div>
+      {% endif %}
+
+      {% if fields.link %} 
+        <div class="block-truc__btn-wrapper">
+          <a href="{{ fields.link.url|e('esc_url') }}" class="btn-circle" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="300">
+            <h4 class="btn-circle__label">{{ fields.link.title }}</h4>
+          </a>
+        </div> 
+      {% endif %}
+      
+    </section>  {# end .block #}
+  </div>  {# end .l-container #}
+</div>    {# end .block-wrapper #}
+
+
+
+

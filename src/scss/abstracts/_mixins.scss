@@ -1,0 +1,52 @@
+// ==============================================
+
+//        MIXINS / FUNCTIONS INDEX
+
+// ==============================================
+
+
+@import "mixins/bootstrap-breakpoints";
+@import "mixins/bootstrap-functions";
+@import "mixins/colors";
+@import "mixins/layout";
+@import "mixins/typography";
+@import "mixins/lists";
+@import "mixins/quantity-queries";
+@import "mixins/misc";
+@import "mixins/icon-burger";
+@import "mixins/debug";
+
+
+
+//  Mixins theme specifics
+// -----------------------------------------------
+
+@function grid-unit($col, $grid-width:1080px, $col-num:12) {
+  $length: ($grid-width / $col-num) * $col;
+  $pct: percentage($length / $grid-width);
+  // @debug #{$pct};
+  @return $pct;
+}
+
+
+// fake shadow on image with background-image
+@mixin shadow-image() {
+  &:after {
+    @include pseudo-block(100%, 100%);
+    background-image: url(../images/corner-image.png);
+    background-repeat: no-repeat;
+    background-size: 83%;
+    background-position: bottom left;
+    bottom: -12px;
+    left: -10px;
+    opacity: 0.8;
+    transform-origin: bottom left;
+    transform: rotate(-2deg);
+    mix-blend-mode: darken;
+
+    @include media-breakpoint-down(xs) {
+      bottom: -8px;
+      left: -8px;
+    }
+  }
+}

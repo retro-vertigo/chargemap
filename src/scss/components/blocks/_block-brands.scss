@@ -1,0 +1,109 @@
+// ==============================================
+
+//        BLOCK BRANDS - (Notre différence) 
+
+// ==============================================
+
+
+.block-brands__brands {
+  margin-top: 60px;
+  margin-left: grid-unit(1);
+}
+
+.item-brand {
+  display: flex;
+  align-items: flex-start;
+
+  > * {
+    flex-basis: 50%;
+  }
+  // @include bd();
+
+  & + & {
+    margin-top: 100px;
+  }
+
+  &:nth-child(even) {
+    .item-brand__image {
+      order: -1;
+      padding-right: 100px;
+    }
+  }
+}
+
+
+.item-brand__content {
+  padding-right: 2rem;
+}
+
+.item-brand__title {
+  max-width: 342px;
+  margin-top: 60px;
+}
+
+.item-brand__text {
+  max-width: 342px;
+  margin-top: 20px;
+
+  img {
+    display: block;
+    margin-top: 40px;
+  }
+}
+
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(lg) {
+  .block-brands__brands {
+    margin-top: 60px;
+    margin-left: initial;
+  }
+  .item-brand__title {
+    margin-top: 40px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .block-brands__brands {
+    margin-top: 40px;
+  }
+  .item-brand {
+    display: block;
+
+    & + & {
+      margin-top: 50px;
+    }
+  
+    &:nth-child(even) {
+      .item-brand__image {
+        padding-right: initial;
+      }
+    }
+  }
+
+  .item-brand__content {
+    padding-right: initial;
+  }
+  .item-brand__title {
+    margin-top: initial;
+  }
+  .item-brand__text {
+    max-width: 450px;
+  }
+
+  .item-brand__image {
+    margin-top: 50px;
+  }
+  .item-brand__figure {
+    max-width: 450px;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .item-brand__image {
+    margin-top: 25px;
+  }
+}

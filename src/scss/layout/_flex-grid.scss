@@ -1,0 +1,67 @@
+// ==============================================
+
+//        GRID LAYOUT WITH FLEXBOX
+
+// ==============================================
+
+
+
+//  Flex Grid container (split margins system)
+//  Column classes on container : col-2, col-sm-2, col-lg-2...
+//  - modifiers : --list, --no-gutter, --align-top, --align-middle, --align-bottom
+// -----------------------------------------------
+
+.l-flex-grid  {
+  --gutter-width: 1rem;
+  --gutter-half-width: calc(var(--gutter-width) / 2);
+  --gutter-height: var(--gutter-width);
+  --col-width: calc((100% - var(--gutter-width) * var(--col-num)) / var(--col-num));
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc(var(--gutter-half-width) * -1);
+  // margin-left: calc(var(--gutter-half-width) * -1);
+  // margin-left: calc(var(--gutter-half-width) * -1);
+  // margin-right: calc(var(--gutter-half-width) * -1);
+  // margin-top: calc(var(--gutter-half-width) * -1);
+  // margin-bottom: calc(var(--gutter-half-width) * -1);
+  
+  > * {
+    width: var(--col-width);
+    margin: var(--gutter-half-width);
+    // margin-left: var(--gutter-half-width);
+    // margin-right: var(--gutter-half-width);
+    // margin-top: var(--gutter-half-width);
+    // margin-bottom: var(--gutter-half-width);
+    // margin-top: var(--gutter-height);
+    // margin-bottom: var(--gutter-height);
+  }
+  
+  // for each breakpoint, and each column num, create a column class
+  // grid avalaible up to 4 columns
+  $col-max: 4;
+  @each $bp, $value in $grid-breakpoints {
+    @include media-breakpoint-up($bp) {
+      $bp-prefix: if($bp != xs, -#{$bp}, '');     // no prefix for xs breakpoint, class is "col-2", "col-3"... not "col-xs-2"...
+      @for $col from 1 through $col-max {
+        &.col#{$bp-prefix}-#{$col} {
+          --col-num: #{$col};
+        }
+      }
+    }
+  }
+
+  // -modifiers
+  &.--list { @include list-bare(); }
+  &.--no-gutter { --gutter-width: 0px; }
+
+  // horizontal alignement of cards in grid
+  &.--align-center { justify-content: center; } 
+  &.--align-left { justify-content: flex-start; } 
+  &.--align-right { justify-content: flex-end; } 
+
+  // vertical alignement of cards in grid
+  &.--align-top { align-items: flex-start; } 
+  &.--align-middle { align-items: center; } 
+  &.--align-bottom { align-items: flex-end; } 
+}
+

@@ -1,0 +1,55 @@
+// ==============================================
+
+//        BLOCK HOME - TRUC EN PLUS
+
+// ==============================================
+
+
+.block-truc__title {
+  margin-left: grid-unit(1);
+}
+
+.block-truc__subtitle {
+  max-width: 690px;
+  margin-top: 20px;
+  margin-left: grid-unit(1);
+}
+
+.block-truc__content {
+  max-width: 615px;
+  margin-top: 20px;
+  margin-left: auto;
+}
+
+.block-truc__btn-wrapper {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  text-align: center;
+}
+
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+
+@include media-breakpoint-down(md) {
+  .block-truc__btn-wrapper {
+    position: initial;
+    margin-top: 50px;
+  }
+  .block-truc__title,
+  .block-truc__subtitle {
+    margin-left: initial;
+  }
+  .block-truc__content {
+    margin-left: grid-unit(1);
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .block-truc__content {
+    margin-left: initial;
+  }
+}

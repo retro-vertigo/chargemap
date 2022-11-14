@@ -1,0 +1,164 @@
+// ==============================================
+//
+//        LAYOUT
+//
+// ==============================================
+
+
+
+//  Centering
+// -----------------------------------------------
+
+// Centre un élément en absolue (le parent doit être positionné)
+@mixin absolute-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/// Flex container centré 
+/// @param {String} $direction [null -> row] - flex-direction (row ou column)
+/// @param {String} $align [hv] - alignement (hv, h ou v)
+@mixin flex-center($direction: null, $align: hv) {
+  display: flex;
+  @include flex-dir-align($direction, $align);
+}
+
+// Inline-flex container centré 
+@mixin inline-flex-center($direction: null, $align: hv) {
+  display: inline-flex;
+  @include flex-dir-align($direction, $align);
+}
+
+// Applique flex-direction, align-items, justify-content en fonction de type d'alignement (utlisé dans @flex-center, @inline-flex-center)
+@mixin flex-dir-align($direction: null, $align: hv) {
+  @if $direction { flex-direction: $direction; }    // flex-direction: row par défaut
+  
+  @if $align == hv { 
+    justify-content: center;
+    align-items: center;
+  } @else if $align == h {
+    @if $direction != column {
+      justify-content: center;
+    } @else {
+      align-items: center;
+    }
+  } @else if $align == v {
+    @if $direction != column {
+      align-items: center;
+    } @else {
+      justify-content: center;
+    }
+  } @else {
+    @error "Value '#{$align}' for $align parameter is invalid (must be 'h', 'v' or 'hv').";
+  }
+}
+
+
+/// Crée un aspect-ratio avec un pseudo-element 
+/// @example @include aspect-ratio();  -> No arguments defaults to a 1:1 ratio
+/// @example @include aspect-ratio(1,77);  -> Ratio calculated from width / height
+/// @example @include aspect-ratio(16, 9);  -> Width and height
+// 1:1 aspect ratio = 1 / 1 = 1 -> padding-top: 100%
+// 4:3 aspect ratio = 3 / 4 = 0.75 -> padding-top: 75%
+// 3:2 aspect ratio = 2 / 3 = 0.66666 -> padding-top: 66.67%
+// 16:9 aspect ratio = 9 / 16 = 0.5625 -> padding-top: 56.25%
+@mixin aspect-ratio($width-or-ratio: 1, $height: null, $pull-children: true) {
+  position: relative;
+  
+  &:before {
+    content: '';
+    display: block;
+    $padding: if($height, percentage($height/$width-or-ratio), percentage(1/$width-or-ratio));
+    padding-top: $padding;
+  }
+
+  // Remonte les enfants dans le container
+  @if $pull-children {
+    > * {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+
+// Élement en absolue étiré dans son parent 
+@mixin coverer($bg-color: null) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @if $bg-color { background-color: $bg-color;  }
+}
+
+// Pseudo-block en absolue et dimensionné 
+@mixin pseudo-block($width, $height, $bg-color: null) {
+  content: '';
+  position: absolute;
+  width: $width;
+  height: $height;
+  @if $bg-color { background-color: $bg-color;  }
+}
+
+// Pseudo-block en absolue et étiré dans son parent 
+@mixin pseudo-block-cover($bg-color: null) {
+  @include coverer($bg-color);
+  content: '';
+}
+
+
+//  Object-fit
+// -----------------------------------------------
+
+// Image en absolue étirée dans son parent avec object-fit
+@mixin bg-cover($fit-value: cover) {
+  @include coverer();
+  object-fit: $fit-value;
+}
+
+// Image statique étirée dans son parent avec object-fit
+@mixin image-cover($fit-value: cover) {
+  width: 100%;
+  height: 100%;
+  object-fit: $fit-value;
+}
+
+
+// Applique un padding vertical (top / bottom)
+@mixin v-padding($padding-top, $padding-bottom: $padding-top) {
+  padding-top: $padding-top;
+  padding-bottom: $padding-bottom;
+}
+
+
+
+//  Z-layer system
+// -----------------------------------------------
+
+// Applique un z-index défini à partir de la map de config
+@function z($layer) {
+  @if not map-has-key($z-layers, $layer) {
+    @warn "No z-index found in $z-layers map for `#{$layer}`. Property omitted.";
+  }
+
+  @return map-get($z-layers, $layer);
+}
+
+
+//  CSS Grid
+// -----------------------------------------------
+
+// Grille avec un nombre de colonne calculé automatiquement à partir d'une largeur minimum de colonne 
+@mixin auto-grid($min-width, $gap, $auto-mode: auto-fill) {
+  --min-width: #{$min-width};
+  --gap: #{$gap};
+  display: grid;
+  grid-gap: var(--gap);
+  grid-template-columns: repeat($auto-mode, minmax(var(--min-width), 1fr));
+}

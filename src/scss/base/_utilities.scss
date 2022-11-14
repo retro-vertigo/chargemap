@@ -1,0 +1,184 @@
+// ==============================================
+
+//        HELPERS CLASSES
+
+// ==============================================
+
+
+//  Typography
+// -----------------------------------------------
+
+.u-text-left {    text-align: left;   }
+.u-text-right {   text-align: right;    }
+.u-text-center {  text-align: center;   }
+
+.u-align-top {        vertical-align: top;    }
+.u-align-bottom {     vertical-align: bottom;   }
+.u-align-middle {     vertical-align: middle;   }
+.u-align-baseline {   vertical-align: baseline; }
+
+.u-lowercase {      text-transform: unset;    }
+.u-uppercase {      text-transform: uppercase;    }
+.u-capitalize {     text-transform: capitalize;   }
+
+
+.u-truncate {
+  @include truncate();
+}
+.u-truncate-multiline {
+  @include truncate-multiline(3);
+}
+.u-break-word {
+  word-wrap: break-word;
+}
+
+// !! note !! 
+// word-wrap = overflow-wrap
+// word-wrap: utilisé pour toutes les langues
+// word-break: utilisé avec les langues "exotiques"
+
+.u-nowrap {
+  white-space: nowrap;
+}
+
+      // Supprime les <br> sur mobile
+      .u-break-space {
+        @include media-breakpoint-down(xs) {
+          display: none;
+        }
+      }
+
+
+// Supprime les <br> à partir d'un breakpoint
+.u-remove-line-break {
+  @include remove-line-break();
+}
+
+
+//  Lists
+// -----------------------------------------------
+
+.u-list-bare {
+  @include list-bare();
+}
+
+
+
+//  Layout
+// -----------------------------------------------
+
+.u-bg-cover {
+  @include bg-cover();
+}
+
+.u-bg-contain {
+  @include bg-cover(contain);
+}
+
+
+//  Hide
+// -----------------------------------------------
+
+.is-hidden {
+  display: none !important;
+}
+
+.is-invisible {
+  visibility: hidden !important;
+}
+
+.u-visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+
+//  Others
+// -----------------------------------------------
+
+// Désactive le scroll du body scroll quand le menu responsive est ouvert
+.u-no-scroll {
+  overflow: hidden;
+}
+
+
+
+
+.u-color-primary-medium {
+  color: $color-primary-medium !important;
+}
+
+
+
+
+// //  Spacer classes for margin and padding
+// // -----------------------------------------------
+
+$spacer-properties: (
+  mb : margin-bottom,
+  mt : margin-top,
+  ml : margin-left,
+  mr : margin-right,
+  pb : padding-bottom,
+  pt : padding-top,
+  pl : padding-left,
+  pr : padding-right,
+) !default;
+
+$spacer-scale-values: (
+  1 : calc(var(--spacer) * 0.25),
+  2 : calc(var(--spacer) * 0.5),
+  3 : var(--spacer),
+  4 : calc(var(--spacer) * 1.5),
+  5 : calc(var(--spacer) * 2),
+  6 : calc(var(--spacer) * 3),
+) !default;
+
+
+// output : margin-bottom: calc(var(--spacer) * 2);
+@mixin set-space($prop-short, $scale) {
+
+  @if not map-has-key($spacer-properties, $prop-short) {
+    @error "No value found in $spacer-properties map for `#{$prop-short}`. Property omitted.";
+  }
+  $prop: map-get($spacer-properties, $prop-short);
+
+  @if not map-has-key($spacer-scale-values, $scale) {
+    @warn "No value found in $spacer-scale-values map for `#{$scale}`. Property omitted.";
+  }
+  $value: map-get($spacer-scale-values, $scale);
+
+  #{$prop}: $value;
+}
+
+
+.mt {     @include set-space(mt, 3);    }   // alias for default margin
+.mt-1 {     @include set-space(mt, 1);    }
+.mt-2 {     @include set-space(mt, 2);    }
+.mt-3 {     @include set-space(mt, 3);    }
+.mt-4 {     @include set-space(mt, 4);    }
+.mt-5 {     @include set-space(mt, 5);    }
+.mt-6 {     @include set-space(mt, 6);    }
+
+.mb {     @include set-space(mb, 3);    }   // alias for default margin
+.mb-1 {     @include set-space(mb, 1);    }
+.mb-2 {     @include set-space(mb, 2);    }
+.mb-3 {     @include set-space(mb, 3);    }
+.mb-4 {     @include set-space(mb, 4);    }
+.mb-5 {     @include set-space(mb, 5);    }
+.mb-6 {     @include set-space(mb, 6);    }
+
+.my {     @include set-space(mb, 3);  @include set-space(mt, 3);    }
+.mx {     @include set-space(ml, 3);  @include set-space(ml, 3);    }
+
+.py {     @include set-space(pb, 3);  @include set-space(pt, 3);    }
+.py-5 {     @include set-space(pb, 5);  @include set-space(pt, 5);    }
+.px {     @include set-space(pl, 3);  @include set-space(pr, 3);    }
+.px-5 {     @include set-space(pl, 5);  @include set-space(pr, 5);    }
+
+

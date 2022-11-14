@@ -1,0 +1,36 @@
+// ==============================================
+
+//        UNUSED MIXINS, FUNCTIONS...
+
+// ==============================================
+
+// **** > dans functions
+//  
+// Functions for calcluating spaces
+// Inspired By: http://goo.gl/elchyz
+//
+// .css {
+//  margin-top: quarter($base-space-unit); // => margin-top: 0.25em;
+// }
+
+@function quarter($value)   { @return $value / 4; }
+@function halve($value)     { @return $value / 2; }
+@function halve($value)     { @return $value / 2; }
+
+@function double($value)    { @return $value * 2; }
+@function threefold($value) { @return $value * 3; }
+@function quadruple($value) { @return $value * 4; }
+
+
+//
+// Margin All
+//
+$base-space-unit : 1rem;
+.margin-none      { margin: 0; }
+.margin-quarter   { margin: quarter($base-space-unit); }
+.margin-half      { margin: halve($base-space-unit); }
+.margin-one       { margin: $base-space-unit; }
+.margin-two       { margin: double($base-space-unit); }
+.margin-three     { margin: threefold($base-space-unit); }
+.margin-four      { margin: quadruple($base-space-unit); }
+

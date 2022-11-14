@@ -1,0 +1,131 @@
+// ==============================================
+
+//       FORM NEWSLETTER
+
+// ==============================================
+
+
+.sib_signup_form {
+  margin-top: 20px;
+
+  .btn {
+    margin-top: 28px;
+  }
+}
+
+.sib-email-area {
+  label {
+    display: block;
+  }
+
+  input {
+    width: 100%;
+    height: 60px;
+    padding: 0 12px;
+    border: 1px solid white;
+    color: white;
+    background-color: transparent;
+    transition: color $trans-duration-fast, border-color $trans-duration-fast, box-shadow $trans-duration-fast;
+  
+    &:focus {
+      border-color: $color-secondary;
+    }
+  }
+}
+
+
+.sib-consent-area {
+  --checkbox-size: 22px;
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  align-items: flex-start;
+
+  label {
+    position: relative;
+    display: block;
+    margin-bottom: 0;
+    padding-left: calc(var(--checkbox-size) + 20px);
+    font-size: 15px;
+    color: $color-grey;
+    cursor: pointer;
+  
+    &:hover:before {
+      border-color: $color-secondary;
+    }
+    
+    &:before,
+    &:after {
+      @include pseudo-block(var(--checkbox-size), var(--checkbox-size));
+      top: 5px;
+      left: 0;
+    }
+  
+    // checkbox border
+    &:before {
+      border: 1px solid $color-grey;
+      transition: box-shadow 0.2s, border-color $trans-duration linear, background-color $trans-duration-fast;
+    }
+    
+    // checkbox tick
+    &:after {
+      background-image: url(../svg/icon-checkmark.svg);
+      background-repeat: no-repeat;
+      background-position: center 51%;
+      background-size: 60%;
+      transform: scale(0.9);
+      opacity: 0;
+      transition: opacity $trans-duration-fast, transform $trans-duration-fast;
+      will-change: transform;
+    }
+  }
+  
+  // native checkbox visually hidden
+  input[type=checkbox] {
+    position: absolute;
+    width: var(--checkbox-size);
+    height: var(--checkbox-size);
+    opacity: 0;
+  
+    &:checked + label:after {
+      transform: scale(1);
+      opacity: 1;
+    }
+    &:checked + label:before {
+      border-color: $color-secondary;
+      background-color: $color-secondary;
+    }
+    &:focus + label:before {
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.3);
+    }
+    &:focus:not(:focus-visible) + label:before {
+      box-shadow: unset;
+    }
+  }
+}
+
+
+body form#sib_signup_form_1 p.sib-alert-message {
+  padding: 8px 12px;
+  border: initial;
+  border-radius: initial;
+}
+
+body form#sib_signup_form_1 p.sib-alert-message-success {
+  background-color: $color-secondary;
+  border-color: initial;
+  color: white;
+}
+
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(lg) {
+  
+}
+
+@include media-breakpoint-down(xs) {
+  
+}

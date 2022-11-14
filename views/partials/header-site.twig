@@ -1,0 +1,39 @@
+<header class="header-site" id="header-site">
+
+	<div class="l-container --large">
+    <div class="header-site__inner">
+
+      <a href="{{ site.url }}" class="header-brand-rosace" aria-label="Accueil">
+        <img src="{{ svg_link }}external/logo-rosace.svg" alt="Nuances événements" aria-hidden="true">
+      </a>
+      <a href="{{ site.url }}" class="header-brand-text" aria-label="Accueil">
+        <img src="{{ svg_link }}external/logo-text.svg" alt="Nuances événements" aria-hidden="true">
+      </a>
+
+      <div class="nav-responsive-container" id="nav-responsive-container">
+
+				{# {% include "partials/nav-primary.twig" %}
+
+				{% include "partials/nav-social.twig" %} #}
+
+				{% if acf_options.page_contact %}
+					<a href="{{ TimberPost(acf_options.page_contact).link }}" class="btn-contact" aria-label="Contact">
+						<svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail"></use></svg>
+					</a>
+				{% endif %}
+        
+      </div>
+
+      <button class="btn-burger d-lg-none" id="btn-burger" aria-label="menu">
+        <span class="btn-burger__icon">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+    </div>
+  </div>
+</header>

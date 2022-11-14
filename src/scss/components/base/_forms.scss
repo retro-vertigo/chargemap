@@ -1,0 +1,36 @@
+// ==============================================
+
+//        FORMS UI
+
+// ==============================================
+
+
+//  Common reset
+// -----------------------------------------------
+
+input,
+textarea,
+select {
+  outline: 0;
+
+  &:-webkit-autofill {
+    -webkit-text-fill-color: $color-light-black !important;
+    caret-color: $color-light-black !important;
+    box-shadow: 0 0 0 100px white inset !important;
+
+    // hack when background with gradient, image etc...
+    // background-color: transparent !important;
+    // transition: background-color 5000s 0s;
+  }
+
+  // remove FF default style for required inputs
+  &:invalid {
+    box-shadow: unset;
+  }
+}
+
+// remove on Safari
+select {
+  border-radius: 0;
+}
+

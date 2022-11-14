@@ -1,0 +1,123 @@
+// ==============================================
+
+//        BLOCK ACCORDION - (Notre différence) 
+
+// ==============================================
+
+
+.block-accordion__list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+
+//  Item accordion
+// -----------------------------------------------
+
+.item-client {
+  border-top: 1px solid $color-primary-soft;
+  
+  &:last-child {
+    border-bottom: 1px solid $color-primary-soft;
+  }
+}
+
+.item-client__header {
+  padding: 60px 0 40px grid-unit(1);
+}
+
+.item-client__header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.item-client__title {
+  padding-right: 2rem;
+}
+.item-client__subtitle {
+  max-width: 710px;
+  margin-top: 20px;
+  color: $color-primary-soft;
+}
+.item-client__arrow {
+  flex-shrink: 0;
+  @include flex-center();
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  border: 1px solid $color-primary-soft;
+  color: $color-primary;
+
+  .icon {
+    font-size: 20px;
+    fill: currentColor;
+  }
+}
+
+.item-client__services {
+  padding-left: grid-unit(1);
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+  
+  > * {
+    flex-basis: 50%;
+  }
+}
+
+
+
+.item-service {
+  padding-bottom: 40px;
+  padding-right: 2rem;
+}
+
+.item-service__name {
+  text-transform: initial;
+}
+
+.item-service__desc {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(md) {
+  .item-client__header {
+    padding: 40px 0 40px 0;
+  }
+  .item-client__services {
+    display: block;
+    padding-left: initial;
+  }
+  .item-service {
+    padding-right: initial;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .item-client__arrow {
+    width: 40px;
+    height: 40px;
+
+    .icon {
+      font-size: 16px;
+    }
+  }
+  .item-service {
+    padding-bottom: 20px;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .item-client__header {
+    padding: 30px 0;
+  }
+}

@@ -1,0 +1,9 @@
+{% set class_name = modifier_class ?: '' %}
+
+<div class="bg-block {{ class_name }}">
+	<picture>
+    <source media="(max-width: 767px)" srcset="{{ image_link }}bg-block-sm.jpg">
+    <img src="{{ image_link }}bg-block.jpg" alt="" aria-hidden="true" width="1440" height="824">
+  </picture> 
+</div>
+

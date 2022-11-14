@@ -1,0 +1,28 @@
+{# Page template - Contact #}
+
+{% import "macros.twig" as macros %}
+
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	{% include "partials/banner-page-alt.twig" with { fields: fn('get_fields') } %}
+
+	<div class="page-contact-wrapper">
+		{% include "partials/bg-block.twig" %}
+	
+		<div class="l-container --h-padding">
+			<div class="page-contact" data-aos="fade-in" data-aos-delay="100">
+
+				<div class="form-wrapper js-form-wrapper">
+					{% if acf_options.gf_form_id %}
+						{% set shortcode = "[gravityform id='"~acf_options.gf_form_id~"' title='false' description='false' ajax='false']" %}
+						{{ fn('do_shortcode', shortcode) }}
+					{% endif %}
+        </div>
+			
+			</div>	{# end .page-contact #}
+		</div>		{# end .l-container #}
+	</div>		 {# end .page-contact-wrapper #}
+	
+{% endblock %}

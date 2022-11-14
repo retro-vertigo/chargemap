@@ -1,0 +1,176 @@
+
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
+@import 'vendors/bootstrap/utilities/bootstrap-display'; 
+@import 'base/reboot';
+@import 'base/font-face';
+@import 'base/typography';
+
+// ==============================================
+
+//        STYLES EMBED INLINE IN GUTENBERG EDITOR
+
+// ==============================================
+
+
+
+//  Typography override
+// -----------------------------------------------
+
+// body replaced by .editor-styles-wrapper
+// normalize page title
+.editor-post-title__block .editor-post-title__input {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: black;
+}
+
+// body replaced by .editor-styles-wrapper
+
+.editor-post-title__block .editor-post-title__input {
+  font-family: $font-title;
+  font-size: 36px;
+  text-align: center;
+}
+
+
+
+
+
+// ==============================================
+
+//        OVERRIDE BLOCK STYLES RULES
+
+// ==============================================
+
+
+// .block.block-hero,
+// .block.block-hero-text,
+// .block.block-media,
+// .block.block-buttons,
+// .block.block-keyfigures,
+// .block.block-cta,
+// .block.block-video,
+// .block.block-card-job,
+// .block.block-testimonial,
+// .block.block-intro,
+// .block.block-text {
+//   padding-top: 0;
+// }
+  
+// disable click on editor (but show hover)
+.block .btn-circle,
+.card-post__link {
+  cursor: not-allowed;
+
+  &:active {
+    pointer-events: none;
+  }
+}
+
+
+// ==============================================
+
+//        GUTENBERG DEFAULT BLOCK STYLES
+
+// ==============================================
+
+.wp-block-paragraph {
+  line-height: 1.4;
+}
+
+// default padding in gutenberg block is 30px (2x 15px)
+.wp-block[data-type^="acf/"] {
+  max-width: calc(1200px + 30px);
+}
+
+
+// /* Width of "wide" blocks */
+// .wp-block[data-align="wide"] {
+//   max-width: 1080px;
+// }
+
+// /* Width of "full-wide" blocks */
+// .wp-block[data-align="full"] {
+//   max-width: none;
+// }
+
+
+// Override default wp block styles
+h2.wp-block-heading {
+  margin-top: 1.18em;
+  margin-bottom: 0.8em;
+}
+
+h3.wp-block-heading {
+  margin-top: 1.18em;
+  margin-bottom: 0.6em;
+  color: $color-primary-medium;
+}
+
+h4.wp-block-heading {
+  margin-bottom: 0.65em;
+}
+
+p.wp-block-paragraph {
+  margin-bottom: 1.11em;
+
+  a {
+    color: $color-secondary;
+    text-decoration: underline;
+
+    &:hover {
+      color: $color-secondary-dark;
+    }
+  }
+}
+
+
+
+//  Gutenberg styles
+// -----------------------------------------------
+
+#tinymce {
+  padding: 1rem;
+  h2,
+  h3,
+  h4 {
+    margin-bottom: 1em;
+  }
+
+  a {
+    color: $color-secondary;
+    text-decoration: underline;
+
+    &:hover {
+      color: $color-secondary-dark;
+    }
+  }
+}
+
+.tiny-mce-compact .acf-editor-wrap iframe {
+  min-height: 0 !important;
+  max-height: 80px;
+}
+
+.tiny-mce-compact-medium .acf-editor-wrap iframe {
+  min-height: 0 !important;
+  max-height: 120px;
+}
+
+// show block frame on hover
+.block-editor-block-list__block:not(.is-selected) .block-wrapper {
+  transition: box-shadow 0.15s;
+  box-shadow: 0 0 0 4px rgba($color-grey, 0.1);
+
+  &:hover {
+    box-shadow: 0 0 0 4px rgba($color-grey, 0.25);
+  }
+}
+
+.acf-field[data-type="message"] {
+  background-color: #fffcef;
+}
+
+.acf-gallery {
+  height: 300px !important;
+}

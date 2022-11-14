@@ -1,0 +1,63 @@
+// ==============================================
+//
+//        TYPOGRAPHY
+//
+// ==============================================
+
+//- Mixin: Fluid Type
+///
+/// Magic calc + vh to allow text to be fluid between minimum
+/// and maximum breakpoints.
+///
+/// @group typography
+/// @param {variable} $min-font-size - Minimum font size
+/// @param {variable} $max-font-size - Maximum font size
+/// @param {variable} $lower-range - Stop scaling font smaller at this screen resolution
+/// @param {variable} $upper-range - Stop scaling font larger at this screen resolution
+/// @example
+///   h1 {
+///     @include responsive-type(20px, 48px, 576px, 1200px);
+///   }
+///   h2 {
+///      @include fluid-type(20px, 48px, breakpoint-min(sm), breakpoint-min(xl));   // with bootstrap breakpoints
+///   }
+/// @site https://madebymike.com.au/writing/precise-control-responsive-typography/
+
+@mixin fluid-type($min-font-size, $max-font-size, $lower-range, $upper-range) {
+
+  font-size: calc(#{$min-font-size} + #{(($max-font-size / ($max-font-size * 0 + 1)) - ($min-font-size / ($min-font-size * 0 + 1)))} * ( (100vw - #{$lower-range}) / #{(($upper-range / ($upper-range * 0 + 1)) - ($lower-range / ($lower-range * 0 + 1)))}));
+
+  @media screen and (max-width: $lower-range) {
+    font-size: $min-font-size;
+  }
+  @media screen and (min-width: $upper-range){
+    font-size: $max-font-size;
+  }
+}
+
+
+
+// Tronque une ligne de texte (avec ...)
+@mixin truncate() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// Tronque pliusieurs lignes de texte (IE non supporté)
+@mixin truncate-multiline($number-of-lines:3) {
+  display: -webkit-box;
+  -webkit-line-clamp: $number-of-lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+// Supprime les <br> à partir d'un breakpoint
+@mixin remove-line-break($breakpoint: xs) {
+  @include media-breakpoint-down($breakpoint) {
+    br {
+      display: none;
+    }
+  }
+}

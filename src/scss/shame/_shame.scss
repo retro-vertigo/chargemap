@@ -1,0 +1,126 @@
+// ==============================================
+
+//        SHAME
+
+// ==============================================
+
+// Debug box pour afficher le breakpoint courant
+.rwd-status {
+  position: fixed; 
+  top:0; 
+  left:0; 
+  z-index: 999;
+  font-size: 14px;
+  color: black;
+
+  &:after { 
+    @include debug-breakpoint('xs', #ffe082);
+    display: inline-block;
+    padding: 2px 8px;
+
+    @include media-breakpoint-up(sm) {
+      @include debug-breakpoint('sm', #c5e1a5);
+    }
+    @include media-breakpoint-up(md) {
+      @include debug-breakpoint('md', #80deea);
+    }
+    @include media-breakpoint-up(lg) {
+      @include debug-breakpoint('lg', #9fa8da);
+    }
+    @include media-breakpoint-up(xl) {
+      @include debug-breakpoint('xl', #f48fb1);
+    }
+    @include media-breakpoint-up(xxl) {
+      @include debug-breakpoint('xxl', #ffab91);
+    }
+  }
+}
+
+
+// .gridline {
+//   @include bd(orange,0.8,1);
+// }
+
+// .l-container {
+//   @include bg(red);
+
+
+//   &.--medium {
+//     @include bg(green);
+//   }
+// }
+
+
+/*
+
+
+<div class="l-container --medium --h-padding">
+  <ul class="qq-wrapper">
+    <li>
+      <span>Item 1</span>
+    </li>
+    <li>
+      <span>Item 2</span>
+    </li>
+    <li>
+      <span>Item 3 avec du texte un peu plus logn pour voir</span>
+    </li>
+    <li>
+      <span>Item 4</span>
+    </li>
+    <li>
+      <span>Item 5</span>
+    </li>
+    <li>
+      <span>Item 6</span>
+    </li>
+    <li>
+      <span>Item 7</span>
+    </li>
+  </ul>
+</div>
+
+*/
+
+// .qq-wrapper {
+//   @include bd();
+//   @include list-no-bullets();
+//   @include auto-grid(200px, 1rem);
+//   padding: 0;
+//   margin: 0;
+
+//   li {
+//     padding: 0.5rem 2rem;
+//     font-weight: 700;
+//     background-color: $color-light-white;
+//   }
+  
+// }
+
+// .qq-wrapper {
+//   @include list-flex();
+//   @include bd();
+//   padding: 1rem;
+//   background-color: $color-light-white;
+
+//   li {
+//     padding: 0.5rem 2rem;
+//     background-color: #ccc;
+//     font-size: 16px;
+//     font-weight: 700;
+//     color: white;
+
+//     & + li {
+//       margin-left: 1rem;
+//     }
+
+//     // @include at-least(4, 'li') { // four or more
+//     //   background-color: $color-primary;
+//     // }
+
+//     // @include divisible-by(3) { // four or less
+//     @include between(3,5) { // four or less
+//       background-color: $color-secondary;
+//     }
+//   }
+// }

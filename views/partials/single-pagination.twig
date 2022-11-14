@@ -1,0 +1,27 @@
+<div class="l-container --h-padding">
+    <nav class="nav-pagination" aria-label="Pagination">
+
+        {% if post.prev.link is not empty %}
+            <a href="{{post.prev.link}}" class="btn-pagination --prev">
+                <span class="btn-pagination__arrow" aria-hidden="true">
+                    <svg class="icon"><use xlink:href="#icon-arrow"></use></svg>
+                </span>
+                <span class="btn-pagination__label">{{ txt_prev_post }}</span>
+            </a>
+        {% endif %}
+
+        {% if url_all_posts %}
+            <a href="{{ url_all_posts }}" class="btn-all-posts">{{ txt_all_posts }}</a>
+        {% endif %}
+        
+        {% if post.next.link is not empty %}
+            <a href="{{post.next.link}}" class="btn-pagination --next">
+                <span class="btn-pagination__label">{{ txt_next_post }}</span>
+                <span class="btn-pagination__arrow" aria-hidden="true">
+                    <svg class="icon"><use xlink:href="#icon-arrow"></use></svg>
+                </span>
+            </a>
+        {% endif %}
+
+    </nav>
+</div>

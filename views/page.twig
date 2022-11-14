@@ -1,0 +1,20 @@
+{# Page - Home, Agence, Notre différence #}
+
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	{# {% include "partials/banner-page.twig" with { 'fields': fn('get_fields') } %} #}
+
+	<div class="l-container">
+		<h1>Lorem ipsum dolor sit amet.</h1>
+		<h2>Lorem ipsum dolor sit.</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit repellat nobis, aperiam maxime error ea eius, modi sequi vitae tempore temporibus iste placeat, exercitationem amet deleniti esse voluptas! Fugit perspiciatis voluptates porro vel unde repellendus ex sint voluptate eaque odio, quisquam facere saepe facilis illo doloremque atque quidem cum veniam.</p>
+
+		<a href="#" class="btn">En savoir plus</a>
+	</div>
+
+
+	{{ post.content }}
+	
+{% endblock %}

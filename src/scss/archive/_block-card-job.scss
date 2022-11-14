@@ -1,0 +1,45 @@
+// ==============================================
+
+//        BLOCK INTRO
+
+// ==============================================
+
+
+.block-card-job {
+  padding-top: 100px;
+}
+
+
+.block-card-job__inner {
+  z-index: 1;
+}
+
+
+.block-card-job .card-job {
+  grid-column: 3 / -3;   
+}
+
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(lg) {
+  .block-card-job .card-job {
+    grid-column: 2 / -2;   
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .block-card-job {
+    padding-top: 40px;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .block-card-job .card-job {
+    grid-column: 1 / -1;  
+    padding: 0 var(--container-padding);
+  }
+}
+

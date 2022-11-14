@@ -1,0 +1,41 @@
+{#
+/**
+ * Banner (Single post)
+ *
+ */
+#}
+
+{% import "macros.twig" as macros %}
+
+
+<div class="banner-single-post-wrapper banner-wrapper">
+  <div class="l-container --h-padding">
+    <section class="banner-single-post">
+
+      <div class="banner-single-post__inner">
+        <div class="banner-single-post__heading">
+          <time class="banner-single-post__date" datetime="{{ post.date('Y-m-d') }}">{{ post.date }}</time>
+          <h1 class="banner-single-post__title section-title" data-splitting data-aos="title-split-down">{{ post.title }}</h1>
+          
+          <div class="banner-single-post__metas" data-aos="fade-up-smooth" data-aos-delay="500" data-aos-anchor-placement=".banner-wrapper">
+            <div class="banner-single-post__author">
+              {{ fn( 'get_avatar', post.author.ID, 42 ) }}
+              <span>{{ post.author.name }}</span>
+            </div>
+
+            {% include "partials/box-share.twig" %}
+          </div>
+        </div>
+
+        <figure class="banner-single-post__figure image-figure" data-aos="slide-image-big" data-aos-delay="600" data-aos-anchor-placement=".banner-wrapper">
+          <div class="image-wrapper --aspect-ratio --box-shadow --bg-shadow --rotated">
+            <svg class="motif-rosace"><use xlink:href="#rosace"></use></svg>
+            {{ macros.get_featured_image( post, 'banner', 'large' ) }}
+          </div>
+        </figure>
+        
+      </div>  {# end .banner-XXX-inner #}
+      
+    </section>  {# end .banner-XXX #}
+  </div>  {# end .l-container #}
+</div>    {# end .banner-XXX-wrapper #}

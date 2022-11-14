@@ -1,0 +1,126 @@
+// ==============================================
+
+//        SLIDER FLICKITY
+
+// ==============================================
+
+
+//  Slider
+// -----------------------------------------------
+
+.block-slider-flickity {
+  padding: 2rem 0;
+}
+
+.slider-flickity {
+  position: relative;
+  padding: 0 1rem;
+  background-color: $color-light-grey;
+
+  // prevent FOUC on load
+  opacity: 0;
+  transition: opacity 0.4s;
+
+  &.flickity-enabled {
+    opacity: 1;
+  }
+
+  .flickity-slider > * + * {
+    margin-left: 10px;
+  }
+}
+
+.slide-flickity {
+  @include aspect-ratio(16/9);   // or ratio 1.4 (380/270)
+  //
+  width: 100%;
+  background-color: #dddddd;
+
+  &.is-selected {
+    .slide-flickity__content:after {
+      @include pseudo-block-cover(rgba(black, 0.35));
+    }
+  }
+}
+
+.slide-flickity__content {
+  @include flex-center();
+  height: 100%;
+
+  &:after {
+    @include pseudo-block-cover(rgba(black, 0.7));
+    transition: background-color $trans-duration;
+  }
+}
+
+.slide-flickity__image {
+  @include bg-cover();
+}
+
+.slide-flickity__title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 0 1rem;
+  font-size: 22px;
+  font-weight: 500;
+  text-align: center;
+  color: white;
+}
+
+
+// Progress bar when autoplay
+// -----------------------------------------------
+
+.progress-flickity {
+  margin: 8px 1rem 0;
+  border-radius: 3px;
+  background-color: $color-light-grey;
+}
+
+.progress-flickity__bar {
+  width: 0;
+  height: 6px;
+  border-radius: 3px;
+  background-color: $color-medium-grey;
+}
+
+.slider-counter {
+  text-align: center;
+  font-size: 14px;
+}
+
+.slider-flickity-controls {
+  @include bd();
+}
+
+
+
+
+// Options
+// -----------------------------------------------
+
+/* enable Flickity by default */
+.slider-flickity:after {
+  content: 'flickity';
+  display: none; /* hide :after */
+}
+
+@media screen and ( max-width: 768px ) {
+  /* disable Flickity for large devices */
+  .slider-flickity:after {
+    content: '';
+  }
+}
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+.slider-flickity {
+  @include media-breakpoint-down(md) {
+    .slide-flickity {
+      width: 100%;
+    }
+  }
+}

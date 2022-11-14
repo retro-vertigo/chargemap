@@ -1,0 +1,235 @@
+// ==============================================
+
+//        BLOCK VALUES (Home, Notre différence)
+
+// ==============================================
+
+
+.block-values__title {
+  margin-left: grid-unit(1);
+}
+
+.block-values__content {
+  margin-top: 40px;
+  max-width: 615px;
+  margin-left: grid-unit(2);
+}
+
+.block-values__subtitle + .block-values__text {
+  margin-top: 20px;
+}
+
+.list-values-wrapper {
+  margin-top: 50px;
+  // @include bd(green,0.5,3);
+}
+
+.list-values {
+  display: flex;
+  flex-wrap: nowrap;
+
+  > * {
+    flex-shrink: 0;
+  }
+
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: calc(50vw - 50% + 90px);
+
+  // @include bd();
+}
+
+
+//  Item value
+// -----------------------------------------------
+
+.item-value {
+  display: flex;
+  padding-right: 80px;
+}
+
+.item-value__digit {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70px;
+  font-family: $font-title;
+  font-size: 50px;
+  font-weight: 700;
+  text-align: center;
+  color: $color-light-black;
+
+  &:after {
+    @include pseudo-block(1px, 100%, $color-secondary);
+    position: relative;
+    margin-top: 20px;
+  }
+}
+
+.item-value__body {
+  padding: 18px 40px 1rem;
+  max-width: 590px;
+}
+
+.item-value__text {
+  margin-top: 26px;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.item-value__figure {
+  align-self: flex-start;
+  flex-shrink: 0;
+  width: 166px;
+  margin-top: 22px;
+
+  .image-wrapper {
+    @include aspect-ratio(1, 1, false);
+    box-shadow: 0px 50px 90px -50px #D98C19;
+  }
+
+  .motif-dots {
+    right: 20px;
+    bottom: -30px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+
+.block-values__figure-big {
+  width: 100%;
+  max-width: 1013px;
+  margin-top: 200px;
+  margin-left: 270px;
+
+  .image-wrapper {
+    --rotation: 3.5deg;
+    --rotation-bg: -1deg;
+    @include aspect-ratio(1013, 575, false);
+
+    .motif-rosace {
+      top: 30%;
+      left: -60px;
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
+
+
+//  Different layout on specific pages
+// -----------------------------------------------
+
+.page-difference {
+  .block-values__content {
+    margin-left: grid-unit(3);
+  }
+  .list-values {
+    padding-left: calc(50vw - 50%);
+  }
+  .item-value__text {
+    font-size: 18px;
+    color: $color-body-text;
+  }
+
+  @include media-breakpoint-down(md) {
+    .block-values__content {
+      margin-left: initial;
+    }
+  }
+  @include media-breakpoint-down(xs) {
+    .list-values {
+      padding-left: initial;
+    }
+  }
+}
+
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(lg) {
+  .block-values__figure-big {
+    width: 75%;
+    margin: 140px auto 0;
+
+    .image-wrapper .motif-rosace {
+      left: -40px;
+      width: 70px;
+      height: 70px;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .block-values__title,
+  .block-values__content {
+    margin-left: initial;
+  }
+  .list-values {
+    padding-left: calc(50vw - 50%);
+  }
+  .item-value__digit {
+    width: 60px;
+    font-size: 40px;
+  }
+  .item-value__body {
+    padding: 14px 30px 1rem;
+  }
+
+  .block-values__figure-big .image-wrapper .motif-rosace {
+    left: -30px;
+    width: 46px;
+    height: 46px;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .block-values__content {
+    margin-top: 20px;
+  }
+  .block-values__figure-big {
+    width: 85%;
+    margin: 140px auto 0;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .list-values {
+    flex-direction: column;
+    margin-left: initial;
+    margin-right: initial;
+    padding-left: initial;
+  }
+
+  .item-value {
+    flex-wrap: wrap;
+    padding-right: initial;
+
+    & + & {
+      margin-top: 60px;
+    }
+  }
+  .item-value__digit {
+    width: 50px;
+    font-size: 32px;
+  }
+
+  .item-value__title {
+    margin-left: 14px;
+  }
+  .item-value__body {
+    width: calc(100% - 50px);
+    padding: 6px 0px 6px;
+  }
+  .item-value__figure {
+    align-self: initial;
+    margin-top: 30px;
+    margin-left: 50px;
+  }
+}

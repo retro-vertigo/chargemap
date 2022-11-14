@@ -1,0 +1,36 @@
+// ==============================================
+
+//        PAGE LISTING WITH POSTS (Actualités, Références)
+
+// ==============================================
+
+
+.page-listing-wrapper {
+  position: relative;
+}
+
+.page-listing {
+  margin-top: 40px;
+  margin-left: grid-unit(1);
+  // @include bd();
+
+  .grid-posts {
+    margin-top: 70px;
+  }
+}
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(lg) {
+  .page-listing {
+    margin-left: initial;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .page-listing {
+    margin-top: initial;
+  }
+}

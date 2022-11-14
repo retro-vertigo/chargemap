@@ -1,0 +1,213 @@
+// ==============================================
+
+//        BLOCK TESTIMONIAL
+
+// ==============================================
+
+
+.block-testimonial {
+  padding-top: 100px;
+}
+
+
+.slider-testimonial {
+  padding-bottom: 3rem;
+}
+
+
+.slide-testimonial {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  align-items: center;
+  width: 100%;
+  transition: opacity 0.4s linear;
+  opacity: 0;
+  // @include bd(red,1);
+
+  &.is-selected {
+    opacity: 1;
+  }
+
+  &.reveal {
+    .slide-testimonial__figure img {
+      animation: 1s 0.5s easeOutQuart both revealTestimonialImage;
+    }
+    .slide-testimonial__figure .icon {
+      animation: 0.7s 0.8s easeOutQuart both revealTestimonialIcon;
+    }
+    .slide-testimonial__text {
+      animation: 0.6s 0.8s easeOutQuart both revealTestimonialFade;
+    }
+    .slide-testimonial__text:after {
+      animation: 0.8s 1s easeOutQuart both revealTestimonialLine;
+    }
+    .slide-testimonial__author {
+      animation: 0.8s 1s easeOutQuart both revealTestimonialFade;
+    }
+    .slide-testimonial__job {
+      animation: 0.8s 1.1s easeOutQuart both revealTestimonialFade;
+    }
+  }
+}
+
+.slide-testimonial__figure {
+  grid-column: 3 / 5; 
+  @include aspect-ratio(1);
+  width: calc(100% - 2rem);
+  max-width: 215px;
+
+  img {
+    object-fit: cover;
+    clip-path: circle(50%);
+  }
+}
+
+.slide-testimonial__content {
+  grid-column: 5 / 9; 
+  display: flex;
+  flex-direction: column;
+  // @include bd();
+}
+
+.slide-testimonial__text {
+  position: relative;
+  display: flex;
+  padding-bottom: 22px;
+  
+  span {
+    flex-grow: 1;
+    font-family: $font-title;
+    font-size: 20px;
+    font-weight: 500;
+    color: $color-secondary;
+  }
+
+  .icon {
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+    font-size: 70px;
+  }
+  
+
+  &:after {
+    @include pseudo-block(50px, 1px, $color-grey);
+    left: 0;
+    bottom: 0;
+    transform-origin: top left;
+  }
+  // @include bd();
+}
+
+.slide-testimonial__author {
+  margin-top: 22px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.slide-testimonial__job {
+  font-size: 15px;
+}
+
+
+
+// Anim for slides 
+@keyframes revealTestimonialImage {
+  0% { 
+    clip-path: circle(30%);
+    opacity: 0;
+  }
+  100% { 
+    clip-path: circle(50%);
+    opacity: 1;
+  }
+}
+
+@keyframes revealTestimonialFade {
+  0% { 
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealTestimonialLine {
+  0% { 
+    transform: scaleX(0);
+  }
+  100% { 
+    transform: scaleX(1);
+  }
+}
+
+@keyframes revealTestimonialIcon {
+  0% { 
+    transform: scale(0);
+  }
+  100% { 
+    transform: scale(1);
+  }
+}
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(lg) {
+  .slide-testimonial__figure {
+    grid-column: 2 / 4; 
+  }
+  
+  .slide-testimonial__content {
+    grid-column: 4 / 10; 
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .block-testimonial {
+    padding-top: 40px;
+  }
+  .slide-testimonial__figure {
+    grid-column: 1 / 4; 
+    width: calc(100% - 3rem);
+    margin-left: var(--container-padding);
+  }
+  
+  .slide-testimonial__content {
+    grid-column: 4 / 11;
+    margin-right: var(--container-padding);
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .slide-testimonial {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .slide-testimonial__figure {
+    grid-column: 1; 
+    width: calc(100% - 3rem);
+    margin-left: unset;
+
+    .icon {
+      top: -4px;
+      right: 0;
+      left: unset;
+      bottom: unset;
+      display: block;
+      width: 70px;
+      height: 70px;
+      transform-origin: bottom left;
+    }
+  }
+  .slide-testimonial__content {
+    grid-column: 1;
+    grid-row: 2;
+    margin-right: unset;
+    margin-top: 2rem;
+    padding: 0 var(--container-padding);
+  }
+}
+

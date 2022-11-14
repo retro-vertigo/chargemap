@@ -1,0 +1,144 @@
+// ==============================================
+
+//        BANNER (Single project)
+
+// ==============================================
+
+
+.banner-single-project-wrapper {
+  // @include bd();
+}
+
+.banner-single-project {
+  // @include bd();
+}
+
+
+.banner-single-project__inner {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 100%;
+  // align-items: center;
+  padding: 150px 0 50px; 
+  // @include bg();
+}
+
+.banner-single-project__heading {
+  grid-row: 1;
+  grid-column: 2 / span 7;
+  padding-right: 40px;
+}
+
+.banner-single-project__date {
+  display: block;
+}
+
+.banner-single-project__title {
+  margin-top: 40px;
+}
+
+.banner-single-project__metas {
+  max-width: 540px;
+  margin-top: 60px;
+}
+
+.banner-single-project__client {
+  padding-right: 50px;
+}
+
+.banner-single-project__list-cat {
+  --item-spacing: 20px;
+  @include list-inline-flex();
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-left: calc(var(--item-spacing) * -1);
+  margin-right: calc(var(--item-spacing) * -1);
+
+  li {
+    position: relative;
+    padding: 0 var(--item-spacing);
+    font-size: 20px;
+
+    &:not(:last-child):after {
+      @include pseudo-block(5px, 5px, $color-primary-medium);
+      top: 50%;
+      right: 0;
+      transform: translate(50%, -50%);
+      border-radius: 50%;
+    }
+  }
+}
+
+
+
+
+.banner-single-project__figure {
+  grid-row: 1;
+  grid-column: 9 / span 4;
+  max-width: 330px;
+
+  .image-wrapper {
+    --rotation: 2.5deg;
+    --rotation-bg: -2deg;
+    @include aspect-ratio(333, 469, false);
+    box-shadow: 0px 50px 90px -50px #D98C19;
+
+    .motif-rosace {
+      right: -30px;
+      top: 65%;
+      opacity: 0.5;
+    }
+  }
+}
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(lg) {
+  .banner-single-project__heading {
+    grid-column: 1 / span 8;
+  }
+  .banner-single-project__metas {
+    margin-top: 40px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .banner-single-project__title {
+    margin-top: 20px;
+  }
+  .banner-single-project__metas {
+    margin-top: 20px;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .banner-single-project__inner {
+    padding: 120px 0 50px; 
+  }
+  .banner-single-project__figure .image-wrapper .motif-rosace {
+    width: 40px;
+    height: 40px;
+    right: -20px;
+    top: 65%;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .banner-single-project__inner {
+    display: block;
+  }
+  
+  .banner-single-project__metas {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: initial;
+  }
+  .box-share {
+    margin-top: 10px;
+  }
+  .banner-single-project__figure {
+      margin: 40px auto 0;
+      max-width: 60%;
+  }
+}

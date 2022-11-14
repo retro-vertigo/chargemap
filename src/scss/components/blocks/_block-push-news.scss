@@ -1,0 +1,52 @@
+// ==============================================
+
+//        BLOCK LAST NEWS - (Home, Agence) 
+
+// ==============================================
+
+
+.block-push-news {
+  padding-left: grid-unit(1);
+}
+
+.block-push-news__top {
+  display: flex;
+  justify-content: space-between;
+
+  .block-push-news__btn-wrapper {
+    flex-shrink: 0;
+  }
+}
+
+.block-push-news__title {
+  padding-right: 50px;
+}
+
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(lg) {
+  .block-push-news {
+    padding-left: initial;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .block-push-news {
+    padding-bottom: 180px;
+  }
+  .block-push-news__title {
+    padding-right: initial;
+  }
+  .block-push-news__top .block-push-news__btn-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .block-push-news__grid {
+    margin-top: 40px;
+  }
+}

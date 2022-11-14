@@ -1,0 +1,161 @@
+// ==============================================
+
+//        SLIDER IMAGES (Single project post)
+
+// ==============================================
+
+
+
+
+.slider-images-wrapper {
+  position: relative;
+  margin-top: 75px;
+  // @include bd();
+}
+
+.slider-images {
+  position: relative;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  // make slider flickity active
+  &:after {
+    content: 'flickity';
+    display: none; /* hide :after */
+  }
+
+  .flickity-viewport {
+    overflow: initial;
+  }
+}
+
+.slide-image {  
+  transition: opacity $trans-duration linear;
+  will-change: opacity;
+  
+  &:not(:only-child) {
+    cursor: pointer;
+  }
+
+  &:not(.is-selected) {
+    opacity: 0.1;
+
+    @include can-hover() {
+      &:hover {
+        opacity: 0.3;
+      }
+    }
+  }
+
+  & + & {
+    margin-left: 90px;
+  }
+
+  // explicit height in vh coz bug in Firefox : 
+  // when img has height 100% and width auto, img container width don't fit to img width 
+  // @see : https://stackoverflow.com/questions/63786214/in-firefox-img-is-a-child-element-and-the-height-is-set-to-100-but-the-width
+  img {
+    height: 60vh;   
+    width: auto;
+    max-height: 470px;
+    min-width: 50px;
+
+    // max-width: 710px;
+    object-fit: cover;
+  }
+}
+
+
+.slider-images-wrapper .slider-flickity-controls {
+  margin-top: 4rem;
+}
+
+
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(sm) {
+  .slide-image + .slide-image {
+    margin-left: 6.25%;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  // disable flickity
+  .slider-images {
+    overflow-x: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: calc(var(--container-padding) * -1);
+    margin-right: calc(var(--container-padding) * -1);
+    margin-bottom: -60px;     // give enough space to box-shadow
+    padding: 0 var(--container-padding) 60px;
+
+    // only one slide in slider -> maximize image
+    @include has-exactly(1) {
+      .slide-image {
+        max-width: 100%;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    // disable flickity
+    &:after {     
+      content: '';
+    }
+
+    .slide-image {
+      flex: 1 0 auto;
+      margin-left: initial;
+      margin-right: 40px;
+      opacity: initial !important;
+      will-change: initial;
+  
+      &:last-child {
+        margin-right: initial;
+      } 
+    }
+
+    img {
+      height: 200px;
+      object-fit: initial;
+    }
+  }
+
+  .slider-flickity-controls {
+    display: none;
+  }
+}
+
+
+
+
+// .slider-images {
+//   @include shadow-image();
+//   position: relative;
+//   padding-bottom: 56.3%;
+//   background-color: $color-light-black;
+//   box-shadow: var(--primary-shadow);
+  
+//   .flickity-viewport {
+//     position: absolute;
+//     width: 100%;
+//   }
+// }
+
+// .slide-image {
+//   width: 100%;  
+//   height: 100%;
+//   // @include bd(blue,1);
+
+//   img {
+//     @include image-cover(contain);
+//     // opacity: 0.5;
+//   }
+// }

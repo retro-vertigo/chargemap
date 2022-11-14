@@ -1,0 +1,196 @@
+// Animations variables
+$aos-clip-slide-distance: 90px !default;
+$aos-title-split-distance: 100px !default;
+
+
+@media screen {
+  html:not(.no-js) {
+
+    
+
+    /**
+    * Fade animations:
+    * fade
+    * fade-up, fade-down, fade-left, fade-right
+    * fade-up-right, fade-up-left, fade-down-right, fade-down-left
+    */
+
+
+    [data-aos='fade-up-smooth'] {
+      transform: translate3d(0, 50px, 0);
+    }
+
+    [data-aos='fade-up-smoother'] {
+      transform: translate3d(0, 20px, 0);
+    }
+
+
+    /**
+    * Title animations:
+    * clip-slide
+    * clip-slide-up, clip-slide-down, clip-slide-left, clip-slide-right
+    */
+    [data-aos^='title-split'][data-aos^='title-split'] {
+      --easing: easeOutQuad;
+      --duration: 550ms;
+      opacity: 0;   // prevent FOUC on load
+      transition: unset;
+      
+      .word {
+        --delay: calc(0.1s + var(--word-index) * 0.04s);
+        // --delay-color: calc(1s + var(--word-index) * 0.04s);
+        
+        transition: 
+          transform var(--duration) var(--easing) var(--delay), 
+          clip-path var(--duration) var(--easing) var(--delay);
+          // color var(--duration) linear var(--delay-color),
+      }
+
+      &.aos-animate {
+        opacity: 1;
+        
+        .word {
+          clip-path: inset(-10px 0 0 0);    // !!! hack to show accents ('É')
+          transform: translate3d(0, 0, 0);
+          opacity: 1;
+        }
+      }
+      
+      // keep origin color
+      &.aos-animate.u-color-primary-medium .word {
+        // color: $color-primary-medium;
+      }
+    }
+
+
+    // from down to up
+    [data-aos='title-split-down'] .word {
+      transform: translate3d(0, $aos-title-split-distance, 0);
+      clip-path: inset(0 0 100% 0);
+    }
+
+
+
+
+    [data-aos^='slide-image'][data-aos^='slide-image'] {
+      opacity: 0;
+      transition-property: opacity, transform;
+
+      &.aos-animate {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) rotate(0);
+      }
+    }
+
+    [data-aos='slide-image-small'] {
+      transform: translate3d(-5px, 150px, 0) rotate(-8deg);
+      // transform: translate3d(200px, 50px, 0) rotate(7deg);
+    }
+
+    [data-aos='slide-image-mid'] {
+      transform: translate3d(-5px, 150px, 0) rotate(3deg);
+    }
+
+    [data-aos='slide-image-big'] {
+      transform: translate3d(5px, 150px, 0) rotate(-4deg);
+    }
+
+
+    @include media-breakpoint-down(xs) {
+      // No aos delay on mobile (except intro anim in banners)
+      [data-aos][data-aos][data-aos-delay]:not([data-aos-anchor-placement='.banner-wrapper']).aos-animate {
+        transition-delay: 10ms !important;
+      }
+
+      // Light fade up on mobile
+      [data-aos='fade-up'] {
+        transform: translate3d(0, 20px, 0);
+      }
+
+      // Light split text on mobile
+      [data-aos='title-split-down'] .word {
+        transform: translate3d(0, 50px, 0);
+        clip-path: inset(0 0 100% 0);
+      }
+    }
+
+
+    /**
+    * Clip path and transform animations:
+    * clip-slide
+    * clip-slide-up, clip-slide-down, clip-slide-left, clip-slide-right
+    */
+    // [data-aos^='clip-slide'][data-aos^='clip-slide'] {
+    //   opacity: 0;
+    //   transition-property: opacity, clip-path, transform;
+
+    //   &:after {
+    //     opacity: 0;
+    //     transform: translateX(40px) scaleX(0.8);
+    //     transition-property: opacity, clip-path, transform;
+    //     transition-delay: 700ms;
+    //     transition-duration: 600ms;
+    //   }
+
+    //   &.aos-animate {
+    //     opacity: 1;
+    //     clip-path: inset(0 0 -10px 0);
+    //     transform: translate3d(0, 0, 0);
+
+    //     &:after {
+    //       opacity: 1;
+    //       transform: translateX(0) scaleX(1);
+    //     }
+    //   }
+    // }
+
+    // [data-aos='clip-slide-left'] {
+    //   clip-path: inset(0 0 0 100%);
+    //   transform: translate3d(-$aos-clip-slide-distance, 0, 0);
+    // }
+    // [data-aos='clip-slide-right'] {
+    //   clip-path: inset(0 100% 0 0);
+    //   transform: translate3d($aos-clip-slide-distance, 0, 0);
+    // }
+    // [data-aos='clip-slide-up'] {
+    //   clip-path: inset(100% 0 0 0);
+    //   transform: translate3d(0, -$aos-clip-slide-distance, 0);
+    // }
+    // [data-aos='clip-slide-down'] {
+    //   clip-path: inset(0 0 100% 0);
+    //   transform: translate3d(0, $aos-clip-slide-distance, 0);
+    // }
+
+
+    /**
+    * Clip path animations:
+    * blind
+    * blind-up, blind-down, blind-left, blind-right
+    */
+    // [data-aos^='blind'][data-aos^='blind'] {
+    //   opacity: 0.5;
+    //   transition-property: opacity, clip-path;
+
+    //   &.aos-animate {
+    //     opacity: 1;
+    //     clip-path: inset(0 0 0 0);
+    //   }
+    // }
+
+    // [data-aos='blind-left'] {
+    //   clip-path: inset(0 0 0 100%);
+    // }
+    // [data-aos='blind-right'] {
+    //   clip-path: inset(0 100% 0 0);
+    // }
+    // [data-aos='blind-up'] {
+    //   clip-path: inset(100% 0 0 0);
+    // }
+    // [data-aos='blind-down'] {
+    //   clip-path: inset(0 0 100% 0);
+    // }
+
+
+    
+  } 
+}

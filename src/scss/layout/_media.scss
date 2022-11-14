@@ -1,0 +1,33 @@
+// ==============================================
+
+//        MEDIA OBJECT 
+
+// ==============================================
+
+
+
+.l-media {
+  --gutter-width: 1rem;
+  display: flex;
+  align-items: flex-start;
+
+  // --modifiers
+  &.--reverse {
+    .l-media__figure {
+      order: 1;
+      margin-right: 0;
+      margin-left: var(--gutter-width);
+    }
+  }
+
+  &.--align-bottom {     align-items: flex-end;      }
+  &.--align-middle {     align-items: center;      }
+}
+
+.l-media__figure {
+  margin-right: var(--gutter-width);
+}
+
+.l-media__body {
+  flex: 1;
+}

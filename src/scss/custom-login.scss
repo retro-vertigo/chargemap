@@ -1,0 +1,95 @@
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
+
+
+$color-login-body-background: $color-body-background;
+$color-form-background      : $color-light-black;
+$color-form-text            : white;
+$color-input-text           : black;
+$color-submit-text          : white;
+$color-submit-background    : $color-primary-medium;
+$color-link                 : $color-secondary;
+$color-link-hover           : $color-secondary-dark;
+$logo-url                   : '../images/logo-login.svg';
+
+
+
+//  Custom styles
+// -----------------------------------------------
+
+body.login {
+  background-color: $color-login-body-background;
+}
+
+#login h1 a {
+  width: 80%;      //
+  height: 120px;     //
+  margin-bottom: 0;
+  background-image: url( $logo-url ); 
+  background-position: center center;
+  background-size: contain;
+}
+
+// login form
+#loginform,
+#lostpasswordform {
+  margin-top: 0;
+  border: unset;
+  background-color: $color-form-background;
+}
+
+// login form labels
+#loginform label,
+#lostpasswordform p label {
+  color: $color-form-text;
+}
+
+// login form inputs
+input#user_login,
+input#user_pass {
+  margin-top: 6px;
+  padding: 6px 14px;
+  border: 0;
+  font-size: 16px;    //
+  color: $color-input-text;
+  background-color: white;      //
+  border-radius: $border-radius;
+  transition: background-color $trans-duration;
+}
+
+// login form button hide / show password
+#loginform .wp-hide-pw {
+  margin-top: 5px;
+}
+
+// login form checkbox
+input#rememberme {
+  border: 0;
+  box-shadow: unset;
+}
+
+// login form submit button
+input#wp-submit {
+  background-color: $color-submit-background;
+  border-color: darken($color-submit-background, 10%);
+  box-shadow: 0 1px 0 darken($color-submit-background, 40%);
+  text-shadow: unset;
+  color: $color-submit-text;
+  transition: background-color $trans-duration;
+
+  &:hover {
+    background-color: darken($color-submit-background, 4%);
+  }
+}
+
+// links under form
+#login p#nav a,
+#login p#backtoblog a,
+#login .privacy-policy-page-link a {
+  color: $color-link;
+
+  &:hover {
+    color: $color-link-hover;
+    text-decoration: underline;
+  }
+}

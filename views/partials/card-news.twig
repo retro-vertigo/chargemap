@@ -1,0 +1,21 @@
+{% import "macros.twig" as macros %}
+
+{# class .reveal-init added when cards loaded with Ajax #}
+{% set class_name = animate_class ?: '' %}
+
+<article class="card-news card-post {{ class_name }}" id="card-news-{{ post_item.ID }}"
+	{% if aos %}data-aos="fade-up" data-aos-delay="{{aos_delay}}"{% endif %}>
+	<a href="{{ post_item.link }}" class="card-post__link">
+
+		<figure class="card-post__figure">
+			{{ macros.get_featured_image( post_item, 'card', 'medium_large' ) }}
+		</figure>
+		
+		<p class="card-post__date">{{ post_item.date }}</p>
+		<h2 class="card-post__title h3">{{ post_item.title }}</h2>
+		<p class="card-post__excerpt">{{ post_item.preview.length(18).read_more(false) }}</p>
+		<div class="card-post__cta btn --no-interaction">
+			<span>Lire la suite</span>
+		</div>
+	</a>
+</article>

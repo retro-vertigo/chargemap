@@ -1,0 +1,77 @@
+// ==============================================
+
+//        BLOCK INTRO
+
+// ==============================================
+
+
+.block-intro {
+  padding-top: 100px;
+}
+
+
+.block-intro__text {
+  grid-column: 3 / -3;   
+  position: relative;
+  z-index: 1;
+  font-size: 17px;
+  line-height: 1.6;
+  color: $color-light-black;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+// button only present on recrutement page
+.btn-job-form {
+  grid-column: 9 / 11;
+  align-self: start;
+  z-index: 1;
+  margin: 0 1.5rem;
+}
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(lg) {
+  .block-intro__text {
+    grid-column: 2 / -2;   
+  }
+  .btn-job-form {
+    grid-column: 2 / -2;
+    grid-row: 2;
+    margin: 2rem 0;
+    justify-self: start;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .block-intro {
+    padding-top: 40px;
+  }
+  .block-intro__text {
+    grid-column: 1 / -1;  
+    padding: 0 var(--container-padding);
+  }
+  .btn-job-form {
+    grid-column: 1 / -1;
+    margin-left: var(--container-padding);
+    margin-right: var(--container-padding);
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .block-intro {
+    padding-top: 10px;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .btn-job-form {
+    justify-self: unset;
+  }
+}
+

@@ -1,0 +1,63 @@
+// ==============================================
+
+//        GRID LAYOUT WITH CSS GRID
+
+// ==============================================
+
+
+
+//  Grid container
+//  Column classes on container : col-2, col-sm-2, col-lg-2...
+//  - modifiers : --list, --no-gutter, --auto-rows, --align-top, --align-middle, --align-bottom
+// -----------------------------------------------
+
+.l-grid {
+  --gap: 1rem;
+  display: grid;
+  gap: var(--gap);
+
+  // for each breakpoint, and each column num, create a column class
+  // grid avalaible up to 5 columns
+  $col-max: 5;
+  @each $bp, $value in $grid-breakpoints {
+    @include media-breakpoint-up($bp) {
+      $bp-prefix: if($bp != xs, -#{$bp}, '');     // no prefix for xs breakpoint, class is "col-2", "col-3"... not "col-xs-2"...
+      @for $col from 1 through $col-max {
+        &.col#{$bp-prefix}-#{$col} {
+          grid-template-columns: repeat($col, 1fr);
+        }
+      }
+    }
+  }
+
+  // --modifiers
+  &.--list { @include list-bare(); }
+  &.--no-gutter { --gap: 0; }
+  &.--auto-rows { grid-auto-rows: 1fr; }
+
+  // vertical alignement of children in grid cells (default stretch)
+  &.--align-top {    align-items: start;   }
+  &.--align-middle { align-items: center;  }
+  &.--align-bottom { align-items: end; }
+
+  &.--center-last-child {
+    @include media-breakpoint-up(lg) {
+    
+      // center last card
+      &.col-lg-3 > :last-child:nth-child(4) {
+        grid-column: 2;
+      }
+    }
+  }
+
+
+
+
+  // horizontal alignement of children in grid-cells  
+  // justify-items: center;
+
+  // fit / fill space with cards
+  // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  // grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+
+}

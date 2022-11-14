@@ -1,0 +1,57 @@
+// ==============================================
+
+//        BLOCK BUTTONS
+
+// ==============================================
+
+
+.block-buttons {
+  padding-top: 50px;
+  // @include bd();
+}
+
+
+.block-buttons__inner {
+  --inner-padding-h: var(--grid10-col-half-width);    // 72px
+  position: relative;
+  z-index: 1;
+  padding: 0 var(--inner-padding-h);
+  display: flex;
+  justify-content: center;
+
+  .btn + .btn {
+    margin-left: 2rem;
+  }
+}
+
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(lg) {
+  .block-buttons__inner {
+    --inner-padding-h: var(--container-padding);
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .block-buttons {
+    padding-top: 36px;
+  }
+
+  .block-buttons__inner {
+    flex-direction: column;
+    align-items: center;
+
+    .btn {
+      width: 100%;
+      max-width: 450px;
+    }
+
+    .btn + .btn {
+      margin-left: unset;
+      margin-top: 24px;
+    }
+  }
+}

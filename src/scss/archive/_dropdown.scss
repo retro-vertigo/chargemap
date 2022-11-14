@@ -1,0 +1,92 @@
+// ==============================================
+
+//        DROPDOWN
+
+// ==============================================
+
+
+.dropdown {
+  position: relative;
+  z-index: z('dropdown');
+  display: inline-block;
+
+  & + & {
+    margin-left: 1rem;
+  }
+
+  &.-is-active {
+    .dropdown__btn .icon {
+      transform: scaleY(-1);
+    }
+    .dropdown__list {
+      height: var(--height-open);
+      transform: translateY(0);
+    }
+  }
+
+  &:after {
+    @include pseudo-block(100%, 100%, white);
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+.dropdown__btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+  text-align: left;
+  border: 1px solid $color-medium-grey;
+
+  &:hover {
+   .icon {
+    fill: $color-light-black;
+   } 
+  }
+
+  span {
+    margin-right: 1rem;
+  }
+
+  .icon {
+    font-size: 12px;
+    fill: $color-medium-grey;
+    transition: fill $trans-duration, transform $trans-duration;
+  }
+}
+
+.dropdown__list {
+  --height-open: auto;    // height value set to auto when open, will be replaced with real value calculated by JS for transition
+  @include list-bare();
+  position: absolute;
+  top: 100%;
+  z-index: -1;
+  height: 0;              // height value when close (default state)
+  width: 100%;
+  border: 1px solid $color-medium-grey;
+  border-top: unset;
+  overflow: hidden;
+  transform: translateY(-6px);
+  will-change: transform;
+  transition: height $trans-duration easeOutQuart, transform $trans-duration easeOutQuart;
+}
+
+.dropdown__item:not(:last-child) {
+  border-bottom: 1px solid $color-light-grey;
+}
+
+.dropdown__link{
+  display: block;
+  padding: 0.4rem 1rem;
+  color: $color-light-black;
+  background-color: white;
+  transition: color $trans-color, background-color $trans-color;
+
+  &:hover {
+    color: $color-primary;
+    background-color: $color-light-white;
+  }
+}

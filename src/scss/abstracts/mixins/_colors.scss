@@ -1,0 +1,151 @@
+// ==============================================
+//
+//        COLORS
+//
+// ==============================================
+
+
+//  CSS variables - init
+// -----------------------------------------------
+
+/// Crée des CSS variables de couleur à partir d'une variable Sass dans plusieurs formats : hex, hsl, h, s, l
+/// @param {String} $color-name - nom de la couleur
+/// @param {Hex} $value - valeur de la couleur en hexadécimal
+/// @output Crée les CSS variables :
+/// --color-primary: #eeaa44;
+/// --color-primary-hsl: 36, 83%, 60%;   -> utilisé dans la fonction alpha()
+/// --color-primary-h: 36;
+/// --color-primary-s: 83%;   -> utilisé dans la fonction saturation()
+/// --color-primary-l: 60%;   -> utilisé dans la fonction lightness()
+/// @example
+///   defineCssVarsColors(color-primary, eeaa44);
+@mixin defineCssVarsColors($color-name, $value) {
+  $hue            : hue($value);
+  $saturation     : saturation($value);
+  $lightness      : lightness($value);
+  --#{$color-name}    : #{$value};     // hex notation
+  --#{$color-name}-hsl: #{$hue}, #{$saturation}, #{$lightness};
+  --#{$color-name}-h  : #{$hue};
+  --#{$color-name}-s  : #{$saturation};
+  --#{$color-name}-l  : #{$lightness};
+  // --#{$color-name}-hsl-full: #{unquote("hsl(#{$hue}, #{$saturation}, #{$lightness})")};
+  
+  // rgb notation unused
+  // $red            : red($value);
+  // $green          : green($value);
+  // $blue           : blue($value);
+  // --#{$color-name}-rgb : #{$red}, #{$green}, #{$blue};
+  // --#{$color-name}-rgb-full: #{unquote("rgb(#{$red}, #{$green}, #{$blue})")};
+}
+
+
+//  CSS variables - color functions
+// -----------------------------------------------
+/// Fonctions de modification de couleur avec les CSS variables
+
+/// Rend transparent une couleur
+/// @param {CssVar} $color - nom de la css variable de couleur (ex : var(--color-primary) )
+/// @param {Number} $opacity - valeur alpha [0-1]
+/// @return {Hsla} valeur Hsla
+@function cssVarAlpha($color, $opacity){
+  $color:   str-replace($color, 'var(');    // strip css var : var(--color-primary) -> --color-primary
+  $color:   str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});    // get css var color composant : var(--color-primary-h)
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsla($color-h, $color-s, $color-l, $opacity);
+}
+
+/// Éclaircit / assombrit une couleur
+/// @param {CssVar} $color
+/// @param {Number} $lightnessMultiplier - valeur [0-2], < 1 : assombrit, > 1 : éclaircit
+/// @return {Hsl} valeur Hsl
+@function cssVarLightness($color, $lightnessMultiplier){
+  $color     : str-replace($color, 'var('); 
+  $color     : str-replace($color, ')');
+  $color-h: var(#{$color+'-h'}); 
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsl($color-h, $color-s, calc(#{$color-l} * #{$lightnessMultiplier}));
+}
+
+/// Sature / désature une couleur
+/// @param {CssVar} $color
+/// @param {Number} $saturationMultiplier - valeur [0-2], < 1 : désature, > 1 : sature
+/// @return {Hsl} valeur Hsl
+@function cssVarSaturation($color, $saturationMultiplier){
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsl($color-h, calc(#{$color-s} * #{$saturationMultiplier}), $color-l);
+}
+
+/// Replace `$search` with `$replace` in `$string`
+/// @author Kitty Giraudel
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+/// @see https://css-tricks.com/snippets/sass/str-replace-function/
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
+
+
+
+//  Colors
+// -----------------------------------------------
+
+// Passe un élément en blanc 100% (pour les SVG en background)
+@mixin white-filter() {
+  filter: brightness(0) invert(1); 
+}
+
+
+/// Éclaircit légèrement une couleur (alternative à la fonction native lighten de Sass)
+/// @param {Color} $color - couleur à éclaircir
+/// @param {Number} $percentage - pourcentage de `$color` dans la couleur de retour
+/// @return {Color} - couleur éclaircie
+@function mix-lighten($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/// Assombri légèrement une couleur (alternative à la fonction native darken de Sass)
+/// @param {Color} $color - couleur à assombrir
+/// @param {Number} $percentage - pourcentage de `$color` dans la couleur de retour
+/// @return {Color} - couleur assombrie
+@function mix-darken($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+
+
+//  Color contrast
+// -----------------------------------------------
+
+// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
+$yiq-contrasted-threshold: 150 !default;
+
+// Customize the light and dark text colors for use in our YIQ color contrast function.
+$yiq-text-dark : black !default;
+$yiq-text-light: white !default;
+
+@function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) * .001;
+
+  @if ($yiq >= $yiq-contrasted-threshold) {
+    @return $dark;
+  } @else {
+    @return $light;
+  }
+}

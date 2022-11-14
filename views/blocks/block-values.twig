@@ -1,0 +1,63 @@
+{#
+/**
+ * Block Name: Block Values (Home, Notre différence)
+ *
+ */
+#}
+
+{% import "macros.twig" as macros %}
+
+
+<div class="block-values-wrapper block-wrapper">
+  {% include "partials/bg-block.twig" with { modifier_class: '--bottom' } %}
+
+  <div class="l-container --h-padding">
+    <section class="{{ block.classes }}" id="{{ block.id }}">
+
+      <h2 class="block-values__title section-title u-remove-line-break" data-splitting data-aos="title-split-down">{{ fields.title }}</h2>
+      <div class="block-values__content">
+        {% if fields.subtitle %}
+          <p class="block-values__subtitle section-subtitle" data-aos="fade-up" data-aos-delay="100">{{ fields.subtitle }}</p>
+        {% endif %}
+        {% if fields.editor_text %}
+          <div class="block-values__text editor-text" data-aos="fade-up" data-aos-delay="100">{{ fields.editor_text }}</div>
+        {% endif %}
+      </div>
+
+      {% if fields.list_values %} 
+        <div class="list-values-wrapper" id="js-list-values-wrapper" data-aos="fade-in" data-aos-delay="100">
+          <div class="list-values" id="js-list-values">
+            {% for item in fields.list_values %}
+              <div class="item-value">
+                <span class="item-value__digit">0{{ loop.index }}</span>
+                <div class="item-value__body">
+                  <h3 class="item-value__title">{{ item.title }}</h3>
+                  <div class="item-value__text section-subtitle">{{ item.text }}</div>
+                </div>
+                {% if item.image %} 
+                  <figure class="item-value__figure image-figure">
+                    <div class="image-wrapper --aspect-ratio">
+                      <svg class="motif-dots"><use xlink:href="#four-dots"></use></svg>
+                      <img src="{{ item.image.sizes.medium }}" alt="{{ item.image.alt }}" />
+                    </div>
+                  </figure>
+                {% endif %}
+
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if fields.image_big %} 
+        <figure class="block-values__figure-big image-figure">
+          <div class="image-wrapper --aspect-ratio --box-shadow --bg-shadow --rotated">
+            {{ macros.get_rwd_image( fields.image_big.id, 'values-big', 'large') }}
+            <svg class="motif-rosace"><use xlink:href="#rosace"></use></svg>
+          </div>
+        </figure>
+      {% endif %}
+      
+    </section>  {# end .block #}
+  </div>  {# end .l-container #}
+</div>    {# end .block-wrapper #}

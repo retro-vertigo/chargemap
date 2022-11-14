@@ -1,0 +1,35 @@
+// ==============================================
+
+//        CENTERED CONTAINERS WITH MAX-WIDTH 
+
+// ==============================================
+
+
+// Wrapper centré avec largeur maxi
+.l-container {
+  position: relative;
+  width: 100%;
+  max-width: var(--container-medium-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+
+  &.--wide {
+    max-width: var(--container-wide-width);
+  }
+
+  &.--large {
+    max-width: var(--container-large-width);    // alias
+  }
+
+  &.--small {
+    max-width: var(--container-small-width);
+  }
+
+  &.--no-padding {
+    padding-left: initial;
+    padding-right: initial;
+  }
+
+}

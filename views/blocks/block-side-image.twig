@@ -1,0 +1,51 @@
+{#
+/**
+ * Block Name: Block Side image (Home, Agence)
+ *
+ */
+#}
+
+{% import "macros.twig" as macros %}
+
+
+<div class="block-side-image-wrapper block-wrapper">
+  {% include "partials/bg-block.twig" %}
+  
+  <div class="l-container --h-padding">
+    <section class="{{ block.classes }}" id="{{ block.id }}">
+
+      <h2 class="block-side-image__title section-title u-remove-line-break" data-splitting data-aos="title-split-down">{{ fields.title }}</h2>
+      <div class="block-side-image__content">
+        <div class="block-side-image__left">
+          {% if fields.subtitle %}
+            <p class="block-side-image__subtitle section-subtitle" data-aos="fade-up" data-aos-delay="100">{{ fields.subtitle }}</p>
+          {% endif %}
+          {% if fields.editor_text %}
+            <div class="block-side-image__text editor-text" data-aos="fade-up" data-aos-delay="100">{{ fields.editor_text }}</div>
+          {% endif %}
+        </div>
+
+        <div class="block-side-image__right" data-aos="slide-image-mid" data-aos-delay="700">
+          {% if fields.link %} 
+            <div class="block-side-image__btn-wrapper">
+              <a href="{{ fields.link.url|e('esc_url') }}" class="btn-circle" data-aos="zoom-in" data-aos-duration="350" data-aos-delay="950">
+                <h4 class="btn-circle__label">{{ fields.link.title }}</h4>
+              </a>
+            </div>
+          {% endif %}
+          
+          {% if fields.image %} 
+            <figure class="block-side-image__figure">
+              <div class="image-wrapper --aspect-ratio --box-shadow --bg-shadow --rotated">
+                <svg class="motif-rosace-alt"><use xlink:href="#rosace-alt"></use></svg>
+                <img src="{{ fields.image.sizes.large }}" alt="{{ fields.image.alt }}" />
+              </div>
+            </figure>
+          {% endif %}
+        </div> 
+      
+      </div>
+      
+    </section>  {# end .block #}
+  </div>  {# end .l-container #}
+</div>    {# end .block-wrapper #}

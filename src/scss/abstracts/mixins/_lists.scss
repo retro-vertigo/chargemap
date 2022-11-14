@@ -1,0 +1,78 @@
+// ==============================================
+//
+//        LISTS
+//
+// ==============================================
+
+
+// Liste verticale sans bullets
+@mixin list-no-bullets() {
+  list-style: none;
+}
+
+// Liste verticale sans bullets, margin, padding
+@mixin list-bare() {
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+// Liste horizontale bare avec les items en inline-blocks
+@mixin list-inline-block() {
+  @include list-bare();
+
+  > li {
+    display: inline-block;
+  }
+}
+
+// Liste horizontale bare en inline-flex (flex-direction: row par défaut)
+@mixin list-inline-flex($direction:null) {
+  @include list-bare();
+  display: inline-flex;
+  @if $direction { flex-direction: $direction; } 
+}
+
+// Liste horizontale bare en flex (flex-direction: row par défaut)
+@mixin list-flex($direction:null) {
+  @include list-bare();
+  display: flex;
+  @if $direction { flex-direction: $direction; }  
+}
+
+
+// Liste verticale avec bullets stylisé pour le theme
+@mixin list-styled() {
+  list-style: none;
+  padding-left: 0.4em;
+
+  li {
+    position: relative;
+    padding-left: 1.2em;
+    
+    &:before {
+      @include pseudo-block(4px, 4px, currentColor);
+      border-radius: 50%;
+      left: 4px;
+      top: 0.65em;
+    }
+
+    & + li {
+      margin-top: 0.2rem;
+    }
+  }
+}
+
+
+// Liste verticale ordonné avec bullets stylisé pour le theme
+@mixin list-ordered-styled() {
+  padding-left: 1.7em;
+
+  li {
+    padding-left: 0.2em;
+
+    &::marker {
+      color: currentColor;
+    }
+  }
+}

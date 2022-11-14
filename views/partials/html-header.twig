@@ -1,0 +1,17 @@
+<!doctype html>
+<html {{ site.language_attributes }}>
+<head>
+    <meta charset="{{ site.charset }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{ wp_head }}
+
+    <link rel="icon" href="{{ favicon_link }}favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="{{ favicon_link }}favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="{{ favicon_link }}favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="apple-touch-icon" href="{{ favicon_link }}apple-touch-icon.png">
+    <link rel="manifest" href="{{ favicon_link }}site.webmanifest">
+
+    {% if acf_options.theme_color %}
+        <meta name="theme-color" content="{{ acf_options.theme_color }}">
+    {% endif %}

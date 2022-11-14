@@ -1,0 +1,82 @@
+// ==============================================
+
+//        BLOCKS
+
+// ==============================================
+
+
+//  Sections
+// -----------------------------------------------
+
+.section-dropdown {
+  position: relative;
+  z-index: 1;
+}
+
+
+.section-buttons {
+  a {
+    margin-bottom: 2rem;
+    
+    @at-root a + a {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+
+.block-copy-code {
+  display: flex;
+  flex-direction: column;
+
+  textarea {
+    max-width: 400px;
+    margin-bottom: 1rem;
+  }
+}
+
+
+// media-object exemple
+.testimonial {
+  background-color: $color-light-grey;
+  padding: 1rem;
+
+  .testimonial-image {
+    width: 30%;
+  }
+}
+ 
+
+
+
+
+
+.tooltip {
+  display: inline-block;
+  position: relative;
+  max-width: 200px;
+  padding: 1rem;
+  font-size: 14px;
+  line-height: 1.2;
+  background-color: #eee;
+  border-radius: 5px;
+
+  &:after {
+    @include triangle('left', #eee, 10px, 10px);
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 100%;
+  }
+
+  &:before {
+    @include triangle('downleft', #ccc, 20px, 20px);
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  // 
+  margin-top: 4rem;
+}

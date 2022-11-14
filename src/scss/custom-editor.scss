@@ -1,0 +1,36 @@
+/* autoprefixer: off */
+
+//  Custom styles only for gutenberg editor block
+// -----------------------------------------------
+
+// remove unecessary styles :
+// aos, typography, header-site, footer-site, sidebar, modals, cookie-banners, lang-switcher, hero, breadcrumbs...
+
+
+// @import 'vendors/wp-styles';
+@import 'abstracts/mixins';     // index des mixins ET functions -> dans le répertoire abstracts/mixins/
+@import 'abstracts/variables';
+
+@import 'vendors/bootstrap/utilities/bootstrap-display';    // chargé aprés variables, requiert $grid-breakpoints 
+@import 'vendors/flickity/flickity';
+@import 'vendors/flickity/flickity-fade';
+
+@import 'base/font-face';
+@import 'base/utilities';
+
+.editor-styles-wrapper {
+  @import 'base/base';
+
+  @import 'layout/container';
+  @import 'layout/flex-grid';
+  @import 'layout/grid';
+
+  @import 'vendors-custom/flickity-theme-custom';
+
+  @import 'components/base/*';
+  @import 'components/blocks/*';
+  @import 'components/card-post';
+  @import 'components/grid-posts';
+  // @import 'pages/page-article';
+}
+

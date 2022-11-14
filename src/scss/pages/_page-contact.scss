@@ -1,0 +1,33 @@
+// ==============================================
+
+//        PAGE CONTACT
+
+// ==============================================
+
+
+.page-contact-wrapper {
+  position: relative;
+  overflow: hidden;
+
+  .bg-block {
+    top: 500px;
+  }
+}
+
+.page-contact {
+  margin-top: 75px;
+}
+
+.form-wrapper {
+  margin-left: grid-unit(1);
+}
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(lg) {
+  .form-wrapper {
+    margin-left: initial;
+  }
+}

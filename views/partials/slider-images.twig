@@ -1,0 +1,30 @@
+{% import "macros.twig" as macros %}
+
+{% if fields.gallery %}
+  <div class="slider-images-wrapper js-slider-images-wrapper">
+    <div class="slider-images" tabindex="0">
+      {% for image in fields.gallery %}
+
+         <div class="slide-image">
+          <figure class="slide-image__figure image-figure">
+            <div class="image-wrapper --box-shadow --bg-shadow">
+              {{ macros.get_rwd_image( image.id, 'slide-image', 'large') }}
+            </div>
+          </figure>
+        </div> 
+        
+      {% endfor %}
+    </div>
+    
+    {% if fields.gallery|length > 1 %}
+      <div class="slider-flickity-controls" id="slider-flickity-controls">
+        <button type="button" class="btn-flickity --prev" aria-label="Précédent">
+          <svg class="btn-flickity__icon icon" aria-hidden="true"><use xlink:href="#icon-arrow"></use></svg>
+        </button>
+        <button type="button" class="btn-flickity --next" aria-label="Suivant">
+          <svg class="btn-flickity__icon icon" aria-hidden="true"><use xlink:href="#icon-arrow"></use></svg>
+        </button>
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

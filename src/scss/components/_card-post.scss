@@ -1,0 +1,117 @@
+// ==============================================
+
+//        CARDS COMMON STYLES (Références, Actualités)
+
+// ==============================================
+
+
+
+//  Card - default for card-news
+// -----------------------------------------------
+
+.card-post {
+  &.reveal-init {
+    opacity: 0;
+  }
+
+  &.reveal {
+    animation: revealCard 0.5s easeOutQuart both;
+  }
+}
+
+.card-post__link {
+  position: relative;
+  z-index: 1;
+  display: block;
+  padding-bottom: 20px;
+
+  @include can-hover() {
+    &:hover,
+    &:focus {
+      .card-post__figure {
+        transform: translateY(-4px);
+        &:after {
+          opacity: 0.5;
+        }
+      }
+      
+      .card-post__title {
+        color: $color-primary-medium;
+      }
+    }
+  }
+}
+
+.card-post__figure {
+  @include aspect-ratio(260,292);
+  z-index: -1;
+  box-shadow: 0px 15px 20px -15px rgba(192, 124, 22, 0.4), 0px 50px 90px -50px rgba(242, 196, 136, 0.5);
+  transition: transform 0.25s easeOutQuad;
+  // box-shadow: 0px 60px 20px 0 red;
+  &:after {
+    @include pseudo-block-cover(rgba($color-primary, 0.5));
+    background-image: linear-gradient(135deg, var(--color-primary) 10%, var(--color-primary-soft));
+    top: 0;
+    left: 0;
+    opacity: 0;
+    will-change: opacity;
+    mix-blend-mode: hard-light;
+    transition: opacity 0.35s easeOutQuad;
+  }
+
+  img {
+    @include image-cover();
+  }
+}
+
+.card-post__date {
+  margin-top: 14px;
+}
+
+.card-post__title {
+  @include truncate-multiline(3);
+  margin-top: 10px;
+  transition: color 0.35s ease-out;
+}
+
+.card-post__excerpt {
+  @include truncate-multiline(3);
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+
+
+//  Card project
+// -----------------------------------------------
+
+.card-project {
+  .card-post__figure {
+    @include aspect-ratio(277,378);
+  }
+  &:nth-child(2n+2) .card-post__figure {
+    @include aspect-ratio(1,1);
+  }
+  .card-post__title {
+    margin-top: 30px;
+  }
+  .card-post__date {
+    margin-top: initial;
+    color: $color-primary-medium;
+  }
+}
+
+
+//  Reveal animation when loaded
+// -----------------------------------------------
+@keyframes revealCard {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}

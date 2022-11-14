@@ -1,0 +1,95 @@
+// ==============================================
+
+//        BLOCK TEAM - (Agence) 
+
+// ==============================================
+
+
+.block-team__subtitle {
+  margin-top: 40px;
+  margin-left: grid-unit(1);
+  max-width: 524px;
+}
+
+.block-team__members {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas: ". . item1 item1 item1 item1 . . item2 item2 item2 item2";
+}
+
+.item-member {
+  &:nth-child(1) {
+    grid-area: item1;
+  }
+  &:nth-child(2) {
+    grid-area: item2;
+  }
+
+  // @include bd();
+}
+
+.item-member:nth-child(1) .item-member__figure {
+  padding-top: 29.44%;    // align the two images
+
+  .image-wrapper {
+    @include aspect-ratio(342, 358, false);
+  }
+}
+
+.item-member:nth-child(2) .item-member__figure {
+  .image-wrapper {
+    @include aspect-ratio(342, 458, false);
+
+    .motif-rosace {
+      top: 50%;
+      right: -36px;
+    }
+  }
+}
+
+.item-member__title {
+  margin-top: 40px;
+}
+
+.item-member__text {
+  margin-top: 20px;
+}
+
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(lg) {
+  .block-team__members {
+    margin-top: 50px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .block-team__members {
+    grid-template-areas: ". item1 item1 item1 item1 item1 . item2 item2 item2 item2 item2";
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .block-team__subtitle {
+    margin-left: initial;
+    margin-top: 20px;
+  }
+  .block-team__members {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .item-member {
+    max-width: 400px;
+
+    &:nth-child(1) .item-member__figure {
+      padding-top: initial !important;
+    }
+    & + & {
+      margin-top: 75px;
+    }
+  }
+}

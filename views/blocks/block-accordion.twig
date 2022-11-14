@@ -1,0 +1,64 @@
+{#
+/**
+ * Block Name: Block Accordion (Notre différence)
+ *
+ */
+#}
+
+{% import "macros.twig" as macros %}
+
+
+<div class="block-accordion-wrapper block-wrapper">
+  {% include "partials/bg-block.twig" %}
+
+  <div class="l-container --h-padding">
+    <section class="{{ block.classes }}" id="{{ block.id }}">
+
+      <h2 class="block-accordion__title section-title u-remove-line-break" data-splitting data-aos="title-split-down">{{ fields.title }}</h2>
+
+      <div class="block-accordion__list" data-accordion data-aos="fade" data-aos-delay="100">
+        {% if fields.clients %} 
+          {% for item in fields.clients %}
+
+            <div class="item-client" data-accordion-item>
+
+              <div class="item-client__header" aria-expanded="false" data-accordion-trigger>
+                <div class="item-client__header-top">
+                  {% if item.name_client %}
+                    <h3 class="item-client__title h2">{{ item.name_client }}</h3>
+                  {% endif %}
+                  <div class="item-client__arrow">
+                    <svg class="icon"><use xlink:href="#icon-arrow-down"></use></svg>
+                  </div>
+                </div>
+                {% if item.subtitle_client %}
+                  <p class="item-client__subtitle h3">{{ item.subtitle_client }}</p>
+                {% endif %}
+              </div>
+
+              <div class="item-client__content" data-accordion-content>
+                <div class="item-client__services">
+                  {% if item.services %} 
+                    {% for item_service in item.services %}
+                      <div class="item-service">
+                        {% if item_service.name_service %}
+                          <h4 class="item-service__name h3">{{ item_service.name_service }}</h4>
+                        {% endif %}
+                        {% if item_service.desc_service %}
+                          <p class="item-service__desc">{{ item_service.desc_service }}</p>
+                        {% endif %}
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+              </div>
+
+            </div>
+
+          {% endfor %}
+        {% endif %}
+      </div> 
+      
+    </section>  {# end .block #}
+  </div>  {# end .l-container #}
+</div>    {# end .block-wrapper #}

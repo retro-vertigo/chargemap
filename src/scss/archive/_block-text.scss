@@ -1,0 +1,41 @@
+// ==============================================
+
+//        BLOCK TEXT
+
+// ==============================================
+
+
+.block-text {
+  padding-top: 70px;
+}
+
+
+.block-text__text {
+  grid-column: 3 / -3;   
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(lg) {
+  .block-text__text {
+    grid-column: 2 / -2;   
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .block-text {
+    padding-top: 40px;
+  }
+  .block-text__text {
+    grid-column: 1 / -1;  
+    padding: 0 var(--container-padding);
+  }
+}
+

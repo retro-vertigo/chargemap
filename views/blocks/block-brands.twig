@@ -1,0 +1,52 @@
+{#
+/**
+ * Block Name: Block Brands (Notre différence)
+ *
+ */
+#}
+
+{% import "macros.twig" as macros %}
+
+
+<div class="block-brands-wrapper block-wrapper">
+  {% include "partials/bg-block.twig" with { modifier_class: '--inverted' } %}
+
+  <div class="l-container --h-padding">
+    <section class="{{ block.classes }}" id="{{ block.id }}">
+
+      <h2 class="block-brands__title section-title u-remove-line-break" data-splitting data-aos="title-split-down">{{ fields.title }}</h2>
+
+      <div class="block-brands__brands">
+        {% if fields.list_brands %} 
+          {% for item in fields.list_brands %}
+
+            <div class="item-brand">
+              <div class="item-brand__content" data-accordion data-aos="fade-up">
+                {% if item.title %}
+                  <h3 class="item-brand__title h2">{{ item.title }}</h3>
+                {% endif %}
+                {% if item.editor_text %}
+                  <div class="item-brand__text editor-text">{{ item.editor_text }}</div>
+                {% endif %}
+              </div>
+
+              <div class="item-brand__image" data-accordion data-aos="fade-up" data-aos-delay="150">
+                <figure class="item-brand__figure image-figure">
+                  <div class="image-wrapper --box-shadow --bg-shadow">
+                    {{ macros.get_rwd_image( item.image.id, 'brand', 'large') }}
+                  </div>
+                  {% if item.image.caption %}
+                    <figcaption>{{ item.image.caption }}</figcaption>
+                  {% endif %}
+                </figure>
+              </div>
+
+            </div>
+
+          {% endfor %}
+        {% endif %}
+      </div> 
+      
+    </section>  {# end .block #}
+  </div>  {# end .l-container #}
+</div>    {# end .block-wrapper #}

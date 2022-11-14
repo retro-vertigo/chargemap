@@ -1,0 +1,11 @@
+{% if nav_legal %}
+	<nav class="nav-legal">
+			<ul class="nav-legal__menu">
+			{% for item in nav_legal.items %}
+				<li class="{{ item.classes | join(' ') }}">
+					<a {{ setLinkAttributes(item) }} class="nav-legal__link">{{ item.title }}</a>
+				</li>
+			{% endfor %}
+			</ul>
+	</nav>
+{% endif %}

@@ -1,0 +1,39 @@
+// ==============================================
+
+//        PAGINATION (Single post, single project cpt)
+
+// ==============================================
+
+
+.nav-pagination {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "prev all next";
+  align-items: center;
+  justify-items: flex-start;
+  margin-top: 75px;
+  
+  .btn-pagination.--prev {
+    grid-area: prev;
+  }
+  .btn-all-posts {
+    grid-area: all;
+    justify-self: center;
+  }
+  .btn-pagination.--next {
+    grid-area: next;
+    justify-self: end;
+  }
+
+  // @include bd();
+}
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(xs) {
+  .nav-pagination {
+    grid-template-columns: 1fr 120px 1fr;
+  }
+}

@@ -1,0 +1,56 @@
+{#
+/**
+ * Block Name: Block Push projects (Agence, Notre différence)
+ *
+ */
+#}
+
+{% import "macros.twig" as macros %}
+
+
+<div class="block-push-projects-wrapper block-wrapper">
+  {% include "partials/bg-block.twig" with { modifier_class: '--inverted --bottom' } %}
+
+  <div class="l-container --h-padding">
+    <section class="{{ block.classes }}" id="{{ block.id }}">
+
+      <div class="block-push-projects__top">
+        <h2 class="block-push-projects__title section-title u-remove-line-break" data-splitting data-aos="title-split-down">{{ fields.title }}</h2>
+        {% if fields.link %} 
+          <div class="block-push-projects__btn-wrapper">
+            <a href="{{ fields.link.url|e('esc_url') }}" class="btn-circle" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="300">
+              <h4 class="btn-circle__label">{{ fields.link.title }}</h4>
+            </a>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="slider-projects" tabindex="0" data-aos="fade">
+        {% for post_item in posts_block %}
+          {% include "partials/card-project.twig" with { 'post_item': post_item } %}
+        {% endfor %}
+      </div>
+
+      <div class="slider-flickity-controls" id="slider-flickity-controls">
+        <button type="button" class="btn-flickity --prev" aria-label="Précédent">
+          <svg class="btn-flickity__icon icon" aria-hidden="true"><use xlink:href="#icon-arrow"></use></svg>
+        </button>
+        <button type="button" class="btn-flickity --next" aria-label="Suivant">
+          <svg class="btn-flickity__icon icon" aria-hidden="true"><use xlink:href="#icon-arrow"></use></svg>
+        </button>
+      </div>
+
+      {% if fields.testimonial_enabled %} 
+        <blockquote class="testimonial-client">
+          {% if fields.testimonial_quote %} 
+            <p class="testimonial-client__quote" data-aos="fade-up">{{ fields.testimonial_quote }}</p>
+          {% endif %}
+          {% if fields.testimonial_author %} 
+            <cite class="testimonial-client__author" data-aos="fade-up">{{ fields.testimonial_author }}</cite>
+          {% endif %}
+        </blockquote>
+      {% endif %}
+      
+    </section>  {# end .block #}
+  </div>  {# end .l-container #}
+</div>    {# end .block-wrapper #}

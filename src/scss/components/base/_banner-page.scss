@@ -1,0 +1,106 @@
+// ==============================================
+
+//        BANNER (Page)
+
+// ==============================================
+
+
+.banner-page-wrapper {
+  // @include bg();
+}
+
+.banner-page {
+  // @include bd();
+}
+
+
+.banner-page__inner {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  align-items: center;
+  height: 100vh;
+  height: calc(var(--vh) * 100);    // fix 100vh in iOS and Chrome Android
+  min-height: 660px;
+  padding: 80px grid-unit(1) 50px; 
+  // @include bd();
+}
+
+.banner-page__heading {
+  grid-row: 1;
+  grid-column: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.banner-page__subtitle {
+  margin-top: 40px;
+  max-width: 350px;
+}
+
+.banner-page__figure {
+  grid-row: 1;
+  grid-column: 1;
+  justify-self: end;
+  width: 100%;
+  max-width: 422px;
+  max-height: 100%;
+  position: relative;
+
+  .image-wrapper {
+    --rotation: 2.5deg;
+    --rotation-bg: -2deg;
+    @include aspect-ratio(422, 594, false);
+    box-shadow: 0px 50px 90px -50px #D98C19;
+  }
+}
+
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(lg) {
+  .banner-page__inner {
+    // padding: 80px 45px 40px; 
+  }
+  .banner-page__figure {
+    max-width: 380px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .banner-page__inner {
+    padding: 80px 20px 50px; 
+  }
+  .banner-page__figure {
+    max-width: 50%;
+  }
+  .banner-page__subtitle {
+    max-width: 40%;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .banner-page__inner {
+    padding: 80px 0 50px; 
+    height: initial;
+  }
+  .banner-page__subtitle {
+    margin-top: 20px;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .banner-page__inner {
+    display: block;
+    padding: 120px 0 50px; 
+  }
+  .banner-page__subtitle {
+    max-width: initial;
+  }
+  .banner-page__figure {
+    margin: 40px auto 0;
+    max-width: 70%;
+  }
+}

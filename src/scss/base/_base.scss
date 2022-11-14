@@ -1,0 +1,55 @@
+// ==============================================
+
+//        GLOBAL LAYOUT
+
+// ==============================================
+
+
+//  Structure
+// -----------------------------------------------
+
+// wrap header, main and footer -> push footer on bottom
+.page-wrapper {
+  overflow: hidden;     // prevent background image overflow below footer
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: calc(var(--vh) * 100);    // fix 100vh in iOS and Chrome Android
+}
+
+.main {
+  flex-grow: 1;    // expand main content -> push footer on bottom
+
+  // margin equal header height when header is sticky
+  padding-top: var(--header-height) !important;
+}
+
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+
+
+
+//  Block layout
+// -----------------------------------------------
+
+// vertical margin 250px between blocks (-> pad-top : 50px + pad-bottom : 50px + margin-top : 150px) 
+.block-wrapper {
+  position: relative;
+  padding: 50px 0; 
+  margin-top: 150px;
+  
+  @include media-breakpoint-down(md) {
+    margin-top: 100px;
+  }
+  @include media-breakpoint-down(xs) {
+    margin-top: 40px;
+  }
+  // @include bg(red,0.05);
+}
+
+.block {
+  // @include bd();
+}
