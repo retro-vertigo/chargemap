@@ -35,6 +35,13 @@ class StarterSite extends Timber\Site {
 
 						$context['page_news_link'] = get_post_type_archive_link('post');
 						$context['page_projects_link'] = get_post_type_archive_link('project');
+
+		// Retourne l'url de la page contact localisé (lien dans le header)
+		$page_contact     = get_field( 'page_contact', 'options' );
+		$page_contact     = pl_get_post( $page_contact->ID );   // localize contact page
+		$context['page_contact'] = $page_contact;
+		// $page_contact_url = get_permalink( $page_contact );
+
 		return $context;
 	}
 
@@ -45,18 +52,42 @@ class StarterSite extends Timber\Site {
 	 * @param string $text being 'foo', then returned 'foo bar!'.
 	 */
 
+
+
+	public function function_getRwdImage( $attachment_id, $name='default', $size='full', $attr='' ) {
+		if ( function_exists( 'get_rwd_image' ) ) {
+			return get_rwd_image($attachment_id, $name, $size, $attr);
+		}
+	}
+
 	// set href and target attributes on links if needed
 	public function function_setLinkAttributes( $item ) {
 		$atts = '';
-		if ( isset($item->url) && !empty($item->url) ) {
-      $atts .= 'href="'.esc_url( $item->url ).'"';
-    }
+		$tt = gettype($item);
 
-		if ( isset($item->target) && !empty($item->target) ) {
-			$atts .= ' target="' . esc_attr( $item->target ).'"';
-			if( $item->target == '_blank' ) $atts .= ' rel="noopener"';
+		if( gettype($item) == 'object') {
+			if ( isset($item->url) && !empty($item->url) ) {
+				$atts .= 'href="'.esc_url( $item->url ).'"';
+			}
+	
+			if ( isset($item->target) && !empty($item->target) ) {
+				$atts .= ' target="' . esc_attr( $item->target ).'"';
+				if( $item->target == '_blank' ) $atts .= ' rel="noopener"';
+			}
+		} else {
+			if ( isset($item["url"]) && !empty($item["url"]) ) {
+				$atts .= 'href="'.esc_url( $item["url"] ).'"';
+			}
+	
+			if ( isset($item["target"]) && !empty($item["target"]) ) {
+				$atts .= ' target="' . esc_attr( $item["target"] ).'"';
+				if( $item["target"] == '_blank' ) $atts .= ' rel="noopener"';
+			}
 		}
 		return $atts;
+		
+		
+		
 	}
 
 	// get pll translation 
@@ -110,6 +141,7 @@ class StarterSite extends Timber\Site {
 		// Adding a function.
     $twig->addFunction( new Timber\Twig_Function( 'pll__', [$this, 'function_pll'] ) );
     $twig->addFunction( new Timber\Twig_Function( 'setLinkAttributes', [$this, 'function_setLinkAttributes'] ) );
+    $twig->addFunction( new Timber\Twig_Function( 'getRwdImage', [$this, 'function_getRwdImage'] ) );
     
 
 		return $twig;

@@ -16,88 +16,112 @@ function pga_acf_init_blocks() {
 
 	// common params
 	$enqueue_assets = 'pga_acf_block_enqueue_assets';
-	
-	pga_acf_register_block( array(
-		'name'            => 'side-image',
-		'title'           => __('Image alignée à droite'),
-		'description'     => __('Image alignée à droite'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
-	));
-	pga_acf_register_block( array(
-		'name'            => 'values',
-		'title'           => __('Liste de valeurs'),
-		'description'     => __('Liste de valeurs'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
-	));
-	pga_acf_register_block( array(
-		'name'            => 'gallery',
-		'title'           => __('Galerie d\'images'),
-		'description'     => __('Galerie d\'images'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
-	));
-	pga_acf_register_block( array(
-		'name'            => 'cta',
-		'title'           => __('Call to Action'),
-		'description'     => __('Call to Action'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
-	));
-	pga_acf_register_block( array(
-		'name'            => 'truc',
-		'title'           => __('Truc en plus'),
-		'description'     => __('Truc en plus'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
-	));
-	pga_acf_register_block( array(
-		'name'            => 'team',
-		'title'           => __('Membres de l\'équipe'),
-		'description'     => __('Membres de l\'équipe'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
-	));
-	pga_acf_register_block( array(
-		'name'            => 'accordion',
-		'title'           => __('Accordéon'),
-		'description'     => __('Accordéon'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
-		'enqueue_assets'  => $enqueue_assets,
-	));
-	pga_acf_register_block( array(
-		'name'            => 'brands',
-		'title'           => __('Marques'),
-		'description'     => __('Marques'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
-	));
-	pga_acf_register_block( array(
-		'name'            => 'push-news',
-		'title'           => __('Dernières actualités'),
-		'description'     => __('Dernières actualités'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
-	));
-	pga_acf_register_block( array(
-		'name'            => 'push-projects',
-		'title'           => __('Dernières références'),
-		'description'     => __('Dernières références'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
-		'enqueue_assets'  => $enqueue_assets,
-	));
-}
 
+
+	pga_acf_register_block( array(
+		'name'            => 'cover-image',
+		'title'           => __('Couverture image'),
+		'description'     => __('Couverture image et texte'),
+		'icon'            => 'cover-image',
+		'supports'        => array( 'anchor' => true ),
+	));
+
+
+	pga_acf_register_block( array(
+		'name'            => 'image-text',
+		'title'           => __('Image et texte'),
+		'description'     => __('Image et texte côte à côte'),
+		'icon'            => 'cover-image',
+		'supports'        => array( 'anchor' => true ),
+	));
+
+
+
+
+	
+	/*
+		pga_acf_register_block( array(
+			'name'            => 'side-image',
+			'title'           => __('Image alignée à droite'),
+			'description'     => __('Image alignée à droite'),
+			'icon'            => 'cover-image',
+			'supports'        => array( 'anchor' => true ),
+		));
+		pga_acf_register_block( array(
+			'name'            => 'values',
+			'title'           => __('Liste de valeurs'),
+			'description'     => __('Liste de valeurs'),
+			'icon'            => 'cover-image',
+			'supports'        => array( 'anchor' => true ),
+		));
+		pga_acf_register_block( array(
+			'name'            => 'gallery',
+			'title'           => __('Galerie d\'images'),
+			'description'     => __('Galerie d\'images'),
+			'icon'            => 'cover-image',
+			'supports'        => array( 'anchor' => true ),
+		));
+		pga_acf_register_block( array(
+			'name'            => 'cta',
+			'title'           => __('Call to Action'),
+			'description'     => __('Call to Action'),
+			'icon'            => 'cover-image',
+			'supports'        => array( 'anchor' => true ),
+		));
+		pga_acf_register_block( array(
+			'name'            => 'truc',
+			'title'           => __('Truc en plus'),
+			'description'     => __('Truc en plus'),
+			'icon'            => 'cover-image',
+			'supports'        => array( 'anchor' => true ),
+		));
+		pga_acf_register_block( array(
+			'name'            => 'team',
+			'title'           => __('Membres de l\'équipe'),
+			'description'     => __('Membres de l\'équipe'),
+			'icon'            => 'cover-image',
+			'supports'        => array( 'anchor' => true ),
+		));
+		pga_acf_register_block( array(
+			'name'            => 'accordion',
+			'title'           => __('Accordéon'),
+			'description'     => __('Accordéon'),
+			'icon'            => 'cover-image',
+			'supports'        => array( 'anchor' => true ),
+			'enqueue_assets'  => $enqueue_assets,
+		));
+		pga_acf_register_block( array(
+			'name'            => 'brands',
+			'title'           => __('Marques'),
+			'description'     => __('Marques'),
+			'icon'            => 'cover-image',
+			'supports'        => array( 'anchor' => true ),
+		));
+		pga_acf_register_block( array(
+			'name'            => 'push-news',
+			'title'           => __('Dernières actualités'),
+			'description'     => __('Dernières actualités'),
+			'icon'            => 'cover-image',
+			'supports'        => array( 'anchor' => true ),
+		));
+		pga_acf_register_block( array(
+			'name'            => 'push-projects',
+			'title'           => __('Dernières références'),
+			'description'     => __('Dernières références'),
+			'icon'            => 'cover-image',
+			'supports'        => array( 'anchor' => true ),
+			'enqueue_assets'  => $enqueue_assets,
+		));
+		*/
+}
+ 
 
 // Add block with default params
 function pga_acf_register_block( $params ) {
 	$default_category = 'custom-cat';
 	$default_render_callback = 'pga_acf_block_render_callback';
 	$default_icon = 'edit';
-	$default_background_icon = '#FBEBCD';
+	$default_background_icon = '#CFEEFA';
 
 	if ( empty($params['category']) ) $params['category'] = $default_category;
 	if ( empty($params['render_callback']) ) $params['render_callback'] = $default_render_callback;
@@ -137,32 +161,15 @@ function pga_acf_block_render_callback( $block, $content = '', $is_preview = fal
     // Store block values.
     $context['block'] = $block;
 
-    // Store field values.
+    // Store field values.  
     $context['fields'] = get_fields();
+		$fields = get_fields();
+		foreach ( $fields as $key => $field ) {
+			$context[$key] = $field;
+    }
 
     // Store $is_preview value.
     $context['is_preview'] = $is_preview;
-
-
-
-		// get posts for block-push-news
-		if( $slug == 'push-news') {
-			$args = array(
-				'post_type' => 'post',
-				'posts_per_page' => 3,
-			);
-			$query = new Timber\PostQuery( $args );
-			$context['posts_block'] = $query;
-
-		// get posts for block-push-projects
-		} else if( $slug == 'push-projects') {
-			$args = array(
-				'post_type' => 'project',
-				'posts_per_page' => 9,
-			);
-			$query = new Timber\PostQuery( $args );
-			$context['posts_block'] = $query;
-		}
 
     // Render the block.
     Timber::render( "blocks/block-{$slug}.twig", $context );

@@ -1,0 +1,82 @@
+// ==============================================
+
+//        BLOCK COVER IMAGE 
+
+// ==============================================
+
+
+.block-cover-image {
+  padding-top: 135px;
+  padding-bottom: 135px;
+  background-color: $color-light-grey;
+
+  @include desktop {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  @include tablet-small {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  @include mobile {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  // --modifier
+  @include min-tablet-small {
+    &.--image-text {
+      .block-cover-image__inner {
+        grid-template-areas: "image content";
+  
+        .block-cover-image__image {
+          justify-self: initial;
+        }
+      }
+    }
+  }
+}
+
+
+.block-cover-image__inner {
+  display: grid;
+  grid-template-areas: "content image";
+  grid-template-columns: repeat(2, 1fr);  
+  gap: 20px;
+
+  > * {
+    // @include bd();
+  }
+
+  // 1 colonne
+  @include tablet-small {
+    grid-template-areas: "content" 
+                         "image";
+    grid-template-columns: auto;  
+    gap: 30px;
+  }
+}
+
+
+
+.block-cover-image__content {
+  grid-area: content;
+  max-width: 570px;
+}
+
+.block-cover-image__image {
+  grid-area: image;
+  width: 100%;
+  max-width: 504px;
+  
+  @include min-tablet-small {
+    justify-self: end;
+  }
+
+  figure {
+    @include aspect-ratio(504, 316);
+  }
+}
+

@@ -1,33 +1,117 @@
 {
     "key": "group_62208f7f047e7",
-    "title": "[ Bloc ] Dernières actualités",
+    "title": "[ Bloc ] Couverture image texte",
     "fields": [
         {
-            "key": "field_62208f7f0b725",
-            "label": "Titre",
-            "name": "title",
-            "type": "textarea",
+            "key": "field_6376ae3f1ae36",
+            "label": "Option d'affichage :",
+            "name": "display",
+            "type": "button_group",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 4,
-            "new_lines": "br"
+            "choices": {
+                "--text-image": "Texte à gauche \/ Image à droite",
+                "--image-text": "Image à gauche \/ Texte à droite"
+            },
+            "allow_null": 0,
+            "default_value": "--text-left",
+            "layout": "horizontal",
+            "return_format": "value"
         },
         {
-            "key": "field_62208f7f0b779",
-            "label": "Lien",
-            "name": "link",
+            "key": "field_6378f3677ac8c",
+            "label": "Surtitre :",
+            "name": "suptitle",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6378f3847ac8d",
+            "label": "Titre :",
+            "name": "title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_62208f7f0b725",
+            "label": "Contenu textuel :",
+            "name": "wysi",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "tiny-mce-compact-medium",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "simple",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_6376ad881ae35",
+            "label": "Image :",
+            "name": "image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_6378f983a6087",
+            "label": "Lien CTA :",
+            "name": "link_cta",
             "type": "link",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -42,7 +126,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/push-news"
+                "value": "acf\/cover-image"
             }
         ]
     ],
@@ -54,5 +138,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1646302042
+    "modified": 1668891996
 }

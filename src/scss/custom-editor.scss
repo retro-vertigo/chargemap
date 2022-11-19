@@ -24,10 +24,10 @@
   @import 'layout/container';
   @import 'layout/flex-grid';
   @import 'layout/grid';
+  @import 'components/base/*';
 
   @import 'vendors-custom/flickity-theme-custom';
 
-  @import 'components/base/*';
   @import 'components/blocks/*';
   @import 'components/card-post';
   @import 'components/grid-posts';

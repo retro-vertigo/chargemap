@@ -25,7 +25,8 @@ $color-primary-dark  : mix-darken($color-primary, 10);
 // White / Black / Grey
 $color-black: #0F1729;
 $color-black-medium: #1D283A;
-$color-grey: #48566A;
+$color-grey-dark: #48566A;
+$color-grey: #65758B;
 $color-grey-medium: #CBD5E1;
 $color-light-grey       : #F0F6FF;
 $color-white      : #FFFFFF;
@@ -44,12 +45,15 @@ $color-body-text      : $color-black;
 
 // Map pour créer des CSS variables de couleur à partir de variables Sass (avec formats hex, hsl, h, s, l)
 $map-colors: (
-  color-primary        : $color-primary,
-  // color-primary-soft   : $color-primary-soft,
-  // color-secondary      : $color-secondary,
-  // color-primary-dark   : $color-primary-dark,
-  // color-secondary-dark : $color-secondary-dark,
-  // color-light-black    : $color-light-black,
+  color-primary: $color-primary,
+  color-navy   : $color-navy,
+  color-pink   : $color-pink,
+  color-green  : $color-green,
+  color-indigo : $color-indigo,
+  color-purple : $color-purple,
+  color-black-medium : $color-black-medium,
+
+
   // color-medium-grey    : $color-medium-grey,
   // color-grey           : $color-grey,
   // color-body-background: $color-body-background,
@@ -76,12 +80,13 @@ $line-height-base : 1.5;
 // Container's maximum width
 $container-wide-width  : 1880px;
 $container-large-width : 1404px;    // (1340 + 2x32)
-$container-medium-width: 1404px;    // (1340 + 2x32)
+$container-medium-width: 1280px;    // (1280)
 $container-small-width : 1204px;    // (1140 + 2x32)
 $container-width       : $container-medium-width;  // alias
 
 // 
-$container-padding-desktop: 2rem;
+$container-padding-desktop: 56px;
+$container-padding-medium: 32px;
 $container-padding-mobile : 25px;
 
 
@@ -170,6 +175,10 @@ $z-layers: (
   --spacer: #{$spacer};
   --vh: 1vh;    // fix 100vh in iOS and Chrome Android (css var --vh set with JS)
 
+  @include media-breakpoint-down(lg) {
+    --container-padding: #{$container-padding-medium};
+  }
+
 
   // MQ for CSS variables
   @include media-breakpoint-down(sm) {
@@ -187,7 +196,6 @@ $sidebar-width: 60px;
 
 
 $color-dark-grey  : #484051;
-$color-light-grey : #EBEBEB;
 $color-light-white: #F2F2F2;
 
 // Social brand colors

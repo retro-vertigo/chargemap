@@ -1,39 +1,39 @@
 <header class="header-site" id="header-site">
 
-	<div class="l-container --large">
-    <div class="header-site__inner">
+  <div class="header-site__inner l-container --large">
 
-      <a href="{{ site.url }}" class="header-brand-rosace" aria-label="Accueil">
-        <img src="{{ svg_link }}external/logo-rosace.svg" alt="Nuances événements" aria-hidden="true">
-      </a>
-      <a href="{{ site.url }}" class="header-brand-text" aria-label="Accueil">
-        <img src="{{ svg_link }}external/logo-text.svg" alt="Nuances événements" aria-hidden="true">
-      </a>
+    <a href="{{ site.url }}" class="header-brand" aria-label="Accueil">
+      <svg aria-hidden="true"><use xlink:href="#logo-cmb"></use></svg>
+    </a>
 
-      <div class="nav-responsive-container" id="nav-responsive-container">
+    <div class="nav-responsive-container" id="nav-responsive-container">
 
-				{# {% include "partials/nav-primary.twig" %}
-
-				{% include "partials/nav-social.twig" %} #}
-
-				{% if acf_options.page_contact %}
-					<a href="{{ TimberPost(acf_options.page_contact).link }}" class="btn-contact" aria-label="Contact">
-						<svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail"></use></svg>
-					</a>
-				{% endif %}
-        
-      </div>
-
-      <button class="btn-burger d-lg-none" id="btn-burger" aria-label="menu">
-        <span class="btn-burger__icon">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-      </button>
+      {% include "partials/nav-primary.twig" %}
 
     </div>
+
+    <div class="nav-header-right">
+      <a href="{{ pll__( 'url_memberarea' ) }}" class="btn --link">{{ pll__( 'Se connecter' ) }}</a>
+
+      {% if acf_options.page_contact %}
+        <a href="{{ TimberPost(acf_options.page_contact).link }}" class="btn --small" aria-label="Contact">
+          {{ pll__( 'Contactez-nous' ) }}
+        </a>
+      {% endif %}
+    </div>
+    
+
+    {# <?php	include( locate_template( 'template-parts/commons/lang-switcher.php' )); ?> #}
+
+    <button class="btn-burger d-lg-none" id="btn-burger" aria-label="menu">
+      <span class="btn-burger__icon">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
   </div>
 </header>

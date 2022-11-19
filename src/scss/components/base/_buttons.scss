@@ -9,6 +9,9 @@
 //  - modifiers : --grey, --green, --secondary, --ghost, --text, --white, --big, --no-pointer, --loader, --job-linkedin
 // -----------------------------------------------
 
+
+
+
 .btn {
   --color-text : white;
   --color-bg : var(--color-primary);
@@ -22,18 +25,51 @@
   border-radius: $border-radius-small;
   transition: color $trans-color, background-color $trans-color, border-color $trans-color;
 
+  @include mobile {
+    font-size: 16px;
+  }
+
   &:hover {
     background-color: $color-navy;
   }
 
   // -modifiers
-  &.-navy {
+  &.--small {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+
+  &.--navy {
     --color-bg : var(--color-navy);
 
     &:hover {
       background-color: $color-primary;
     }
   }
+
+  &.--link {
+    --color-text : var(--color-black-medium);
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: initial;
+  
+    &:hover {
+      color: $color-navy;
+      background-color: initial;
+    }
+  }
+
+  &.--stretch-mobile {
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+
+  
+
+
 
   &.-white {
     --color-bg : white;
@@ -111,6 +147,9 @@
   }
 }
 
+.green-button {
+  background-color: green;
+}
 
 
 

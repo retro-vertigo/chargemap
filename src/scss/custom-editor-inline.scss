@@ -115,11 +115,11 @@ p.wp-block-paragraph {
   margin-bottom: 1.11em;
 
   a {
-    color: $color-secondary;
+    color: $color-primary;
     text-decoration: underline;
 
     &:hover {
-      color: $color-secondary-dark;
+      color: $color-navy;
     }
   }
 }
@@ -131,21 +131,53 @@ p.wp-block-paragraph {
 
 #tinymce {
   padding: 1rem;
+
   h2,
   h3,
   h4 {
     margin-bottom: 1em;
   }
 
-  a {
-    color: $color-secondary;
-    text-decoration: underline;
+  p:not(.suptitle) {
+    font-size: 16px;
+  }
 
+  a:not(.btn) {
+    color: $color-primary;
+    text-decoration: underline;
+    @include bd();
+  }
+
+  
+  .btn {
+    --color-text : white;
+    --color-bg : var(--color-primary);
+    @include inline-flex-center();
+    padding: 0.55em 1.33em;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    border-radius: $border-radius-small;
+    transition: color $trans-color, background-color $trans-color, border-color $trans-color;
+  
     &:hover {
-      color: $color-secondary-dark;
+      background-color: $color-navy;
+    }
+  
+    // --modifiers
+    &.--navy {
+      --color-bg : var(--color-navy);
+  
+      &:hover {
+        background-color: $color-primary;
+      }
     }
   }
 }
+
+
 
 .tiny-mce-compact .acf-editor-wrap iframe {
   min-height: 0 !important;

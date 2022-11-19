@@ -15,10 +15,12 @@ add_action( 'init', 'pga_register_polylang_strings' );
 function pga_register_polylang_strings() {
   if ( function_exists( 'pll_register_string' ) ) {
     pll_register_string( "interface", "Accueil", "theme" );
+    pll_register_string( "interface", "Contactez-nous", "theme" );
+    pll_register_string( "interface", "url_memberarea", "theme" );
+    pll_register_string( "interface", "Se connecter", "theme" );
 
     
     pll_register_string( "interface", "Espace investisseurs", "theme" );
-    pll_register_string( "interface", "url_memberarea", "theme" );
     pll_register_string( "interface", "Accueil", "theme" );      // for breadcrumbs
     pll_register_string( "interface", "En savoir plus", "theme" );
     pll_register_string( "interface", "Crédits", "theme" );

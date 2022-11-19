@@ -5,21 +5,6 @@
 // ==============================================
 
 
-//  IE 11 grid fallback
-// -----------------------------------------------
-
-// TODO clean
-// Replace grid-column: 2 / -2; with  grid-column: 2 / span 8
-// ex : grid-column-negative-line-fallback(2, -2) -> grid-column: 2 / span 8;
-@mixin grid-column-negative-line-fallback($col-start, $col-end) {
-  $grid-columns-num : 10;   // grid base
-  $col-end: $grid-columns-num + $col-end;
-  grid-column: #{$col-start} / span #{$col-end};
-}
-
-
-
-
 //  Geometry
 // -----------------------------------------------
 
@@ -108,6 +93,14 @@
 /// @param {String} $context
 @mixin when-inside($context) {
   #{$context} & {
+    @content;
+  }
+}
+
+
+// Concatène un sélecteur avec un sélecteur d'élement (ex : a.btn-primary, button.btn-primaray...)
+@mixin unify-parent($child) {
+  @at-root #{selector-unify(&, $child)} {
     @content;
   }
 }

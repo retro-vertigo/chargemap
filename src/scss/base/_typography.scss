@@ -26,18 +26,21 @@ h1, h2, h3, h4,
 }
 
 h1,
-.h1,
-.section-title {
+.h1 {
   font-size: 44px;
   font-weight: 700;
   line-height: 1.13;
 
-  // @include media-breakpoint-down(md) {
-  //   font-size: 60px;
-  // }
-  // @include media-breakpoint-down(sm) {
-  //   font-size: 40px;
-  // }
+  .alt-color {
+    color: $color-primary;
+  }
+
+  @include tablet {
+    font-size: 36px;
+  }
+  @include mobile {
+    font-size: 32px;
+  }
 }
 
 h2,
@@ -46,10 +49,10 @@ h2,
   font-weight: 700;
   line-height: 1.13;
 
-  @include media-breakpoint-down(md) {
+  @include tablet {
     font-size: 40px;
   }
-  @include media-breakpoint-down(sm) {
+  @include mobile {
     font-size: 32px;
   }
 }
@@ -60,10 +63,10 @@ h3,
   font-weight: 700;
   line-height: 1.23;
 
-  @include media-breakpoint-down(md) {
+  @include tablet {
     font-size: 28px;
   }
-  @include media-breakpoint-down(sm) {
+  @include mobile {
     font-size: 28px;
   }
 }
@@ -86,6 +89,43 @@ a {
   color: $color-body-text;
 }
 
+
+.suptitle {
+    display: block;
+    font-family: $font-title; 
+    font-feature-settings: $font-feature-settings;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: $color-primary;
+}
+
+
+
+
+.editor {
+
+    .suptitle + * {
+        margin-top: 10px;
+    }
+
+    * + .btn {
+        margin-top: 10px;
+    }
+
+    * + .wysi {
+        margin-top: 10px;
+    }
+
+    p {
+        @include tablet {
+            font-size: 16px;
+        }
+    }
+}
+
+
+
 // default size for SVG icon
 .icon {
   width: 1em;
@@ -94,51 +134,17 @@ a {
 }
 
 
-// Title split by lines for animation
-.section-title[data-splitting] {
-  display: flex;
-  flex-direction: column;
-
-  @include media-breakpoint-down(xs) {
-    display: block;
-
-    // create whitespace between lines when collapsed on mobile
-    > span {
-      &:not(:last-child) {
-        margin-right: 9.2px;
-      }
-    }
-  }
+img.--border-radius {
+    border-radius: $border-radius;
 }
 
 
-.section-subtitle {
-  color: $color-secondary;
-  font-size: 26px;
 
-  @include media-breakpoint-down(md) {
-    font-size: 24px;
-  }
-  @include media-breakpoint-down(sm) {
-    font-size: 22px;
-  }
-}
 
-.section-subtitle-orange {
-  margin-bottom: 0;
-  font-family: $font-title; 
-  font-size: 50px;
-  line-height: 1.2;
-  font-weight: 700;
-  color: $color-primary-medium;
 
-  @include media-breakpoint-down(md) {
-    font-size: 40px;
-  }
-  @include media-breakpoint-down(sm) {
-    font-size: 32px;
-  }
-}
+
+
+
 
 
 .editor-text {

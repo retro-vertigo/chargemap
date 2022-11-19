@@ -140,3 +140,65 @@
 // -----------------------------------------------
 
 // TODO Alias bp()
+
+@mixin mobile {
+  @include media-breakpoint-down(xs) {
+    @content;
+  }
+}
+
+@mixin tablet-small {
+  @include media-breakpoint-down(sm) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @include media-breakpoint-down(md) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @include media-breakpoint-down(lg) {
+    @content;
+  }
+}
+
+@mixin wide {
+  @include media-breakpoint-down(xl) {
+    @content;
+  }
+}
+
+
+// Breakpoint down
+@mixin min-mobile {
+  @include media-breakpoint-up(sm) {
+    @content;
+  }
+}
+
+@mixin min-tablet-small {
+  @include media-breakpoint-up(md) {
+    @content;
+  }
+}
+
+@mixin min-tablet {
+  @include media-breakpoint-up(lg) {
+    @content;
+  }
+}
+
+@mixin min-desktop {
+  @include media-breakpoint-up(xl) {
+    @content;
+  }
+}
+
+@mixin min-wide {
+  @include media-breakpoint-up(xxl) {
+    @content;
+  }
+}

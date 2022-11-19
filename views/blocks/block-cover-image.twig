@@ -1,0 +1,38 @@
+{#
+/**
+ * Block Name: Block Cover Image
+ *
+ */
+#}
+
+<section class="{{ block.classes }} {{ display }}" id="{{ block.id }}">
+  <div class="block-container l-container --h-padding">
+    
+    <div class="block-cover-image__inner">
+        <div class="block-cover-image__content editor">
+            {% if suptitle %}
+                <span class="suptitle">{{ suptitle }}</span>
+            {% endif %}
+            {% if title %}
+                <h1>{{ title }}</h1>
+            {% endif %}
+            {% if wysi %}
+                <div class="wysi">{{ wysi }}</div>
+            {% endif %}
+            {% if link_cta.url %}
+                <a {{ setLinkAttributes( link_cta ) }} class="btn --stretch-mobile">{{ link_cta.title }}</a>
+            {% endif %}
+        </div>
+
+        <div class="block-cover-image__image">
+            {% if image %}
+                <figure>
+                    {{ getRwdImage( image.id, 'cover', 'large',  { class:'--border-radius u-image-cover' } ) }}
+                </figure>
+            {% endif %}
+        </div>
+    
+    </div>
+  
+  </div>    {# end .block-container #}
+</section>  {# end .block #}

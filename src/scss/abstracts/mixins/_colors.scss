@@ -126,26 +126,18 @@
 
 
 
-//  Color contrast
-// -----------------------------------------------
+// Colors equivalences with filters to apply on svg (original fill in svg has to be #000000)
+$colors-filters: (
+  'blue' : invert(51%) sepia(32%) saturate(6631%) hue-rotate(202deg) brightness(97%) contrast(99%),
+  'green' : invert(63%) sepia(79%) saturate(2771%) hue-rotate(130deg) brightness(93%) contrast(84%),
+  'indigo' : invert(60%) sepia(76%) saturate(6321%) hue-rotate(225deg) brightness(98%) contrast(93%),
+  'purple' : invert(44%) sepia(94%) saturate(4216%) hue-rotate(249deg) brightness(105%) contrast(94%),
+) !default;
 
-// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
-$yiq-contrasted-threshold: 150 !default;
 
-// Customize the light and dark text colors for use in our YIQ color contrast function.
-$yiq-text-dark : black !default;
-$yiq-text-light: white !default;
-
-@function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
-  $r: red($color);
-  $g: green($color);
-  $b: blue($color);
-
-  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) * .001;
-
-  @if ($yiq >= $yiq-contrasted-threshold) {
-    @return $dark;
-  } @else {
-    @return $light;
+@function filter-color($color) {
+  @if not map-has-key($colors-filters, $color) {
+    @warn "No colour found in $colors-filters map for `#{$color}`. Property omitted.";
   }
+  @return map-get($colors-filters, $color);
 }

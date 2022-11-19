@@ -75,6 +75,10 @@
   @include bg-cover(contain);
 }
 
+.u-image-cover {
+  @include image-cover();
+}
+
 
 //  Hide
 // -----------------------------------------------

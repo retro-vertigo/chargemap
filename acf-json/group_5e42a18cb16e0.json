@@ -15,7 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
+            "placement": "left",
             "endpoint": 0
         },
         {
@@ -77,189 +77,62 @@
             "maxlength": ""
         },
         {
+            "key": "field_63756d2dc22a7",
+            "label": "Header",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6210de2b358ce",
+            "label": "Page contact",
+            "name": "page_contact",
+            "type": "post_object",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
+            "key": "field_63756dd451681",
+            "label": "Lien espace membre",
+            "name": "url_members",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
             "key": "field_6214ed349d5fa",
             "label": "Footer",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_6214ed489d5fb",
-            "label": "Informations du footer",
-            "name": "footer",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "row",
-            "sub_fields": [
-                {
-                    "key": "field_6214ed609d5fc",
-                    "label": "Texte",
-                    "name": "text",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": 2,
-                    "new_lines": ""
-                },
-                {
-                    "key": "field_6214ed9c9d5fe",
-                    "label": "Adresse",
-                    "name": "address",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": 2,
-                    "new_lines": "br"
-                },
-                {
-                    "key": "field_6214edbd9d5ff",
-                    "label": "Téléphone",
-                    "name": "phone",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_6214eddc9d600",
-                    "label": "Email",
-                    "name": "email",
-                    "type": "email",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_6214ee459d601",
-                    "label": "Titre newsletter",
-                    "name": "title_newsletter",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                }
-            ]
-        },
-        {
-            "key": "field_6220f489e70de",
-            "label": "Page Références",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_6220f4a6e70df",
-            "label": "Titre du bandeau",
-            "name": "banner_references_title",
-            "type": "textarea",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 4,
-            "new_lines": "br"
-        },
-        {
-            "key": "field_6220f50ee70e0",
-            "label": "Texte d'intro du bandeau",
-            "name": "banner_references_text",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
-            "key": "field_6221df22c700e",
-            "label": "Page Actualités",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -291,65 +164,6 @@
             "maxlength": "",
             "rows": 4,
             "new_lines": "br"
-        },
-        {
-            "key": "field_6221df4fc7010",
-            "label": "Texte d'intro du bandeau",
-            "name": "banner_news_text",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
-            "key": "field_613749c95c6c7",
-            "label": "Page Contact",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_61578b6df41f7",
-            "label": "Choix du formulaire",
-            "name": "gf_form_id",
-            "type": "select",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "1": "Contact"
-            },
-            "default_value": false,
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
         }
     ],
     "location": [
@@ -369,5 +183,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1647424380
+    "modified": 1668640312
 }

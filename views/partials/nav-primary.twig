@@ -1,11 +1,68 @@
 {% if nav_primary %}
 	<nav class="nav-primary">
 			<ul class="nav-primary__menu">
-			{% for item in nav_primary.get_items %}
-				<li class="{{ item.classes | join(' ') }}">
-					<a href="{{ item.link }}" class="nav-primary__link">{{ item.title }}</a>
-				</li>
-			{% endfor %}
+				{% for item in nav_primary.items %}
+					<li class="{{ item.classes | join(' ') }} is-level1 {% if item.children %}has-children{% endif %}">
+                        {# Lien simple #}
+                        {% if not item.children %}
+                            <a href="{{ item.link }}" class="nav-primary__link">
+                                {{ item.title }}
+                            </a>
+                        {# Titre et Sous-menu de niveau 2 #}
+                        {% else %}
+                            <span class="nav-primary__link">
+                                {{ item.title }}
+                                <svg class="icon"><use xlink:href="#icon-chevron-down"></use></svg>
+                            </span>
+
+                            <div class="submenu">
+                                <span class="submenu__title">{{ item.title }}</span>
+                                
+                                {# Sous-menu simple de niveau 2 #}
+                                {% if not item.has_level_3 %}
+                                    <ul class="submenu__list">
+                                        {% for child in item.children %}
+                                            <li class="{{ child.classes | join(' ') }} is-level2">
+                                                <a {{ setLinkAttributes(child) }} class="nav-primary__link">{{ child.title }}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+
+                                {# Megamenu de niveau 3 #}
+                                {% else %}
+                                    <div class="megamenu">
+                                        {% for child in item.children %}
+                                            <div class="megamenu__column {{ child.classes|filter(c => (c == 'txt-green' or c == 'txt-indigo' or c == 'txt-purple'))|join(', ') }}">
+                                                <span class="megamenu__title">
+                                                    {{ child.title }}
+                                                </span>
+
+                                                <ul class="submenu__list">
+                                                    {% for subchild in child.children %}
+                                                        <li class="{{ subchild.classes | join(' ') }} is-level2">
+                                                            <a {{ setLinkAttributes(subchild) }} class="nav-primary__link {% if subchild.icon %}has-icon{% endif %}">
+                                                                {% if subchild.icon %}
+                                                                    {% set image = Image(subchild.icon) %}
+                                                                    <img src="{{ image.src }}" alt="{{ image.alt }}" />
+                                                                {% endif %}
+                                                                {{ subchild.title }}
+                                                            </a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                
+                                {% endif %}
+                                
+                            </div>
+                        {% endif %}
+
+					</li>
+				{% endfor %}
 			</ul>
 	</nav>
 {% endif %}
+

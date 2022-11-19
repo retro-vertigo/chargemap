@@ -61,23 +61,15 @@ function pga_allow_block_types( $allowed_blocks, $editor_context ) {
 
     // Default ACF blocks
     $custom_blocks = array(
-      'acf/side-image',
-      'acf/values',
-      'acf/gallery',
-      'acf/cta',
-      'acf/truc',
-      'acf/team',
-      'acf/accordion',
-      'acf/brands',
-      'acf/push-news',
-      'acf/push-projects',
+      'acf/cover-image',
+      'acf/image-text',
     );
 
      // No blocks for page contact and page actualités (blog page)
      if( get_page_template_slug( $post ) == 'template-contact.php' || $post->ID == get_option( 'page_for_posts' )) {
       $custom_blocks = array();
     }
-
+/* 
      // Only some WP blocks for page legal
      if( get_page_template_slug( $post ) == 'template-legal.php') {
       $custom_blocks = array(
@@ -96,7 +88,7 @@ function pga_allow_block_types( $allowed_blocks, $editor_context ) {
         'core/image',
         'core/embed'
       );
-    }
+    } */
     
     $allowed_blocks = $custom_blocks;
   }
@@ -104,46 +96,6 @@ function pga_allow_block_types( $allowed_blocks, $editor_context ) {
 }
 
 
-// Set template with predefined blocks in job posts
-// add_action( 'init', 'pga_job_post_block_template' );
-function pga_job_post_block_template() {
-
-  $post_type_object = get_post_type_object( 'job' );
-  $post_type_object->template = array(
-    array( 'acf/hero-text' ),
-    array( 'acf/intro', array( 'data' => array( 'text' => 'Texte d\'introduction de l\'offre...' ) ) ),
-    array( 'acf/text', array( 'data' => array( 'text' => 'Texte de contenu de l\'offre...' ) ) ),
-    array( 'acf/card-job' ),
-  );
-}
-
-
-// Start post creation with predefined blocks
-// add_filter( 'register_post_type_args', 'pga_custom_block_templates', 20, 2 );
-function pga_custom_block_templates( $args, $post_type ) {
-
-  if ( 'post' == $post_type || 'page' == $post_type ) {
-
-    // Set the template
-    $args['template'] = [
-      [
-        'acf/hero',
-      ],
-    ];
-  }
-
-  // if ( 'job' == $post_type ) {
-
-  //   // Set the template
-  //   $args['template'] = [
-  //     [
-  //       'acf/hero-text ',
-  //     ],
-  //   ];
-  // }
-
-  return $args;
-}
 
 
 // Add custom block category

@@ -62,7 +62,7 @@
 
   .icon {
     fill: $color-primary;
-    transition: fill $trans-duration;
+    transition: fill $trans-color;
   }
 }
 
@@ -95,7 +95,7 @@
 .nav-footer__link {
   display: inline-block;
   font-size: 14px;
-  transition: color $trans-duration;
+  transition: color $trans-color;
 
   // highlight 1st level only 
   .nav-footer__item.--is-depth0.is-active > & {
@@ -125,7 +125,7 @@
 }
 
 
-.nav-footer__item > .sub-menu {
+.nav-footer__item > .submenu {
   @include list-flex(column);
   // @include bd();
 }
