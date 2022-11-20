@@ -27,7 +27,7 @@ export default class Tabs {
       
         // Set this tab as selected
         target.setAttribute('aria-selected', true);
-        console.log('target', target);
+        // console.log('target', target);
         
         // Hide all tab panels
         this.tabPanels.forEach( p => p.setAttribute('hidden', true));

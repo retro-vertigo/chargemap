@@ -1,4 +1,4 @@
-import Accordion from "../UI/Accordion";
+import Tabs from "../utils/Tabs";
 
 (function(){
   
@@ -13,7 +13,7 @@ import Accordion from "../UI/Accordion";
 
   const initializeBlock = function( $block ) {
     const blockPreview = $block[0];           //    acf container : <div class="acf-block-preview"></div>
-    blockPreview.querySelectorAll('[data-accordion]').forEach( el => { new Accordion(el); });
+    new Tabs(blockPreview.querySelector('[class*=block]'));
   }
 
 
@@ -22,7 +22,7 @@ import Accordion from "../UI/Accordion";
   
   // Initialize dynamic block preview (editor).
   if( window.acf ) {
-      window.acf.addAction( 'render_block_preview/type=accordion', initializeBlock );
+      window.acf.addAction( 'render_block_preview/type=tabs', initializeBlock );
   }
 
 })();

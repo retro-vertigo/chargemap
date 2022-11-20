@@ -32,7 +32,9 @@ function pga_acf_init_blocks() {
 		'description'     => __('Onglets en icônes'),
 		'icon'            => 'cover-image',
 		'supports'        => array( 'anchor' => true ),
+		'enqueue_assets'  => $enqueue_assets,
 	));
+	
 
 
 	pga_acf_register_block( array(
