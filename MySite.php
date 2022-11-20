@@ -106,20 +106,12 @@ class StarterSite extends Timber\Site {
     var_dump( get_class_methods( $object ) );
   }
 
-	// Set readmore link with accordion behavior in ACF fields
-	// https://support.advancedcustomfields.com/forums/topic/read-more-in-acf-text-or-wysiwyg-field/
-	// Ex : {{ post.content | readmore( 'En savoir plus' ) }}
-  public function filter_readmore( $full_text, $btn_label='Lire la suite' ) {
-    if(strpos( $full_text, '<!--more-->') ) {
-			$btn_more_pos  = strpos($full_text, '<!--more-->');
-			$full_text = preg_replace('/<!--(.|\s)*?-->/', '', $full_text);
-			$output = substr($full_text, 0, $btn_more_pos);
-			$output .= '<button class="btn-read-more" aria-expanded="false" data-readmore>' . $btn_label . '</button>';
-			$output .= '<div class="read-more-content" data-readmore-content>' . substr($full_text, $btn_more_pos,-1) . '</div>';
-		} else {
-			$output =  $full_text;
-		}
-		return $output;
+	// Colorise en bleu une partie d'un titre délimité par des crochets (Mon titre [en bleu] et noir)
+  public function filter_titleColor( $str ) {
+		$str = preg_replace('/\[/', '<span class="alt-color">', $str);
+		$str = preg_replace('/\]/', '</span>', $str);
+		// $str = preg_replace(']', '</span>', $str);
+		return $str;
   }
 	
 
@@ -135,7 +127,7 @@ class StarterSite extends Timber\Site {
       $twig->addFilter( new Twig\TwigFilter( 'dump', [$this, 'filter_dump'] ) );
       $twig->addFilter( new Twig\TwigFilter( 'methods', [$this, 'filter_methods'] ) );
     }
-		$twig->addFilter( new Twig\TwigFilter( 'readmore', [$this, 'filter_readmore'] ) );
+		$twig->addFilter( new Twig\TwigFilter( 'titleColor', [$this, 'filter_titleColor'] ) );
 
 
 		// Adding a function.

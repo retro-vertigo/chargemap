@@ -1,0 +1,71 @@
+// ==============================================
+
+//        BLOCK COLUMNS
+
+// ==============================================
+
+
+.block-columns {
+  
+  // --modifier
+  &.--bg-grey {
+    background-color: $color-light-grey;
+    padding-top: 90px;
+    padding-bottom: 90px;
+    
+    @include tablet-small {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+
+    @include mobile {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+
+  .title-block {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+.block-columns__inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  
+  // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  
+  // gap: 60px;
+  gap: 4.6875%;
+
+  .title-block + & {
+    margin-top: 40px;
+
+    @include mobile {
+      margin-top: 20px;
+    }
+  }
+
+  // 1 colonne
+  @include tablet-small {
+    grid-template-columns: auto;  
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .column {
+    // @include bd();
+
+    img {
+      height: 54px;
+      width: auto;
+      filter: filter-color('blue');
+
+      & + * {
+        margin-top: 10px;
+      }
+    }
+  }
+}

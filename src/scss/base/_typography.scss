@@ -23,6 +23,10 @@ h1, h2, h3, h4,
   margin-bottom: 0;
   font-family: $font-title; 
   font-feature-settings: $font-feature-settings;
+
+  .alt-color {
+    color: $color-primary;
+  }
 }
 
 h1,
@@ -30,11 +34,7 @@ h1,
   font-size: 44px;
   font-weight: 700;
   line-height: 1.13;
-
-  .alt-color {
-    color: $color-primary;
-  }
-
+  
   @include tablet {
     font-size: 36px;
   }
@@ -90,6 +90,10 @@ a {
   color: $color-body-text;
 }
 
+p + p {
+  margin-top: 1rem;
+}
+
 
 .suptitle {
     display: block;
@@ -105,13 +109,12 @@ a {
 
 
 .editor {
-
     .suptitle + * {
         margin-top: 10px;
     }
 
     * + .btn {
-        margin-top: 10px;
+        margin-top: 30px;
     }
 
     * + .wysi {
