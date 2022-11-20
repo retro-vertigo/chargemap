@@ -1,0 +1,96 @@
+{#
+/**
+ * Block Name: Block Tabs
+ *
+ */
+#}
+
+<section class="{{ block.classes }}" id="{{ block.id }}">
+  <div class="block-container">
+
+    <div class="tablist custom-scrollbar l-container" role="tablist" aria-label="Onglets">
+        {% for tab in tabs %}
+            {% if tab.tab_title %}
+                <button class="tablist__btn" id="tab-{{ block.uniq_id }}-{{ loop.index }}" aria-controls="panel-{{ block.uniq_id }}-{{ loop.index }}"
+                        aria-selected={{ loop.first ? 'true' : 'false' }} tabindex="0" role="tab">
+                    {% if tab.tab_image %}
+                        <img src="{{ tab.tab_image.url }}" alt="{{ tab.tab_image.alt }}" />
+                    {% endif %}
+                    <span>{{ tab.tab_title }}</span>
+                    <svg class="icon"><use xlink:href="#icon-chevron-down"></use></svg>
+                </button>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="panels-wrapper l-container">
+        {% for tab in tabs %}
+            {% if tab.tab_title %}
+                <div class="panel {{ tab.display }}" id="panel-{{ block.uniq_id }}-{{ loop.index }}" aria-labelledby="tab-{{ block.uniq_id }}-{{ loop.index }}"
+                        {{ loop.first ? '' : 'hidden' }} tabindex="0" role="tabpanel">
+
+                        <div class="panel__content editor">
+                        {# {{ dump(tab) }} #}
+                        
+                            {% if tab.group_text.suptitle %}
+                                <span class="suptitle">{{ tab.group_text.suptitle }}</span>
+                            {% endif %}
+                            {% if tab.group_text.title %}
+                                <h2>{{ tab.group_text.title }}</h2>
+                            {% endif %}
+                            {% if tab.group_text.wysi %}
+                                <div class="wysi">{{ tab.group_text.wysi }}</div>
+                            {% endif %}
+                            {% if tab.group_text.link_cta.url %}
+                                <a {{ setLinkAttributes( tab.group_text.link_cta ) }} class="btn --stretch-mobile">{{ tab.group_text.link_cta.title }}</a>
+                            {% endif %}
+                        </div>
+
+                        <div class="panel__image">
+                            {% if tab.image %}
+                                <figure>
+                                    {{ getRwdImage( tab.image.id, 'cover', 'large',  { class:'--border-radius u-image-cover' } ) }}
+                                </figure>
+                            {% endif %}
+                        </div>
+                    
+
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+
+{# 
+
+
+<section class="panels-menu">
+                        @foreach ($menu_cafe as $section)
+                            <div class="panel-menu" id="panel-{{$loop->iteration}}" aria-labelledby="tab-{{$loop->iteration}}" {{!$loop->first ? "hidden" : ""}} tabindex="0" role="tabpanel">
+                                @if (is_array($section['section_categories']) && count($section['section_categories']) > 0)
+                                    @foreach ($section['section_categories'] as $categorie)
+                                        <h3 class="panel-menu__cat">{{ $categorie['categorie_nom'] }}</h3>
+
+                                        @if (is_array($categorie['categorie_produits']) && count($categorie['categorie_produits']) > 0)
+                                            @foreach ($categorie['categorie_produits'] as $produit)
+                                                <div class="pdt-menu">
+                                                    <p class="pdt-menu__row">
+                                                        <span class="pdt-menu__name">{{ $produit['produit_nom'] }}</span>
+                                                        <span class="pdt-menu__price">{{ number_format($produit['produit_prix'], 2, ',', '.') }} €</span>
+                                                    </p>
+                                                    @if (!empty($produit['produit_description']))
+                                                        <p class="pdt-menu__desc">{{ $produit['produit_description'] }}</p>
+                                                    @endif
+                                                </div>
+                                            @endforeach
+                                        @endif
+
+                                    @endforeach
+                                @endif
+                            </div>
+                        @endforeach
+                    </section> #}
+
+  
+  </div>    {# end .block-container #}
+</section>  {# end .block #}

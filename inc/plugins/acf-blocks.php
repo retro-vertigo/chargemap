@@ -26,6 +26,14 @@ function pga_acf_init_blocks() {
 		'supports'        => array( 'anchor' => true ),
 	));
 
+	pga_acf_register_block( array(
+		'name'            => 'tabs',
+		'title'           => __('Onglets'),
+		'description'     => __('Onglets en icônes'),
+		'icon'            => 'cover-image',
+		'supports'        => array( 'anchor' => true ),
+	));
+
 
 	pga_acf_register_block( array(
 		'name'            => 'image-text',
@@ -143,6 +151,7 @@ function pga_acf_block_render_callback( $block, $content = '', $is_preview = fal
 		//  Set common classes and id from ACF
 		// -----------------------------------------------
 		// Create id attribute allowing for custom "anchor" value.
+		$block['uniq_id'] = trim($block['id'], 'block_');			// stocke l'id unique dans une autre variable
 		$id = "{$slug}-" . $block['id']; 
 		if( !empty($block['anchor']) ) $id = $block['anchor'];
 		$block['id'] = $id;

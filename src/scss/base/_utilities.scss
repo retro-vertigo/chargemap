@@ -118,71 +118,26 @@
 }
 
 
+.custom-scrollbar {
+	--custom-scrollbar-width: 5px;
+	--custom-scrollbar-height: 5px;
 
+	/* Firefox */
+	scrollbar-width: auto; /* can also be normal, or none, to not render scrollbar */
+	scrollbar-color: $color-primary $color-sky; /* foreground background */
 
-// //  Spacer classes for margin and padding
-// // -----------------------------------------------
+	/* Webkit / Blink */
+	&::-webkit-scrollbar {
+		width: var(--custom-scrollbar-width);
+		height: var(--custom-scrollbar-height);
+	}
 
-$spacer-properties: (
-  mb : margin-bottom,
-  mt : margin-top,
-  ml : margin-left,
-  mr : margin-right,
-  pb : padding-bottom,
-  pt : padding-top,
-  pl : padding-left,
-  pr : padding-right,
-) !default;
+	&::-webkit-scrollbar-thumb {
+		background-color: $color-primary;
+		// border-radius: 9999px; /* always round */
+	}
 
-$spacer-scale-values: (
-  1 : calc(var(--spacer) * 0.25),
-  2 : calc(var(--spacer) * 0.5),
-  3 : var(--spacer),
-  4 : calc(var(--spacer) * 1.5),
-  5 : calc(var(--spacer) * 2),
-  6 : calc(var(--spacer) * 3),
-) !default;
-
-
-// output : margin-bottom: calc(var(--spacer) * 2);
-@mixin set-space($prop-short, $scale) {
-
-  @if not map-has-key($spacer-properties, $prop-short) {
-    @error "No value found in $spacer-properties map for `#{$prop-short}`. Property omitted.";
-  }
-  $prop: map-get($spacer-properties, $prop-short);
-
-  @if not map-has-key($spacer-scale-values, $scale) {
-    @warn "No value found in $spacer-scale-values map for `#{$scale}`. Property omitted.";
-  }
-  $value: map-get($spacer-scale-values, $scale);
-
-  #{$prop}: $value;
+	&::-webkit-scrollbar-track {
+		background-color: $color-sky;
+	}
 }
-
-
-.mt {     @include set-space(mt, 3);    }   // alias for default margin
-.mt-1 {     @include set-space(mt, 1);    }
-.mt-2 {     @include set-space(mt, 2);    }
-.mt-3 {     @include set-space(mt, 3);    }
-.mt-4 {     @include set-space(mt, 4);    }
-.mt-5 {     @include set-space(mt, 5);    }
-.mt-6 {     @include set-space(mt, 6);    }
-
-.mb {     @include set-space(mb, 3);    }   // alias for default margin
-.mb-1 {     @include set-space(mb, 1);    }
-.mb-2 {     @include set-space(mb, 2);    }
-.mb-3 {     @include set-space(mb, 3);    }
-.mb-4 {     @include set-space(mb, 4);    }
-.mb-5 {     @include set-space(mb, 5);    }
-.mb-6 {     @include set-space(mb, 6);    }
-
-.my {     @include set-space(mb, 3);  @include set-space(mt, 3);    }
-.mx {     @include set-space(ml, 3);  @include set-space(ml, 3);    }
-
-.py {     @include set-space(pb, 3);  @include set-space(pt, 3);    }
-.py-5 {     @include set-space(pb, 5);  @include set-space(pt, 5);    }
-.px {     @include set-space(pl, 3);  @include set-space(pr, 3);    }
-.px-5 {     @include set-space(pl, 5);  @include set-space(pr, 5);    }
-
-

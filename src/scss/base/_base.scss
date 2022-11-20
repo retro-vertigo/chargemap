@@ -50,6 +50,6 @@
   // @include bg(red,0.05);
 }
 
-.block {
-  // @include bd();
+.block + .block {
+  margin-top: 80px;
 }

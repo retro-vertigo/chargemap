@@ -62,6 +62,7 @@ function pga_allow_block_types( $allowed_blocks, $editor_context ) {
     // Default ACF blocks
     $custom_blocks = array(
       'acf/cover-image',
+      'acf/tabs',
       'acf/image-text',
     );
 

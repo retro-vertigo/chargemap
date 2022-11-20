@@ -34,3 +34,22 @@
   // @import 'pages/page-article';
 }
 
+
+// Style des champs ACF dans le panneau de droite
+.acf-block-panel .acf-button-group {
+  padding-left: 0;
+  padding-top: 1px;
+  flex-direction: column;
+
+  label {
+    margin: -1px 0 0 0;
+  }
+
+  label:first-child {
+    border-radius: 3px 3px 0 0;
+  }
+
+  label:last-child {
+    border-radius: 0 0 3px 3px;
+  }
+}

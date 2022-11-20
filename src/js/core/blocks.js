@@ -10,6 +10,7 @@ import ScrollHorizontal from "../UI/ScrollHorizontal";
 import SliderImages from "../blocks/SliderImages";
 import TitleAnimation from "../UI/TitleAnimation";
 import Parallax from "../utils/Parallax";
+import Tabs from "../utils/Tabs";
 
 
 // Init blocks with JS
@@ -17,6 +18,8 @@ export default function initBlocks () {
 
     //        Gutenberg blocks
     // ==============================================
+
+    document.querySelectorAll('.block-tabs').forEach( el => { new Tabs(el); });
 
     document.querySelectorAll('.block-push-projects').forEach( el => { new SliderProjects(el); });
 
