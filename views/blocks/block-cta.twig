@@ -1,0 +1,31 @@
+{#
+/**
+ * Block Name: Block Columns
+ *
+ */
+#}
+
+<section class="{{ block.classes }} {{ display }}" id="{{ block.id }}">
+  <div class="block-container l-container">
+    
+    <div class="block-cta__inner">
+        {% if title %}
+            <h2 class="title-block">{{ title|titleColor }}</h2>
+        {% endif %}
+        {% if wysi %}
+            <div class="wysi">{{ wysi }}</div>
+        {% endif %}
+    </div>
+
+    <div class="block-cta__buttons">
+        {% for item in buttons %}
+        
+            {% if item.link.url %}
+                <a {{ setLinkAttributes( item.link ) }} class="btn --stretch-mobile {{ display == '--bg-primary' ? '--outline-white' : '--outline-mobile' }}">{{ item.link.title }}</a>
+            {% endif %}
+            
+        {% endfor %}
+    </div>
+  
+  </div>    {# end .block-container #}
+</section>  {# end .block #}

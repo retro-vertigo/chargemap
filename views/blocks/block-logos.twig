@@ -1,0 +1,35 @@
+{#
+/**
+ * Block Name: Block Logos
+ *
+ */
+#}
+
+<section class="{{ block.classes }}" id="{{ block.id }}">
+  
+  {% if title or subtitle %}
+    <div class="block-container l-container">
+
+      {% if title %}
+          <h2 class="title-block">{{ title|titleColor }}</h2>
+      {% endif %}
+      {% if subtitle %}
+          <p class="subtext">{{ subtitle }}</p>
+      {% endif %}
+
+    </div>    {# end .block-container #}
+  {% endif %}
+
+  {% if images|length %} 
+      <div class="slider-logos custom-scrollbar">
+          {% for item in images %}
+
+              <div class="slide-logo">
+                <img {{ setImgAttributes( item.image ) }} />
+              </div>
+              
+          {% endfor %}
+      </div>
+  {% endif %}
+    
+</section>  {# end .block #}

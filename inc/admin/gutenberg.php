@@ -64,6 +64,8 @@ function pga_allow_block_types( $allowed_blocks, $editor_context ) {
       'acf/cover-image',
       'acf/tabs',
       'acf/columns',
+      'acf/cta',
+      'acf/logos',
       'acf/image-text',
     );
 

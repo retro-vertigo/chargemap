@@ -42,6 +42,22 @@ function pga_acf_init_blocks() {
 		'icon'            => 'cover-image',
 		'supports'        => array( 'anchor' => true ),
 	));
+
+	pga_acf_register_block( array(
+		'name'            => 'cta',
+		'title'           => __('Call To Action'),
+		'description'     => __('Call To Action'),
+		'icon'            => 'cover-image',
+		'supports'        => array( 'anchor' => true ),
+	));
+
+	pga_acf_register_block( array(
+		'name'            => 'logos',
+		'title'           => __('Slider de logos'),
+		'description'     => __('Slider de logos'),
+		'icon'            => 'cover-image',
+		'supports'        => array( 'anchor' => true ),
+	));
 	
 
 

@@ -9,7 +9,17 @@
 //  - modifiers : --grey, --green, --secondary, --ghost, --text, --white, --big, --no-pointer, --loader, --job-linkedin
 // -----------------------------------------------
 
+@mixin btn-outline {
+  --color-text : var(--color-primary);
+  background-color: transparent;
+  border: 2px solid $color-primary;
 
+  &:hover {
+    background-color: $color-navy;
+    color: $color-white;
+    border-color: $color-navy;
+  }
+}
 
 
 .btn {
@@ -47,6 +57,22 @@
     }
   }
 
+  &.--outline {
+    @include btn-outline();
+  }
+
+  &.--outline-white {
+    --color-text : var(--color-white);
+    background-color: transparent;
+    border: 2px solid $color-white;
+
+    &:hover {
+      background-color: $color-white;
+      color: $color-primary;
+    }
+  }
+
+
   &.--link {
     --color-text : var(--color-black-medium);
     padding: 8px 16px;
@@ -63,6 +89,13 @@
   &.--stretch-mobile {
     @include mobile {
       width: 100%;
+    }
+  }
+
+  // Changement d'aspect en mobile
+  &.--outline-mobile {
+    @include mobile {
+      @include btn-outline();
     }
   }
 

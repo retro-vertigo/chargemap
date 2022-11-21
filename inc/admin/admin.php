@@ -27,15 +27,26 @@ function pga_setup_theme_support() {
 }
 
 
-
-// add_action( 'init', 'pga_enable_page_excerpt' );
-// function pga_enable_page_excerpt() {
-//   add_post_type_support( 'page', array( 'excerpt' ) );
-// }
-
-if ( function_exists( 'add_image_size' ) ) {
-	add_image_size( 'admin_list_thumbnail', 55, 55, true );
+add_action( 'after_setup_theme', 'pga_add_image_size' );
+function pga_add_image_size() {
+	// add_image_size( 'logos', 0, 120 ); // 300 pixels wide (and unlimited height)
 }
+
+
+add_action( 'after_setup_theme', 'my_custom_image_sizes' );
+function my_custom_image_sizes() {
+	if ( function_exists( 'add_image_size' ) ) {
+		add_image_size( "grade-image", 320, 300 );
+	}
+}
+
+add_filter( 'image_size_names_choose', function ( $sizes ) {
+	return array_merge( $sizes, array(
+		'grade-image' => __('Grade Image')
+	) );
+} );
+
+
 
 
 // Remove accents from the name of uploaded files (Thanks to: https://goo.gl/h2tYrZ)

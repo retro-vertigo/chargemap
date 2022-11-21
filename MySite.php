@@ -60,6 +60,29 @@ class StarterSite extends Timber\Site {
 		}
 	}
 
+
+	// set src, alt, width and height attributes on images if needed
+	public function function_setImgAttributes( $item ) {
+		$atts = '';
+
+		if ( isset($item["url"]) && !empty($item["url"]) ) {
+			$atts .= 'src="'.esc_url( $item["url"] ).'"';
+		}
+
+		if ( isset($item["alt"]) && !empty($item["alt"]) ) {
+			$atts .= ' alt="' . esc_attr( $item["alt"] ).'"';
+		}
+
+		if ( isset($item["width"]) && !empty($item["width"]) ) {
+			$atts .= ' width="' . esc_attr( $item["width"] ).'"';
+		}
+
+		if ( isset($item["height"]) && !empty($item["height"]) ) {
+			$atts .= ' height="' . esc_attr( $item["height"] ).'"';
+		}
+		return $atts;
+	}
+
 	// set href and target attributes on links if needed
 	public function function_setLinkAttributes( $item ) {
 		$atts = '';
@@ -74,6 +97,7 @@ class StarterSite extends Timber\Site {
 				$atts .= ' target="' . esc_attr( $item->target ).'"';
 				if( $item->target == '_blank' ) $atts .= ' rel="noopener"';
 			}
+		// ACF link
 		} else {
 			if ( isset($item["url"]) && !empty($item["url"]) ) {
 				$atts .= 'href="'.esc_url( $item["url"] ).'"';
@@ -85,9 +109,6 @@ class StarterSite extends Timber\Site {
 			}
 		}
 		return $atts;
-		
-		
-		
 	}
 
 	// get pll translation 
@@ -107,11 +128,13 @@ class StarterSite extends Timber\Site {
   }
 
 	// Colorise en bleu une partie d'un titre délimité par des crochets (Mon titre [en bleu] et noir)
-  public function filter_titleColor( $str ) {
-		$str = preg_replace('/\[/', '<span class="alt-color">', $str);
-		$str = preg_replace('/\]/', '</span>', $str);
-		// $str = preg_replace(']', '</span>', $str);
-		return $str;
+  public function filter_titleColor( $string ) {
+		if (str_contains($string, '[')) {
+				$pattern = ['[', ']'];
+				$replace = ['<span class="alt-color">', '</span>'];
+				$string = str_replace($pattern, $replace, $string);
+		} 
+		return $string;
   }
 	
 
@@ -133,6 +156,7 @@ class StarterSite extends Timber\Site {
 		// Adding a function.
     $twig->addFunction( new Timber\Twig_Function( 'pll__', [$this, 'function_pll'] ) );
     $twig->addFunction( new Timber\Twig_Function( 'setLinkAttributes', [$this, 'function_setLinkAttributes'] ) );
+    $twig->addFunction( new Timber\Twig_Function( 'setImgAttributes', [$this, 'function_setImgAttributes'] ) );
     $twig->addFunction( new Timber\Twig_Function( 'getRwdImage', [$this, 'function_getRwdImage'] ) );
     
 

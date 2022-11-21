@@ -41,7 +41,7 @@
             "placeholder": "",
             "maxlength": "",
             "rows": 2,
-            "new_lines": "wpautop"
+            "new_lines": ""
         },
         {
             "key": "field_637a422e95a78",
@@ -58,7 +58,7 @@
             },
             "collapsed": "",
             "min": 0,
-            "max": 0,
+            "max": 3,
             "layout": "block",
             "button_label": "Ajouter une colonne",
             "sub_fields": [
@@ -144,5 +144,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1668960978
+    "modified": 1669061343
 }

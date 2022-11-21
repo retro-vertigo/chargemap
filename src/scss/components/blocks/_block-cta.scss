@@ -1,0 +1,81 @@
+// ==============================================
+
+//        BLOCK CALL TO ACTION
+
+// ==============================================
+
+
+.block-cta {
+  padding-top: 90px;
+  padding-bottom: 90px;
+  
+  @include tablet-small {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  @include mobile {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  
+  // --modifier
+  &.--bg-grey {
+    background-color: $color-light-grey;
+  }
+
+  &.--bg-primary {
+    background-color: $color-primary;
+
+    .title-block {
+      color: $color-white;
+
+      .alt-color {
+        color: $color-black;
+      }
+    }
+
+    .wysi {
+      color: $color-white;
+    }
+  }
+}
+
+
+.block-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  .title-block,
+  .wysi {
+    max-width: 620px;
+  }
+
+  .title-block + * {
+    margin-top: 10px;
+  }
+}
+
+.block-cta__buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .block-cta__inner + & {
+    margin-top: 30px;
+  }
+
+  @include min-mobile {
+    .btn + .btn {
+      margin-left: 20px;
+    }
+  }
+
+  @include mobile {
+    .btn + .btn {
+      margin-top: 20px;
+    }
+  }
+}

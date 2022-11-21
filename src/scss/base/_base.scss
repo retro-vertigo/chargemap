@@ -25,31 +25,15 @@
 }
 
 
-.grecaptcha-badge {
-  visibility: hidden;
-}
-
-
 
 
 //  Block layout
 // -----------------------------------------------
 
-// vertical margin 250px between blocks (-> pad-top : 50px + pad-bottom : 50px + margin-top : 150px) 
-.block-wrapper {
-  position: relative;
-  padding: 50px 0; 
-  margin-top: 150px;
-  
-  @include media-breakpoint-down(md) {
-    margin-top: 100px;
-  }
-  @include media-breakpoint-down(xs) {
-    margin-top: 40px;
-  }
-  // @include bg(red,0.05);
-}
-
 .block + .block {
   margin-top: 90px;
+  
+  @include mobile {
+    margin-top: 60px;
+  }
 }
