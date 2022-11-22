@@ -2,11 +2,11 @@
 import Flickity from '../vendors/flickity.pkgd.min.js'
 
 
-export default class SliderLogos {
+export default class SliderTestimonial {
 
     constructor(el) {
         this.block    = el;
-        this.slider   = this.block.querySelector('.slider-logos');
+        this.slider   = this.block.querySelector('.slider-testimonial');
 
         // current slide / last slide
         this.currentIndex;
@@ -20,12 +20,12 @@ export default class SliderLogos {
         this.tickerSpeed = 1.2;
 
         // largeur fixe des images
-        this.slideWidth = 216;
+        this.slideWidth = 400;
         this.nbSlides =  this.slider.childElementCount;
         this.slidesTotalWidth =  this.nbSlides * this.slideWidth;
 
         // ∆∆∆∆∆∆∆∆∆∆∆∆∆
-        // this.autoPlay      = true;
+        // this.autoPlay      = false;
         // ∆∆∆∆∆∆∆∆∆∆∆∆∆
 
         if (this.block.classList.contains('is-admin'))  this.autoPlay = false;
@@ -48,15 +48,21 @@ export default class SliderLogos {
             wrapAround: this.autoPlay,
             pageDots: false,
             prevNextButtons: false,
-            // cellAlign: 'left',
+            cellAlign: 'left',
+            pageDots: true,
             // contain: true,
-
+            
             groupCells: true,    // if set to true group cells that fit in carousel viewport
-
-            watchCSS: true     // enable Flickity in CSS when element:after { content: 'flickity' }
         }
         this.flkty = new Flickity(this.slider, options);
         this.flkty.x = 0;           // var for continous scroll
+
+        // Select slide on click
+        this.flkty.on( 'staticClick', ( event, pointer, cellElement, cellIndex ) => {
+            if ( typeof cellIndex == 'number' && cellIndex != this.flkty.selectedIndex) {
+              this.flkty.selectCell( cellIndex );
+            }
+        });
 
         // init continuous scroll
         if (this.autoPlay) this.initContinousScroll();
@@ -75,12 +81,13 @@ export default class SliderLogos {
     };
 
     updateContinuousScroll() {
-        if (window.innerWidth > 576) {
+        if (window.innerWidth < 576) {
             cancelAnimationFrame(this.rafId);
             return;
         }  
         if (this.flkty.slides) {
             this.flkty.x = (this.flkty.x - this.tickerSpeed) % this.flkty.slideableWidth;
+            // console.log('this.flkty.x', (this.flkty.x - this.tickerSpeed));
             this.flkty.selectedIndex = this.flkty.dragEndRestingSelect();
             this.flkty.updateSelectedSlide();
             this.flkty.settle(this.flkty.x);

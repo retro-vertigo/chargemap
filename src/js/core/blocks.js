@@ -1,5 +1,6 @@
 import Tabs from "../utils/Tabs";
 import SliderLogos from "../blocks/SliderLogos";
+import SliderTestimonial from "../blocks/SliderTestimonial";
 
 
 // Init blocks with JS
@@ -11,6 +12,8 @@ export default function initBlocks () {
     document.querySelectorAll('.block-tabs').forEach( el => { new Tabs(el); });
 
     document.querySelectorAll('.block-logos').forEach( el => { new SliderLogos(el); });
+
+    document.querySelectorAll('.block-testimonial').forEach( el => { new SliderTestimonial(el); });
 
     // document.querySelectorAll('.block-push-projects').forEach( el => { new SliderProjects(el); });
 

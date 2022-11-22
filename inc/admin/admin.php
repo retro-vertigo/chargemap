@@ -27,24 +27,10 @@ function pga_setup_theme_support() {
 }
 
 
-add_action( 'after_setup_theme', 'pga_add_image_size' );
+// add_action( 'after_setup_theme', 'pga_add_image_size' );
 function pga_add_image_size() {
-	// add_image_size( 'logos', 0, 120 ); // 300 pixels wide (and unlimited height)
+	add_image_size( 'logos', 0, 120 ); // 300 pixels wide (and unlimited height)
 }
-
-
-add_action( 'after_setup_theme', 'my_custom_image_sizes' );
-function my_custom_image_sizes() {
-	if ( function_exists( 'add_image_size' ) ) {
-		add_image_size( "grade-image", 320, 300 );
-	}
-}
-
-add_filter( 'image_size_names_choose', function ( $sizes ) {
-	return array_merge( $sizes, array(
-		'grade-image' => __('Grade Image')
-	) );
-} );
 
 
 

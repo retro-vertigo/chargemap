@@ -57,6 +57,16 @@ function pga_acf_init_blocks() {
 		'description'     => __('Slider de logos'),
 		'icon'            => 'cover-image',
 		'supports'        => array( 'anchor' => true ),
+		'enqueue_assets'  => $enqueue_assets,
+	));
+
+	pga_acf_register_block( array(
+		'name'            => 'testimonial',
+		'title'           => __('Slider de témoignages'),
+		'description'     => __('Slider de témoignages'),
+		'icon'            => 'cover-image',
+		'supports'        => array( 'anchor' => true ),
+		// 'enqueue_assets'  => $enqueue_assets,
 	));
 	
 

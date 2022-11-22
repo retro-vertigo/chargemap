@@ -86,47 +86,62 @@
 
 /* position dots in carousel */
 .flickity-page-dots {
-  bottom: initial;
-  top: 100%;
-  padding: 20px 1rem 0 !important;
+  bottom: 0;
+  left: 0;
+
+  .dot {
+    margin: 0;
+  }
 }
+
 /* white circles */
 .flickity-page-dots .dot {
   position: relative;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 24px;
-  height: 24px;
-  padding: initial;
-  margin: initial;
-  background-color: transparent;  
-  border-radius: initial;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
   opacity: 1;
-
+  
+  // bg dot selected
   &:before {
-    @include pseudo-block(8px, 8px, $color-primary-soft);
-    position: relative;
+    @include pseudo-block(20px,20px);
+    top: 50%;
+    left: 50%;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    opacity: 0.2;
+    transform: translate(-50%,-50%) scale(0);
+    transition: opacity $trans-duration, transform $trans-duration;
+  }
+
+  // bg dot
+  &:after {
+    @include pseudo-block(10px,10px);
+    position: initial;
+    background-color: $color-light-grey;
     border-radius: 50%;
     transition: background-color $trans-duration;
   }
 
   @include can-hover() {
-    &:hover,
-    &:focus {
-      &:before {
-        background-color: $color-primary;
+    &:hover {
+      &:after {
+        background-color: var(--color-primary);
       }
     }
-  }
-
-  &:only-child {
-    display: none;
   }
 }
 /* fill-in selected dot */
 .flickity-page-dots .dot.is-selected {
+
   &:before {
-    background-color: $color-primary;
+    opacity: 0.4;
+    transform: translate(-50%,-50%) scale(1);
+  }
+  &:after {
+    background-color: var(--color-primary);
   }
 }
