@@ -1,0 +1,98 @@
+// ==============================================
+
+//        BLOCK CALL TO ACTION WITH ILLUSTRATION
+
+// ==============================================
+
+
+.block-cta-illus {
+  padding-top: 90px;
+  padding-bottom: 90px;
+  background-color: $color-light-grey;
+  
+  @include tablet-small {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  @include mobile {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+
+.block-cta-illus__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  .title-block,
+  .wysi {
+    max-width: 620px;
+  }
+
+  .title-block + * {
+    margin-top: 10px;
+  }
+}
+
+.block-cta-illus__buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  --margin: 20px;
+  margin-left: calc(var(--margin) * -1);
+  margin-top: calc(var(--margin) * -1);	
+
+  > * {
+    margin-left: var(--margin);
+    margin-top: var(--margin);
+  }
+  
+  // force le passage en 2 colonnes
+  &.--two-cols {
+    max-width: 800px;
+  }
+  
+  * + & {
+    margin-top: 20px;
+  }
+  
+  .btn-illus {
+    display: inline-flex;
+    align-items: center;
+    width: 340px;
+    padding: 10px;
+    font-size: 19px;
+    line-height: 1.25;
+    text-align: left;
+    color: $color-black-medium;
+    background-color: $color-white;
+    border-radius: $border-radius;
+    transition: color $trans-color, background-color $trans-color;
+
+    @include mobile {
+      width: 100%;
+      max-width: 440px;
+      font-size: 18px;
+    }
+    
+    &:hover {
+      color: $color-white;
+      background-color: $color-navy;
+    }
+
+    img {
+      flex-shrink: 0;
+      height: 60px;
+      width: 70px;
+      object-fit: contain;  
+    }
+
+    span {
+      margin-left: 10px;
+    }
+  }
+}

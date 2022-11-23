@@ -65,6 +65,7 @@ function pga_allow_block_types( $allowed_blocks, $editor_context ) {
       'acf/tabs',
       'acf/columns',
       'acf/cta',
+      'acf/cta-illus',
       'acf/logos',
       'acf/testimonial',
       'acf/anchors',

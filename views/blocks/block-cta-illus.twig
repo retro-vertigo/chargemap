@@ -1,0 +1,37 @@
+{#
+/**
+ * Block Name: Block Call To Action Illustration
+ *
+ */
+#}
+
+<section class="{{ block.classes }}" id="{{ block.id }}">
+  <div class="block-container l-container">
+    
+    <div class="block-cta-illus__inner">
+        {% if title %}
+            <h2 class="title-block">{{ title|titleColor }}</h2>
+        {% endif %}
+        {% if wysi %}
+            <div class="wysi">{{ wysi }}</div>
+        {% endif %}
+        
+        <div class="block-cta-illus__buttons {% if buttons|length >= 4 %}--two-cols {% endif %}">
+            {% for item in buttons %}
+            
+                {% if item.link.url %}
+                    <a {{ setLinkAttributes( item.link ) }} class="btn-illus">
+                        {% if item.button_image %}
+                            <img {{ setImgAttributes( item.button_image ) }} />
+                        {% endif %}
+                        <span>{{ item.link.title }}</span>
+                    </a>
+                {% endif %}
+                
+            {% endfor %}
+        </div>
+    </div>
+
+  
+  </div>    {# end .block-container #}
+</section>  {# end .block #}

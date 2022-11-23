@@ -52,6 +52,14 @@ function pga_acf_init_blocks() {
 	));
 
 	pga_acf_register_block( array(
+		'name'            => 'cta-illus',
+		'title'           => __('Call To Action illustration'),
+		'description'     => __('Call To Action avec boutons en illustration'),
+		'icon'            => 'cover-image',
+		'supports'        => array( 'anchor' => true ),
+	));
+
+	pga_acf_register_block( array(
 		'name'            => 'logos',
 		'title'           => __('Slider de logos'),
 		'description'     => __('Slider de logos'),
