@@ -58,14 +58,23 @@
 // }
   
 // disable click on editor (but show hover)
-.block .btn-circle,
-.card-post__link {
-  cursor: not-allowed;
+.block {
+  .btn,
+  .tablist__btn {
+    cursor: not-allowed;
 
-  &:active {
-    pointer-events: none;
+    &:active {
+      pointer-events: none;
+    }
   }
 }
+
+.block-anchors {
+  .tablist-wrapper {
+    position: initial;
+  }
+}
+  
 
 
 // ==============================================

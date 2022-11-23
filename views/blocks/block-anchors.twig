@@ -1,0 +1,60 @@
+{#
+/**
+ * Block Name: Block Anchors
+ *
+ */
+#}
+
+<section class="{{ block.classes }}" id="{{ block.id }}">
+  <div class="block-container">
+
+    <div class="tablist-wrapper">
+        <div class="tablist l-container custom-scrollbar">
+            {% for tab in tabs %}
+                {% if tab.tab_title %}
+                    <a href="#panel-{{ block.uniq_id }}-{{ loop.index }}" class="tablist__btn">
+                        {% if tab.tab_image %}
+                            <img {{ setImgAttributes( tab.tab_image ) }} />
+                        {% endif %}
+                        <span>{{ tab.tab_title }}</span>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="panels-wrapper">
+        {% for tab in tabs %}
+            {% if tab.tab_title %}
+                <div class="panel l-container {{ tab.display }}" id="panel-{{ block.uniq_id }}-{{ loop.index }}">
+
+                    <div class="panel__content editor">
+                        {% if tab.group_text.suptitle %}
+                            <span class="suptitle">{{ tab.group_text.suptitle }}</span>
+                        {% endif %}
+                        {% if tab.group_text.title %}
+                            <h2>{{ tab.group_text.title }}</h2>
+                        {% endif %}
+                        {% if tab.group_text.wysi %}
+                            <div class="wysi">{{ tab.group_text.wysi }}</div>
+                        {% endif %}
+                        {% if tab.group_text.link_cta.url %}
+                            <a {{ setLinkAttributes( tab.group_text.link_cta ) }} class="btn --stretch-mobile">{{ tab.group_text.link_cta.title }}</a>
+                        {% endif %}
+                    </div>
+
+                    <div class="panel__image">
+                        {% if tab.image %}
+                            <figure>
+                                {{ getRwdImage( tab.image.id, 'cover', 'large',  { class:'--border-radius u-image-cover' } ) }}
+                            </figure>
+                        {% endif %}
+                    </div>
+                    
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+  
+  </div>    {# end .block-container #}
+</section>  {# end .block #}

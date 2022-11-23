@@ -10,7 +10,6 @@
 
 // wrap header, main and footer -> push footer on bottom
 .page-wrapper {
-  overflow: hidden;     // prevent background image overflow below footer
   display: flex;
   flex-direction: column;
   min-height: 100vh;

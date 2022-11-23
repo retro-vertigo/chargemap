@@ -1,109 +1,99 @@
 // ==============================================
 
-//        BLOCK TABS 
+//        BLOCK ANCHORS 
 
 // ==============================================
 
 
-.block-tabs {
-
+.block-anchors {
+margin-top: 200px;
   .block-container {
-    
+    position: relative;
   }
 
   //  Tabs
   // -----------------------------------------------
+  .tablist-wrapper {
+    position: sticky;
+    top: var(--header-height);
+    z-index: 1;
+    box-shadow: 0px 1px 3px rgba(black, 0.1);
+  }
+
   .tablist {
     display: flex;
-    justify-content: center;
-    // @include bd();
+    background-color: $color-white;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
-    @include mobile {
-      justify-content: initial;
+    @include tablet {
       width: 100%;
       overflow: auto;
       scroll-snap-type: x proximity;
       scroll-padding: var(--container-padding);
       padding-left: var(--container-padding);
       padding-right: var(--container-padding);
-      padding-bottom: 20px;
+      padding-bottom: 10px;
     }
   }
+  
 
   .tablist__btn {
+    --color-border: var(--color-grey-medium);
+    --color-bg-hover: var(--color-light-grey);
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    flex: 1;
-    max-width: 275px;
-    padding: 4px 8px;
+    width: 212px;
+    padding: 15px;
     font-size: 19px;
     line-height: 1.25;
     text-align: center;
     color: $color-black-medium;
-    transition: color $trans-color;
+    background-color: $color-white;
+    border: 1px solid var(--color-border);
+    border-radius: $border-radius-small;
+    transition: color $trans-color, background-color $trans-color, border-color $trans-color;
 
-    @include tablet-small {
-      font-size: 18px;
-    }
-
-    @include mobile {
+    @include tablet {
+      flex-shrink: 0;
+      width: auto;
+      min-width: 150px;
+      padding: 10px;
       scroll-snap-align: start;
-      max-width: initial;
-      // width: calc(100%);
-      // flex: initial;
+      font-size: 16px;
     }
-
+    
+    &:first-child {
+      margin-left: auto;
+    }
+    &:last-child {
+      margin-right: auto;
+    }
     & + .tablist__btn {
-      @include mobile {
-        margin-left: 30px;
-      }
-    }
-
-    // état actif
-    &[aria-selected="true"] {
-      color: $color-primary;
-      font-weight: 700;
-
-      .icon {
-        fill: $color-primary;
-      }
+      margin-left: 20px;
     }
 
     &:hover {
-      color: $color-primary;
-
-      .icon {
-        fill: $color-primary;
-        transform: translateY(4px);
-      }
+      background-color: var(--color-bg-hover);
+      border-color: var(--color-bg-hover);
     }
 
     img {
-      height: 80px;
+      height: 70px;
       width: auto;
 
-      @include mobile {
-        height: 60px;
+      @include tablet {
+        height: 40px;
       }
     }
 
     span {
       margin-top: 10px;
 
-      @include mobile {
+      @include tablet-small {
+        margin-top: 5px;
         white-space: nowrap;
-      }
-    }
-
-    .icon {
-      margin-top: auto;
-      font-size: 20px;
-      fill: $color-grey;
-      transition: fill $trans-color, transform $trans-duration;
-
-      @include mobile {
-        display: none;
       }
     }
   }
@@ -114,14 +104,9 @@
   // -----------------------------------------------
   .panels-wrapper {
     margin-top: 50px;
-    background-color: $color-light-grey;
-
-    @include mobile {
+  
+    @include tablet-small {
       margin-top: 20px;
-    }
-
-    @media (min-width: 1280px) {
-      border-radius: $border-radius;
     }
   }
 
@@ -134,6 +119,19 @@
     align-items: center;
     padding-top: 90px;
     padding-bottom: 90px;
+    background-color: $color-light-grey;
+
+    & + .panel {
+      margin-top: 90px;
+
+      @include tablet-small {
+        margin-top: 40px;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      border-radius: $border-radius;
+    }
 
     // --modifier
     @include min-tablet-small {

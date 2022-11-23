@@ -36,9 +36,8 @@ function pga_register_polylang_strings() {
 
     pll_register_string( "404", "Page 404", "theme" );
 
-    pll_register_string( "bloc", "Revenir au graphique principal", "theme" );
-    pll_register_string( "bloc", "Cliquez pour voir le détail", "theme" );
-    
+    pll_register_string( "bloc", "Onglets", "theme" );
+
     pll_register_string( "cookie", "J'accepte", "theme" );
     pll_register_string( "cookie", "Je refuse", "theme" );
     pll_register_string( "cookie", "Texte cookie", "theme" );

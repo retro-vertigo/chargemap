@@ -67,6 +67,7 @@ function pga_allow_block_types( $allowed_blocks, $editor_context ) {
       'acf/cta',
       'acf/logos',
       'acf/testimonial',
+      'acf/anchors',
       'acf/image-text',
     );
 

@@ -66,7 +66,15 @@ function pga_acf_init_blocks() {
 		'description'     => __('Slider de témoignages'),
 		'icon'            => 'cover-image',
 		'supports'        => array( 'anchor' => true ),
-		// 'enqueue_assets'  => $enqueue_assets,
+		'enqueue_assets'  => $enqueue_assets,
+	));
+
+	pga_acf_register_block( array(
+		'name'            => 'anchors',
+		'title'           => __('Ancres'),
+		'description'     => __('Ancres en icônes'),
+		'icon'            => 'cover-image',
+		'supports'        => array( 'anchor' => true ),
 	));
 	
 
@@ -198,6 +206,7 @@ function pga_acf_block_render_callback( $block, $content = '', $is_preview = fal
 		if( !empty($block['align']) ) $classes[] = 'align' . $block['align'];
 		if( !empty($block['align_text']) ) $classes[] = 'align-text-' . $block['align_text'];
 		if( !empty($block['align_content']) ) $classes[] = 'align-content-' . $block['align_content'];
+		if( $is_preview ) $classes[] = 'is-admin';
 		$block['classes'] = implode(' ', $classes);
 
 
@@ -212,9 +221,6 @@ function pga_acf_block_render_callback( $block, $content = '', $is_preview = fal
 		foreach ( $fields as $key => $field ) {
 			$context[$key] = $field;
     }
-
-    // Store $is_preview value.
-    $context['is_preview'] = $is_preview;
 
     // Render the block.
     Timber::render( "blocks/block-{$slug}.twig", $context );

@@ -3,12 +3,11 @@ import * as easings from "./easings";
 export default class SmoothScroll {
 
     // Smooth scroll to element
-    static scrollToTarget(target, duration='auto', easing='easeInOutCubic', callback) {
+    static scrollToTarget(target, duration='auto', easing='easeInOutCubic', offset=0, callback) {
         // stop scroll if rAF is already running
         cancelAnimationFrame(SmoothScroll.rafScrollId);     
 
         // Y offset for sticky header
-        let offset = 0;
         if (document.getElementById('header-site')) offset -= document.getElementById('header-site').offsetHeight;
         
         const easingFunc  = easings[easing];

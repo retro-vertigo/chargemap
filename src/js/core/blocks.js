@@ -1,6 +1,7 @@
 import Tabs from "../utils/Tabs";
 import SliderLogos from "../blocks/SliderLogos";
 import SliderTestimonial from "../blocks/SliderTestimonial";
+import Anchors from "../utils/Anchors";
 
 
 // Init blocks with JS
@@ -10,6 +11,8 @@ export default function initBlocks () {
     // ==============================================
 
     document.querySelectorAll('.block-tabs').forEach( el => { new Tabs(el); });
+
+    document.querySelectorAll('.block-anchors').forEach( el => { new Anchors(el); });
 
     document.querySelectorAll('.block-logos').forEach( el => { new SliderLogos(el); });
 
