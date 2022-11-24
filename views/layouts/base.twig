@@ -6,7 +6,7 @@
 	</head>
 {% endblock %}
 
-	<body class="{{ body_class }}" data-template="base.twig">
+	<body class="{{ body_class }}" {% if accent_color %} data-color-theme="{{ accent_color }}"{% endif %}>
 
 		{{ fn( 'file_get_contents', svg_sprite) }}
 

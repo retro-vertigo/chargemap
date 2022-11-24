@@ -8,7 +8,7 @@
 .block-cover-image {
   padding-top: 135px;
   padding-bottom: 135px;
-  background-color: $color-light-grey;
+  background-color: $color-primary-050;
 
   @include desktop {
     padding-top: 100px;
@@ -45,10 +45,6 @@
   grid-template-areas: "content image";
   grid-template-columns: repeat(2, 1fr);  
   gap: 30px;
-
-  > * {
-    // @include bd();
-  }
 
   // 1 colonne
   @include tablet-small {

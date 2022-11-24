@@ -9,7 +9,7 @@
   
   // --modifier
   &.--bg-grey {
-    background-color: $color-light-grey;
+    background-color: $color-primary-050;
     padding-top: 90px;
     padding-bottom: 90px;
     
@@ -62,6 +62,18 @@
       height: 54px;
       width: auto;
       filter: filter-color('blue');
+      
+      // --Thème de couleur
+      body[data-color-theme="green"] & {
+        filter: filter-color('green');
+      }
+      body[data-color-theme="indigo"] & {
+        filter: filter-color('indigo');
+      }
+      body[data-color-theme="purple"] & {
+        filter: filter-color('purple');
+      }
+      
 
       & + * {
         margin-top: 10px;

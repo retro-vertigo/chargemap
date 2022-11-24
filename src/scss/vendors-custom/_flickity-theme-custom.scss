@@ -121,7 +121,7 @@
   &:after {
     @include pseudo-block(10px,10px);
     position: initial;
-    background-color: $color-light-grey;
+    background-color: $color-primary-050;
     border-radius: 50%;
     transition: background-color $trans-duration;
   }

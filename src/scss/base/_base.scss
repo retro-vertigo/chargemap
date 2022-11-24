@@ -25,6 +25,26 @@
 
 
 
+// Thème de couleur sur le body
+// -----------------------------------------------
+
+body[data-color-theme="green"] {
+  --color-accent      : var(--color-green);
+  --color-accent-light: var(--color-green-100);
+  --color-accent-pale : var(--color-green-200);
+}
+body[data-color-theme="indigo"] {
+  --color-accent      : var(--color-indigo);
+  --color-accent-light: var(--color-indigo-100);
+  --color-accent-pale : var(--color-indigo-200);
+}
+body[data-color-theme="purple"] {
+  --color-accent      : var(--color-purple);
+  --color-accent-light: var(--color-purple-100);
+  --color-accent-pale : var(--color-purple-200);
+}
+
+
 
 //  Block layout
 // -----------------------------------------------

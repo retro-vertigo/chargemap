@@ -9,13 +9,19 @@
 // -----------------------------------------------
 
 // Brand colors
-$color-primary       : #3B82F6;
-$color-navy       : #1E3FAE;
-$color-pink           : #F43F5E;
-$color-green          : #14B8A5;
-$color-indigo          : #6467F2;
-$color-purple          : #A855F7;
-$color-sky          : #DCEBFE;
+$color-primary    : #3B82F6;
+$color-primary-100: #DCEBFE;
+$color-primary-050: #F0F6FF;
+$color-navy       : #1E3FAE;  // blue 800
+$color-green      : #14B8A5;
+$color-green-100  : #CBFBF0;
+$color-green-200  : #B2F5EA;
+$color-indigo     : #6467F2;
+$color-indigo-100 : #E0E8FF;
+$color-indigo-200 : #C8D3FE;
+$color-purple     : #A855F7;
+$color-purple-100 : #F2E5FF;
+$color-purple-200 : #EAD6FF;
 
 
             
@@ -24,13 +30,12 @@ $color-sky          : #DCEBFE;
 $color-primary-dark  : mix-darken($color-primary, 10);
 
 // White / Black / Grey
-$color-black: #0F1729;
+$color-black       : #0F1729;
 $color-black-medium: #1D283A;
-$color-grey-dark: #48566A;
-$color-grey: #65758B;
-$color-grey-medium: #CBD5E1;
-$color-light-grey       : #F0F6FF;
-$color-white      : #FFFFFF;
+$color-grey-600    : #48566A;
+$color-grey-500    : #65758B;
+$color-grey-300    : #CBD5E1;
+$color-white       : #FFFFFF;
 
           
 
@@ -46,22 +51,26 @@ $color-body-text      : $color-black;
 
 // Map pour créer des CSS variables de couleur à partir de variables Sass (avec formats hex, hsl, h, s, l)
 $map-colors: (
+  color-accent      : $color-primary,
+  color-accent-light: $color-primary-050,
+  color-accent-pale : $color-primary-100,
+
   color-primary: $color-primary,
   color-navy   : $color-navy,
-  color-pink   : $color-pink,
-  color-green  : $color-green,
-  color-indigo : $color-indigo,
-  color-purple : $color-purple,
-  color-black-medium : $color-black-medium,
-  color-white : $color-white,
-  color-light-grey : $color-light-grey,
-  color-grey-medium : $color-grey-medium,
 
+  color-green     : $color-green,
+  color-green-100 : $color-green-100,
+  color-green-200 : $color-green-200,
+  color-indigo    : $color-indigo,
+  color-indigo-100: $color-indigo-100,
+  color-indigo-200: $color-indigo-200,
+  color-purple    : $color-purple,
+  color-purple-100: $color-purple-100,
+  color-purple-200: $color-purple-200,
 
-  // color-medium-grey    : $color-medium-grey,
-  // color-grey           : $color-grey,
-  // color-body-background: $color-body-background,
-  // color-body-text      : $color-body-text,
+  color-black-medium: $color-black-medium,
+  color-white       : $color-white,
+
 
   color-black: #000000,
 );

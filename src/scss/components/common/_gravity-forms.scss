@@ -45,7 +45,7 @@ body .gform_wrapper.gravity-theme {
       padding-top: initial;
       margin-top: 20px;
       font-size: inherit;
-      color: $color-grey;
+      color: $color-grey-500;
     }
   }
 
@@ -201,7 +201,7 @@ body .gform_wrapper.gravity-theme {
       color: initial;      
 
       &:disabled {
-          color: $color-light-grey;
+          color: $color-primary-050;
       }
     }
   }
@@ -522,7 +522,7 @@ body .gform_wrapper.gravity-theme {
     // labels before and after range, created with JS
     .range-help {
       font-size: 15px;
-      color: $color-grey;
+      color: $color-grey-500;
     }
 
     input[type=range] {
@@ -659,7 +659,7 @@ body .gform_wrapper.gravity-theme {
   .field_mandatory {
     margin-top: 20px;
     font-size: 15px;
-    color: $color-grey;
+    color: $color-grey-500;
   }
 
   .gform_footer {

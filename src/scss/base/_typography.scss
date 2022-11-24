@@ -102,7 +102,7 @@ p + p {
     font-size: 20px;
     font-weight: 700;
     line-height: 1.15;
-    color: $color-primary;
+    color: var(--color-accent);   // --thème de couleur
 }
 
 

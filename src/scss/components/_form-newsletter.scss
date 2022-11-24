@@ -47,7 +47,7 @@
     margin-bottom: 0;
     padding-left: calc(var(--checkbox-size) + 20px);
     font-size: 15px;
-    color: $color-grey;
+    color: $color-grey-500;
     cursor: pointer;
   
     &:hover:before {
@@ -63,7 +63,7 @@
   
     // checkbox border
     &:before {
-      border: 1px solid $color-grey;
+      border: 1px solid $color-grey-500;
       transition: box-shadow 0.2s, border-color $trans-duration linear, background-color $trans-duration-fast;
     }
     

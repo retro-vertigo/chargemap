@@ -140,7 +140,7 @@
     .icon {
         margin-left: 8px;
         font-size: 10px;
-        fill: $color-grey;
+        fill: $color-grey-500;
         transition: fill $trans-color;
     }
 }
@@ -198,7 +198,7 @@
         font-weight: 700;
         line-height: 1.4;
         color: $color-primary;
-        border-bottom: 1px solid $color-grey-medium;
+        border-bottom: 1px solid $color-grey-300;
     }
 
     .submenu__list {

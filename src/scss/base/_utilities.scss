@@ -124,7 +124,7 @@
 
 	/* Firefox */
 	scrollbar-width: auto; /* can also be normal, or none, to not render scrollbar */
-	scrollbar-color: $color-primary $color-sky; /* foreground background */
+	scrollbar-color: $color-primary $color-primary-100; /* foreground background */
 
 	/* Webkit / Blink */
 	&::-webkit-scrollbar {
@@ -138,6 +138,6 @@
 	}
 
 	&::-webkit-scrollbar-track {
-		background-color: $color-sky;
+		background-color: $color-primary-100;
 	}
 }

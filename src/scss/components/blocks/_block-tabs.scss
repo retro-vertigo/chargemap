@@ -99,7 +99,7 @@
     .icon {
       margin-top: auto;
       font-size: 20px;
-      fill: $color-grey;
+      fill: $color-grey-500;
       transition: fill $trans-color, transform $trans-duration;
 
       @include mobile {
@@ -114,7 +114,7 @@
   // -----------------------------------------------
   .panels-wrapper {
     margin-top: 50px;
-    background-color: $color-light-grey;
+    background-color: $color-primary-050;
 
     @include mobile {
       margin-top: 20px;

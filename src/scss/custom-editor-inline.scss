@@ -201,10 +201,10 @@ p.wp-block-paragraph {
 // show block frame on hover
 .block-editor-block-list__block:not(.is-selected) .block-wrapper {
   transition: box-shadow 0.15s;
-  box-shadow: 0 0 0 4px rgba($color-grey, 0.1);
+  box-shadow: 0 0 0 4px rgba($color-grey-500, 0.1);
 
   &:hover {
-    box-shadow: 0 0 0 4px rgba($color-grey, 0.25);
+    box-shadow: 0 0 0 4px rgba($color-grey-500, 0.25);
   }
 }
 

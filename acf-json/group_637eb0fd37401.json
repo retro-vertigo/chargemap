@@ -1,0 +1,51 @@
+{
+    "key": "group_637eb0fd37401",
+    "title": "Thème de couleur de la page",
+    "fields": [
+        {
+            "key": "field_637eb109ec5c8",
+            "label": "",
+            "name": "accent_color",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "Aucun",
+                "green": "Vert",
+                "indigo": "Indigo",
+                "purple": "Violet"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1669247707
+}
