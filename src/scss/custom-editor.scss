@@ -28,11 +28,9 @@
 
   @import 'vendors-custom/flickity-theme-custom';
 
-  @import 'components/blocks/*';
-  @import 'components/card-post';
-  @import 'components/grid-posts';
   // @import 'pages/page-article';
 }
+@import 'components/blocks/*';
 
 
 // Style des champs ACF dans le panneau de droite

@@ -60,6 +60,14 @@ function pga_acf_init_blocks() {
 	));
 
 	pga_acf_register_block( array(
+		'name'            => 'cta-cards',
+		'title'           => __('Call To Action carte'),
+		'description'     => __('Call To Action avec cartes'),
+		'icon'            => 'cover-image',
+		'supports'        => array( 'anchor' => true ),
+	));
+
+	pga_acf_register_block( array(
 		'name'            => 'logos',
 		'title'           => __('Slider de logos'),
 		'description'     => __('Slider de logos'),

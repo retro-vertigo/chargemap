@@ -1,0 +1,34 @@
+{#
+/**
+ * Block Name: Block CTA Cards
+ *
+ */
+#}
+
+<section class="{{ block.classes }} {{ display }}" id="{{ block.id }}">
+  <div class="block-container l-container --large">
+
+    {% if title %}
+        <h2 class="title-block u-text-center">{{ title|titleColor }}</h2>
+    {% endif %}
+    
+    <div class="block-cta-cards__inner">
+        {% for item in cards %}
+
+            <div class="card-cta">
+                {% if item.text %}
+                    <p class="card-cta__text">{{ item.text|titleColor }}</p>
+                {% endif %}
+                {% if item.link.url %}
+                    <a {{ setLinkAttributes( item.link ) }} class="btn --stretch-mobile">{{ item.link.title }}</a>
+                {% endif %}
+                {% if item.link_secondary.url %}
+                    <a {{ setLinkAttributes( item.link_secondary ) }} class="btn --link">{{ item.link_secondary.title }}</a>
+                {% endif %}
+            </div>
+            
+        {% endfor %}
+    </div>
+  
+  </div>    {# end .block-container #}
+</section>  {# end .block #}

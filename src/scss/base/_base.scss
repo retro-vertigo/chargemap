@@ -56,3 +56,7 @@ body[data-color-theme="purple"] {
     margin-top: 60px;
   }
 }
+
+.block:not(.bloc-cover-text):first-child {
+  margin-top: 80px;
+}

@@ -1,0 +1,91 @@
+// ==============================================
+
+//        BLOCK CALL TO ACTION WITH CARDS
+
+// ==============================================
+
+
+.block-cta-cards {
+
+  .block-container {
+    max-width: 1338px;
+  }
+  
+  .title-block {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+.block-cta-cards__inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  
+  justify-content: center;
+  gap: 3.4%;
+
+  .title-block + & {
+    margin-top: 40px;
+
+    @include mobile {
+      margin-top: 20px;
+    }
+  }
+
+  // 1 colonne
+  @include tablet {
+    grid-template-columns: auto;  
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .card-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 550px;
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid $color-primary-200;
+    border-radius: $border-radius;
+
+    @include mobile {
+      padding: 30px 20px;
+    }
+    
+
+    .card-cta__text {
+      font-family: $font-title; 
+      font-feature-settings: $font-feature-settings;
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1.4;
+
+      @include mobile {
+        font-size: 19px;
+      }
+
+      .alt-color {
+        color: $color-primary;
+      }
+    }
+
+    .card-cta__text + .btn {
+      margin-top: 30px;
+
+      @include mobile {
+        margin-top: 20px;
+      }
+    }
+
+    .btn.--link {
+      --color-text: var(--color-primary);
+      text-decoration: underline;
+    }
+    * + .btn.--link {
+      margin-top: 5px;
+    }
+  }
+}
