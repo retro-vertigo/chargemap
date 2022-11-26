@@ -16,7 +16,6 @@ export default class StickyButton {
     // Détecte quand le bouton du bloc cover disparait du viewport et affiche alors le bouton sticky 
     init() {
         this.observer = new IntersectionObserver(this.obCallback.bind(this), {
-            // rootMargin: '0px 0px -100% 0px',
             rootMargin: '-75px 0px 0px 0px',
         });
         this.observer.observe(this.btnCover); 
@@ -27,11 +26,11 @@ export default class StickyButton {
             // entrée du bouton du bloc -> masque le bouton sticky
             if(entry.intersectionRatio > 0) {     
                 this.btnSticky.classList.remove('is-show');
-                console.log('in', entry.intersectionRatio);
+                // console.log('in', entry.intersectionRatio);
             // sortie du bouton du bloc -> affiche le bouton sticky
             } else if (entry.intersectionRatio === 0) {
                 this.btnSticky.classList.add('is-show');
-                console.log('out', entry.intersectionRatio);
+                // console.log('out', entry.intersectionRatio);
             }
         });
     }

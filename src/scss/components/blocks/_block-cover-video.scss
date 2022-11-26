@@ -72,34 +72,35 @@
 	@include min-tablet-small {
 		justify-self: end;
 	}
-}
 
-.btn-video {
-	display: block;
-	width: 100%;
-	background-color: $color-primary;
-	border-radius: $border-radius;
-	@include aspect-ratio(1,1);
+	.btn-video {
+		display: block;
+		width: 100%;
+		background-color: $color-primary;
+		border-radius: $border-radius;
+		@include aspect-ratio(1,1);
+		
 	
-
-	.icon {
-		@include absolute-center;
-		fill: $color-white;
-		font-size: 128px;
-
-		@include mobile {
-			font-size: 90px;
+		.icon {
+			@include absolute-center;
+			fill: $color-white;
+			font-size: 128px;
+	
+			@include mobile {
+				font-size: 90px;
+			}
 		}
-	}
-
-	figure {
-		transition: opacity $trans-color;
-		opacity: 0.3;
-	}
-
-	&:hover {
+	
 		figure {
-			opacity: 0.5;
+			transition: opacity $trans-color;
+			opacity: 0.3;
+		}
+	
+		&:hover {
+			figure {
+				opacity: 0.5;
+			}
 		}
 	}
 }
+

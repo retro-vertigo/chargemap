@@ -1,0 +1,27 @@
+// ==============================================
+
+//        FANCYBOX THEME CUSTOM UI
+
+// ==============================================
+
+
+button[data-fancybox-close] {
+  height: 40px;
+  width: 40px;
+  background-color: $color-primary;
+  border-radius: $border-radius-small;
+  transition: background-color $trans-duration;
+
+  &:hover {
+    background-color: $color-navy;
+  }
+
+  svg {
+    color: $color-white;
+  }
+}
+
+.fancybox-toolbar {
+  right: 10px;
+  top: 10px;
+}

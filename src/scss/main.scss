@@ -9,6 +9,7 @@
 @import 'vendors/bootstrap/utilities/bootstrap-display';    // chargé aprés variables, requiert $grid-breakpoints 
 @import 'vendors/flickity/flickity';
 @import 'vendors/flickity/flickity-fade';
+@import 'vendors/fancybox/jquery.fancybox';
 // @import 'vendors/aos/aos';
 
 @import 'base/reboot';
@@ -21,6 +22,7 @@
     // TOADD _global partial with .page-wrapper, .main, (instead of .base)
 
 // @import 'vendors-custom/flickity-theme-custom';
+@import 'vendors-custom/fancybox-theme-custom';
 // @import 'vendors-custom/aos-custom';
 
 @import 'components/base/*';

@@ -1,6 +1,9 @@
+import $ from 'jquery';
+window.$ = $;
 import AOS from './vendors/aos.min';
 import initBlocks from "./core/blocks";
 import HeaderSite from './core/HeaderSite';
+import Fancybox from './vendors/jquery.fancybox.min';
 import { debugBreakpoint, calculateViewportHeight, throttle, debounce } from "./utils/utilsLib";
 
 

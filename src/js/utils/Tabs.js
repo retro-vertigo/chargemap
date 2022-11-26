@@ -34,6 +34,8 @@ export default class Tabs {
       
         // Show the selected panel
         this.el.querySelector(`#${target.getAttribute('aria-controls')}`).removeAttribute('hidden');
+
+        target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     }
 }
 

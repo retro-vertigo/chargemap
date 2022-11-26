@@ -5,7 +5,7 @@
  */
 #}
 
-<section class="{{ block.classes }} {{ display }}" id="{{ block.id }}">
+<section class="{{ block.classes }} {{ display }} block-cover" id="{{ block.id }}">
   <div class="block-container l-container">
     
     <div class="block-cover-video__inner">
@@ -20,18 +20,18 @@
                 <div class="wysi">{{ wysi }}</div>
             {% endif %}
             {% if link_cta.url %}
-                <a {{ setLinkAttributes( link_cta ) }} class="btn --stretch-mobile">{{ link_cta.title }}</a>
+                <a {{ setLinkAttributes( link_cta ) }} class="btn --stretch-mobile --outline-mobile">{{ link_cta.title }}</a>
             {% endif %}
         </div>
 
         <div class="block-cover-video__image">
-            {% if image %}
-                <button class="btn-video">
+            {% if image and video.url %}
+                <a href="{{ video.url }}" class="btn-video" data-fancybox data-width="{{ video.width }}" data-height="{{ video.height }}">
                     <figure>
                         {{ getRwdImage( image.id, 'cover', 'large',  { class:'u-border-radius u-image-cover' } ) }}
                     </figure>
                     <svg class="icon"><use xlink:href="#icon-play"></use></svg>
-                </button>
+                </a>
             {% endif %}
         </div>
     
