@@ -79,6 +79,10 @@
   @include image-cover();
 }
 
+.u-border-radius {
+  border-radius: $border-radius;
+}
+
 
 //  Hide
 // -----------------------------------------------

@@ -70,6 +70,10 @@ function pga_allow_block_types( $allowed_blocks, $editor_context ) {
       'acf/logos',
       'acf/testimonial',
       'acf/anchors',
+      'acf/download',
+      'acf/timeline',
+      'acf/press',
+
       'acf/image-text',
     );
 

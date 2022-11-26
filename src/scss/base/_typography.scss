@@ -20,6 +20,7 @@ body {
 
 h1, h2, h3, h4,
 .h1, .h2, .h3, .h4 {
+  display: block;
   margin-bottom: 0;
   font-family: $font-title; 
   font-feature-settings: $font-feature-settings;
@@ -113,9 +114,13 @@ p + p {
     }
 
     p {
-        @include tablet {
-            font-size: 16px;
-        }
+      @include tablet {
+          font-size: 16px;
+      }
+    }
+
+    ul {
+      @include list-styled();
     }
 }
 
@@ -129,11 +134,15 @@ p + p {
 }
 
 
-img.--border-radius {
-    border-radius: $border-radius;
+
+
+figure.ratio-4-3 {
+  @include aspect-ratio(564, 415);
 }
 
-
+figure.ratio-16-9 {
+  @include aspect-ratio(504, 316);
+}
 
 
 

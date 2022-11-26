@@ -20,6 +20,7 @@ $color-green-200  : #B2F5EA;
 $color-indigo     : #6467F2;
 $color-indigo-100 : #E0E8FF;
 $color-indigo-200 : #C8D3FE;
+$color-indigo-300 : #A6B4FC;
 $color-purple     : #A855F7;
 $color-purple-100 : #F2E5FF;
 $color-purple-200 : #EAD6FF;
@@ -195,7 +196,7 @@ $z-layers: (
 
 
   // MQ for CSS variables
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(xs) {
     --container-padding: #{$container-padding-mobile};
     --header-height: #{$header-height-mobile};
   }

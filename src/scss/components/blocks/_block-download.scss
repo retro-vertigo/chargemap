@@ -1,0 +1,104 @@
+// ==============================================
+
+//        BLOCK DOWNLOAD
+
+// ==============================================
+
+
+.block-download {
+  .title-block,
+  .subtext {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .title-block {
+    & + .subtext {
+      margin-top: 10px;
+    }
+  }
+
+  .subtext { 
+    @include mobile {
+      font-size: 16px;
+    }
+  }
+}
+
+
+.block-download__columns {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+
+  // 1 colonne
+  @include tablet-small {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.column-download {
+    // @include bd();
+    width: 100%;
+    max-width: 368px;
+
+    & + .column-download {
+      margin-left: 40px;
+
+      @include tablet-small {
+        margin-left: initial;
+        margin-top: 40px;
+      }
+    }
+
+    figure {
+      @include aspect-ratio(368, 300);
+
+      & + * {
+        margin-top: 40px;
+
+        @include tablet-small {
+          margin-top: 20px;
+        }
+      }
+    }
+
+    .title {
+      display: block;
+      font-family: $font-title; 
+      font-feature-settings: $font-feature-settings;
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1.4;
+
+      & + * {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .block-download__buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+      margin-left: initial;
+    }
+  }
+
+  .btn-download {
+    & + .btn-download {
+      margin-left: 26px;
+
+      @include mobile {
+        margin-left: initial;
+        margin-top: 20px;
+      }
+    }
+  }

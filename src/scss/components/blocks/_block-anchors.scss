@@ -6,7 +6,7 @@
 
 
 .block-anchors {
-  
+
   .block-container {
     position: relative;
   }
@@ -99,7 +99,6 @@
   }
 
 
-
   //  Panels
   // -----------------------------------------------
   .panels-wrapper {
@@ -107,80 +106,6 @@
   
     @include tablet-small {
       margin-top: 20px;
-    }
-  }
-
-  
-  .panel {
-    display: grid;
-    grid-template-areas: "content image";
-    grid-template-columns: repeat(2, 1fr);  
-    gap: 30px;
-    align-items: center;
-    padding-top: 90px;
-    padding-bottom: 90px;
-    background-color: $color-primary-050;
-
-    & + .panel {
-      margin-top: 90px;
-
-      @include tablet-small {
-        margin-top: 40px;
-      }
-    }
-
-    @media (min-width: 1280px) {
-      border-radius: $border-radius;
-    }
-
-    // --modifier
-    @include min-tablet-small {
-      &.--image-text {
-        grid-template-areas: "image content";
-  
-        .panel__image {
-          justify-self: initial;
-        }
-        .panel__content {
-          justify-self: end;
-        }
-      }
-    }
-
-    @include desktop {
-      padding-top: 60px;
-      padding-bottom: 60px;
-    }
-
-    // 1 colonne
-    @include tablet-small {
-      grid-template-areas: "content" 
-                           "image";
-      grid-template-columns: auto;  
-    }
-  
-    @include mobile {
-      padding-top: 40px;
-      padding-bottom: 40px;
-    }
-  }
-
-  .panel__content {
-    grid-area: content;
-    max-width: 520px;
-  }
-  
-  .panel__image {
-    grid-area: image;
-    width: 100%;
-    max-width: 564px;
-
-    @include min-tablet-small {
-      justify-self: end;
-    }
-  
-    figure {
-      @include aspect-ratio(564, 415);
     }
   }
 }

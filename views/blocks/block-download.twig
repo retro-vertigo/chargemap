@@ -1,0 +1,52 @@
+{#
+/**
+ * Block Name: Block Columns
+ *
+ */
+#}
+
+<section class="{{ block.classes }} {{ display }}" id="{{ block.id }}">
+  <div class="block-container l-container --large">
+
+    {% if title %}
+        <h2 class="title-block u-text-center">{{ title|titleColor }}</h2>
+    {% endif %}
+    {% if subtitle %}
+          <p class="subtext u-text-center">{{ subtitle }}</p>
+    {% endif %}
+    
+    <div class="block-download__columns">
+        {% for item in columns %}
+
+            <div class="column-download editor">
+                {% if item.image %}
+                    <figure>
+                        {{ getRwdImage( item.image.id, 'download', 'large',  { class:'u-border-radius u-image-cover' } ) }}
+                    </figure>
+                {% endif %}
+                {% if item.title %}
+                    <span class="title">{{ item.title }}</span>
+                {% endif %}
+                {% if item.wysi %}
+                    <div class="wysi">{{ item.wysi }}</div>
+                {% endif %}
+            </div>
+            
+        {% endfor %}
+    </div>
+
+    <div class="block-download__buttons">
+        {% if buttons.link1.url and buttons.link1_image %}
+            <a {{ setLinkAttributes( buttons.link1 ) }} class="btn-download">
+                <img {{ setImgAttributes( buttons.link1_image ) }} />
+            </a>
+        {% endif %}
+        {% if buttons.link2.url and buttons.link2_image %}
+            <a {{ setLinkAttributes( buttons.link2 ) }} class="btn-download">
+                <img {{ setImgAttributes( buttons.link2_image ) }} />
+            </a>
+        {% endif %}
+    </div>
+  
+  </div>    {# end .block-container #}
+</section>  {# end .block #}

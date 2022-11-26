@@ -26,7 +26,7 @@
     <div class="panels-wrapper">
         {% for tab in tabs %}
             {% if tab.tab_title %}
-                <div class="panel l-container {{ tab.display }}" id="panel-{{ block.uniq_id }}-{{ loop.index }}">
+                <div class="panel --bg-grey l-container {{ tab.display }}" id="panel-{{ block.uniq_id }}-{{ loop.index }}">
 
                     <div class="panel__content editor">
                         {% if tab.group_text.suptitle %}
@@ -45,8 +45,8 @@
 
                     <div class="panel__image">
                         {% if tab.image %}
-                            <figure>
-                                {{ getRwdImage( tab.image.id, 'cover', 'large',  { class:'--border-radius u-image-cover' } ) }}
+                            <figure class="ratio-4-3">
+                                {{ getRwdImage( tab.image.id, 'cover', 'large',  { class:'u-border-radius u-image-cover' } ) }}
                             </figure>
                         {% endif %}
                     </div>

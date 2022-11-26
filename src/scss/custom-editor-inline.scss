@@ -60,6 +60,7 @@
 // disable click on editor (but show hover)
 .block {
   .btn,
+  .btn-press,
   .tablist__btn {
     cursor: not-allowed;
 
@@ -154,7 +155,6 @@ p.wp-block-paragraph {
   a:not(.btn) {
     color: $color-primary;
     text-decoration: underline;
-    @include bd();
   }
 
   
@@ -196,6 +196,11 @@ p.wp-block-paragraph {
 .tiny-mce-compact-medium .acf-editor-wrap iframe {
   min-height: 0 !important;
   max-height: 120px;
+}
+
+.tiny-mce-compact-large .acf-editor-wrap iframe {
+  min-height: 0 !important;
+  max-height: 220px;
 }
 
 // show block frame on hover

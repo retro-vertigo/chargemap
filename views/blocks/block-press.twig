@@ -1,0 +1,36 @@
+{#
+/**
+ * Block Name: Block CTA Cards
+ *
+ */
+#}
+
+<section class="{{ block.classes }} {{ display }}" id="{{ block.id }}">
+  <div class="links-wrapper l-container">
+
+    {% for item in items %}
+        
+        <div class="column-press">
+            {% if item.link_type == "is_url" and item.link.url and item.image %}
+                <a {{ setLinkAttributes( item.link ) }} class="btn-press">
+                    <img {{ setImgAttributes( item.image ) }}/>
+                </a>
+            {% endif %}
+            {% if item.link_type == "is_file" and item.file.url and item.image %}
+                <a href="{{ item.file.url }}" target="_blank" class="btn-press">
+                    <img {{ setImgAttributes( item.image ) }}/>
+                </a>
+            {% endif %}
+
+            {% if item.link_label %}
+                <span class="column-press__label">{{ item.link_label }}</span>
+            {% endif %}
+
+            {# {{ dump(item.file) }} #}
+            
+        </div>   
+        
+    {% endfor %}
+  
+  </div>    {# end .block-container #}
+</section>  {# end .block #}

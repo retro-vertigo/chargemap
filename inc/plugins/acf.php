@@ -44,6 +44,9 @@ function pga_custom_acf_toolbars( $toolbars ) {
 	$toolbars['Gras uniquement' ] = array();
 	$toolbars['Gras uniquement' ][1] = array( 'bold' );
 
+	$toolbars['Liste à puces' ] = array();
+	$toolbars['Liste à puces' ][1] = array( 'bullist' );
+
 
 	// Edit the "Full" toolbar and remove 'code'
 	// - delet from array code from http://stackoverflow.com/questions/7225070/php-array-delete-by-value-not-key

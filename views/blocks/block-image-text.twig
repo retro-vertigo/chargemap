@@ -1,20 +1,19 @@
 {#
 /**
- * Block Name: Block Cover Image
+ * Block Name: Block Image Text
  *
  */
 #}
 
-<section class="{{ block.classes }} {{ display }}" id="{{ block.id }}">
-  <div class="block-container l-container">
-    
-    <div class="block-cover-image__inner">
-        <div class="block-cover-image__content editor">
+<section class="{{ block.classes }}" id="{{ block.id }}">
+    <div class="panel l-container {{ display }}">
+
+        <div class="panel__content editor">
             {% if suptitle %}
                 <span class="suptitle">{{ suptitle }}</span>
             {% endif %}
             {% if title %}
-                <h1>{{ title }}</h1>
+                <h2>{{ title }}</h2>
             {% endif %}
             {% if wysi %}
                 <div class="wysi">{{ wysi }}</div>
@@ -24,15 +23,13 @@
             {% endif %}
         </div>
 
-        <div class="block-cover-image__image">
+        <div class="panel__image">
             {% if image %}
-                <figure class="ratio-16-9">
+                <figure class="ratio-4-3">
                     {{ getRwdImage( image.id, 'cover', 'large',  { class:'u-border-radius u-image-cover' } ) }}
                 </figure>
             {% endif %}
         </div>
-    
-    </div>
   
   </div>    {# end .block-container #}
 </section>  {# end .block #}

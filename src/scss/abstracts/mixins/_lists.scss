@@ -44,21 +44,35 @@
 // Liste verticale avec bullets stylisé pour le theme
 @mixin list-styled() {
   list-style: none;
-  padding-left: 0.4em;
-
+  padding-left: 0;
+  
   li {
     position: relative;
-    padding-left: 1.2em;
+    padding-left: 24px;
+
+    @include tablet-small {
+      font-size: 16px;
+      padding-left: 28px;
+    }
     
     &:before {
-      @include pseudo-block(4px, 4px, currentColor);
-      border-radius: 50%;
-      left: 4px;
-      top: 0.65em;
+      content: '';
+      position: absolute;
+      left: 1px;
+      top: 4px;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-image: url(../svg/external/icon-check-circle.svg);
+      background-repeat: no-repeat;
+
+      @include tablet-small {
+        top: 3px;
+      }
     }
 
     & + li {
-      margin-top: 0.2rem;
+      margin-top: 14px;
     }
   }
 }

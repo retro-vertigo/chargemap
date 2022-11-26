@@ -26,7 +26,7 @@
     <div class="panels-wrapper l-container">
         {% for tab in tabs %}
             {% if tab.tab_title %}
-                <div class="panel {{ tab.display }}" id="panel-{{ block.uniq_id }}-{{ loop.index }}" aria-labelledby="tab-{{ block.uniq_id }}-{{ loop.index }}"
+                <div class="panel --bg-grey {{ tab.display }}" id="panel-{{ block.uniq_id }}-{{ loop.index }}" aria-labelledby="tab-{{ block.uniq_id }}-{{ loop.index }}"
                         {{ loop.first ? '' : 'hidden' }} tabindex="0" role="tabpanel">
 
                         <div class="panel__content editor">
@@ -46,8 +46,8 @@
 
                         <div class="panel__image">
                             {% if tab.image %}
-                                <figure>
-                                    {{ getRwdImage( tab.image.id, 'cover', 'large',  { class:'--border-radius u-image-cover' } ) }}
+                                <figure class="ratio-4-3">
+                                    {{ getRwdImage( tab.image.id, 'cover', 'large',  { class:'u-border-radius u-image-cover' } ) }}
                                 </figure>
                             {% endif %}
                         </div>

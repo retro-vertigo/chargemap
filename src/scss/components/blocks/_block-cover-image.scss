@@ -58,7 +58,10 @@
 
 .block-cover-image__content {
   grid-area: content;
-  max-width: 570px;
+  
+  @include min-tablet-small {
+		max-width: 570px;
+	}
 }
 
 .block-cover-image__image {
@@ -68,10 +71,6 @@
   
   @include min-tablet-small {
     justify-self: end;
-  }
-
-  figure {
-    @include aspect-ratio(504, 316);
   }
 }
 

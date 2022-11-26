@@ -92,6 +92,30 @@ function pga_acf_init_blocks() {
 		'icon'            => 'cover-image',
 		'supports'        => array( 'anchor' => true ),
 	));
+
+	pga_acf_register_block( array(
+		'name'            => 'download',
+		'title'           => __('Téléchargement'),
+		'description'     => __('Téléchargement'),
+		'icon'            => 'cover-image',
+		'supports'        => array( 'anchor' => true ),
+	));
+
+	pga_acf_register_block( array(
+		'name'            => 'timeline',
+		'title'           => __('Historique'),
+		'description'     => __('Historique'),
+		'icon'            => 'cover-image',
+		'supports'        => array( 'anchor' => true ),
+	));
+
+	pga_acf_register_block( array(
+		'name'            => 'press',
+		'title'           => __('Presse'),
+		'description'     => __('Presse'),
+		'icon'            => 'cover-image',
+		'supports'        => array( 'anchor' => true ),
+	));
 	
 
 
