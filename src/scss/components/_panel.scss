@@ -38,15 +38,6 @@
 	}
 
 
-				&+.panel {
-					margin-top: 90px;
-
-					@include tablet-small {
-						margin-top: 40px;
-					}
-				}
-
-
 	// --modifier
 	@include min-tablet-small {
 		&.--image-text {

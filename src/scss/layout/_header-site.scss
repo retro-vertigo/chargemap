@@ -139,7 +139,7 @@
     
     .icon {
         margin-left: 8px;
-        font-size: 10px;
+        font-size: 18px;
         fill: $color-grey-500;
         transition: fill $trans-color;
     }
@@ -284,6 +284,10 @@
     
     > * + * {
         margin-left: 0.5rem;
+    }
+
+    .btn.--link:hover {
+        text-decoration: underline;
     }
     // @include bd();
 }

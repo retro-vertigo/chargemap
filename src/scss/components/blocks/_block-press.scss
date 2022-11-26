@@ -27,7 +27,7 @@
     text-align: center;
 
     .btn-press {
-        @include aspect-ratio(1,1, false);
+        @include aspect-ratio(1,1, null);
         @include flex-center();
         width: 210px;
         background-color: $color-indigo-300;

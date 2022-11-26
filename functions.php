@@ -122,15 +122,3 @@ require get_theme_file_path( '/inc/admin/gutenberg.php' );
 //
 require get_theme_file_path( '/inc/responsive-images.php' );
 require get_theme_file_path( '/inc/enqueue.php' );
-
-
-
-
-
-
-
-// Get Timber context from macros.twig file
-function get_timber_context() {
-	return Timber::context();
-}
-

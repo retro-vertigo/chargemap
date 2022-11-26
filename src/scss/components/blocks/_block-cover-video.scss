@@ -1,0 +1,105 @@
+// ==============================================
+
+//        BLOCK COVER VIDEO 
+
+// ==============================================
+
+
+.block-cover-video {
+	padding-top: 135px;
+	padding-bottom: 135px;
+	background-color: $color-primary-050;
+
+	@include desktop {
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+
+	@include tablet-small {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+
+	@include mobile {
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+
+	// --modifier
+	@include min-tablet-small {
+		&.--image-text {
+			.block-cover-video__inner {
+				grid-template-areas: "image content";
+
+				.block-cover-video__image {
+					justify-self: initial;
+				}
+			}
+		}
+	}
+}
+
+
+.block-cover-video__inner {
+	display: grid;
+	grid-template-areas: "content image";
+	grid-template-columns: repeat(2, 1fr);
+	gap: 30px;
+
+	// 1 colonne
+	@include tablet-small {
+		grid-template-areas: "content"
+			"image";
+		grid-template-columns: auto;
+	}
+}
+
+
+
+.block-cover-video__content {
+	grid-area: content;
+
+	@include min-tablet-small {
+		max-width: 570px;
+	}
+}
+
+.block-cover-video__image {
+	grid-area: image;
+	width: 100%;
+	max-width: 504px;
+
+	@include min-tablet-small {
+		justify-self: end;
+	}
+}
+
+.btn-video {
+	display: block;
+	width: 100%;
+	background-color: $color-primary;
+	border-radius: $border-radius;
+	@include aspect-ratio(1,1);
+	
+
+	.icon {
+		@include absolute-center;
+		fill: $color-white;
+		font-size: 128px;
+
+		@include mobile {
+			font-size: 90px;
+		}
+	}
+
+	figure {
+		transition: opacity $trans-color;
+		opacity: 0.3;
+	}
+
+	&:hover {
+		figure {
+			opacity: 0.5;
+		}
+	}
+}

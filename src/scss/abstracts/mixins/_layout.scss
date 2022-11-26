@@ -64,19 +64,20 @@
 // 4:3 aspect ratio = 3 / 4 = 0.75 -> padding-top: 75%
 // 3:2 aspect ratio = 2 / 3 = 0.66666 -> padding-top: 66.67%
 // 16:9 aspect ratio = 9 / 16 = 0.5625 -> padding-top: 56.25%
-@mixin aspect-ratio($width-or-ratio: 1, $height: null, $pull-children: true) {
+@mixin aspect-ratio($width: 1, $height: 1, $selector: "> :first-child") {
   position: relative;
   
   &:before {
     content: '';
     display: block;
-    $padding: if($height, percentage($height/$width-or-ratio), percentage(1/$width-or-ratio));
-    padding-top: $padding;
+    padding-top: percentage($height/$width);
   }
 
   // Remonte les enfants dans le container
-  @if $pull-children {
-    > * {
+  @if $selector {
+    $selector: unquote($selector);
+    
+    #{$selector} {
       position: absolute;
       top: 0;
       left: 0;
@@ -85,6 +86,8 @@
     }
   }
 }
+
+
 
 
 // Élement en absolue étiré dans son parent 

@@ -20,10 +20,17 @@
 					Sorry, no content
 				{% endblock %}
 
+				
+
 			</main> {# end .main #}	
 		
 			{% include 'partials/footer-site.twig' %}
 
+			{# Bouton de démo en sticky #}
+			{% if btn_demo.url %}
+					<a {{ setLinkAttributes( btn_demo ) }} class="btn --sticky-demo" id="sticky-button">{{ btn_demo.title }}</a>
+			{% endif %}
+			
 		</div> {# end .page-wrapper #}	
 
 		{{ wp_footer }}

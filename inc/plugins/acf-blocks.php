@@ -27,6 +27,14 @@ function pga_acf_init_blocks() {
 	));
 
 	pga_acf_register_block( array(
+		'name'            => 'cover-video',
+		'title'           => __('Couverture vidéo'),
+		'description'     => __('Couverture vidéo et texte'),
+		'icon'            => 'cover-image',
+		'supports'        => array( 'anchor' => true ),
+	));
+
+	pga_acf_register_block( array(
 		'name'            => 'tabs',
 		'title'           => __('Onglets'),
 		'description'     => __('Onglets en icônes'),

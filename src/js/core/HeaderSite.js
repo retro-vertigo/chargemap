@@ -72,7 +72,7 @@ export default class HeaderSite {
     toggleStickyHeader(callType) {
         let currentScroll = document.body.scrollTop || document.documentElement.scrollTop;
         
-        if (currentScroll > 20) {
+        if (currentScroll > 10) {
             this.header.classList.add('is-solid');
         } else {
             this.header.classList.remove('is-solid');
@@ -94,5 +94,4 @@ export default class HeaderSite {
         if(!HeaderSite._instance) new HeaderSite();
         return HeaderSite._instance;
     }
-
 }

@@ -1,9 +1,9 @@
 {
-    "key": "group_62208f7f047e7",
-    "title": "[ Bloc ] Couverture image et texte",
+    "key": "group_638241b178322",
+    "title": "[ Bloc ] Couverture image et vidéo",
     "fields": [
         {
-            "key": "field_6376ae3f1ae36",
+            "key": "field_638241b184b47",
             "label": "Option d'affichage :",
             "name": "display",
             "type": "button_group",
@@ -25,7 +25,7 @@
             "return_format": "value"
         },
         {
-            "key": "field_637958421193d",
+            "key": "field_638241b184b51",
             "label": "",
             "name": "contenu",
             "type": "clone",
@@ -46,7 +46,7 @@
             "prefix_name": 0
         },
         {
-            "key": "field_6376ad881ae35",
+            "key": "field_638241b184b58",
             "label": "Image :",
             "name": "image",
             "type": "image",
@@ -68,6 +68,25 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_638241c2ef0da",
+            "label": "Vidéo :",
+            "name": "video",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "mp4"
         }
     ],
     "location": [
@@ -75,7 +94,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/cover-image"
+                "value": "acf\/cover-video"
             }
         ]
     ],
@@ -87,5 +106,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1669480863
+    "modified": 1669480965
 }

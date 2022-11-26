@@ -2,6 +2,7 @@ import Tabs from "../utils/Tabs";
 import SliderLogos from "../blocks/SliderLogos";
 import SliderTestimonial from "../blocks/SliderTestimonial";
 import Anchors from "../utils/Anchors";
+import StickyButton from "../utils/StickyButton";
 
 
 // Init blocks with JS
@@ -18,18 +19,15 @@ export default function initBlocks () {
 
     document.querySelectorAll('.block-testimonial').forEach( el => { new SliderTestimonial(el); });
 
-    // document.querySelectorAll('.block-push-projects').forEach( el => { new SliderProjects(el); });
-
-    // document.querySelectorAll('.block-values').forEach( el => { new ScrollHorizontal(el); });
-
-    // document.querySelectorAll('.js-slider-images-wrapper').forEach( el => { new SliderImages(el); });
-
-
     //        UI
     // ==============================================
     
     
     //        Other modules
     // ==============================================
+
+    if(document.getElementById('sticky-button')) {
+        new StickyButton(document.getElementById('sticky-button'));
+    }
 
 }  

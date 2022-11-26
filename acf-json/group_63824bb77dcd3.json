@@ -1,0 +1,39 @@
+{
+    "key": "group_63824bb77dcd3",
+    "title": "Lien démo sur mobile",
+    "fields": [
+        {
+            "key": "field_63824bb793f17",
+            "label": "",
+            "name": "btn_demo",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1669483525
+}
