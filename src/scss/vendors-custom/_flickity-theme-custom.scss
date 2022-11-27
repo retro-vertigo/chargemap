@@ -6,12 +6,17 @@
 
 
 .slider-flickity-controls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 
-  .btn-flickity + .btn-flickity {
-    margin-left: 20px;
-  }
+  // .btn-flickity + .btn-flickity {
+  //   margin-left: 20px;
+  // }
 }
 
 
@@ -22,52 +27,33 @@
 .btn-flickity {
   @include inline-flex-center();
   position: relative;
-  width: 60px;
-  height: 60px;
-  border: 1px solid $color-primary-soft;
-  border-radius: 100%;
-  transition: border-color 0.25s linear, opacity 0.25s;
+  width: 40px;
+  height: 40px;
+  border: 1px solid $color-primary;
+  border-radius: 50%;
+  transition: border-color $trans-color, background-color $trans-color, opacity $trans-color;
 
   &[disabled] {
     opacity: 0.25;
     pointer-events: none;
   }
-  
-  &:before {
-    @include pseudo-block(100%, 100%);
-    top: 0;
-    left: 0;
-    border-radius: 100%;
-    background-image: var(--primary-gradient);
-    opacity: 0;
-    transition: all 0.25s linear;
-  }
 
   @include can-hover() {
     &:hover,
     &:focus {
-      border-color: transparent;
-       
-      &:before {
-        opacity: 1;
-      }
+      border-color: $color-navy;
+      background-color: $color-navy;
 
       .btn-flickity__icon {
         fill: white;
-        transform: translateX(2px);
-      }
-
-      &.--prev .btn-flickity__icon {
-        transform: scaleX(-1) translateX(2px);
       }
     }
   }
 
   .btn-flickity__icon {
-    position: relative;
     font-size: 20px;
     fill: $color-primary;
-    transition: fill 0.25s linear, transform 0.25s;
+    transition: fill $trans-color;
   }
 
   &.--prev .btn-flickity__icon {

@@ -14,34 +14,36 @@
 add_action( 'init', 'pga_register_polylang_strings' );
 function pga_register_polylang_strings() {
   if ( function_exists( 'pll_register_string' ) ) {
-    pll_register_string( "interface", "Accueil", "theme" );
+    pll_register_string( "interface", "Accueil", "theme" );      // for breadcrumbs
     pll_register_string( "interface", "Contactez-nous", "theme" );
     pll_register_string( "interface", "url_memberarea", "theme" );
     pll_register_string( "interface", "Se connecter", "theme" );
-
-    
-    pll_register_string( "interface", "Espace investisseurs", "theme" );
-    pll_register_string( "interface", "Accueil", "theme" );      // for breadcrumbs
-    pll_register_string( "interface", "En savoir plus", "theme" );
-    pll_register_string( "interface", "Crédits", "theme" );
-    pll_register_string( "interface", "Plus d'actualités", "theme" );
-    pll_register_string( "interface", "Toute l'équipe", "theme" );
     pll_register_string( "interface", "Retour à l'accueil", "theme" );
-
+    pll_register_string( "interface", "Newsletter - titre", "theme" );
+    pll_register_string( "interface", "Newsletter - intro", "theme" );
+    
     pll_register_string( "form", "Envoyer", "theme" );
+    pll_register_string( "form", "Votre e-mail", "theme" );
     pll_register_string( "form", "Formulaire - email invalide", "theme" );
     pll_register_string( "form", "Formulaire - message d'envoi", "theme" );
     pll_register_string( "form", "Formulaire - message de confirmation", "theme" );
     pll_register_string( "form", "Formulaire - message d'erreur", "theme" );
-
-    pll_register_string( "404", "Page 404", "theme" );
-
+    
+    pll_register_string( "404", "Page 404", "theme" );  
+    
     pll_register_string( "bloc", "Onglets", "theme" );
+    pll_register_string( "interface", "Précédent", "theme" );
+    pll_register_string( "interface", "Suivant", "theme" );
+    
+    // pll_register_string( "interface", "En savoir plus", "theme" );
+    // pll_register_string( "interface", "Crédits", "theme" );
+    // pll_register_string( "interface", "Plus d'actualités", "theme" );
+    // pll_register_string( "interface", "Toute l'équipe", "theme" );
 
-    pll_register_string( "cookie", "J'accepte", "theme" );
-    pll_register_string( "cookie", "Je refuse", "theme" );
-    pll_register_string( "cookie", "Texte cookie", "theme" );
-    pll_register_string( "cookie", "Libellé page de politique de données", "theme" );
+    // pll_register_string( "cookie", "J'accepte", "theme" );
+    // pll_register_string( "cookie", "Je refuse", "theme" );
+    // pll_register_string( "cookie", "Texte cookie", "theme" );
+    // pll_register_string( "cookie", "Libellé page de politique de données", "theme" );
   }
 };
 

@@ -36,9 +36,10 @@ function pga_custom_acf_toolbars( $toolbars ) {
 	// Add a new toolbar called "Very Simple"
 	// - this toolbar has only 1 row of buttons
 	$toolbars['Simple' ] = array();
-	$toolbars['Simple' ][1] = array( 'formatselect', 'bold', 'bullist', 'numlist', 'alignleft', 'aligncenter', 'alignright', 'link', 'pastetext', 'removeformat' );
-	$toolbars['Simple' ][1] = array( 'formatselect', 'styleselect', 'bold', 'underline', '|', 'alignleft', 'aligncenter', 'alignright', '|','bullist','numlist', '|', 'link', 'unlink', '|',
-	'undo', 'redo', 'removeformat', 'code', );
+	$toolbars['Simple' ][1] = array( 'bold', 'underline', '|', 'bullist', 'numlist', '|', 'alignleft', 'aligncenter', 'alignright', '|', 'link', 'unlink', '|',
+	'undo', 'redo', 'removeformat', 'code' );
+	// $toolbars['Simple' ][1] = array( 'formatselect', 'styleselect', 'bold', 'underline', '|', 'alignleft', 'aligncenter', 'alignright', '|','bullist','numlist', '|', 'link', 'unlink', '|',
+	// 'undo', 'redo', 'removeformat', 'code', );
 
 
 	$toolbars['Gras uniquement' ] = array();
@@ -73,7 +74,7 @@ function pga_custom_acf_toolbars( $toolbars ) {
 
 /* Customize Editor TinyMCE
 -------------------------------------------------------------- */
-add_filter( 'tiny_mce_before_init', 'base_custom_mce_format' );
+// add_filter( 'tiny_mce_before_init', 'base_custom_mce_format' );
 function base_custom_mce_format( $init_array ) {
 
 		// Add block format elements you want to show in dropdown
@@ -132,7 +133,7 @@ function base_custom_mce_format( $init_array ) {
 
 
 // TinyMCE: Second line toolbar customizations
-add_filter( 'mce_buttons_2', 'base_extended_editor_mce_buttons_2', 0);
+// add_filter( 'mce_buttons_2', 'base_extended_editor_mce_buttons_2', 0);
 function base_extended_editor_mce_buttons_2( $buttons ) {
 		return array();
 } 

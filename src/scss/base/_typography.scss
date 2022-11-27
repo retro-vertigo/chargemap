@@ -111,6 +111,14 @@ p + p {
 
     * + .wysi {
         margin-top: 10px;
+
+        > ul:first-child {
+          margin-top: 30px;
+        }
+    }
+
+    * + ul {
+      margin-top: 20px;
     }
 
     p {
@@ -122,6 +130,8 @@ p + p {
     ul {
       @include list-styled();
     }
+
+
 }
 
 

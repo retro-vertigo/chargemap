@@ -74,6 +74,7 @@ function pga_allow_block_types( $allowed_blocks, $editor_context ) {
       'acf/download',
       'acf/timeline',
       'acf/press',
+      'acf/guide',
 
       'acf/image-text',
     );

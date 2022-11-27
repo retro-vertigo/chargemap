@@ -22,8 +22,13 @@ function pga_enqueue_scripts() {
   wp_enqueue_style( 'main-style', CSS_URL.'main.min.css', '', filemtime( CSS_PATH.'main.min.css' ));
   wp_enqueue_script( 'main-scripts', JS_URL.'main.min.js',  array('jquery'), filemtime ( JS_PATH.'main.min.js' ), true );
 
-  wp_localize_script( 'main-scripts', 'loadmore_params', array( 
-    'ajaxurl'  => admin_url( 'admin-ajax.php' ),
-    // 'security' => wp_create_nonce( 'load_more_posts' ),
-  ));
+  // pass Polylang translations to Newsletter form JS
+  $newsletter_messages = array(
+    'invalid_email' => pl__( 'Newsletter - email invalide' ),
+    'sending'       => pl__( 'Newsletter - message d\'envoi' ),
+    'success'       => pl__( 'Newsletter - message de confirmation' ),
+    'error'         => pl__( 'Newsletter - message d\'erreur' ),
+    'current_lang'  => pl_current_language(),
+  );
+  wp_localize_script( 'main-scripts', 'newsletter_messages', $newsletter_messages );
 }

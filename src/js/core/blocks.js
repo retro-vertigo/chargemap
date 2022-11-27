@@ -3,6 +3,8 @@ import SliderLogos from "../blocks/SliderLogos";
 import SliderTestimonial from "../blocks/SliderTestimonial";
 import Anchors from "../utils/Anchors";
 import StickyButton from "../utils/StickyButton";
+import FormNewsletter from "../UI/FormNewsletter";
+import SliderGuide from "../blocks/SliderGuide";
 
 
 // Init blocks with JS
@@ -19,9 +21,12 @@ export default function initBlocks () {
 
     document.querySelectorAll('.block-testimonial').forEach( el => { new SliderTestimonial(el); });
 
+    document.querySelectorAll('.block-guide').forEach( el => { new SliderGuide(el); });
+
     //        UI
     // ==============================================
     
+    new FormNewsletter(document.getElementById('footer-newsletter'));
     
     //        Other modules
     // ==============================================

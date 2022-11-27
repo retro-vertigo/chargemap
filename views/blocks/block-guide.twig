@@ -1,0 +1,57 @@
+{#
+/**
+ * Block Name: Block Guide
+ *
+ */
+#}
+
+<section class="{{ block.classes }}" id="{{ block.id }}">
+  <div class="block-container">
+
+    <div class="panel-guide --bg-grey l-container">
+
+        <div class="panel-guide__content editor">
+            {% if suptitle %}
+                <span class="suptitle">{{ suptitle }}</span>
+            {% endif %}
+            {% if title %}
+                <h2>{{ title }}</h2>
+            {% endif %}
+            {% if wysi %}
+                <div class="wysi">{{ wysi }}</div>
+            {% endif %}
+            {% if link_cta.url %}
+                <a {{ setLinkAttributes( link_cta ) }} class="btn --stretch-mobile --outline-mobile">{{ link_cta.title }}</a>
+            {% endif %}
+        </div>
+
+        <div class="panel-guide__image">
+            {% if images|length > 1 %}
+                <button type="button" class="btn-flickity --prev" aria-label="{{ pll__('Précédent') }}">
+                    <svg class="btn-flickity__icon icon" aria-hidden="true"><use xlink:href="#icon-arrow"></use></svg>
+                </button>
+            {% endif %}
+
+            <div class="slider-guide custom-scrollbar">
+                {% for image in images %}
+                    <div class="slide-guide">
+                        <figure>
+                            {{ getRwdImage( image.id, 'guide', 'large',  { class:'u-image-cover' } ) }}
+                        </figure>
+                    </div>    
+                {% endfor %}
+            </div>
+
+            {% if images|length > 1 %}
+                {# <div class="slider-flickity-controls" id="slider-flickity-controls"> #}
+                   <button type="button" class="btn-flickity --next" aria-label="{{ pll__('Suivant') }}">
+                        <svg class="btn-flickity__icon icon" aria-hidden="true"><use xlink:href="#icon-arrow"></use></svg>
+                    </button>
+                {# </div> #}
+            {% endif %}
+        </div>
+        
+    </div>
+
+  </div>    {# end .block-container #}
+</section>  {# end .block #}

@@ -148,7 +148,8 @@ p.wp-block-paragraph {
     margin-bottom: 1em;
   }
 
-  p:not(.suptitle) {
+  p:not(.suptitle),
+  ul {
     font-size: 16px;
   }
 
@@ -195,7 +196,7 @@ p.wp-block-paragraph {
 
 .tiny-mce-compact-medium .acf-editor-wrap iframe {
   min-height: 0 !important;
-  max-height: 120px;
+  max-height: 180px;
 }
 
 .tiny-mce-compact-large .acf-editor-wrap iframe {

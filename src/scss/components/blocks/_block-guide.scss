@@ -1,0 +1,145 @@
+// ==============================================
+
+//        BLOCK GUIDE
+
+// ==============================================
+
+
+.block-guide {
+
+	.block-container {
+		position: relative;
+	}
+}
+
+
+//  Panels
+// -----------------------------------------------
+.panel-guide {
+	display: grid;
+	grid-template-areas: "content image";
+	grid-template-columns: repeat(2, 1fr);
+	gap: 30px;
+	align-items: center;
+	padding-top: 90px;
+	padding-bottom: 90px;
+	background-color: $color-primary-050;
+
+	@media (min-width: 1280px) {
+		border-radius: $border-radius;
+	}
+
+	@include tablet-small {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+
+	@include mobile {
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+
+	// 1 colonne
+	@include tablet-small {
+		grid-template-areas: "content"
+			"image";
+		grid-template-columns: auto;
+	}
+}
+
+.panel-guide__content {
+	grid-area: content;
+
+	@include min-tablet-small {
+		max-width: 520px;
+	}
+}
+
+.panel-guide__image {
+	grid-area: image;
+	position: relative;
+	width: 100%;
+	max-width: 564px;
+	display: flex;
+	align-items: center;
+
+	@include min-tablet-small {
+		justify-self: end;
+	}
+
+	// Boutons de nav sous le slider
+	@include media-breakpoint-only(md) {
+		flex-wrap: wrap;
+		justify-content: center;
+
+		.btn-flickity.--prev {
+			margin-right: 10px;
+		}
+	}
+
+	@include mobile {
+		.btn-flickity {
+			display: none;
+		}
+	}
+}
+
+.slider-guide {
+	overflow: hidden;
+	border-radius: $border-radius;
+	flex-grow: 1;
+	flex-shrink: 0;
+	margin: 0 2rem; 		// espace pour les boutons de slider
+
+	@include media-breakpoint-only(md) {
+		width: 100%;
+		margin: 0 0 1rem;
+		order: -1;
+	}
+
+	// Active flickity seulement > mobile
+	&:after {
+		content: 'flickity';
+		display: none;
+	}
+
+	// Scroll-snap sur mobile
+	@include mobile {
+		&:after {
+			content: '';
+		}
+
+		display: flex;
+		width: 100%;
+		margin: 0 calc(var(--container-padding) * -1);
+		overflow: auto;
+		scroll-snap-type: x proximity;
+		scroll-padding: var(--container-padding);
+		padding-left: var(--container-padding);
+		padding-right: var(--container-padding);
+		padding-bottom: 20px;
+	}
+
+	.slide-guide {
+		width: 100%;
+
+		figure {
+			@include aspect-ratio(1,1);
+			width: 100%;
+		}
+
+		@include mobile {
+			max-width: calc(100% - 50px);
+			flex-shrink: 0;
+			scroll-snap-align: start;
+
+			& + .slide-guide {
+				margin-left: 20px;
+			}
+
+			img {
+				border-radius: $border-radius;
+			}
+		  }
+	}
+}

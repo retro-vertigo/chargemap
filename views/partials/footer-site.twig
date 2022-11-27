@@ -20,14 +20,12 @@
           
           <div class="footer-newsletter__wrapper">
             <aside class="footer-newsletter" id="footer-newsletter">
-              <span class="footer-newsletter__title">{{ pll__('L’expertise Chargemap Business au service de votre flotte') }}</span>
-              <span class="footer-newsletter__text">{{ pll__('Une fois par mois, des actus produits et des conseils de nos spécialistes dans votre boite mail.') }}</span>
-              <form class="footer-newsletter__form" method="post" action="#">
+              <span class="footer-newsletter__title">{{ pll__('Newsletter - titre') }}</span>
+              <span class="footer-newsletter__text">{{ pll__('Newsletter - intro') }}</span>
+              <form class="footer-newsletter__form" method="post" action="{{ fn('admin_url', 'admin-post.php') }}">
                 <div class="footer-newsletter__input-wrapper">
-                  <input type="email" placeholder="{{ pll__('Votre e-mail') }}" value="" name="email">
-                  <button type="submit" class="btn-newsletter">
-                    <svg class="icon"><use xlink:href="#icon-mail2"></use></svg>
-                  </button>
+                  <input type="text" placeholder="{{ pll__('Votre e-mail') }}" value="" name="email">
+                  <button type="submit" class="btn-newsletter">{{ pll__('Envoyer') }}</button>
                 </div>
               </form>
               <span class="footer-newsletter__feedback"></span>

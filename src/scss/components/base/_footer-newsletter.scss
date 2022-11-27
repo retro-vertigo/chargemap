@@ -11,33 +11,31 @@
   flex-direction: column;
   width: 100%;
   max-width: 320px;
+  font-size: 14px;
 }
 
 .footer-newsletter__title {
-  font-size: 14px;
   font-weight: 700;
   color: $color-primary;
 }
 
 .footer-newsletter__text {
-  margin-top: 17px;
-  font-size: 14px;
+  margin-top: 10px;
   color: $color-black;
 }
 
 
 .footer-newsletter__form {
   width: 100%;
-  margin-top: 1rem;
-  font-size: 14px;
+  margin-top: 10px;
 
   input {
-    padding: 0.55em 0.65em;
+    padding: 10px 10px 10px 34px;
     width: 100%;
-    border: 1px solid $color-grey-600;
+    border: 1px solid $color-grey-300;
     border-radius: $border-radius-small;
     color: $color-navy;
-    transition: color $trans-color, background-color $trans-color, border-color $trans-color;
+    transition: color $trans-color, border-color $trans-color;
 
     &:focus {
       border-color: $color-navy;
@@ -57,7 +55,7 @@
     }
     
     &::placeholder {
-      color: #999;
+      color: $color-grey-500;
     }
   }
 }
@@ -67,6 +65,20 @@
 .footer-newsletter__input-wrapper {
   position: relative;
   display: flex;
+
+  &:before {
+    content:'';
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    width: 16px;
+    height: 12px;
+    background-image: url(../svg/icon-mail-solid.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.7;
+    transform: translateY(-50%);
+  }
   
   .btn-newsletter {
     position: absolute;
@@ -74,24 +86,20 @@
     top: 0;
     height: 100%;
   }
-  // @include bd(teal,1);
 }
 
 .btn-newsletter {
   @include inline-flex-center();
   padding: 0 10px;
   font-size: 14px;
-  border-radius: 0 $border-radius $border-radius 0;
+  color: $color-grey-500;
+  border-radius: 0 $border-radius-small $border-radius-small 0;
+  transition: color $trans-duration, background-color $trans-duration;
 
   &:hover,
   &:focus {
-    .icon {
-      fill: rgba($color-primary, 1);
-    }
-  }
-
-  .icon {
-    fill: #64748B;
+    color: $color-white;
+    background-color: $color-navy;
   }
 }
 
@@ -99,10 +107,10 @@
   display: inline-flex;
   align-self: flex-start;
   margin-top: 8px;
-  font-size: 15px;
+  font-size: 14px;
   color: $color-primary;
   
-  &.-is-error {
+  &.is-error {
     color: $color-error;
   }
 }
