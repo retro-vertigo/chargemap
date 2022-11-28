@@ -3,14 +3,14 @@
 
 
 $color-login-body-background: $color-body-background;
-$color-form-background      : $color-light-black;
-$color-form-text            : white;
-$color-input-text           : black;
-$color-submit-text          : white;
-$color-submit-background    : $color-primary-medium;
-$color-link                 : $color-secondary;
-$color-link-hover           : $color-secondary-dark;
-$logo-url                   : '../images/logo-login.svg';
+$color-login-form-background: $color-navy;
+$color-login-form: white;
+$color-login-input: black;
+$color-login-submit: white;
+$color-login-submit-background: $color-primary;
+$color-login-link: $color-primary;
+$color-login-link-hover: $color-primary;
+$logo-url: '../svg/logo-cmb.svg';
 
 
 
@@ -22,9 +22,8 @@ body.login {
 }
 
 #login h1 a {
-  width: 80%;      //
-  height: 120px;     //
-  margin-bottom: 0;
+  width: 100%;      //
+  height: 56px;     //
   background-image: url( $logo-url ); 
   background-position: center center;
   background-size: contain;
@@ -33,15 +32,15 @@ body.login {
 // login form
 #loginform,
 #lostpasswordform {
-  margin-top: 0;
   border: unset;
-  background-color: $color-form-background;
+  background-color: $color-login-form-background;
+  border-radius: $border-radius;
 }
 
 // login form labels
 #loginform label,
 #lostpasswordform p label {
-  color: $color-form-text;
+  color: $color-login-form;
 }
 
 // login form inputs
@@ -50,16 +49,20 @@ input#user_pass {
   margin-top: 6px;
   padding: 6px 14px;
   border: 0;
-  font-size: 16px;    //
-  color: $color-input-text;
+  font-size: 20px;    //
+  color: $color-login-input;
   background-color: white;      //
-  border-radius: $border-radius;
+  border-radius: $border-radius-small;
   transition: background-color $trans-duration;
+
+  // &:focus {
+  //   background-color: white;
+  // }
 }
 
 // login form button hide / show password
 #loginform .wp-hide-pw {
-  margin-top: 5px;
+  margin-top: 6px;
 }
 
 // login form checkbox
@@ -70,26 +73,26 @@ input#rememberme {
 
 // login form submit button
 input#wp-submit {
-  background-color: $color-submit-background;
-  border-color: darken($color-submit-background, 10%);
-  box-shadow: 0 1px 0 darken($color-submit-background, 40%);
+  background-color: $color-login-submit-background;
+  border-color: darken($color-login-submit-background, 10%);
+  box-shadow: 0 1px 0 darken($color-login-submit-background, 40%);
   text-shadow: unset;
-  color: $color-submit-text;
+  color: $color-login-submit;
   transition: background-color $trans-duration;
 
   &:hover {
-    background-color: darken($color-submit-background, 4%);
+    background-color: darken($color-login-submit-background, 8%);
   }
 }
 
 // links under form
 #login p#nav a,
 #login p#backtoblog a,
-#login .privacy-policy-page-link a {
-  color: $color-link;
+.privacy-policy-page-link a {
+  color: $color-login-link;
 
   &:hover {
-    color: $color-link-hover;
+    color: $color-login-link-hover;
     text-decoration: underline;
   }
 }

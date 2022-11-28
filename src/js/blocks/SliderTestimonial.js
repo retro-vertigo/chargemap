@@ -52,7 +52,7 @@ export default class SliderTestimonial {
             pageDots: true,
             // contain: true,
             
-            groupCells: true,    // if set to true group cells that fit in carousel viewport
+            // groupCells: true,    // if set to true group cells that fit in carousel viewport
         }
         this.flkty = new Flickity(this.slider, options);
         this.flkty.x = 0;           // var for continous scroll
@@ -64,8 +64,13 @@ export default class SliderTestimonial {
             }
         });
 
+        // PATCH iOS 15 horizontal drag bug
+        // https://github.com/metafizzy/flickity/issues/1177
+        this.flkty.on('dragStart', () => (document.ontouchmove = () => false));
+        this.flkty.on('dragEnd', () => (document.ontouchmove = () => true));
+
         // init continuous scroll
-        if (this.autoPlay) this.initContinousScroll();
+        // if (this.autoPlay) this.initContinousScroll();
     }
 
 
