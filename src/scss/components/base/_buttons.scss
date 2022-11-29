@@ -26,8 +26,9 @@
 	--color-text: white;
 	--color-bg: var(--color-primary);
 	@include inline-flex-center();
-	padding: 0.55em 1.33em;
+	padding: 14px 24px;
 	font-size: 18px;
+	line-height: 1.1;
 	font-weight: 700;
 	text-align: center;
 	color: var(--color-text);
@@ -46,7 +47,7 @@
 	// --modifiers
 	&.--small {
 		font-size: 16px;
-		padding: 8px 16px;
+		padding: 11px 16px;
 	}
 
 	&.--navy {
@@ -485,47 +486,6 @@
 
 	100% {
 		transform: rotate(90deg);
-	}
-}
-
-
-
-.btn-contact {
-	@include inline-flex-center();
-	position: relative;
-	width: 60px;
-	height: 60px;
-	border: 1px solid $color-primary;
-	border-radius: 100%;
-	color: $color-primary;
-	transition: border-color 0.35s, color 0.35s;
-
-	&:before {
-		@include pseudo-block(100%, 100%);
-		top: 0;
-		left: 0;
-		border-radius: 100%;
-		background-image: var(--primary-gradient);
-		opacity: 0;
-		transition: all 0.35s;
-	}
-
-	&:hover,
-	&:focus,
-	body.page-template-template-contact & {
-		color: white;
-		border-color: transparent;
-
-		&:before {
-			opacity: 1;
-			transform: scale(1.15);
-		}
-	}
-
-	.icon {
-		position: relative;
-		font-size: 20px;
-		fill: currentColor;
 	}
 }
 

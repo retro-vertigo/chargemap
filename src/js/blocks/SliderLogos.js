@@ -58,6 +58,11 @@ export default class SliderLogos {
         this.flkty = new Flickity(this.slider, options);
         this.flkty.x = 0;           // var for continous scroll
 
+        // PATCH iOS 15 horizontal drag bug
+        // https://github.com/metafizzy/flickity/issues/1177
+        this.flkty.on('dragStart', () => (document.ontouchmove = () => false));
+        this.flkty.on('dragEnd', () => (document.ontouchmove = () => true));
+
         // init continuous scroll
         if (this.autoPlay) this.initContinousScroll();
     }

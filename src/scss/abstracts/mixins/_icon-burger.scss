@@ -15,7 +15,8 @@
 ///
 @mixin icon-burger($width, $height, $bar-height, $color) {
   $icon-centerY: ($height - $bar-height) / 2;
-  $bar-duration: 0.25s;
+  $bar-duration: 0.2s;
+  // $bar-duration: 2.25s;
   
 
   // icon wrapper
@@ -40,62 +41,43 @@
   span:nth-child(1) {
     top: 0;
     transform-origin: right;
-    transform: scaleX(0.7);
-    // transform-origin: left;
-    // transition-delay: 0.2s;
+    transition-delay: 0.1s;
+    transition-timing-function: easeInQuart;
   }
-  span:nth-child(2) {
-    top: $icon-centerY;
-    // transition-delay: 0.2s;
-  }
+  span:nth-child(2),
   span:nth-child(3) {
+    top: $icon-centerY;
+    transition-timing-function: easeOutQuart;
+  }
+  span:nth-child(4) {
     bottom: 0;
-    transform-origin: right;
-    transform: scaleX(0.7);
-    // transition-delay: 0.2s;
+    transform-origin: left;
+    transition-delay: 0.1s;
+    transition-timing-function: easeInQuart;
   }
 
-  // X bars (masqué quand menu fermé)
-  span:nth-child(4) {
-    top: $icon-centerY;
-    // transform: scaleY(0) rotate(45deg);
-    opacity: 0;
-    transition-delay: 0;
-  }
-  span:nth-child(5) {
-    top: $icon-centerY;
-    // transform: scaleY(0) rotate(-45deg);
-    opacity: 0;
-    transition-delay: 0;
-  }
-  // $bar-duration: 1.25s;
   // Menu ouvert
   .header-site.is-open & {
-    
     span:nth-child(1) {
-      top: $icon-centerY;
-      opacity: 0;
+      transform: scaleX(0);
       transition-delay: 0s;
+      transition-timing-function: easeInQuart;
     }
     span:nth-child(2) {
-      transform: scaleX(0);
-      // transition-delay: 0.1s;
-    }
-    span:nth-child(3) {
-      bottom: $icon-centerY;
-      opacity: 0;
-      transition-delay: 0s;
-    }
-    span:nth-child(4) {
-      opacity: 1;
       transform: rotate(45deg);
       transition-delay: 0.2s;
     }
-    span:nth-child(5) {
-      opacity: 1;
+    span:nth-child(3) {
       transform: rotate(-45deg);
       transition-delay: 0.2s;
     }
+    span:nth-child(4) {
+      transform: scaleX(0);
+      transition-delay: 0s;
+      transition-timing-function: easeInQuart;
+    }
+
+    
   }
 
   // ∆∆∆∆∆ 4 debug ∆∆∆∆∆

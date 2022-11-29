@@ -24,7 +24,7 @@ export default class Anchors {
         target.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'start' });
 
         let offset = - this.tabList.offsetHeight -10;
-        // SmoothScroll.scrollToTarget(document.querySelector(target.hash), 900, 'easeInOutCubic', offset);
+        SmoothScroll.scrollToTarget(document.querySelector(target.hash), 900, 'easeInOutCubic', offset);
     }
 }
 

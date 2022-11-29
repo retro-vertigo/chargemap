@@ -70,7 +70,7 @@ export default class SliderTestimonial {
         this.flkty.on('dragEnd', () => (document.ontouchmove = () => true));
 
         // init continuous scroll
-        // if (this.autoPlay) this.initContinousScroll();
+        if (this.autoPlay) this.initContinousScroll();
     }
 
 

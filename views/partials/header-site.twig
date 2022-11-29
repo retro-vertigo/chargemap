@@ -13,10 +13,10 @@
     </div>
 
     <div class="nav-header-right">
-      <a href="{{ pll__( 'url_memberarea' ) }}" class="btn --link">{{ pll__( 'Se connecter' ) }}</a>
+      <a href="{{ pll__( 'url_memberarea' ) }}" class="btn-login btn --link">{{ pll__( 'Se connecter' ) }}</a>
 
       {% if acf_options.page_contact %}
-        <a href="{{ TimberPost(acf_options.page_contact).link }}" class="btn --small" aria-label="Contact">
+        <a href="{{ TimberPost(acf_options.page_contact).link }}" class="btn-contact btn --small" aria-label="Contact">
           {{ pll__( 'Contactez-nous' ) }}
         </a>
       {% endif %}
@@ -25,9 +25,8 @@
 
     {# <?php	include( locate_template( 'template-parts/commons/lang-switcher.php' )); ?> #}
 
-    <button class="btn-burger d-lg-none" id="btn-burger" aria-label="menu">
+    <button class="btn-burger d-flex d-xl-none" id="btn-burger" aria-label="menu">
       <span class="btn-burger__icon">
-        <span></span>
         <span></span>
         <span></span>
         <span></span>
