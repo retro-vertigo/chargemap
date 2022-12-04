@@ -56,11 +56,16 @@
 // .block.block-text {
 //   padding-top: 0;
 // }
+
+.acf-block-preview .block {
+  min-height: 100px;
+}
   
 // disable click on editor (but show hover)
 .block {
   .btn,
   .btn-press,
+  .card-webinar,
   .tablist__btn {
     cursor: not-allowed;
 
@@ -186,6 +191,7 @@ p.wp-block-paragraph {
     }
   }
 }
+
 
 
 

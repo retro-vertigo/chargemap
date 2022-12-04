@@ -20,21 +20,24 @@ export default class SliderLogos {
         this.tickerSpeed = 1.2;
 
         // largeur fixe des images
-        this.slideWidth = 216;
-        this.nbSlides =  this.slider.childElementCount;
-        this.slidesTotalWidth =  this.nbSlides * this.slideWidth;
-
-        // ∆∆∆∆∆∆∆∆∆∆∆∆∆
-        // this.autoPlay      = true;
-        // ∆∆∆∆∆∆∆∆∆∆∆∆∆
-
-        if (this.block.classList.contains('is-admin'))  this.autoPlay = false;
-
-        // Désactive l'autoplay sur mobile ou si la taille du viewport est plus grande que la bande d'image
-        if (window.innerWidth < 576) this.autoPlay = false; 
-        if (window.innerWidth >= this.slidesTotalWidth) this.autoPlay = false; 
-        
-        if (this.slider) this.init();
+        if (this.slider) {
+            this.slideWidth = 216;
+            this.nbSlides =  this.slider.childElementCount;
+            
+            this.slidesTotalWidth =  this.nbSlides * this.slideWidth;
+    
+            // ∆∆∆∆∆∆∆∆∆∆∆∆∆
+            // this.autoPlay      = true;
+            // ∆∆∆∆∆∆∆∆∆∆∆∆∆
+    
+            if (this.block.classList.contains('is-admin'))  this.autoPlay = false;
+    
+            // Désactive l'autoplay sur mobile ou si la taille du viewport est plus grande que la bande d'image
+            if (window.innerWidth < 576) this.autoPlay = false; 
+            if (window.innerWidth >= this.slidesTotalWidth) this.autoPlay = false; 
+            
+            this.init();
+        }
     }
 
     init () {

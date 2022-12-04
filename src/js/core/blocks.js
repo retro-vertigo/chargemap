@@ -5,6 +5,7 @@ import Anchors from "../utils/Anchors";
 import StickyButton from "../utils/StickyButton";
 import FormNewsletter from "../UI/FormNewsletter";
 import SliderGuide from "../blocks/SliderGuide";
+import SliderReplay from "../blocks/SliderReplay";
 
 
 // Init blocks with JS
@@ -22,6 +23,8 @@ export default function initBlocks () {
     document.querySelectorAll('.block-testimonial').forEach( el => { new SliderTestimonial(el); });
 
     document.querySelectorAll('.block-guide').forEach( el => { new SliderGuide(el); });
+
+    document.querySelectorAll('.block-webinar-replay').forEach( el => { new SliderReplay(el); });
 
     //        UI
     // ==============================================

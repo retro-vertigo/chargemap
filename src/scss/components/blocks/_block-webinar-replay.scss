@@ -1,0 +1,144 @@
+// ==============================================
+
+//        BLOCK WEBINAR REPLAY
+
+// ==============================================
+
+
+.block-webinar-replay {
+    overflow: hidden;
+
+    .title-block {
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+.slider-cards-webinar {
+    @include min-mobile {
+        // prevent FOUC on load
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    
+    &.flickity-enabled {
+        opacity: 1;
+    }
+
+    // Active flickity seulement > mobile
+	&:after {
+		content: 'flickity';
+		display: none;
+	}
+
+    // Scroll-snap sur mobile
+	@include mobile {
+		&:after {
+			content: '';
+		}
+
+		display: flex;
+		width: 100%;
+		overflow: auto;
+		scroll-snap-type: x proximity;
+		scroll-padding: var(--container-padding);
+		padding-left: var(--container-padding);
+		padding-right: var(--container-padding);
+		padding-bottom: 20px;
+	}
+    
+    .flickity-slider {
+        display: flex;
+    }
+}
+
+.slider-cards-webinar__wrapper {
+    position: relative;
+    max-width: 1152px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .l-container + & {
+        margin-top: 60px;
+        
+        @include mobile {
+            margin-top: 40px;
+        }
+    }
+
+    @include mobile {
+        .slider-flickity-controls {
+            display: none;
+        }
+    }
+}
+
+
+.card-webinar {
+    width: 33.3333%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5.2083%;
+    min-height: 100%;
+
+    @include tablet {
+        width: 50%;
+    }
+
+    @include mobile {
+        width: calc(100% - 50px);
+        max-width: 300px;
+        flex-shrink: 0;
+        padding: initial;
+        scroll-snap-align: start;
+
+        & + .card-webinar {
+            margin-left: 30px;
+        }
+    }
+    
+    @include can-hover {
+        &:hover {
+            figure:after {
+                opacity: 0.7;
+            }
+            
+            .btn {
+                background-color: $color-navy;
+            }
+        }
+    }
+    
+    figure {
+        position: relative;
+        border-radius: $border-radius;
+
+        &:after {
+            @include pseudo-block-cover($color-primary);
+            opacity: 0;
+            border-radius: inherit;
+            mix-blend-mode: overlay;
+            transition: opacity $trans-color;
+        }
+    }
+    
+    .title {
+        margin-top: 20px;
+        margin-bottom: 30px;
+
+        @include desktop {
+            font-size: 20px;
+        }
+
+        @include mobile {
+            font-size: 18px;
+        }
+    }
+    
+    .btn {
+        margin-top: auto;
+        pointer-events: none;
+    }
+}

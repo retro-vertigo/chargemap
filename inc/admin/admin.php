@@ -27,13 +27,27 @@ function pga_setup_theme_support() {
 }
 
 
-// add_action( 'after_setup_theme', 'pga_add_image_size' );
+add_action( 'after_setup_theme', 'pga_add_image_size' );
 function pga_add_image_size() {
-	add_image_size( 'logos', 0, 120 ); // 300 pixels wide (and unlimited height)
+	add_image_size( 'standard', 564, 415, true ); 
+	add_image_size( 'standard-mobile', 420, 309, true );
+	add_image_size( 'webinar-zoom', 174, 174, true );
+	add_image_size( 'cover-video', 504, 504, true );
+	add_image_size( 'logo', 216, 120 );
 }
 
 
+add_filter( 'intermediate_image_sizes_advanced', 'pga_remove_default_images' );
+// This will remove the default image sizes and the medium_large size. 
+function pga_remove_default_images( $sizes ) {
+//  unset( $sizes['medium']); // 300px
+ unset( $sizes['large']); // 1024px
+ unset( $sizes['medium_large']); // 768px
+ return $sizes;
+}
 
+
+add_filter('big_image_size_threshold', '__return_false');
 
 // Remove accents from the name of uploaded files (Thanks to: https://goo.gl/h2tYrZ)
 add_filter( 'wp_handle_upload_prefilter', 'pga_sanitize_file_uploads' );

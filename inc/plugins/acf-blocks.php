@@ -23,7 +23,7 @@ function pga_acf_init_blocks() {
 		'title'           => __('Couverture image'),
 		'description'     => __('Couverture image et texte'),
 		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
+		'supports'        => array( 'anchor' => true, 'align' => false ),
 	));
 
 	pga_acf_register_block( array(
@@ -31,65 +31,23 @@ function pga_acf_init_blocks() {
 		'title'           => __('Couverture vidéo'),
 		'description'     => __('Couverture vidéo et texte'),
 		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
-	));
-
-	pga_acf_register_block( array(
-		'name'            => 'tabs',
-		'title'           => __('Onglets'),
-		'description'     => __('Onglets en icônes'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
-		'enqueue_assets'  => $enqueue_assets,
+		'supports'        => array( 'anchor' => true, 'align' => false ),
 	));
 
 	pga_acf_register_block( array(
 		'name'            => 'columns',
 		'title'           => __('Trois colonnes'),
 		'description'     => __('Trois colonnes'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
+		'icon'            => 'schedule',
+		'supports'        => array( 'anchor' => true, 'align' => false ),
 	));
 
 	pga_acf_register_block( array(
-		'name'            => 'cta',
-		'title'           => __('Call To Action'),
-		'description'     => __('Call To Action'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
-	));
-
-	pga_acf_register_block( array(
-		'name'            => 'cta-illus',
-		'title'           => __('Call To Action illustration'),
-		'description'     => __('Call To Action avec boutons en illustration'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
-	));
-
-	pga_acf_register_block( array(
-		'name'            => 'cta-cards',
-		'title'           => __('Call To Action carte'),
-		'description'     => __('Call To Action avec cartes'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
-	));
-
-	pga_acf_register_block( array(
-		'name'            => 'logos',
-		'title'           => __('Slider de logos'),
-		'description'     => __('Slider de logos'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
-		'enqueue_assets'  => $enqueue_assets,
-	));
-
-	pga_acf_register_block( array(
-		'name'            => 'testimonial',
-		'title'           => __('Slider de témoignages'),
-		'description'     => __('Slider de témoignages'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
+		'name'            => 'tabs',
+		'title'           => __('Onglets'),
+		'description'     => __('Onglets en icônes'),
+		'icon'            => 'button',
+		'supports'        => array( 'anchor' => true, 'align' => false ),
 		'enqueue_assets'  => $enqueue_assets,
 	));
 
@@ -97,131 +55,133 @@ function pga_acf_init_blocks() {
 		'name'            => 'anchors',
 		'title'           => __('Ancres'),
 		'description'     => __('Ancres en icônes'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
+		'icon'            => 'button',
+		'supports'        => array( 'anchor' => true, 'align' => false ),
 	));
+
+	pga_acf_register_block( array(
+		'name'            => 'image-text',
+		'title'           => __('Image et texte'),
+		'description'     => __('Image et texte côte à côte'),
+		'icon'            => 'align-pull-left',
+		'supports'        => array( 'anchor' => true, 'align' => false ),
+	));
+	
+
+	pga_acf_register_block( array(
+		'name'            => 'cta',
+		'title'           => __('Call To Action'),
+		'description'     => __('Call To Action'),
+		'icon'            => 'megaphone',
+		'supports'        => array( 'anchor' => true, 'align' => false ),
+	));
+
+	pga_acf_register_block( array(
+		'name'            => 'cta-illus',
+		'title'           => __('Call To Action illustration'),
+		'description'     => __('Call To Action avec boutons en illustration'),
+		'icon'            => 'megaphone',
+		'supports'        => array( 'anchor' => true, 'align' => false ),
+	));
+
+	pga_acf_register_block( array(
+		'name'            => 'cta-cards',
+		'title'           => __('Call To Action carte'),
+		'description'     => __('Call To Action avec cartes'),
+		'icon'            => 'megaphone',
+		'supports'        => array( 'anchor' => true, 'align' => false ),
+	));
+
+	pga_acf_register_block( array(
+		'name'            => 'logos',
+		'title'           => __('Slider de logos'),
+		'description'     => __('Slider de logos'),
+		'icon'            => 'images-alt2',
+		'supports'        => array( 'anchor' => true, 'align' => false ),
+		'enqueue_assets'  => $enqueue_assets,
+	));
+
+	pga_acf_register_block( array(
+		'name'            => 'testimonial',
+		'title'           => __('Slider de témoignages'),
+		'description'     => __('Slider de témoignages'),
+		'icon'            => 'testimonial',
+		'supports'        => array( 'anchor' => true, 'align' => false ),
+		'enqueue_assets'  => $enqueue_assets,
+	));
+
 
 	pga_acf_register_block( array(
 		'name'            => 'download',
 		'title'           => __('Téléchargement'),
 		'description'     => __('Téléchargement'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
+		'icon'            => 'download',
+		'supports'        => array( 'anchor' => true, 'align' => false ),
 	));
 
 	pga_acf_register_block( array(
 		'name'            => 'timeline',
 		'title'           => __('Historique'),
 		'description'     => __('Historique'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
+		'icon'            => 'car',
+		'supports'        => array( 'anchor' => true, 'align' => false ),
 	));
 
 	pga_acf_register_block( array(
 		'name'            => 'press',
 		'title'           => __('Presse'),
 		'description'     => __('Presse'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
+		'icon'            => 'paperclip',
+		'supports'        => array( 'anchor' => true, 'align' => false ),
 	));
 	
 
 
-	pga_acf_register_block( array(
-		'name'            => 'image-text',
-		'title'           => __('Image et texte'),
-		'description'     => __('Image et texte côte à côte'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
-	));
+	
 
 	pga_acf_register_block( array(
 		'name'            => 'guide',
 		'title'           => __('Guide'),
-		'description'     => __('Texte et slider'),
-		'icon'            => 'cover-image',
-		'supports'        => array( 'anchor' => true ),
+		'description'     => __('Présentation d\'un guide sous forme de slider'),
+		'icon'            => 'book',
+		'supports'        => array( 'anchor' => true, 'align' => false ),
 		'enqueue_assets'  => $enqueue_assets,
 	));
 
+	pga_acf_register_block( array(
+		'name'            => 'webinar-event',
+		'title'           => __('Webinar - prochain événement'),
+		'description'     => __('Webinar - prochain événement'),
+		'icon'            => 'video-alt2',
+		'supports'        => array( 'anchor' => true, 'align' => false ),
+	));
+
+	pga_acf_register_block( array(
+		'name'            => 'webinar-replay',
+		'title'           => __('Webinar - slider des replay'),
+		'description'     => __('Webinar - slider des replay'),
+		'icon'            => 'video-alt2',
+		'supports'        => array( 'anchor' => true, 'align' => false ),
+		'enqueue_assets'  => $enqueue_assets,
+	));
+
+	pga_acf_register_block( array(
+		'name'            => 'webinar-zoom',
+		'title'           => __('Webinar - slider des zooms'),
+		'description'     => __('Webinar - slider des zooms'),
+		'icon'            => 'video-alt2',
+		'supports'        => array( 'anchor' => true, 'align' => false ),
+	));
+
+	pga_acf_register_block( array(
+		'name'            => 'contact',
+		'title'           => __('Formulaire de contact Pipedrive'),
+		'description'     => __('Formulaire de contact Pipedrive'),
+		'icon'            => 'email',
+		'supports'        => array( 'anchor' => true, 'align' => false ),
+	));
 
 
-
-	
-	/*
-		pga_acf_register_block( array(
-			'name'            => 'side-image',
-			'title'           => __('Image alignée à droite'),
-			'description'     => __('Image alignée à droite'),
-			'icon'            => 'cover-image',
-			'supports'        => array( 'anchor' => true ),
-		));
-		pga_acf_register_block( array(
-			'name'            => 'values',
-			'title'           => __('Liste de valeurs'),
-			'description'     => __('Liste de valeurs'),
-			'icon'            => 'cover-image',
-			'supports'        => array( 'anchor' => true ),
-		));
-		pga_acf_register_block( array(
-			'name'            => 'gallery',
-			'title'           => __('Galerie d\'images'),
-			'description'     => __('Galerie d\'images'),
-			'icon'            => 'cover-image',
-			'supports'        => array( 'anchor' => true ),
-		));
-		pga_acf_register_block( array(
-			'name'            => 'cta',
-			'title'           => __('Call to Action'),
-			'description'     => __('Call to Action'),
-			'icon'            => 'cover-image',
-			'supports'        => array( 'anchor' => true ),
-		));
-		pga_acf_register_block( array(
-			'name'            => 'truc',
-			'title'           => __('Truc en plus'),
-			'description'     => __('Truc en plus'),
-			'icon'            => 'cover-image',
-			'supports'        => array( 'anchor' => true ),
-		));
-		pga_acf_register_block( array(
-			'name'            => 'team',
-			'title'           => __('Membres de l\'équipe'),
-			'description'     => __('Membres de l\'équipe'),
-			'icon'            => 'cover-image',
-			'supports'        => array( 'anchor' => true ),
-		));
-		pga_acf_register_block( array(
-			'name'            => 'accordion',
-			'title'           => __('Accordéon'),
-			'description'     => __('Accordéon'),
-			'icon'            => 'cover-image',
-			'supports'        => array( 'anchor' => true ),
-			'enqueue_assets'  => $enqueue_assets,
-		));
-		pga_acf_register_block( array(
-			'name'            => 'brands',
-			'title'           => __('Marques'),
-			'description'     => __('Marques'),
-			'icon'            => 'cover-image',
-			'supports'        => array( 'anchor' => true ),
-		));
-		pga_acf_register_block( array(
-			'name'            => 'push-news',
-			'title'           => __('Dernières actualités'),
-			'description'     => __('Dernières actualités'),
-			'icon'            => 'cover-image',
-			'supports'        => array( 'anchor' => true ),
-		));
-		pga_acf_register_block( array(
-			'name'            => 'push-projects',
-			'title'           => __('Dernières références'),
-			'description'     => __('Dernières références'),
-			'icon'            => 'cover-image',
-			'supports'        => array( 'anchor' => true ),
-			'enqueue_assets'  => $enqueue_assets,
-		));
-		*/
 }
  
 

@@ -1,0 +1,46 @@
+// ==============================================
+
+//        BLOCK WEBINAR EVENT 
+
+// ==============================================
+
+
+.webinar-date,
+.webinar-duration {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @include tablet {
+        font-size: 16px;
+    }
+
+    .icon {
+        fill: $color-primary;
+        font-size: 20px;
+        margin-right: 5px;
+
+        @include tablet {
+            font-size: 18px;
+        }
+    }
+    span {
+        font-weight: 700;
+        color: var(--color-accent);
+    }
+}
+
+.webinar-date {
+    margin-top: 20px;
+
+    span {
+        margin-right: 5px;
+    }
+}
+.webinar-date + .webinar-duration {
+    margin-top: 5px;
+
+    span {
+        margin-left: 5px;
+    }
+}

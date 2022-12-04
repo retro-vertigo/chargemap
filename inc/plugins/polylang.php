@@ -21,6 +21,9 @@ function pga_register_polylang_strings() {
     pll_register_string( "interface", "Retour à l'accueil", "theme" );
     pll_register_string( "interface", "Newsletter - titre", "theme" );
     pll_register_string( "interface", "Newsletter - intro", "theme" );
+    pll_register_string( "interface", "Durée :" );
+    pll_register_string( "interface", "Page 404", "theme" );  
+    pll_register_string( "interface", "Désolé cette page, n'existe pas", "theme" );  
     
     pll_register_string( "form", "Envoyer", "theme" );
     pll_register_string( "form", "Votre e-mail", "theme" );
@@ -29,9 +32,9 @@ function pga_register_polylang_strings() {
     pll_register_string( "form", "Formulaire - message de confirmation", "theme" );
     pll_register_string( "form", "Formulaire - message d'erreur", "theme" );
     
-    pll_register_string( "404", "Page 404", "theme" );  
     
     pll_register_string( "bloc", "Onglets", "theme" );
+    pll_register_string( "bloc", "Voir le replay", "theme" );
     pll_register_string( "interface", "Précédent", "theme" );
     pll_register_string( "interface", "Suivant", "theme" );
     

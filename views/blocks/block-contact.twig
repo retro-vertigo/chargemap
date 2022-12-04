@@ -1,0 +1,36 @@
+{#
+/**
+ * Block Name: Block Contact
+ *
+ */
+#}
+
+<section class="{{ block.classes }}" id="{{ block.id }}">
+    <div class="panel --bg-grey l-container {{ display }}">
+
+        <div class="panel__content editor">
+            {% if has_icon_video %}
+                <svg class="icon"><use xlink:href="#icon-video-camera"></use></svg>
+            {% endif %}
+            {% if suptitle %}
+                <span class="suptitle">{{ suptitle }}</span>
+            {% endif %}
+            {% if title %}
+                <h2>{{ title }}</h2>
+            {% endif %}
+            {% if wysi %}
+                <div class="wysi">{{ wysi }}</div>
+            {% endif %}
+            {% if link_cta.url %}
+                <a {{ setLinkAttributes( link_cta ) }} class="btn --stretch-mobile --outline-mobile">{{ link_cta.title }}</a>
+            {% endif %}
+        </div>
+
+        <div class="panel__form">
+            {% if url_form_pipedrive %}
+                <div class="pipedriveWebForms" data-pd-webforms="{{ url_form_pipedrive }}"><script src="https://webforms.pipedrive.com/f/loader"></script></div>
+            {% endif %}
+        </div>
+  
+  </div>    {# end .block-container #}
+</section>  {# end .block #}

@@ -61,15 +61,15 @@ h2,
 
 h3,
 .h3 {
-  font-size: 34px;
+  font-size: 25px;
   font-weight: 700;
-  line-height: 1.23;
+  line-height: 1.13;
 
   @include tablet {
-    font-size: 28px;
+    font-size: 22px;
   }
   @include mobile {
-    font-size: 28px;
+    font-size: 20px;
   }
 }
 

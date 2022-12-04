@@ -11,14 +11,21 @@
   }
 }
 
+.page-404-wrapper {
+  background-color: $color-primary-050;
+}
+
 
 .page-404 {
   position: relative;
-  padding: 250px 0;
-  margin-left: grid-unit(1);
+  padding: 150px 0;
 
   .btn-all-posts {
     margin-top: 40px;
+  }
+
+  .btn {
+    margin-top: 20px;
   }
 }
 

@@ -1,0 +1,83 @@
+// ==============================================
+
+//        BLOCK CONTACT
+
+// ==============================================
+
+
+.block-contact {
+	.panel {
+		align-items: start;		// pour la position sticky
+
+		// --modifier
+		&.--bg-grey {
+			padding-top: 50px;
+			padding-bottom: 50px;
+
+			@include tablet-small {
+				padding-top: 50px;
+				padding-bottom: 50px;
+			}
+
+			@include mobile {
+				padding-top: 40px;
+				padding-bottom: 40px;
+			}
+		}
+
+		// 1 colonne
+		@include tablet {
+			grid-template-areas: "content"
+				"image";
+			grid-template-columns: auto;
+		}
+
+		.panel__content {
+			@include min-tablet {
+				max-width: 520px;
+				position: sticky;
+				top: calc(var(--header-height) + 30px);
+			}
+			@include min-tablet-small {
+				max-width: initial;
+			}
+		}
+	}
+
+	.icon {
+        fill: #5DEAD5;
+        font-size: 160px;
+
+        @include tablet {
+            font-size: 100px;
+        }
+    }
+	
+	.panel__form {
+		grid-area: image;
+		width: 100%;
+		background-color: $color-white;
+
+		@include min-mobile {
+			border-radius: $border-radius;
+		}
+
+		@include mobile {
+			width: auto;
+			margin-left: calc(var(--container-padding) * -1);
+			margin-right: calc(var(--container-padding) * -1);
+		}
+
+		.pipedriveWebForms {
+			padding-top: 40px;
+			padding-left: 34px;
+			padding-right: 34px;
+
+			@include mobile {
+				padding-left: var(--container-padding);
+				padding-right: var(--container-padding);
+			}
+		}
+	}
+}
+

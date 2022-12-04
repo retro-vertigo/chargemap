@@ -75,6 +75,10 @@ function pga_allow_block_types( $allowed_blocks, $editor_context ) {
       'acf/timeline',
       'acf/press',
       'acf/guide',
+      'acf/webinar-event',
+      'acf/webinar-replay',
+      'acf/webinar-zoom',
+      'acf/contact',
 
       'acf/image-text',
     );

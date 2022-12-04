@@ -6,17 +6,13 @@
 
 
 .slider-flickity-controls {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  justify-content: space-between;
-
-  // .btn-flickity + .btn-flickity {
-  //   margin-left: 20px;
-  // }
+	display: flex;
+	justify-content: center;
+	margin-bottom: 40px;
+	
+	.btn-flickity + .btn-flickity {
+		margin-left: 20px;
+	}
 }
 
 
@@ -25,40 +21,40 @@
 // -----------------------------------------------
 
 .btn-flickity {
-  @include inline-flex-center();
-  position: relative;
-  width: 40px;
-  height: 40px;
-  border: 1px solid $color-primary;
-  border-radius: 50%;
-  transition: border-color $trans-color, background-color $trans-color, opacity $trans-color;
-
-  &[disabled] {
-    opacity: 0.25;
-    pointer-events: none;
-  }
-
-  @include can-hover() {
-    &:hover,
-    &:focus {
-      border-color: $color-navy;
-      background-color: $color-navy;
-
-      .btn-flickity__icon {
-        fill: white;
-      }
-    }
-  }
-
-  .btn-flickity__icon {
-    font-size: 20px;
-    fill: $color-primary;
-    transition: fill $trans-color;
-  }
-
-  &.--prev .btn-flickity__icon {
-    transform: scaleX(-1);
-  }
+	@include inline-flex-center();
+	position: relative;
+	width: 40px;
+	height: 40px;
+	border: 1px solid $color-primary;
+	border-radius: 50%;
+	transition: border-color $trans-color, background-color $trans-color, opacity $trans-color;
+	
+	&[disabled] {
+		opacity: 0.25;
+		pointer-events: none;
+	}
+	
+	@include can-hover() {
+		&:hover,
+		&:focus {
+			border-color: $color-navy;
+			background-color: $color-navy;
+			
+			.btn-flickity__icon {
+				fill: white;
+			}
+		}
+	}
+	
+	.btn-flickity__icon {
+		font-size: 20px;
+		fill: $color-primary;
+		transition: fill $trans-color;
+	}
+	
+	&.--prev .btn-flickity__icon {
+		transform: scaleX(-1);
+	}
 }
 
 
@@ -72,62 +68,62 @@
 
 /* position dots in carousel */
 .flickity-page-dots {
-  bottom: 0;
-  left: 0;
-
-  .dot {
-    margin: 0;
-  }
+	bottom: 0;
+	left: 0;
+	
+	.dot {
+		margin: 0;
+	}
 }
 
 /* white circles */
 .flickity-page-dots .dot {
-  position: relative;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  background-color: transparent;
-  opacity: 1;
-  
-  // bg dot selected
-  &:before {
-    @include pseudo-block(20px,20px);
-    top: 50%;
-    left: 50%;
-    background-color: var(--color-primary);
-    border-radius: 50%;
-    opacity: 0.2;
-    transform: translate(-50%,-50%) scale(0);
-    transition: opacity $trans-duration, transform $trans-duration;
-  }
-
-  // bg dot
-  &:after {
-    @include pseudo-block(10px,10px);
-    position: initial;
-    background-color: $color-primary-050;
-    border-radius: 50%;
-    transition: background-color $trans-duration;
-  }
-
-  @include can-hover() {
-    &:hover {
-      &:after {
-        background-color: var(--color-primary);
-      }
-    }
-  }
+	position: relative;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	background-color: transparent;
+	opacity: 1;
+	
+	// bg dot selected
+	&:before {
+		@include pseudo-block(20px,20px);
+		top: 50%;
+		left: 50%;
+		background-color: var(--color-primary);
+		border-radius: 50%;
+		opacity: 0.2;
+		transform: translate(-50%,-50%) scale(0);
+		transition: opacity $trans-duration, transform $trans-duration;
+	}
+	
+	// bg dot
+	&:after {
+		@include pseudo-block(10px,10px);
+		position: initial;
+		background-color: $color-primary-050;
+		border-radius: 50%;
+		transition: background-color $trans-duration;
+	}
+	
+	@include can-hover() {
+		&:hover {
+			&:after {
+				background-color: var(--color-primary);
+			}
+		}
+	}
 }
 /* fill-in selected dot */
 .flickity-page-dots .dot.is-selected {
-
-  &:before {
-    opacity: 0.4;
-    transform: translate(-50%,-50%) scale(1);
-  }
-  &:after {
-    background-color: var(--color-primary);
-  }
+	
+	&:before {
+		opacity: 0.4;
+		transform: translate(-50%,-50%) scale(1);
+	}
+	&:after {
+		background-color: var(--color-primary);
+	}
 }

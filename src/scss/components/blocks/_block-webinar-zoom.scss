@@ -1,0 +1,73 @@
+// ==============================================
+
+//        BLOCK WEBINAR ZOOM
+
+// ==============================================
+
+
+.block-webinar-zoom {
+    .title-block {
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.block-webinar-zoom__inner {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    > * {
+        flex: 1 1 0;
+        min-width: 320px;
+        max-width: 400px;
+    }
+  
+    .title-block + & {
+      margin-top: 40px;
+  
+      @include mobile {
+        margin-top: 20px;
+      }
+    }
+}  
+
+
+
+.card-zoom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+
+    @include mobile {
+        padding: 20px 30px;      
+    }
+
+    figure {
+        width: 174px;
+    }
+
+    img {
+        border-radius: 50%;
+    }
+    
+    .title {
+        margin-top: 20px;
+        font-family: $font-title; 
+        font-feature-settings: $font-feature-settings;
+        font-size: 21px;
+        font-weight: 700;
+        line-height: 1.4;
+        color: var(--color-accent);
+
+        @include mobile {
+            font-size: 19px;
+        }
+    }
+
+    .role {
+    }
+}

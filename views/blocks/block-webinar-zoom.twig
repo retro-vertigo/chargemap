@@ -1,0 +1,41 @@
+{#
+/**
+ * Block Name: Block Webinar Zoom
+ *
+ */
+#}
+
+<section class="{{ block.classes }} {{ display }}" id="{{ block.id }}">
+    <div class="block-container l-container">
+
+        {% if title %}
+            <h2 class="title-block u-text-center">{{ title|titleColor }}</h2>
+        {% endif %}
+        
+        <div class="block-webinar-zoom__inner">
+
+            {% for item in items %}
+
+                {% if item.image %}
+                    <div class="card-zoom">
+                        {% if item.image %}
+                            <figure class="ratio-1-1">
+                                {{ getRwdImage( item.image.id, 'card-zoom', 'webinar-zoom',  { class:'u-image-cover' } ) }}
+                            </figure>
+                        {% endif %}
+                        {% if item.title %}
+                            <span class="title">{{ item.title }}</span>
+                        {% endif %}
+                        {% if item.role %}
+                            <span class="role">{{ item.role }}</span>
+                        {% endif %}
+                    </div>
+                {% endif %}
+                
+            {% endfor %}
+            
+        </div>
+
+    </div>   
+  
+</section>  {# end .block #}

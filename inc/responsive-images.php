@@ -19,38 +19,26 @@ function custom_responsive_image_sizes( $sizes, $img_name, $attachment_id ) {
 
     // sizes="(max-width: 500px) 100vw, (max-width: 900px) 50vw, 800px"
 
-    case 'banner':
-      $sizes = '(max-width: 576px) 70vw,
-                (max-width: 1200px) 50vw,
-                422px';
+    case 'cover':
+      $sizes = '(max-width: 564px) 100vw,
+                564px';
                 break;
 
 
-    case 'values-big':
-      $sizes = '(max-width: 1200px) 85vw,
-                1013px';
+    case 'card-webinar':
+      $sizes = '(max-width: 576px) 90vw
+                (max-width: 940px) 370px,
+                564px';
                 break;
 
-    case 'gallery':
-      $sizes = '(max-width: 768px) 500px,
-                (max-width: 1200px) 46vw,
-                540px';
+    case 'card-zoom':
+      $sizes = '174px';
                 break;
 
-    case 'brand':
-      $sizes = '(max-width: 576px) 100vw,
-                500px';
+    case 'logo':
+      $sizes = '200px';
                 break;
 
-    case 'card':
-      $sizes = '(max-width: 576px) 100vw,
-                350px';
-                break;
-    
-    case 'slide-image':
-      $sizes = '(max-width: 768px) 100vw,
-                710px';
-                break;
 
   }
   return preg_replace( '/\s+/', ' ', $sizes );

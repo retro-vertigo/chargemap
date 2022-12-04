@@ -129,17 +129,18 @@
 		}
 
 		@include mobile {
-			max-width: calc(100% - 50px);
+            width: calc(100% - 50px);
+            max-width: 300px;
 			flex-shrink: 0;
 			scroll-snap-align: start;
 
 			& + .slide-guide {
-				margin-left: 20px;
+				margin-left: 30px;
 			}
 
 			img {
 				border-radius: $border-radius;
 			}
-		  }
+		}
 	}
 }

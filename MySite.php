@@ -56,7 +56,7 @@ class StarterSite extends Timber\Site {
 
 	public function function_getRwdImage( $attachment_id, $name='default', $size='full', $attr='' ) {
 		if ( function_exists( 'get_rwd_image' ) ) {
-			return get_rwd_image($attachment_id, $name, $size, $attr);
+			return get_rwd_image( $attachment_id, $name, $size, $attr );
 		}
 	}
 

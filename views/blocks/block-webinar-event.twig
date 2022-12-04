@@ -1,0 +1,50 @@
+{#
+/**
+ * Block Name: Block Webinar Event
+ *
+ */
+#}
+
+<section class="{{ block.classes }}" id="{{ block.id }}">
+    <div class="panel --bg-grey l-container">
+
+        <div class="panel__content editor">
+            {% if suptitle %}
+                <span class="suptitle">{{ suptitle }}</span>
+            {% endif %}
+            {% if title %}
+                <h2>{{ title }}</h2>
+            {% endif %}
+            {% if wysi %}
+                <div class="wysi">{{ wysi }}</div>
+            {% endif %}
+
+            {% if date %}
+                <span class="webinar-date">
+                    <svg class="icon"><use xlink:href="#icon-calendar"></use></svg>
+                    <span>{{ date }}</span> {% if date_utc %}{{ date_utc }}{% endif %}
+                </span>
+            {% endif %}
+
+            {% if duration %}
+                <span class="webinar-duration">
+                    <svg class="icon"><use xlink:href="#icon-clock"></use></svg>
+                    {{ pll__('Durée :') }}<span>{{ duration }}</span>
+                </span>
+            {% endif %}
+
+            {% if link_cta.url %}
+                <a {{ setLinkAttributes( link_cta ) }} class="btn --stretch-mobile --outline-mobile">{{ link_cta.title }}</a>
+            {% endif %}
+        </div>
+
+        <div class="panel__image">
+            {% if image %}
+                <figure class="ratio-4-3">
+                    {{ getRwdImage( image.id, 'cover', 'standard',  { class:'u-border-radius u-image-cover' } ) }}
+                </figure>
+            {% endif %}
+        </div>
+  
+  </div>    {# end .block-container #}
+</section>  {# end .block #}

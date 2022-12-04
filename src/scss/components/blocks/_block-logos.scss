@@ -6,76 +6,76 @@
 
 
 .block-logos {
-  padding-top: 32px;
-  padding-bottom: 32px;
-
-  .block-container {
-    text-align: center;
-  }
-
-  .title-block {
-    & + .subtext {
-      margin-top: 10px;
-    }
-  }
+	padding-top: 32px;
+	padding-bottom: 32px;
+	
+	.block-container {
+		text-align: center;
+	}
+	
+	.title-block {
+		& + .subtext {
+			margin-top: 10px;
+		}
+	}
 }
 
 .slider-logos {
-  @include min-mobile {
-    // prevent FOUC on load
-    opacity: 0;
-    transition: opacity 0.3s;
-    
-    &.flickity-enabled {
-      opacity: 1;
-    }
-  }
-
-  // Active flickity seulement > mobile
-  &:after { 
-    content: 'flickity';
-    display: none;
-  }
-
-  // Scroll-snap sur mobile
-  @include mobile {
-    &:after { 
-      content: '';
-    }
-
-    display: flex;
-    width: 100%;
-    overflow: auto;
-    scroll-snap-type: x proximity;
-    scroll-padding: var(--container-padding);
-    padding-left: var(--container-padding);
-    padding-right: var(--container-padding);
-    padding-bottom: 20px;
-  }
-
-  * + & {
-    margin-top: 36px;
-  }
+	@include min-mobile {
+		// prevent FOUC on load
+		opacity: 0;
+		transition: opacity 0.3s;
+		
+		&.flickity-enabled {
+			opacity: 1;
+		}
+	}
+	
+	// Active flickity seulement > mobile
+	&:after { 
+		content: 'flickity';
+		display: none;
+	}
+	
+	// Scroll-snap sur mobile
+	@include mobile {
+		&:after { 
+			content: '';
+		}
+		
+		display: flex;
+		width: 100%;
+		overflow: auto;
+		scroll-snap-type: x proximity;
+		scroll-padding: var(--container-padding);
+		padding-left: var(--container-padding);
+		padding-right: var(--container-padding);
+		padding-bottom: 20px;
+	}
+	
+	* + & {
+		margin-top: 36px;
+	}
 }
 
 
 .slide-logo {
-  width: 208px;
-  height: 120px;
-  padding: 0 4px;
-
-  @include mobile {
-    width: 168px;
-    height: 102px;
-    flex-shrink: 0;
-    scroll-snap-align: start;
-  }
-  
-  img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
+	width: 208px;
+	height: 120px;
+	padding: 0 4px;
+	
+	@include mobile {
+		width: 168px;
+		height: 102px;
+		flex-shrink: 0;
+		scroll-snap-align: start;
+	}
+	
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
 }
 

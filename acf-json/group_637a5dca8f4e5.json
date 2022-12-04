@@ -6,6 +6,7 @@
             "key": "field_637a5dcaa69c2",
             "label": "Option d'affichage :",
             "name": "display",
+            "aria-label": "",
             "type": "button_group",
             "instructions": "",
             "required": 0,
@@ -28,6 +29,7 @@
             "key": "field_637a5dcaa69d3",
             "label": "Titre du bloc :",
             "name": "title",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "Pour formater une partie du texte en bleu, entourez la avec des crochets :\r\n<br><i>Ex: Mon titre [en bleu] et noir<\/i>",
             "required": 0,
@@ -47,6 +49,7 @@
             "key": "field_637a5dcab4e20",
             "label": "Contenu textuel :",
             "name": "wysi",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -66,6 +69,7 @@
             "key": "field_637a5dcaa69df",
             "label": "Boutons :",
             "name": "buttons",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -85,6 +89,7 @@
                     "key": "field_637a5ef359ef5",
                     "label": "Lien :",
                     "name": "link",
+                    "aria-label": "",
                     "type": "link",
                     "instructions": "",
                     "required": 0,
@@ -94,9 +99,11 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "array",
+                    "parent_repeater": "field_637a5dcaa69df"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         }
     ],
     "location": [
@@ -116,5 +123,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1669061324
+    "show_in_rest": 0,
+    "modified": 1669763261
 }
