@@ -84,6 +84,7 @@ define( 'JS_URL', get_theme_file_uri( 'assets/js/' ));
 define( 'IMAGE_URL', get_theme_file_uri( 'assets/images/' ));
 define( 'SVG_URL', get_theme_file_uri( 'assets/svg/' ));
 define( 'FAVICON_URL', get_theme_file_uri( 'assets/favicons/' ));     // TOADD
+define( 'LOTTIE_URL', get_theme_file_uri( 'assets/lottie/' ));     
 
 define( 'CSS_PATH', get_theme_file_path( 'assets/css/' ));
 define( 'JS_PATH', get_theme_file_path( 'assets/js/' ));

@@ -8,6 +8,12 @@
 <section class="{{ block.classes }}" id="{{ block.id }}">
   <div class="block-container">
 
+    {% if title %}
+        <div class="l-container">
+            <h2 class="title-block u-text-center">{{ title|titleColor }}</h2>
+        </div>
+    {% endif %}
+
     <div class="tablist-wrapper">
         <div class="tablist l-container custom-scrollbar">
             {% for tab in tabs %}

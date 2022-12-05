@@ -1,0 +1,48 @@
+{#
+/**
+ * Block Name: Block Animation
+ *
+ */
+#}
+{# <script src="https://unpkg.com/@lottiefiles/lottie-player@1/dist/lottie-player.js"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
+ #}
+<section class="{{ block.classes }} {{ display }}" id="{{ block.id }}">
+  <div class="block-container l-container">
+
+    <div class="block-animation__columns">
+        {% for item in columns %}
+
+            <div class="column-animation editor">
+                
+                {# Charge les json des anims dans le player lottie #}
+                {% set lottie_id = (loop.index == 1) ? 'mission' : 'solution' %}
+                   <lottie-player id="{{ lottie_id }}" src="{{ lottie_link ~ lottie_id ~ '.json' }}" style="width:100%; height: auto;">
+                   </lottie-player>
+                {% if item.title %}
+                    <h2>{{ item.title }}</h2>
+                {% endif %}
+                {% if item.wysi %}
+                    <div class="wysi">{{ item.wysi }}</div>
+                {% endif %}
+            </div>
+            
+        {% endfor %}
+    </div>
+  
+  </div>    {# end .block-container #}
+</section>  {# end .block #}
+
+{# <script>
+    LottieInteractivity.create({
+    mode: 'scroll',
+    player: '#mission',
+    actions: [
+        {
+          visibility: [0,1],
+          type: 'seek',
+          frames: [0, 97],
+        },
+      ],
+  });
+</script> #}

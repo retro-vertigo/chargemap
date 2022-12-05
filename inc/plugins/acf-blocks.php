@@ -181,6 +181,15 @@ function pga_acf_init_blocks() {
 		'supports'        => array( 'anchor' => true, 'align' => false ),
 	));
 
+	pga_acf_register_block( array(
+		'name'            => 'animation',
+		'title'           => __('Animation SVG'),
+		'description'     => __('Animation SVG avec Lottie'),
+		'icon'            => 'superhero-alt',
+		'supports'        => array( 'anchor' => true, 'align' => false ),
+		'enqueue_assets'  => $enqueue_assets,
+	));
+
 
 }
  
@@ -248,5 +257,14 @@ function pga_acf_block_enqueue_assets( $block, $content = '', $is_preview = fals
 	$slug = str_replace( 'acf/', '', $block['name'] );
 
 	// load js assets only in admin editor
-	if( is_admin() ) wp_enqueue_script( "block-{$slug}", JS_URL."blocks-admin/block-{$slug}.min.js", '', null, true );
+	if( is_admin() ) {
+		wp_enqueue_script( "block-{$slug}", JS_URL."blocks-admin/block-{$slug}.min.js", '', null, true );
+	} else {
+		// scripts spécifiques pour les anims lottie
+		if ( $slug === 'animation' ) {
+			wp_enqueue_script( 'lottie-player', 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js',  array(), false, true );
+  		wp_enqueue_script( 'lottie-interactivity', 'https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js',  array(), false, true );
+	 	 	wp_enqueue_script( 'lottie-anims', JS_URL.'lottie.min.js',  array(), false, true );
+		}
+	}
 }

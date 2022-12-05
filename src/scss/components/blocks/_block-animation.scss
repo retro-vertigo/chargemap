@@ -1,0 +1,73 @@
+// ==============================================
+
+//        BLOCK ANIMATION
+
+// ==============================================
+
+
+.block-animation {
+	padding-top: 90px;
+	padding-bottom: 90px;
+	background-color: $color-primary-100;
+	
+	@include tablet-small {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+	
+	@include mobile {
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+	
+	.block-cover-image + &,
+	.block-cover-video + & {
+		margin-top: 0;
+	}
+}
+
+
+.block-animation__columns {
+	display: flex;
+	justify-content: center;
+	
+	// 1 colonne
+	@include tablet-small {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+.column-animation {
+	width: 100%;
+	padding: 30px;
+	background-color: $color-white;
+	border-radius: $border-radius;
+	
+	@include min-mobile {
+		max-width: 382px;
+	}
+
+	@include mobile {
+		padding: 20px;
+	}
+	
+	& + .column-animation {
+		margin-left: 40px;
+		
+		@include tablet-small {
+			margin-left: initial;
+			margin-top: 40px;
+		}
+	}
+	
+	figure {
+		@include aspect-ratio(368, 300);
+		margin-bottom: 10px;
+		background-color: $color-white;
+	}
+
+	h2 {
+		margin-top: 10px;
+	}
+}

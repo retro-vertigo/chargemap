@@ -11,6 +11,7 @@ PATHS:
     entries:
       - 'src/js/main.js'
       - 'src/js/blocks-admin/*'
+      - 'src/js/lottie/*'
 
     js  : 
       - 'src/js/**/*.js'
@@ -31,6 +32,7 @@ PATHS:
     copy:
       - 'src/fonts/**/*'
       - 'src/favicons/**/*'
+      - 'src/lottie/**/*'
     
     pages  : './**/*.{html,php,twig}'
 

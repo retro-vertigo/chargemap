@@ -3,9 +3,30 @@
     "title": "[ Bloc ] Ancres",
     "fields": [
         {
+            "key": "field_638d28c4b2a48",
+            "label": "Titre du bloc :",
+            "name": "title",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Pour formater une partie du texte en bleu, entourez la avec des crochets :\r\n<br><i>Ex: Mon titre [en bleu] et noir<\/i>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
             "key": "field_637d4c01cb07c",
             "label": "Onglets :",
             "name": "tabs",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -25,6 +46,7 @@
                     "key": "field_637d4c01ce52f",
                     "label": "Titre de l'onglet :",
                     "name": "tab_title",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -38,12 +60,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_637d4c01cb07c"
                 },
                 {
                     "key": "field_637d4c01ce53f",
                     "label": "Image de l'onglet :",
                     "name": "tab_image",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -62,12 +86,14 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_637d4c01cb07c"
                 },
                 {
                     "key": "field_637d4c01ce54c",
                     "label": "Option d'affichage :",
                     "name": "display",
+                    "aria-label": "",
                     "type": "button_group",
                     "instructions": "",
                     "required": 0,
@@ -84,12 +110,14 @@
                     "allow_null": 0,
                     "default_value": "--text-left",
                     "layout": "horizontal",
-                    "return_format": "value"
+                    "return_format": "value",
+                    "parent_repeater": "field_637d4c01cb07c"
                 },
                 {
                     "key": "field_637d4c01ce557",
                     "label": "",
                     "name": "group_text",
+                    "aria-label": "",
                     "type": "clone",
                     "instructions": "",
                     "required": 0,
@@ -105,12 +133,14 @@
                     "display": "group",
                     "layout": "block",
                     "prefix_label": 0,
-                    "prefix_name": 0
+                    "prefix_name": 0,
+                    "parent_repeater": "field_637d4c01cb07c"
                 },
                 {
                     "key": "field_637d4c01ce562",
                     "label": "Image :",
                     "name": "image",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -129,9 +159,11 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_637d4c01cb07c"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         }
     ],
     "location": [
@@ -151,5 +183,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1669462686
+    "show_in_rest": 0,
+    "modified": 1670195461
 }

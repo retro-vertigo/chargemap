@@ -28,6 +28,7 @@ class StarterSite extends Timber\Site {
 
 		// $context['favicon_link']  = get_template_directory_uri() . '/images';			// Ex: <link rel="icon" href="{{ favicon_link }}favicon.svg" type="image/svg+xml">
 		$context['favicon_link']  = FAVICON_URL;			// Ex: <link rel="icon" href="{{ favicon_link }}favicon.svg" type="image/svg+xml">
+		$context['lottie_link']  = LOTTIE_URL;
 		$context['image_link']  = IMAGE_URL;
 		$context['svg_link']  = SVG_URL;
 		$context['svg_sprite']  = SVG_PATH . 'sprite.svg';

@@ -9,7 +9,25 @@
 
   .block-container {
     position: relative;
+
+    .l-container:first-of-type + * {
+      margin-top: 40px;
+  
+      @include mobile {
+        margin-top: 20px;
+      }
+    } 
   }
+
+  .title-block {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;    
+  }
+
+  
+
+
 
   //  Tabs
   // -----------------------------------------------
