@@ -10,7 +10,7 @@ export default class SliderReplay {
         this.btnNext  = this.block.querySelector('.btn-flickity.--next');
         this.controls  = this.block.querySelector('.slider-flickity-controls');
 
-        this.init();
+        if (this.slider) this.init();
     }
 
     init () {

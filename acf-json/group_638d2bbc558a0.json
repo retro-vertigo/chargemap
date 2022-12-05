@@ -3,6 +3,24 @@
     "title": "[ Bloc ] Animation",
     "fields": [
         {
+            "key": "field_638e7940f5d0d",
+            "label": "",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Les 2 animations Lottie \"Mission\" et \"Solution\" sont directement intégrées dans le thème et visibles seulement sur le front.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_638d2bbc6f0c5",
             "label": "Colonnes :",
             "name": "columns",
@@ -16,7 +34,7 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
+            "layout": "block",
             "pagination": 0,
             "min": 2,
             "max": 2,
@@ -34,15 +52,15 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
+                    "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
                     "parent_repeater": "field_638d2bbc6f0c5"
                 },
                 {
@@ -55,7 +73,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "tiny-mce-compact-medium",
                         "id": ""
                     },
@@ -64,32 +82,6 @@
                     "toolbar": "simple",
                     "media_upload": 0,
                     "delay": 0,
-                    "parent_repeater": "field_638d2bbc6f0c5"
-                },
-                {
-                    "key": "field_638d2bbc7d431",
-                    "label": "Image :",
-                    "name": "image",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "preview_size": "thumbnail",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
                     "parent_repeater": "field_638d2bbc6f0c5"
                 }
             ]
@@ -113,5 +105,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1670197121
+    "modified": 1670282200
 }

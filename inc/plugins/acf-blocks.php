@@ -258,7 +258,9 @@ function pga_acf_block_enqueue_assets( $block, $content = '', $is_preview = fals
 
 	// load js assets only in admin editor
 	if( is_admin() ) {
-		wp_enqueue_script( "block-{$slug}", JS_URL."blocks-admin/block-{$slug}.min.js", '', null, true );
+		if ( $slug !== 'animation' ) {
+			wp_enqueue_script( "block-{$slug}", JS_URL."blocks-admin/block-{$slug}.min.js", '', null, true );
+		}
 	} else {
 		// scripts spécifiques pour les anims lottie
 		if ( $slug === 'animation' ) {

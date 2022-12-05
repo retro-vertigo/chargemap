@@ -31,19 +31,6 @@ function pga_block_editor_styles() {
 // Embed svg icons in admin
 add_action( 'in_admin_header', 'pga_embed_sprites_icon' );
 function pga_embed_sprites_icon() {
-  // add hidden styles in admin when svg sprite contains svgs with mask
-  // echo '<style type="text/css">
-  // .visually-hidden {
-  //   clip: rect(0 0 0 0);
-  //   clip-path: inset(50%);
-  //   height: 1px;
-  //   overflow: hidden;
-  //   position: absolute;
-  //   white-space: nowrap;
-  //   width: 1px;
-  // }
-  // </style>';
-  // if( get_page_template_slug( $post ) == 'templates/template-home.php' ) {
   echo file_get_contents( SVG_PATH.'sprite.svg' );
 }
 
