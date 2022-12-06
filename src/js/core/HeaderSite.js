@@ -11,10 +11,11 @@ export default class HeaderSite {
                 this.header        = el;
                 this.btnBurger     = document.getElementById('btn-burger');
                 this.navResponsive = document.getElementById('nav-responsive-container');
-                this.matchDesktop  = window.matchMedia("(min-width: 940px)");
+                this.matchDesktop  = window.matchMedia("(min-width: 1200px)");
                 this.lastScroll    = 0;
                 
                 this.init();
+                this.initAccordion();
             }
         }
         return HeaderSite._instance;
@@ -88,6 +89,59 @@ export default class HeaderSite {
 
         this.lastScroll = currentScroll;
     }
+
+
+
+
+    //        Responsive accordion menu
+    // ==============================================
+
+    initAccordion() {
+        this.itemsAccordion = this.header.querySelectorAll('.menu-item-has-children');
+        this.itemsAccordion.forEach(  el => {
+
+            // match only direct links of item
+            el.querySelectorAll('.nav-primary__link').forEach( link => {
+                if(link.parentElement == el) {
+                    link.addEventListener('click', e => this.clickLinkAccordion(e, el) );
+                    link.addEventListener('focus', e => this.clickLinkAccordion(e, el) );
+                }
+            });
+        });
+    }
+
+
+    // Open / close accordion item
+    clickLinkAccordion(e, item) {
+        if (document.documentElement.clientWidth >= 1200) return;        // disable accordion on desktop
+        e.preventDefault();
+
+        // close item
+        if (item.classList.contains('is-open')) {
+            this.closeItemAccordion(item);
+        // open item    
+        } else {
+            this.header.querySelectorAll('.menu-item-has-children.is-open').forEach(  el => {
+                this.closeItemAccordion(el);
+            });
+            this.openItemAccordion(item);
+        }
+    }
+
+    // Close item
+    closeItemAccordion(item) {
+        item.classList.remove('is-open');
+    }
+
+    // Open item
+    openItemAccordion(item) {
+        const content = item.querySelector('.submenu'); 
+        content.style.setProperty('--height-open', content.scrollHeight + 'px');
+        item.classList.add('is-open');
+    }
+
+
+
 
 
     static getInstance() {

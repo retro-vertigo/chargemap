@@ -1,0 +1,75 @@
+// ==============================================
+
+//        BLOCK CORE GUTENBERG
+
+// ==============================================
+
+
+.page-template-template-core-gutenberg main {
+  margin-top: 60px;
+  
+  h1, h2, h3,
+  p,
+  ul {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+    // @include bd();
+
+    a {
+      color: $color-primary;
+      text-decoration: underline;
+
+      &:hover {
+        color: $color-navy;
+      }
+    }
+  }
+
+  h1, h2, h3,
+  p,
+  ul {
+    max-width: $container-medium-width;
+  }
+
+  h1 {
+    max-width: $container-small-width;
+    margin-top: 60px;
+    margin-bottom: 100px;
+    text-align: center;
+
+    @include media-breakpoint-down(sm) {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+  }
+
+  h2 {
+    margin-top: 0.8em;
+  }
+
+  h3 {
+    margin-top: 1em;
+  }
+
+  ul {
+    @include list-styled();
+  }
+
+  ol {
+    @include list-ordered-styled();
+  }
+}
+
+.wp-block[data-type="core/paragraph"] {
+  a {
+    color: $color-primary;
+    text-decoration: underline;
+
+    &:hover {
+      color: $color-navy;
+    }
+  }
+}

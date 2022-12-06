@@ -67,14 +67,19 @@ function pga_allow_block_types( $allowed_blocks, $editor_context ) {
       'acf/webinar-zoom',
       'acf/contact',
       'acf/animation',
-
       'acf/image-text',
     );
 
+    $core_blocks = array(
+      'core/heading',
+      'core/paragraph',
+      'core/list',
+    );
+
      // No blocks for page contact and page actualités (blog page)
-     if( get_page_template_slug( $post ) == 'template-contact.php' || $post->ID == get_option( 'page_for_posts' )) {
-      $custom_blocks = array();
-    }
+    //  if( get_page_template_slug( $post ) == 'template-contact.php' || $post->ID == get_option( 'page_for_posts' )) {
+    //   $custom_blocks = array();
+    // }
 /* 
      // Only some WP blocks for page legal
      if( get_page_template_slug( $post ) == 'template-legal.php') {
@@ -96,7 +101,7 @@ function pga_allow_block_types( $allowed_blocks, $editor_context ) {
       );
     } */
     
-    $allowed_blocks = $custom_blocks;
+    $allowed_blocks = array_merge($core_blocks, $custom_blocks);
   }
   return $allowed_blocks;
 }

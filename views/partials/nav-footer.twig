@@ -3,7 +3,7 @@
         <ul class="nav-footer__menu">
             {% for item in nav_footer.items %}
                 <li class="{{ item.classes | join(' ') }} nav-footer__item --is-depth0">
-                    <a {{ setLinkAttributes(item) }} class="nav-footer__link">{{ item.title }}</a>
+                    <span class="nav-footer__title">{{ item.title }}</span>
 
                     {% if item.children %}
                         <ul class="submenu">

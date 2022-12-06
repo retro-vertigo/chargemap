@@ -10,6 +10,12 @@
 
       {% include "partials/nav-primary.twig" %}
 
+      {% if acf_options.page_contact %}
+        <a href="{{ TimberPost(acf_options.page_contact).link }}" class="btn-contact-mobile btn --stretch-mobile --outline-mobile" aria-label="Contact">
+          {{ pll__( 'Contactez-nous' ) }}
+        </a>
+      {% endif %}
+
     </div>
 
     <div class="nav-header-right">
