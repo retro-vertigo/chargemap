@@ -73,6 +73,10 @@ export default class SliderTestimonial {
 
         // init continuous scroll
         if (this.autoPlay) this.initContinousScroll();
+
+        // setTimeout (() => {
+        //     this.slider.offsetHeight; 
+        // },500);
     }
 
 

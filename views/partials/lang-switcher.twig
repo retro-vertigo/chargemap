@@ -1,0 +1,16 @@
+<div class="lang-switcher">
+  {# <button class="lang-switcher__btn">
+		{{ fn('pl_current_language', 'slug')}}
+    <svg class="icon"><use xlink:href="#icon-chevron-down"></use></svg>
+  </button>
+
+  <ul class="lang-switcher__list" id="lang-switcher__list"> #}
+		{% set args = { 'dropdown': 1, 
+										'display_names_as': 'slug', 
+										'hide_current': 1, 
+										'hide_if_empty': 0  
+									} %}
+		{{ fn('pl_the_languages', args ) }}
+  {# </ul> #}
+
+</div>

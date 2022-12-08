@@ -10,16 +10,4 @@
   :root {
     --header-height: 0;
   }
-  
-  // Hide structural elements
-  .bg-top,
-  .bg-block,
-  .header-site {
-    display: none !important;
-  }
-
-  .card-post__figure,
-  .image-wrapper {
-    box-shadow: initial !important;
-  }
 }

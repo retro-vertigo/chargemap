@@ -24,10 +24,10 @@ function pga_enqueue_scripts() {
 
   // pass Polylang translations to Newsletter form JS
   $newsletter_messages = array(
-    'invalid_email' => pl__( 'Newsletter - email invalide' ),
-    'sending'       => pl__( 'Newsletter - message d\'envoi' ),
-    'success'       => pl__( 'Newsletter - message de confirmation' ),
-    'error'         => pl__( 'Newsletter - message d\'erreur' ),
+    'invalid_email' => pl__( "Formulaire - email invalide" ),
+    'sending'       => pl__( "Formulaire - message d'envoi" ),
+    'success'       => pl__( "Formulaire - message de confirmation" ),
+    'error'         => pl__( "Formulaire - message d'erreur" ),
     'current_lang'  => pl_current_language(),
   );
   wp_localize_script( 'main-scripts', 'newsletter_messages', $newsletter_messages );

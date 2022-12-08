@@ -85,7 +85,6 @@ export default class SliderLogos {
     updateContinuousScroll() {
         if (window.innerWidth > 576) {
             cancelAnimationFrame(this.rafId);
-            return;
         }  
         if (this.flkty.slides) {
             this.flkty.x = (this.flkty.x - this.tickerSpeed) % this.flkty.slideableWidth;

@@ -35,14 +35,10 @@ function pga_register_polylang_strings() {
     
     pll_register_string( "bloc", "Onglets", "theme" );
     pll_register_string( "bloc", "Voir le replay", "theme" );
+    pll_register_string( "bloc", "La solution en 1 minute", "theme" );
     pll_register_string( "interface", "Précédent", "theme" );
     pll_register_string( "interface", "Suivant", "theme" );
     
-    // pll_register_string( "interface", "En savoir plus", "theme" );
-    // pll_register_string( "interface", "Crédits", "theme" );
-    // pll_register_string( "interface", "Plus d'actualités", "theme" );
-    // pll_register_string( "interface", "Toute l'équipe", "theme" );
-
     // pll_register_string( "cookie", "J'accepte", "theme" );
     // pll_register_string( "cookie", "Je refuse", "theme" );
     // pll_register_string( "cookie", "Texte cookie", "theme" );

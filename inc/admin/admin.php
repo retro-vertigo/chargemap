@@ -29,7 +29,9 @@ function pga_setup_theme_support() {
 
 add_action( 'after_setup_theme', 'pga_add_image_size' );
 function pga_add_image_size() {
+	add_image_size( 'admin_thumbnail', 50, 50, true ); 
 	add_image_size( 'standard', 564, 415, true ); 
+	add_image_size( 'standard-2x', 1128, 830, true ); 
 	add_image_size( 'standard-mobile', 420, 309, true );
 	add_image_size( 'webinar-zoom', 174, 174, true );
 	add_image_size( 'cover-video', 504, 504, true );
@@ -48,6 +50,9 @@ function pga_remove_default_images( $sizes ) {
 
 
 add_filter('big_image_size_threshold', '__return_false');
+
+add_filter( 'jpeg_quality', function($arg){ return 94; });
+
 
 // Remove accents from the name of uploaded files (Thanks to: https://goo.gl/h2tYrZ)
 add_filter( 'wp_handle_upload_prefilter', 'pga_sanitize_file_uploads' );

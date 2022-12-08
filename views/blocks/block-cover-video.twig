@@ -30,7 +30,10 @@
                     <figure>
                         {{ getRwdImage( image.id, 'cover', 'cover-video',  { class:'u-border-radius u-image-cover' } ) }}
                     </figure>
-                    <svg class="icon"><use xlink:href="#icon-play"></use></svg>
+                    <div class="cta-video">
+                        <svg class="icon"><use xlink:href="#icon-play"></use></svg>
+                        <span class="label-video">{{ pll__('La solution en 1 minute') }}</span>
+                    </div>  
                 </a>
             {% endif %}
         </div>

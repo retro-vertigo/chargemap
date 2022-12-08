@@ -80,14 +80,36 @@
 		border-radius: $border-radius;
 		@include aspect-ratio(1,1);
 		
-	
+		.cta-video {
+			@include coverer;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: 20px;
+		}
+
 		.icon {
-			@include absolute-center;
 			fill: $color-white;
 			font-size: 128px;
 	
 			@include mobile {
 				font-size: 90px;
+			}
+		}
+
+		.label-video {
+			margin-top: 8%;
+			padding: 12px 24px;
+			font-weight: 700;
+			line-height: 1.2;
+			text-align: center;
+			color: $color-white;
+			background-color: $color-primary;
+			border-radius: $border-radius;
+
+			@include mobile {
+				font-size: 16px;
 			}
 		}
 	

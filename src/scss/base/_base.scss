@@ -60,3 +60,12 @@ body[data-color-theme="purple"] {
 .block:not(.block-cover-image):not(.block-cover-video):first-child {
   margin-top: 80px;
 }
+
+
+.block-solid + .block-solid {
+  margin-top: initial;
+
+  @include mobile {
+    margin-top: initial;
+  }
+}
