@@ -144,7 +144,29 @@
   flex-wrap: wrap;
   padding-top: 22px;
   padding-bottom: 22px;
+
+  @include desktop {
+    flex-direction: column;
+    justify-content: initial;
+    align-items: flex-start;
+  }
 }
+
+.footer-row2 {
+  .lang-switcher.--footer {
+    margin-left: 20px;
+
+    @include desktop {
+      margin-left: initial;
+      margin-top: 0px;
+    }
+
+    @include tablet-small {
+      margin-top: 20px;
+    }
+  }
+}
+
 
 
 
@@ -173,18 +195,10 @@
   &:hover {
     text-decoration: underline;
   }
-
-  /* .nav-legal__item.is-active & {
-    text-decoration: underline;
-  } */
 }
 
 
 
-.lang-switcher.-footer {
-  margin-left: 1rem;
-}
-  
 
 //  MQ Breakpoints
 // -----------------------------------------------

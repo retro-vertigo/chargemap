@@ -16,6 +16,8 @@
         </a>
       {% endif %}
 
+      {% include "partials/lang-switcher-mobile.twig" %}
+
     </div>
 
     <div class="nav-header-right">
@@ -26,9 +28,9 @@
           {{ pll__( 'Contactez-nous' ) }}
         </a>
       {% endif %}
+      {% include "partials/lang-switcher.twig" %}
     </div>
     
-    {# {% include "partials/lang-switcher.twig" %} #}
 
     <button class="btn-burger d-flex d-xl-none" id="btn-burger" aria-label="menu">
       <span class="btn-burger__icon">

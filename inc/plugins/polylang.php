@@ -24,6 +24,7 @@ function pga_register_polylang_strings() {
     pll_register_string( "interface", "Durée :" );
     pll_register_string( "interface", "Page 404", "theme" );  
     pll_register_string( "interface", "Désolé cette page, n'existe pas", "theme" );  
+    pll_register_string( "interface", "Langue : ", "theme" );  
     
     pll_register_string( "form", "Envoyer", "theme" );
     pll_register_string( "form", "Votre e-mail", "theme" );

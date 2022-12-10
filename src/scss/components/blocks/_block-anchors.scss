@@ -92,7 +92,14 @@
       margin-left: 20px;
     }
 
-    &:hover {
+    @include can-hover {
+      &:hover {
+        background-color: var(--color-bg-hover);
+        border-color: var(--color-bg-hover);
+      }
+    }
+
+   &.is-active {
       background-color: var(--color-bg-hover);
       border-color: var(--color-bg-hover);
     }
@@ -135,3 +142,15 @@
     }
   }
 }
+
+
+/* body {
+  &:before {
+    @include pseudo-block(100%, 1px);
+    position: fixed;
+    top: 50%;
+    left: 0;
+    z-index: 1000;
+    border: 1px dashed rgba(red,0.1); 
+  }
+} */

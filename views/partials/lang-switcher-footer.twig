@@ -1,6 +1,8 @@
-<div class="lang-switcher">
-		{% set args = { 'dropdown': 1, 
-										'display_names_as': 'slug', 
+<div class="lang-switcher --footer">
+		<span>{{ pll__('Langue : ') }}</span>
+		
+		{% set args = { 'dropdown': 2, 
+										'display_names_as': 'name', 
 										'hide_current': 1, 
 										'hide_if_empty': 0 ,
 										'echo': 0 
