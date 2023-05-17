@@ -114,8 +114,8 @@ class StarterSite extends Timber\Site {
 
 	// get pll translation 
 	public function function_pll( $string = '' ) {
-		if ( function_exists( 'pll__' ) ) {
-			return pll__( $string );
+		if ( function_exists( 'pl__' ) ) {
+			return pl__( $string );
 		}
 		return $string;
 	}

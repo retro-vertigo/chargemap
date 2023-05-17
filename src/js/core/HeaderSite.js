@@ -1,4 +1,4 @@
-import { debounce, throttle, throttle2, throttle3 } from "../utils/utilsLib";
+import { throttle } from "../utils/utilsLib";
 
 export default class HeaderSite {
 

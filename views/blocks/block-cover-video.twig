@@ -28,7 +28,7 @@
             {% if image and video.url %}
                 <a href="{{ video.url }}" class="btn-video" data-fancybox data-width="{{ video.width }}" data-height="{{ video.height }}">
                     <figure>
-                        {{ getRwdImage( image.id, 'cover', 'cover-video',  { class:'u-border-radius u-image-cover' } ) }}
+                        {{ getRwdImage( image.id, 'cover', 'cover-video',  { class:'u-border-radius u-image-cover', loading:'eager' } ) }}
                     </figure>
                     <div class="cta-video">
                         <svg class="icon"><use xlink:href="#icon-play"></use></svg>

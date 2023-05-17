@@ -30,10 +30,10 @@
     
     .flickity-slider {
         display: flex;
+        height: 100%;
     }
     
     @include mobile {
-        padding-left: var(--container-padding);
         padding-bottom: 40px;
         
         .flickity-viewport {
@@ -49,26 +49,46 @@
 }
 
 
+.slide-testimonial-wrapper {
+    display: flex;
+    align-items: stretch;
+    min-height: 100%;
+    padding: 0 20px;
+    padding: 0 20px;
+
+    @include mobile {
+        width: 100%;
+        padding: 0 var(--container-padding);
+        padding: 0 var(--container-padding);
+    }
+
+    // Limite si 3 items et entre deux bps
+    @media (min-width: 880px) and (max-width: 1320px) {
+        @include at-most(3) {
+            width: 33%;
+            max-width: calc(400px + var(--container-padding) * 2);
+            padding: 0 16px;
+            padding: 0 16px;
+    
+            .slide-testimonial {
+                width: auto;
+            }
+        }
+    }
+}
+
+
 .slide-testimonial {
     display: flex;
     flex-direction: column;
-    min-height: 100%;
     width: 400px;
     padding: 30px 20px;
     background-color: $color-primary-050;
     border-radius: $border-radius;
     
     @include mobile {
-        width: calc(100% - var(--container-padding));
+        width: 100%;
         padding: 20px;
-    }
-    
-    & + .slide-testimonial {
-        margin-left: calc(2 * var(--container-padding));
-    }
-    
-    &:last-child {
-        margin-right: 90px;
     }
 }
 

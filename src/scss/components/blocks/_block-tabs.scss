@@ -109,6 +109,8 @@
   //  Panels
   // -----------------------------------------------
   .panels-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
     margin-top: 50px;
     background-color: $color-primary-050;
 
@@ -120,4 +122,20 @@
       border-radius: $border-radius;
     }
   }
+
+  .panel {
+    grid-column: 1;
+    grid-row: 1;
+    transition: opacity 0.35s 0.15s, visibility 0s 0s;
+
+    &[hidden],
+    &[hidden="true"] {
+      display: grid;
+      visibility: hidden;
+      opacity: 0;
+      height: 0;
+      transition: opacity 0.35s, visibility 0s 0.35s, height 0s 0.35s;
+    }
+  }
 }
+  

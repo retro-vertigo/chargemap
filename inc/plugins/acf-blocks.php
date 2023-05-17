@@ -205,9 +205,10 @@ function pga_acf_register_block( $params ) {
 	if ( empty($params['render_callback']) ) $params['render_callback'] = $default_render_callback;
 	if ( empty($params['icon']) ) $params['icon'] = $default_icon;
 	$params['icon'] = array( 'background' => $default_background_icon, 'src' => $params['icon'] );
+	// $params['icon'] = file_get_contents( SVG_URL . 'icon-play.svg' );
 	
-	if( function_exists('acf_register_block') ) {
-		acf_register_block( $params );
+	if( function_exists('acf_register_block_type') ) {
+		acf_register_block_type( $params );
 	}
 }
 

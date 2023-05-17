@@ -27,7 +27,7 @@
         <div class="block-cover-image__image">
             {% if image %}
                 <figure class="ratio-16-9">
-                    {{ getRwdImage( image.id, 'cover', 'standard',  { class:'u-border-radius u-image-cover' } ) }}
+                    {{ getRwdImage( image.id, 'cover', 'standard',  { class:'u-border-radius u-image-cover', loading:'eager' } ) }}
                 </figure>
             {% endif %}
         </div>

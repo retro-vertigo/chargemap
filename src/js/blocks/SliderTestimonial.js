@@ -21,7 +21,7 @@ export default class SliderTestimonial {
 
         // largeur fixe des images
         if (this.slider) {
-            this.slideWidth = 400;
+            this.slideWidth = 440;
             this.nbSlides =  this.slider.childElementCount;
             this.slidesTotalWidth =  this.nbSlides * this.slideWidth;
 
@@ -34,6 +34,7 @@ export default class SliderTestimonial {
             // Désactive l'autoplay sur mobile ou si la taille du viewport est plus grande que la bande d'image
             if (window.innerWidth < 576) this.autoPlay = false; 
             if (window.innerWidth >= this.slidesTotalWidth) this.autoPlay = false; 
+            if (window.innerWidth >= 880 && this.nbSlides <= 3)  this.autoPlay = false; 
             
             this.init();
         }
@@ -50,9 +51,9 @@ export default class SliderTestimonial {
             wrapAround: this.autoPlay,
             pageDots: false,
             prevNextButtons: false,
-            cellAlign: 'left',
+            // cellAlign: 'left',
             pageDots: true,
-            // contain: true,
+            contain: true,
             
             // groupCells: true,    // if set to true group cells that fit in carousel viewport
         }

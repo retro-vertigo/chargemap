@@ -144,6 +144,7 @@
 
 .nav-primary__item.is-level1 > .nav-primary__link {
     padding: 8px 14px;
+    line-height: 1.1;
     text-align: center;
 
     @media (max-width: 1300px) {
@@ -521,13 +522,5 @@
             display: none;
         }
     }
-}
-
-
-
-
-
-@include media-breakpoint-down(xs) {
-    
 }
 

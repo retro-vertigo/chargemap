@@ -1,11 +1,12 @@
 {
     "key": "group_5e42a18cb16e0",
-    "title": "Options du site - Général",
+    "title": "Options du site",
     "fields": [
         {
             "key": "field_5e42ab658031a",
             "label": "Réglages généraux",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -22,6 +23,7 @@
             "key": "field_5e42ab8d8031b",
             "label": "Couleur de la barre d'adresse du navigateur",
             "name": "theme_color",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "Supporté sur mobile Chrome et Windows Phone.",
             "required": 0,
@@ -31,12 +33,15 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_60b513684729b",
             "label": "Image à la une par défaut",
             "name": "default_featured_image",
+            "aria-label": "",
             "type": "image",
             "instructions": "Image à afficher si un article ou une référence n'a pas d'image à la une renseignée.",
             "required": 1,
@@ -58,28 +63,10 @@
             "mime_types": ""
         },
         {
-            "key": "field_6231b222a4a4d",
-            "label": "Code Google Analytics (ID)",
-            "name": "code_ga",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "G-XXXXXXX",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_63756d2dc22a7",
             "label": "Header",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -96,6 +83,7 @@
             "key": "field_6210de2b358ce",
             "label": "Page contact",
             "name": "page_contact",
+            "aria-label": "",
             "type": "post_object",
             "instructions": "",
             "required": 1,
@@ -118,6 +106,7 @@
             "key": "field_63756dd451681",
             "label": "Lien espace membre",
             "name": "url_members",
+            "aria-label": "",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -129,41 +118,6 @@
             },
             "default_value": "",
             "placeholder": ""
-        },
-        {
-            "key": "field_6214ed349d5fa",
-            "label": "Footer",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_6221df33c700f",
-            "label": "Titre du bandeau",
-            "name": "banner_news_title",
-            "type": "textarea",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 4,
-            "new_lines": "br"
         }
     ],
     "location": [
@@ -183,5 +137,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1668640312
+    "show_in_rest": 0,
+    "modified": 1670801549
 }

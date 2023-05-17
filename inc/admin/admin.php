@@ -66,3 +66,26 @@ function pga_sanitize_file_uploads( $file ) {
 }
 
 
+// add_filter( 'wp_img_tag_add_loading_attr', 'remove_lazy_loading_by_class', 10, 3 );
+function remove_lazy_loading_by_class( $value, $image, $context ) {
+	// if ( 'the_content' === $context ) {
+			//  if ( false !== strpos( $image, 'no-lazy' ) ) {
+						return false;
+			//  }
+	// }
+	dump($image);
+	return $value;
+}
+
+
+/* Disable lazy loading for single image* */
+function wphelp_no_lazy_load_id( $value, $image, $context ) {
+	if ( 'the_content' === $context ) {
+		$image_url = wp_get_attachment_image_url( 286, 'cover-video' ); 
+		if ( false !== strpos( $image, ' src="' . $image_url . '"' )) {
+			return false;
+		}
+	}
+	return $value;
+}
+// add_filter( 'wp_img_tag_add_loading_attr', 'wphelp_no_lazy_load_id', 36, 36 );

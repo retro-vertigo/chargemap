@@ -37,13 +37,9 @@ function pga_register_polylang_strings() {
     pll_register_string( "bloc", "Onglets", "theme" );
     pll_register_string( "bloc", "Voir le replay", "theme" );
     pll_register_string( "bloc", "La solution en 1 minute", "theme" );
+    pll_register_string( "bloc", "Télécharger l'application", "theme" );
     pll_register_string( "interface", "Précédent", "theme" );
     pll_register_string( "interface", "Suivant", "theme" );
-    
-    // pll_register_string( "cookie", "J'accepte", "theme" );
-    // pll_register_string( "cookie", "Je refuse", "theme" );
-    // pll_register_string( "cookie", "Texte cookie", "theme" );
-    // pll_register_string( "cookie", "Libellé page de politique de données", "theme" );
   }
 };
 
@@ -121,3 +117,11 @@ function pl_get_post( $post_id ) {
   return 'no language';
 }
 
+
+// Returns the home page url
+function pl_home_url( $slug = '' ) {
+  if ( function_exists( 'pll_home_url' ) ) {
+    return pll_home_url( $slug );
+  }
+  return home_url();
+}

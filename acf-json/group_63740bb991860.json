@@ -6,6 +6,7 @@
             "key": "field_63740bbf0000b",
             "label": "Megamenu",
             "name": "has_level_3",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -25,6 +26,7 @@
             "key": "field_6375504fce9ff",
             "label": "Icone",
             "name": "icon",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -51,7 +53,21 @@
             {
                 "param": "nav_menu_item",
                 "operator": "==",
-                "value": "14"
+                "value": "location\/primary"
+            }
+        ],
+        [
+            {
+                "param": "nav_menu_item",
+                "operator": "==",
+                "value": "location\/primary___en"
+            }
+        ],
+        [
+            {
+                "param": "nav_menu_item",
+                "operator": "==",
+                "value": "location\/primary___de"
             }
         ]
     ],
@@ -63,5 +79,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1668637358
+    "show_in_rest": 0,
+    "modified": 1670801708
 }

@@ -37,12 +37,12 @@
 
     <div class="block-download__buttons">
         {% if buttons.link1.url and buttons.link1_image %}
-            <a {{ setLinkAttributes( buttons.link1 ) }} class="btn-download">
+            <a {{ setLinkAttributes( buttons.link1 ) }} class="btn-download" aria-label="{{ pll__("Télécharger l'application") }}">
                 <img {{ setImgAttributes( buttons.link1_image ) }} />
             </a>
         {% endif %}
         {% if buttons.link2.url and buttons.link2_image %}
-            <a {{ setLinkAttributes( buttons.link2 ) }} class="btn-download">
+            <a {{ setLinkAttributes( buttons.link2 ) }} class="btn-download" aria-label="{{ pll__("Télécharger l'application") }}">
                 <img {{ setImgAttributes( buttons.link2_image ) }} />
             </a>
         {% endif %}

@@ -9,6 +9,7 @@
 // -----------------------------------------------
 
 .lang-switcher {
+	flex-shrink: 0;
 	display: grid;
 	grid-template-areas: "select";
 	grid-template-columns: 1fr;
@@ -53,6 +54,7 @@
 		font-size: 18px;
 		fill: $color-grey-500;
 		transition: fill $trans-color;
+		pointer-events: none;
 	}
 }
 
@@ -101,8 +103,11 @@
 
 .lang-switcher-mobile {
 	@include list-inline-flex();
-	justify-content: center;
 	width: 100%;
+	
+	@include mobile {
+		justify-content: center;
+	}
 
 	li {
 		position: relative;
