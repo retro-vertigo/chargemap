@@ -24,11 +24,21 @@
         </div>
 
         <div class="panel__image">
+
             {% if image %}
+                {% if link_cta.url %}
+                    <a {{ setLinkAttributes( link_cta ) }} class="panel__image-link">
+                {% endif %}
+                
                 <figure class="ratio-4-3">
                     {{ getRwdImage( image.id, 'cover', 'standard',  { class:'u-border-radius u-image-cover' } ) }}
                 </figure>
+
+                {% if link_cta.url %}
+                    </a>
+                {% endif %}
             {% endif %}
+            
         </div>
   
   </div>    {# end .block-container #}

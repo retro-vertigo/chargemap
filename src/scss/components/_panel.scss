@@ -78,3 +78,27 @@
 		justify-self: end;
 	}
 }
+
+.panel__image-link {
+	display: block;
+
+	@include can-hover {
+		&:hover {
+            figure:after {
+                opacity: 0.7;
+            }
+		}
+    }
+
+    figure {
+		position: relative;
+
+		&:after {
+            @include pseudo-block-cover($color-primary);
+            opacity: 0;
+            mix-blend-mode: overlay;
+            transition: opacity $trans-color;
+            will-change: opacity;
+		}
+	}
+}

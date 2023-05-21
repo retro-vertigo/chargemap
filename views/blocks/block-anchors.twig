@@ -50,10 +50,21 @@
                     </div>
 
                     <div class="panel__image">
+                    
                         {% if tab.image %}
+
+                            {% if tab.group_text.link_cta.url %}
+                                <a {{ setLinkAttributes( tab.group_text.link_cta ) }} class="panel__image-link">
+                            {% endif %}
+
                             <figure class="ratio-4-3">
                                 {{ getRwdImage( tab.image.id, 'cover', 'standard',  { class:'u-border-radius u-image-cover' } ) }}
                             </figure>
+
+                            {% if tab.group_text.link_cta.url %}
+                                </a>
+                            {% endif %}
+                            
                         {% endif %}
                     </div>
                     
