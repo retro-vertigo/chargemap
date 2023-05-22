@@ -36,7 +36,7 @@
 			@include min-tablet {
 				max-width: 520px;
 				position: sticky;
-				top: calc(var(--header-height) + 30px);
+				top: calc(var(--header-height) + var(--notif-bar-height) + 30px);
 			}
 			@include min-tablet-small {
 				max-width: initial;

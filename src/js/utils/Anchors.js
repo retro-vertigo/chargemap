@@ -67,11 +67,11 @@ export default class Anchors {
             
             // highlight du lien correspondant dans la nav quand section entre aprés la moitié de la hauteur du viewport
             const hash = `#${entry.target.id}`;
-                console.log('hash', hash.slice(-2));
+                //console.log('hash', hash.slice(-2));
                 
 
             if(entry.intersectionRatio > 0) {     
-                console.log('\n•••IN section', hash.slice(-2), entry.intersectionRatio);
+                //console.log('\n•••IN section', hash.slice(-2), entry.intersectionRatio);
                 
                 // freeze l'observer si clic direct sur un lien
                 if(!this.autoScrolling) {
@@ -85,7 +85,7 @@ export default class Anchors {
                 }
             // désactive quand section hors du viewport
             } else if (entry.intersectionRatio === 0) {
-                console.log('\n°°°OUT section', hash.slice(-2), entry.intersectionRatio);
+                //console.log('\n°°°OUT section', hash.slice(-2), entry.intersectionRatio);
 
                 this.btnsTabs.forEach(link => {
                     if(link.hash === hash) {
