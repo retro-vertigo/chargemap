@@ -190,7 +190,7 @@ $z-layers: (
   --spacer: #{$spacer};
   --vh: 1vh;    // fix 100vh in iOS and Chrome Android (css var --vh set with JS)
 
-  --notif-bar-height: 0;    // hauteur de la barre de notif du plugin "Announcer" si injecté dans la page
+  --notif-bar-height: 0px;    // hauteur de la barre de notif du plugin "Announcer" si injecté dans la page
 
   @include media-breakpoint-down(lg) {
     --container-padding: #{$container-padding-medium};
